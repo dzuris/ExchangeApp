@@ -1,4 +1,4 @@
-﻿namespace ExchangeApp.App;
+﻿namespace ExchangeApp.App.Views;
 
 public partial class MainPage : ContentPage
 {
