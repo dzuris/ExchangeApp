@@ -12,4 +12,19 @@
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
 
+    <ShellContent
+        Title="{x:Static texts:TransactionPageResources.TransactionTitle}"
+        ContentTemplate="{DataTemplate views:TransactionPage}"
+        Route="TransactionPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:TransactionDetailPageResources.TransactionDetailTitle}"
+        ContentTemplate="{DataTemplate views:TransactionDetailPage}"
+        Route="TransactionDetailPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"
+        ContentTemplate="{DataTemplate views:CustomerDetailPage}"
+        Route="CustomerDetailPage"/>
+
 </Shell>

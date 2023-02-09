@@ -117,64 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HomeTitle" xml:space="preserve">
-    <value>Domov</value>
+  <data name="TransactionDetailTitle" xml:space="preserve">
+    <value>Detail transakcie</value>
   </data>
-  <data name="TradeComboBoxTitle" xml:space="preserve">
-    <value>Obchod</value>
+  <data name="TransactionNumberLabel" xml:space="preserve">
+    <value>Číslo transakcie:</value>
   </data>
-  <data name="DonationComboBoxTitle" xml:space="preserve">
-    <value>Dotácia</value>
+  <data name="DateAndTimeLabel" xml:space="preserve">
+    <value>Dátum a čas:</value>
   </data>
-  <data name="ShutterComboBoxTitle" xml:space="preserve">
-    <value>Uzávierka</value>
+  <data name="TransactionTypeLabel" xml:space="preserve">
+    <value>Typ transakcie:</value>
   </data>
-  <data name="OthersComboBoxTitle" xml:space="preserve">
-    <value>Ostatné</value>
+  <data name="QuantityLabel" xml:space="preserve">
+    <value>Množstvo:</value>
   </data>
-  <data name="TransactionComboBoxItem" xml:space="preserve">
-    <value>Transakcia</value>
+  <data name="CurrencyLabel" xml:space="preserve">
+    <value>Mena:</value>
   </data>
-  <data name="StornoComboBoxItem" xml:space="preserve">
+  <data name="CourseRateLabel" xml:space="preserve">
+    <value>Kurz:</value>
+  </data>
+  <data name="AmountLabel" xml:space="preserve">
+    <value>Suma:</value>
+  </data>
+  <data name="EmployeeLabel" xml:space="preserve">
+    <value>Zamestnanec:</value>
+  </data>
+  <data name="CustomerNameLabel" xml:space="preserve">
+    <value>Meno zákazníka:</value>
+  </data>
+  <data name="CustomerDetailButtonText" xml:space="preserve">
+    <value>Detail zákazníka</value>
+  </data>
+  <data name="ToPayLabel" xml:space="preserve">
+    <value>Na zaplatenie:</value>
+  </data>
+  <data name="PaidLabel" xml:space="preserve">
+    <value>Zaplatené:</value>
+  </data>
+  <data name="TipLabel" xml:space="preserve">
+    <value>Výdavok:</value>
+  </data>
+  <data name="RoundLabel" xml:space="preserve">
+    <value>Zaokrúhlenie:</value>
+  </data>
+  <data name="ResultAmountLabel" xml:space="preserve">
+    <value>Výsledna suma:</value>
+  </data>
+  <data name="StornoButtonText" xml:space="preserve">
     <value>Storno</value>
-  </data>
-  <data name="DepositComboBoxItem" xml:space="preserve">
-    <value>Vklad</value>
-  </data>
-  <data name="WithdrawComboBoxItem" xml:space="preserve">
-    <value>Výber</value>
-  </data>
-  <data name="LevyComboBoxItem" xml:space="preserve">
-    <value>Odvod</value>
-  </data>
-  <data name="DailyShutterComboBoxItem" xml:space="preserve">
-    <value>Denná uzávierka</value>
-  </data>
-  <data name="MonthlyShutterComboBoxItem" xml:space="preserve">
-    <value>Mesačná uzávierka</value>
-  </data>
-  <data name="YearlyShutterComboBoxItem" xml:space="preserve">
-    <value>Ročná uzávierka</value>
-  </data>
-  <data name="CourseRatesComboBoxItem" xml:space="preserve">
-    <value>Kurzy</value>
-  </data>
-  <data name="CourseRatesDeviationComboBoxItem" xml:space="preserve">
-    <value>Odchýlky kurzov</value>
-  </data>
-  <data name="CashRegisteryStatusComboBoxItem" xml:space="preserve">
-    <value>Stav pokladne</value>
-  </data>
-  <data name="OperationsListComboBoxItem" xml:space="preserve">
-    <value>Zoznam operácií</value>
-  </data>
-  <data name="PurchaseReportComboBoxItem" xml:space="preserve">
-    <value>Výkaz nákupov</value>
-  </data>
-  <data name="ProfitCalculationComboBoxItem" xml:space="preserve">
-    <value>Výpočet zisku</value>
-  </data>
-  <data name="OperationsInDayLabel" xml:space="preserve">
-    <value>Dnešný počet operácií:</value>
   </data>
 </root>

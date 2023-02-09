@@ -3,42 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExchangeApp.App.Views.MainPage"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
-             Title="{x:Static texts:MainPageResources.HomeTitle}">
+             Title="{x:Static texts:MainPageResources.HomeTitle}"
+             Style="{StaticResource ContentPageStyle}">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid RowDefinitions="*, Auto" RowSpacing="20">
+        <HorizontalStackLayout
+            Grid.Row="0">
+            
+        </HorizontalStackLayout>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+        <Grid Grid.Row="1" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+            <ImageButton
+                Grid.Column="0"
+                Source="settings.png"
+                Style="{StaticResource IconStyle}"/>
+            <HorizontalStackLayout
+                Grid.Column="1"
+                Spacing="10"
                 HorizontalOptions="Center"
-                IsEnabled="False"/>
-
-        </VerticalStackLayout>
-    </ScrollView>
+                VerticalOptions="Center">
+                <Label
+                    Text="{x:Static texts:MainPageResources.OperationsInDayLabel}"/>
+                <Label
+                    Text="126" />
+            </HorizontalStackLayout>
+            <ImageButton
+                Grid.Column="2"
+                Source="logout.png"
+                Style="{StaticResource IconStyle}"/>
+        </Grid>
+    </Grid>
 
 </ContentPage>

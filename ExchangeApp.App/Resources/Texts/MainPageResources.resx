@@ -120,4 +120,61 @@
   <data name="HomeTitle" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="TradeComboBoxTitle" xml:space="preserve">
+    <value>Trade</value>
+  </data>
+  <data name="DonationComboBoxTitle" xml:space="preserve">
+    <value>Donation</value>
+  </data>
+  <data name="ShutterComboBoxTitle" xml:space="preserve">
+    <value>Shutter</value>
+  </data>
+  <data name="OthersComboBoxTitle" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="TransactionComboBoxItem" xml:space="preserve">
+    <value>Transaction</value>
+  </data>
+  <data name="StornoComboBoxItem" xml:space="preserve">
+    <value>Storno</value>
+  </data>
+  <data name="DepositComboBoxItem" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="LevyComboBoxItem" xml:space="preserve">
+    <value>Levy</value>
+  </data>
+  <data name="WithdrawComboBoxItem" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="DailyShutterComboBoxItem" xml:space="preserve">
+    <value>Daily shutter</value>
+  </data>
+  <data name="MonthlyShutterComboBoxItem" xml:space="preserve">
+    <value>Monthly shutter</value>
+  </data>
+  <data name="YearlyShutterComboBoxItem" xml:space="preserve">
+    <value>Yearly shutter</value>
+  </data>
+  <data name="CourseRatesComboBoxItem" xml:space="preserve">
+    <value>Course rates</value>
+  </data>
+  <data name="CourseRatesDeviationComboBoxItem" xml:space="preserve">
+    <value>Course rates deviation</value>
+  </data>
+  <data name="CashRegisteryStatusComboBoxItem" xml:space="preserve">
+    <value>Cash registery status</value>
+  </data>
+  <data name="OperationsListComboBoxItem" xml:space="preserve">
+    <value>Operations list</value>
+  </data>
+  <data name="PurchaseReportComboBoxItem" xml:space="preserve">
+    <value>Purchase report</value>
+  </data>
+  <data name="ProfitCalculationComboBoxItem" xml:space="preserve">
+    <value>Profit calculation</value>
+  </data>
+  <data name="OperationsInDayLabel" xml:space="preserve">
+    <value>Number of todays operations:</value>
+  </data>
 </root>
