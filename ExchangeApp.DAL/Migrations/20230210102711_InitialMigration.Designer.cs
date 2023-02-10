@@ -248,7 +248,7 @@ namespace ExchangeApp.DAL.Migrations
                     b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.ShutterEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.BalanceEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -421,7 +421,7 @@ namespace ExchangeApp.DAL.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.ShutterEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.BalanceEntity", b =>
                 {
                     b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
                         .WithMany()

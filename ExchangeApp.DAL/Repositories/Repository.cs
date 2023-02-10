@@ -21,7 +21,7 @@ public class Repository<TEntity> : IRepository<TEntity>
 
     public TEntity? GetById(Guid id)
     {
-        return _dbContext.Set<TEntity>().SingleOrDefault(entity => entity.Id == id);
+        throw new NotImplementedException();
     }
 
     public TEntity? GetById(int id)
