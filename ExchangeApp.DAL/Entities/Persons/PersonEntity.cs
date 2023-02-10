@@ -9,7 +9,6 @@ public record PersonEntity : IEntity
     public required DateTime Created { get; set; }
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
-    public BranchEntity? Branch { get; set; }
 }
 
 public class PersonEntityMapperProfile : Profile
