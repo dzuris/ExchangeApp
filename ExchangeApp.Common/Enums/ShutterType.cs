@@ -1,8 +1,8 @@
 ﻿namespace ExchangeApp.Common.Enums;
 
-public enum ShutterType
+public enum BalanceType
 {
-    Day,
-    Month,
-    Year
+    Daily,
+    Monthly,
+    Yearly
 }

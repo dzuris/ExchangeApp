@@ -3,12 +3,28 @@
     x:Class="ExchangeApp.App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ExchangeApp.App"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+    xmlns:views="clr-namespace:ExchangeApp.App.Views"
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        Title="{x:Static texts:MainPageResources.HomeTitle}"
+        ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
+
+    <ShellContent
+        Title="{x:Static texts:TransactionPageResources.TransactionTitle}"
+        ContentTemplate="{DataTemplate views:TransactionPage}"
+        Route="TransactionPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:TransactionDetailPageResources.TransactionDetailTitle}"
+        ContentTemplate="{DataTemplate views:TransactionDetailPage}"
+        Route="TransactionDetailPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"
+        ContentTemplate="{DataTemplate views:CustomerDetailPage}"
+        Route="CustomerDetailPage"/>
 
 </Shell>
