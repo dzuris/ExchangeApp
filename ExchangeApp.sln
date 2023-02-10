@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeApp.App", "Exchange
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeApp.DAL", "ExchangeApp.DAL\ExchangeApp.DAL.csproj", "{B5784352-704B-43DE-A1D5-701C1C51CF5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeApp.Common", "ExchangeApp.Common\ExchangeApp.Common.csproj", "{DF4394AE-8EA2-465B-961C-FC5346BBD2E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeApp.Common", "ExchangeApp.Common\ExchangeApp.Common.csproj", "{DF4394AE-8EA2-465B-961C-FC5346BBD2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeApp.BL", "ExchangeApp.BL\ExchangeApp.BL.csproj", "{604445AA-F581-41E9-9331-50940E8BD749}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{DF4394AE-8EA2-465B-961C-FC5346BBD2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF4394AE-8EA2-465B-961C-FC5346BBD2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF4394AE-8EA2-465B-961C-FC5346BBD2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{604445AA-F581-41E9-9331-50940E8BD749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{604445AA-F581-41E9-9331-50940E8BD749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{604445AA-F581-41E9-9331-50940E8BD749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{604445AA-F581-41E9-9331-50940E8BD749}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

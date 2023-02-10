@@ -10,14 +10,14 @@
         RowSpacing="10"
         ColumnDefinitions="*, *"
         ColumnSpacing="50">
-        <HorizontalStackLayout Spacing="10" Margin="0 60">
+        <HorizontalStackLayout Spacing="10" Margin="60, 0">
             <Label
                 Text="{x:Static texts:TransactionDetailPageResources.TransactionNumberLabel}"
                 Style="{StaticResource InfoLabelLight}"/>
             <Label
                 Text="20220701/6176"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout Grid.Column="1" Spacing="10" HorizontalOptions="End" Margin="0 60">
+        <HorizontalStackLayout Grid.Column="1" Spacing="10" HorizontalOptions="End" Margin="60, 0">
             <Label
                 Text="{x:Static texts:TransactionDetailPageResources.DateAndTimeLabel}"
                 Style="{StaticResource InfoLabelLight}"/>
@@ -30,7 +30,7 @@
             ColumnDefinitions="Auto, Auto"
             ColumnSpacing="15"
             VerticalOptions="Center"
-            Margin="0 60">
+            Margin="60, 0">
             <Label
                 Text="{x:Static texts:TransactionDetailPageResources.TransactionTypeLabel}"
                 Style="{StaticResource InputLabelStyle}"/>
@@ -83,7 +83,7 @@
             ColumnDefinitions="Auto, Auto"
             ColumnSpacing="15"
             VerticalOptions="Center"
-            Margin="0 60">
+            Margin="60, 0">
             <Label Text="{x:Static texts:TransactionDetailPageResources.EmployeeLabel}"/>
             <Label
                 Grid.Column="1"
@@ -111,7 +111,7 @@
             ColumnSpacing="15"
             HorizontalOptions="End"
             VerticalOptions="End"
-            Margin="40 60">
+            Margin="60, 40">
             <Label
                 HorizontalOptions="End"
                 Text="{x:Static texts:TransactionDetailPageResources.ToPayLabel}"/>

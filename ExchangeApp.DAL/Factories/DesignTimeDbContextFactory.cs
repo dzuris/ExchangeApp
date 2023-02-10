@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ExchangeApp.DAL.Data;
+﻿using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
@@ -14,6 +9,8 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ExchangeAp
     public ExchangeAppDbContext CreateDbContext(string[] args)
     {
         DbContextOptionsBuilder<ExchangeAppDbContext> builder = new();
-        builder.UseSqlite("");
+        builder.UseSqlite("Data Source=exchangeApp.db");
+
+        return new ExchangeAppDbContext(builder.Options);
     }
 }
