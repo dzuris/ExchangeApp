@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using AutoMapper;
 
 namespace ExchangeApp.DAL.Entities;
 
@@ -9,6 +10,9 @@ public record CurrencySaleEntity : IEntity
     public required int ActiveAboutAmount { get; set; }
     public float? Sale { get; set; }
     public float? SalePercent { get; set; }
+
+    [ForeignKey(nameof(CurrencyCode))]
+    public CurrencyEntity? Currency { get; set; }
 }
 
 public class CurrencySaleEntityMapperProfile : Profile

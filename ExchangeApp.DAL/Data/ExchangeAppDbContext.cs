@@ -9,17 +9,17 @@ namespace ExchangeApp.DAL.Data;
 
 public class ExchangeAppDbContext : DbContext
 {
-    public DbSet<CurrencyEntity> Currencies { get; set; } = null!;
-    public DbSet<CurrencySaleEntity> CurrencySales { get; set; } = null!;
-    public DbSet<PersonEntity> Persons { get; set; } = null!;
-    public DbSet<EmployeeEntity> Employees { get; set; } = null!;
-    public DbSet<CustomerEntity> Customers { get; set; } = null!;
-    public DbSet<IndividualCustomerEntity> IndividualCustomers { get; set; } = null!;
-    public DbSet<BusinessCustomerEntity> BusinessCustomers { get; set; } = null!;
-    public DbSet<MinorCustomerEntity> MinorCustomers { get; set; } = null!;
-    public DbSet<DonationEntity> Donations { get; set; } = null!;
-    public DbSet<BalanceEntity> Shutters { get; set; } = null!;
-    public DbSet<TransactionEntity> Transactions { get; set; } = null!;
+    public DbSet<CurrencyEntity> Currencies => Set<CurrencyEntity>();
+    public DbSet<CurrencySaleEntity> CurrencySales => Set<CurrencySaleEntity>();
+    public DbSet<TransactionEntity> Transactions => Set<TransactionEntity>();
+    public DbSet<DonationEntity> Donations => Set<DonationEntity>();
+    public DbSet<TotalBalanceEntity> TotalBalances => Set<TotalBalanceEntity>();
+    public DbSet<PersonEntity> Persons => Set<PersonEntity>();
+    public DbSet<EmployeeEntity> Employees => Set<EmployeeEntity>();
+    public DbSet<CustomerEntity> Customers => Set<CustomerEntity>();
+    public DbSet<IndividualCustomerEntity> IndividualCustomers => Set<IndividualCustomerEntity>();
+    public DbSet<BusinessCustomerEntity> BusinessCustomers => Set<BusinessCustomerEntity>();
+    public DbSet<MinorCustomerEntity> MinorCustomers => Set<MinorCustomerEntity>();
 
     public ExchangeAppDbContext(DbContextOptions<ExchangeAppDbContext> options) : base(options)
     {
@@ -28,5 +28,47 @@ public class ExchangeAppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        // Relationship Employee (1) - Total Balance (n)
+        modelBuilder.Entity<EmployeeEntity>()
+            .HasMany<TotalBalanceEntity>()
+            .WithOne(i => i.Employee)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Relationship Employee (1) - Donation (n)
+        modelBuilder.Entity<EmployeeEntity>()
+            .HasMany<DonationEntity>()
+            .WithOne(i => i.Employee)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Relationship Employee (1) - Transaction (n)
+        modelBuilder.Entity<EmployeeEntity>()
+            .HasMany<TransactionEntity>()
+            .WithOne(i => i.Employee)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Relationship Currency (1) - Donation (n)
+        modelBuilder.Entity<CurrencyEntity>()
+            .HasMany<DonationEntity>()
+            .WithOne(i => i.Currency)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Relationship Currency (1) - Transaction (n)
+        modelBuilder.Entity<CurrencyEntity>()
+            .HasMany<TransactionEntity>()
+            .WithOne(i => i.Currency)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Relationship Currency (1) - Currency sale (n)
+        modelBuilder.Entity<CurrencyEntity>()
+            .HasMany<CurrencySaleEntity>()
+            .WithOne(i => i.Currency)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Relationship Transaction (1) - Customer (1)
+        modelBuilder.Entity<TransactionEntity>()
+            .HasOne(i => i.Customer)
+            .WithOne(t => t.Transaction)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

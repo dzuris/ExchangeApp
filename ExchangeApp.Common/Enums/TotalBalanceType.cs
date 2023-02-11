@@ -1,6 +1,6 @@
 ﻿namespace ExchangeApp.Common.Enums;
 
-public enum BalanceType
+public enum TotalBalanceType
 {
     Daily,
     Monthly,

@@ -4,19 +4,19 @@ using ExchangeApp.DAL.Entities.Persons;
 
 namespace ExchangeApp.DAL.Entities;
 
-public record BalanceEntity : IEntity
+public record TotalBalanceEntity : IEntity
 {
     public required Guid Id { get; set; }
     public required Guid EmployeeId { get; set; }
-    public required BalanceType Type { get; set; }
+    public required TotalBalanceType Type { get; set; }
     public required DateOnly Date { get; set; }
     public EmployeeEntity? Employee { get; set; }
 }
 
-public class ShutterEntityMapperProfile : Profile
+public class TotalBalanceEntityMapperProfile : Profile
 {
-    public ShutterEntityMapperProfile()
+    public TotalBalanceEntityMapperProfile()
     {
-        CreateMap<BalanceEntity, BalanceEntity>();
+        CreateMap<TotalBalanceEntity, TotalBalanceEntity>();
     }
 }

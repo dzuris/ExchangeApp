@@ -6,13 +6,26 @@
              Title="{x:Static texts:MainPageResources.HomeTitle}"
              Style="{StaticResource ContentPageStyle}">
 
-    <Grid RowDefinitions="*, Auto" RowSpacing="20">
+    <Grid RowDefinitions="Auto, *, Auto" RowSpacing="20">
+        <Picker
+            SelectedItem="Peter Employee"
+            MinimumWidthRequest="150"
+            HorizontalOptions="End">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Joseph New</x:String>
+                    <x:String>Peter Employee</x:String>
+                    <x:String>John Doe</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
         <HorizontalStackLayout
-            Grid.Row="0">
+            Grid.Row="1">
             
         </HorizontalStackLayout>
 
-        <Grid Grid.Row="1" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+        <Grid Grid.Row="2" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
             <ImageButton
                 Grid.Column="0"
                 Source="settings.png"
