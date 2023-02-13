@@ -4,58 +4,40 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExchangeApp.DAL.Repositories;
 
-public class Repository<TEntity> : IRepository<TEntity>
+public class Repository<TEntity, TId> : IRepository<TEntity, TId>
     where TEntity : class, IEntity
 {
     private readonly ExchangeAppDbContext _dbContext;
+    private readonly DbSet<TEntity> _dbSet;
 
     public Repository(ExchangeAppDbContext dbContext)
     {
         _dbContext = dbContext;
+        _dbSet = dbContext.Set<TEntity>();
     }
 
-    public IQueryable<TEntity> GetAll()
+    public IEnumerable<TEntity> GetAll()
     {
-        return _dbContext.Set<TEntity>();
+        return _dbSet.ToList();
     }
 
-    public TEntity? GetById(Guid id)
+    public TEntity? GetById(TId id)
     {
-        throw new NotImplementedException();
-    }
-
-    public TEntity? GetById(int id)
-    {
-        throw new NotImplementedException();
+        return _dbSet.Find(id);
     }
 
     public TEntity Insert(TEntity entity)
     {
-        throw new NotImplementedException();
+        return _dbSet.Add(entity).Entity;
     }
 
-    public TEntity Update(TEntity entity)
+    public void Update(TEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext.Entry(entity).State = EntityState.Modified;
     }
 
-    public void Remove(Guid id)
+    public void Remove(TEntity entity)
     {
-        throw new NotImplementedException();
-    }
-
-    public void Remove(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Exists(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Exists(int id)
-    {
-        throw new NotImplementedException();
+        _dbSet.Remove(entity);
     }
 }

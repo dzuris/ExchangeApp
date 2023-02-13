@@ -2,16 +2,12 @@
 
 namespace ExchangeApp.DAL.Repositories;
 
-public interface IRepository<TEntity>
+public interface IRepository<TEntity, TId>
     where TEntity : class, IEntity
 {
-    IQueryable<TEntity> GetAll();
-    TEntity? GetById(Guid id);
-    TEntity? GetById(int id);
+    IEnumerable<TEntity> GetAll();
+    TEntity? GetById(TId id);
     TEntity Insert (TEntity entity);
-    TEntity Update (TEntity entity);
-    void Remove(Guid id);
-    void Remove(int id);
-    bool Exists(Guid id);
-    bool Exists(int id);
+    void Update (TEntity entity);
+    void Remove(TEntity entity);
 }
