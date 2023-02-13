@@ -66,11 +66,15 @@ public class ExchangeAppDbContext : DbContext
             .WithOne(i => i.Currency)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Relationship Transaction (1) - Customer (1)
-        modelBuilder.Entity<TransactionEntity>()
-            .HasOne(i => i.Customer)
-            .WithOne(t => t.Transaction)
+        // Relationship Customer (1) - Transaction (1)
+        modelBuilder.Entity<CustomerEntity>()
+            .HasOne(i => i.Transaction)
+            .WithOne(t => t.Customer)
+            .HasForeignKey<CustomerEntity>(i => i.TransactionId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        // Using table-per-type configuration see https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration
+        modelBuilder.Entity<CustomerEntity>().UseTptMappingStrategy();
 
         CurrencySeeds.Seed(modelBuilder);
     }

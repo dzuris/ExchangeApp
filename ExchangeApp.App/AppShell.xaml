@@ -9,7 +9,7 @@
     FlyoutBackgroundColor="{StaticResource FlyoutBackground}">
 
     <Shell.FlyoutHeader>
-        <Label Text="EXCHANGE APP" FontSize="32" HorizontalOptions="Center" Padding="15" FontAttributes="Bold" TextColor="{StaticResource Secondary}" />
+        <Label Text="{x:Static texts:AppResources.AppName}" FontSize="32" HorizontalOptions="Center" Padding="15" FontAttributes="Bold" TextColor="{StaticResource Secondary}" />
     </Shell.FlyoutHeader>
 
     <ShellContent
@@ -33,5 +33,10 @@
         ContentTemplate="{DataTemplate views:CustomerDetailPage}"
         IsVisible="False"
         Route="CustomerDetailPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:DonationPageResources.DonationTitle}"
+        ContentTemplate="{DataTemplate views:DonationPage}"
+        Route="DonationPage"/>
 
 </Shell>

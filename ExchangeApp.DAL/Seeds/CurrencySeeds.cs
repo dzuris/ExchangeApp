@@ -8,34 +8,29 @@ public static class CurrencySeeds
     public static readonly CurrencyEntity Eur = new()
     {
         Code = "EUR",
-        Name = "Euro",
         State = "Európska menová únia",
-        Symbol = "€",
-        PhotoUrl = "eur.png",
-        MiddleCourse = 1,
-        AverageCourseRate = 1
+        PhotoUrl = "eur.png"
     };
 
     public static readonly CurrencyEntity Czk = new()
     {
         Code = "CZK",
-        Name = "Česká koruna",
         State = "Česko",
-        Symbol = "kč",
-        PhotoUrl = "czk.png",
-        MiddleCourse = 1,
-        AverageCourseRate = 1
+        PhotoUrl = "czk.png"
     };
 
     public static readonly CurrencyEntity Usd = new()
     {
         Code = "USD",
-        Name = "Americký dolár",
         State = "Spojené štáty americké",
-        Symbol = "$",
-        PhotoUrl = "usd.png",
-        MiddleCourse = 1,
-        AverageCourseRate = 1
+        PhotoUrl = "usd.png"
+    };
+
+    public static readonly CurrencyEntity Pln = new()
+    {
+        Code = "PLN",
+        State = "Poľsko",
+        PhotoUrl = "pln.png"
     };
 
     public static void Seed(this ModelBuilder modelBuilder)
@@ -43,7 +38,8 @@ public static class CurrencySeeds
         modelBuilder.Entity<CurrencyEntity>().HasData(
             Eur,
             Czk,
-            Usd
+            Usd,
+            Pln
         );
     }
 }

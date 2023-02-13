@@ -3,6 +3,7 @@ using System;
 using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExchangeApp.DAL.Migrations
 {
     [DbContext(typeof(ExchangeAppDbContext))]
-    partial class ExchangeAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230212173357_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
@@ -37,6 +40,10 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<float>("MiddleCourse")
                         .HasColumnType("REAL");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PhotoUrl")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -57,6 +64,10 @@ namespace ExchangeApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Symbol")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Code");
 
                     b.ToTable("Currencies");
@@ -67,36 +78,33 @@ namespace ExchangeApp.DAL.Migrations
                             Code = "EUR",
                             AverageCourseRate = 1f,
                             MiddleCourse = 1f,
+                            Name = "Euro",
                             PhotoUrl = "eur.png",
                             Quantity = 0f,
-                            State = "Európska menová únia"
+                            State = "Európska menová únia",
+                            Symbol = "€"
                         },
                         new
                         {
                             Code = "CZK",
                             AverageCourseRate = 1f,
                             MiddleCourse = 1f,
+                            Name = "Česká koruna",
                             PhotoUrl = "czk.png",
                             Quantity = 0f,
-                            State = "Česko"
+                            State = "Česko",
+                            Symbol = "kč"
                         },
                         new
                         {
                             Code = "USD",
                             AverageCourseRate = 1f,
                             MiddleCourse = 1f,
+                            Name = "Americký dolár",
                             PhotoUrl = "usd.png",
                             Quantity = 0f,
-                            State = "Spojené štáty americké"
-                        },
-                        new
-                        {
-                            Code = "PLN",
-                            AverageCourseRate = 1f,
-                            MiddleCourse = 1f,
-                            PhotoUrl = "pln.png",
-                            Quantity = 0f,
-                            State = "Poľsko"
+                            State = "Spojené štáty americké",
+                            Symbol = "$"
                         });
                 });
 
@@ -219,6 +227,9 @@ namespace ExchangeApp.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<float>("Amount")
+                        .HasColumnType("REAL");
+
                     b.Property<float>("CourseRate")
                         .HasColumnType("REAL");
 
@@ -231,9 +242,6 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("TEXT");
-
-                    b.Property<float>("Quantity")
-                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");

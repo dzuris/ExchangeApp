@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExchangeApp.DAL.Migrations
 {
     [DbContext(typeof(ExchangeAppDbContext))]
-    [Migration("20230210102711_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230212194216_TestHello")]
+    partial class TestHello
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,112 +20,13 @@ namespace ExchangeApp.DAL.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.BranchEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BranchAddress")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BranchName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BranchPhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.ToTable("Branches");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.CompanyEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DIC")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ICO")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OwnerAddressCity")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OwnerAddressPSC")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OwnerAddressStreetNumber")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OwnerTradeName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Companies");
-                });
-
             modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyEntity", b =>
                 {
                     b.Property<string>("Code")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("MiddleCourse")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PhotoUrl")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Symbol")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Code");
-
-                    b.ToTable("Currencies");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyRatesEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
                     b.Property<float>("AverageCourseRate")
                         .HasColumnType("REAL");
-
-                    b.Property<Guid>("BranchId")
-                        .HasColumnType("TEXT");
 
                     b.Property<float?>("BuyRate")
                         .HasColumnType("REAL");
@@ -136,9 +37,15 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<float?>("BuyRateDeviationPercent")
                         .HasColumnType("REAL");
 
-                    b.Property<string>("CurrencyCode")
+                    b.Property<float>("MiddleCourse")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("PhotoUrl")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("REAL");
 
                     b.Property<float?>("SellRate")
                         .HasColumnType("REAL");
@@ -149,9 +56,51 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<float?>("SellRateDeviationPercent")
                         .HasColumnType("REAL");
 
-                    b.HasKey("Id");
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.ToTable("CurrencyRates");
+                    b.HasKey("Code");
+
+                    b.ToTable("Currencies");
+
+                    b.HasData(
+                        new
+                        {
+                            Code = "EUR",
+                            AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
+                            PhotoUrl = "eur.png",
+                            Quantity = 0f,
+                            State = "Európska menová únia"
+                        },
+                        new
+                        {
+                            Code = "CZK",
+                            AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
+                            PhotoUrl = "czk.png",
+                            Quantity = 0f,
+                            State = "Česko"
+                        },
+                        new
+                        {
+                            Code = "USD",
+                            AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
+                            PhotoUrl = "usd.png",
+                            Quantity = 0f,
+                            State = "Spojené štáty americké"
+                        },
+                        new
+                        {
+                            Code = "PLN",
+                            AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
+                            PhotoUrl = "pln.png",
+                            Quantity = 0f,
+                            State = "Poľsko"
+                        });
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencySaleEntity", b =>
@@ -163,7 +112,8 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<int>("ActiveAboutAmount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<Guid>("CurrencyRatesEntityId")
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<float?>("Sale")
@@ -173,6 +123,8 @@ namespace ExchangeApp.DAL.Migrations
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CurrencyCode");
 
                     b.ToTable("CurrencySales");
                 });
@@ -227,10 +179,6 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -243,9 +191,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.ToTable("Persons");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("PersonEntity");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.TotalBalanceEntity", b =>
@@ -267,7 +213,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Shutters");
+                    b.ToTable("TotalBalances");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.TransactionEntity", b =>
@@ -292,6 +238,9 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Hello")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
@@ -301,8 +250,6 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CurrencyCode");
-
-                    b.HasIndex("CustomerId");
 
                     b.HasIndex("EmployeeId");
 
@@ -330,18 +277,20 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<string>("IdentificationNumber")
                         .HasColumnType("TEXT");
 
-                    b.HasIndex("BranchId");
+                    b.Property<int>("TransactionId")
+                        .HasColumnType("INTEGER");
 
-                    b.HasDiscriminator().HasValue("CustomerEntity");
+                    b.HasIndex("TransactionId")
+                        .IsUnique();
+
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", b =>
                 {
                     b.HasBaseType("ExchangeApp.DAL.Entities.Persons.PersonEntity");
 
-                    b.HasIndex("BranchId");
-
-                    b.HasDiscriminator().HasValue("EmployeeEntity");
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.BusinessCustomerEntity", b =>
@@ -364,7 +313,7 @@ namespace ExchangeApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasDiscriminator().HasValue("BusinessCustomerEntity");
+                    b.ToTable("BusinessCustomers");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.IndividualCustomerEntity", b =>
@@ -375,31 +324,25 @@ namespace ExchangeApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.ToTable(t =>
-                        {
-                            t.Property("Nationality")
-                                .HasColumnName("IndividualCustomerEntity_Nationality");
-                        });
-
-                    b.HasDiscriminator().HasValue("IndividualCustomerEntity");
+                    b.ToTable("IndividualCustomers");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.MinorCustomerEntity", b =>
                 {
                     b.HasBaseType("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity");
 
-                    b.HasDiscriminator().HasValue("MinorCustomerEntity");
+                    b.ToTable("MinorCustomers");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.BranchEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencySaleEntity", b =>
                 {
-                    b.HasOne("ExchangeApp.DAL.Entities.CompanyEntity", "Company")
-                        .WithMany("Branches")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", "Currency")
+                        .WithMany()
+                        .HasForeignKey("CurrencyCode")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Company");
+                    b.Navigation("Currency");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.DonationEntity", b =>
@@ -407,13 +350,13 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyCode")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Currency");
@@ -426,7 +369,7 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Employee");
@@ -437,58 +380,76 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", "Currency")
                         .WithMany()
                         .HasForeignKey("CurrencyCode")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
 
                     b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Currency");
-
-                    b.Navigation("Customer");
 
                     b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", b =>
                 {
-                    b.HasOne("ExchangeApp.DAL.Entities.BranchEntity", "Branch")
-                        .WithMany("Customers")
-                        .HasForeignKey("BranchId")
+                    b.HasOne("ExchangeApp.DAL.Entities.Persons.PersonEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Branch");
+                    b.HasOne("ExchangeApp.DAL.Entities.TransactionEntity", "Transaction")
+                        .WithOne("Customer")
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", "TransactionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", b =>
                 {
-                    b.HasOne("ExchangeApp.DAL.Entities.BranchEntity", "Branch")
-                        .WithMany("Employees")
-                        .HasForeignKey("BranchId")
+                    b.HasOne("ExchangeApp.DAL.Entities.Persons.PersonEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Branch");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.BranchEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.BusinessCustomerEntity", b =>
                 {
-                    b.Navigation("Customers");
-
-                    b.Navigation("Employees");
+                    b.HasOne("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.BusinessCustomerEntity", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.CompanyEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.IndividualCustomerEntity", b =>
                 {
-                    b.Navigation("Branches");
+                    b.HasOne("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.IndividualCustomerEntity", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.MinorCustomerEntity", b =>
+                {
+                    b.HasOne("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.MinorCustomerEntity", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.TransactionEntity", b =>
+                {
+                    b.Navigation("Customer");
                 });
 #pragma warning restore 612, 618
         }
