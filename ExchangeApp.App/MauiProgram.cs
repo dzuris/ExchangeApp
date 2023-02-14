@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Reflection;
+using ExchangeApp.App.Installers;
+using Microsoft.Extensions.Configuration;
 
 namespace ExchangeApp.App;
 
@@ -15,10 +17,36 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+        ConfigureAppSettings(builder);
+
+        builder.Services.AddDALServices(builder.Configuration);
+
+//#if DEBUG
+//		builder.Logging.AddDebug();
+//#endif
 
 		return builder.Build();
 	}
+
+    private static void ConfigureAppSettings(MauiAppBuilder builder)
+    {
+        //var configurationBuilder = new ConfigurationBuilder();
+
+        //var assembly = Assembly.GetExecutingAssembly();
+        //const string appSettingsFilePath = "ExchangeApp.App.appsettings.json";
+        //using var appSettingsStream = assembly.GetManifestResourceStream(appSettingsFilePath);
+
+        var configurationBuilder = new ConfigurationBuilder();
+
+        var assembly = Assembly.GetExecutingAssembly();
+        const string appSettingsFilePath = "ExchangeApp.App.appsettings.json";
+        using var appSettingsStream = assembly.GetManifestResourceStream(appSettingsFilePath);
+        if (appSettingsStream is not null)
+        {
+            configurationBuilder.AddJsonStream(appSettingsStream);
+        }
+
+        var configuration = configurationBuilder.Build();
+        builder.Configuration.AddConfiguration(configuration);
+    }
 }
