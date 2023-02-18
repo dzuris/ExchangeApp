@@ -2,11 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
-             xmlns:controls="clr-namespace:ExchangeApp.App.Controls"
              x:Class="ExchangeApp.App.Views.NewCustomerIndividualPage"
              Title="{x:Static texts:CustomerResources.IndividualCustomer}"
              Style="{StaticResource ContentPageStyle}">
-    <Grid RowDefinitions="Auto, *">
+    <Grid RowDefinitions="Auto, *" RowSpacing="15">
         <Picker 
             x:Name="CustomerPicker" 
             Style="{StaticResource CustomerPicker}"
@@ -20,38 +19,41 @@
             </Picker.ItemsSource>
         </Picker>
         <ScrollView Grid.Row="1">
-            <StackLayout WidthRequest="300" Padding="20"  Spacing="20">
-                <VerticalStackLayout Spacing="10">
+            <StackLayout MaximumWidthRequest="400" Padding="20"  Spacing="40">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.FirstNameLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.LastNameLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.BirthDateLabel}"/>
-                    <DatePicker WidthRequest="250"/>
+                    <DatePicker Date="1990-01-01"/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.AddressLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}"/>
-                    <Entry/>
+                    <Picker></Picker>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="10">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.NationalityLabel}"/>
-                    <Entry/>
+                    <Label
+                        Text="{x:Static texts:CustomerResources.RefugeesInfoLabel}"
+                        Style="{StaticResource InfoLabelLight}"/>
+                    <Entry Placeholder="{x:Static texts:CustomerResources.DefaultNationalityPlaceholder}"/>
                 </VerticalStackLayout>
             </StackLayout>
         </ScrollView>

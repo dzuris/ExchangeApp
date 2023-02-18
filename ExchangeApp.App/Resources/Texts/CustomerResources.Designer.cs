@@ -115,6 +115,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Slovak.
+        /// </summary>
+        public static string DefaultNationalityPlaceholder {
+            get {
+                return ResourceManager.GetString("DefaultNationalityPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Evidence number:.
         /// </summary>
         public static string EvidenceNumberLabel {
@@ -178,6 +187,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This form is used for entering a minor who does not have an identity document.
+        /// </summary>
+        public static string MinorCustomerMainInfoLabel {
+            get {
+                return ResourceManager.GetString("MinorCustomerMainInfoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nationality:.
         /// </summary>
         public static string NationalityLabel {
@@ -192,6 +210,15 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string NewCustomerTitle {
             get {
                 return ResourceManager.GetString("NewCustomerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For refugees, place of residence in a refugee camp.
+        /// </summary>
+        public static string RefugeesInfoLabel {
+            get {
+                return ResourceManager.GetString("RefugeesInfoLabel", resourceCulture);
             }
         }
     }

@@ -5,6 +5,8 @@
 
     <Style x:Key="CustomerPicker" TargetType="Picker">
         <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="White" />
         <Setter Property="WidthRequest" Value="200" />
     </Style>
 

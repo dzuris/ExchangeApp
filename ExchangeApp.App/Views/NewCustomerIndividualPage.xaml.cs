@@ -2,10 +2,14 @@ namespace ExchangeApp.App.Views;
 
 public partial class NewCustomerIndividualPage : ContentPage
 {
-	public NewCustomerIndividualPage()
+    public int SpacingLabelInput { get; set; } = 20;
+
+    public NewCustomerIndividualPage()
 	{
 		InitializeComponent();
-	}
+
+        BindingContext = this;
+    }
 
     protected override void OnAppearing()
     {

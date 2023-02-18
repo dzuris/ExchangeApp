@@ -142,4 +142,13 @@
   <data name="BusinessIdentificationNumberLabel" xml:space="preserve">
     <value>Identification number of business person (if the number was assigned):</value>
   </data>
+  <data name="MinorCustomerMainInfoLabel" xml:space="preserve">
+    <value>This form is used for entering a minor who does not have an identity document</value>
+  </data>
+  <data name="DefaultNationalityPlaceholder" xml:space="preserve">
+    <value>Slovak</value>
+  </data>
+  <data name="RefugeesInfoLabel" xml:space="preserve">
+    <value>For refugees, place of residence in a refugee camp</value>
+  </data>
 </root>

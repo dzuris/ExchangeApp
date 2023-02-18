@@ -2,9 +2,13 @@ namespace ExchangeApp.App.Views;
 
 public partial class NewCustomerBusinessPage : ContentPage
 {
+    public int SpacingLabelInput { get; set; } = 20;
+
 	public NewCustomerBusinessPage()
 	{
 		InitializeComponent();
+
+        BindingContext = this;
     }
 
     protected override void OnAppearing()

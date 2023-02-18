@@ -162,4 +162,13 @@
   <data name="BusinessIdentificationNumberLabel" xml:space="preserve">
     <value>Identifikačné číslo podnikateľa (ak mu bolo pridelené):</value>
   </data>
+  <data name="MinorCustomerMainInfoLabel" xml:space="preserve">
+    <value>Tento formulár slúži pre zadávanie maloletej osoby ktorá nemá doklad totožnosti</value>
+  </data>
+  <data name="DefaultNationalityPlaceholder" xml:space="preserve">
+    <value>Slovenská</value>
+  </data>
+  <data name="RefugeesInfoLabel" xml:space="preserve">
+    <value>U utečencov, miesto pobytu v utečeneckom tábore</value>
+  </data>
 </root>

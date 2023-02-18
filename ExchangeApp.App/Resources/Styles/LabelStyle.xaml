@@ -5,6 +5,7 @@
 
     <Style x:Key="InfoLabelLight" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource Gray500}" />
+        <Setter Property="FontSize" Value="12" />
     </Style>
 
     <Style x:Key="InputLabelStyle" TargetType="Label">
