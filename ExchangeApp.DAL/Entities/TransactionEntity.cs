@@ -12,6 +12,7 @@ public record TransactionEntity : IEntity
     public required float CourseRate { get; set; }
     public required float Quantity { get; set; }
     public required TransactionType TransactionType { get; set; }
+    public bool IsCanceled { get; set; }
 
     public required Guid EmployeeId { get; set; }
     public EmployeeEntity? Employee { get; set; }

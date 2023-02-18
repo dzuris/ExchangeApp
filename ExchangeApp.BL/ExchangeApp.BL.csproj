@@ -10,4 +10,8 @@
     <Folder Include="Facades\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExchangeApp.Common\ExchangeApp.Common.csproj" />
+  </ItemGroup>
+
 </Project>

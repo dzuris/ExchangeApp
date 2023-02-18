@@ -30,12 +30,6 @@ public static class MauiProgram
 
     private static void ConfigureAppSettings(MauiAppBuilder builder)
     {
-        //var configurationBuilder = new ConfigurationBuilder();
-
-        //var assembly = Assembly.GetExecutingAssembly();
-        //const string appSettingsFilePath = "ExchangeApp.App.appsettings.json";
-        //using var appSettingsStream = assembly.GetManifestResourceStream(appSettingsFilePath);
-
         var configurationBuilder = new ConfigurationBuilder();
 
         var assembly = Assembly.GetExecutingAssembly();

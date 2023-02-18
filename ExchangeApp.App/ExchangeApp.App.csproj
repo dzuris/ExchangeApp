@@ -65,6 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Controls\" />
 	  <Folder Include="Resources\Images\Icons\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
@@ -86,6 +87,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>CustomerDetailPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CustomerResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CustomerResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\DonationPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -123,6 +129,10 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>CustomerDetailPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CustomerResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CustomerResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\DonationPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>DonationPageResources.Designer.cs</LastGenOutput>
@@ -147,6 +157,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Resources\Styles\ContentPageStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\DatePickerStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\EntryStyle.xaml">
@@ -183,6 +196,15 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DonationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewCustomerBusinessPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewCustomerIndividualPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewCustomerMinorPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\OperationsListPage.xaml">

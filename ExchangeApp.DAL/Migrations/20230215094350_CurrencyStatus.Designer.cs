@@ -3,6 +3,7 @@ using System;
 using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExchangeApp.DAL.Migrations
 {
     [DbContext(typeof(ExchangeAppDbContext))]
-    partial class ExchangeAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230215094350_CurrencyStatus")]
+    partial class CurrencyStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
@@ -28,6 +31,15 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<float?>("BuyRate")
                         .HasColumnType("REAL");
 
+                    b.Property<float?>("BuyRateDeviation")
+                        .HasColumnType("REAL");
+
+                    b.Property<float?>("BuyRateDeviationPercent")
+                        .HasColumnType("REAL");
+
+                    b.Property<float>("MiddleCourse")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("PhotoUrl")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -36,6 +48,12 @@ namespace ExchangeApp.DAL.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<float?>("SellRate")
+                        .HasColumnType("REAL");
+
+                    b.Property<float?>("SellRateDeviation")
+                        .HasColumnType("REAL");
+
+                    b.Property<float?>("SellRateDeviationPercent")
                         .HasColumnType("REAL");
 
                     b.Property<string>("State")
@@ -54,6 +72,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "EUR",
                             AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
                             PhotoUrl = "eur.png",
                             Quantity = 0f,
                             State = "Európska menová únia",
@@ -63,6 +82,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "CZK",
                             AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
                             PhotoUrl = "czk.png",
                             Quantity = 0f,
                             State = "Česko",
@@ -72,6 +92,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "USD",
                             AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
                             PhotoUrl = "usd.png",
                             Quantity = 0f,
                             State = "Spojené štáty americké",
@@ -81,11 +102,38 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "PLN",
                             AverageCourseRate = 1f,
+                            MiddleCourse = 1f,
                             PhotoUrl = "pln.png",
                             Quantity = 0f,
                             State = "Poľsko",
                             Status = 0
                         });
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencySaleEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ActiveAboutAmount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<float?>("Sale")
+                        .HasColumnType("REAL");
+
+                    b.Property<float?>("SalePercent")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CurrencyCode");
+
+                    b.ToTable("CurrencySales");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.DonationEntity", b =>
@@ -103,9 +151,6 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsCanceled")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Note")
                         .IsRequired()
@@ -133,6 +178,9 @@ namespace ExchangeApp.DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("BranchId")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Created")
@@ -193,9 +241,6 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsCanceled")
-                        .HasColumnType("INTEGER");
 
                     b.Property<float>("Quantity")
                         .HasColumnType("REAL");
@@ -291,6 +336,17 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasBaseType("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity");
 
                     b.ToTable("MinorCustomers");
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencySaleEntity", b =>
+                {
+                    b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", "Currency")
+                        .WithMany()
+                        .HasForeignKey("CurrencyCode")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Currency");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.DonationEntity", b =>

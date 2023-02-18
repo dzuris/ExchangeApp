@@ -29,6 +29,21 @@
         Route="TransactionDetailPage"/>
 
     <ShellContent
+        Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
+        ContentTemplate="{DataTemplate views:NewCustomerIndividualPage}"
+        Route="NewCustomerIndividualPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
+        ContentTemplate="{DataTemplate views:NewCustomerBusinessPage}"
+        Route="NewCustomerBusinessPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
+        ContentTemplate="{DataTemplate views:NewCustomerMinorPage}"
+        Route="NewCustomerMinorPage"/>
+
+    <ShellContent
         Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"
         ContentTemplate="{DataTemplate views:CustomerDetailPage}"
         IsVisible="False"

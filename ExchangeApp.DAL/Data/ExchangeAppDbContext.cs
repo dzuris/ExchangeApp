@@ -11,7 +11,6 @@ namespace ExchangeApp.DAL.Data;
 public class ExchangeAppDbContext : DbContext
 {
     public DbSet<CurrencyEntity> Currencies => Set<CurrencyEntity>();
-    public DbSet<CurrencySaleEntity> CurrencySales => Set<CurrencySaleEntity>();
     public DbSet<TransactionEntity> Transactions => Set<TransactionEntity>();
     public DbSet<DonationEntity> Donations => Set<DonationEntity>();
     public DbSet<TotalBalanceEntity> TotalBalances => Set<TotalBalanceEntity>();
@@ -57,12 +56,6 @@ public class ExchangeAppDbContext : DbContext
         // Relationship Currency (1) - Transaction (n)
         modelBuilder.Entity<CurrencyEntity>()
             .HasMany<TransactionEntity>()
-            .WithOne(i => i.Currency)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        // Relationship Currency (1) - Currency sale (n)
-        modelBuilder.Entity<CurrencyEntity>()
-            .HasMany<CurrencySaleEntity>()
             .WithOne(i => i.Currency)
             .OnDelete(DeleteBehavior.Restrict);
 
