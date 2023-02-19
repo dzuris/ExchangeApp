@@ -34,7 +34,9 @@
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.BirthDateLabel}"/>
-                    <DatePicker Date="1990-01-01"/>
+                    <DatePicker 
+                        Date="1990-01-01"
+                        Format="d/MM/yyyy"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.AddressLabel}"/>
