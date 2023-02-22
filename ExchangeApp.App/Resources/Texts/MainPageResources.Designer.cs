@@ -61,11 +61,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cash registery status.
+        ///   Looks up a localized string similar to Cash register status.
         /// </summary>
-        public static string CashRegisteryStatusComboBoxItem {
+        public static string CashRegisterStatusComboBoxItem {
             get {
-                return ResourceManager.GetString("CashRegisteryStatusComboBoxItem", resourceCulture);
+                return ResourceManager.GetString("CashRegisterStatusComboBoxItem", resourceCulture);
             }
         }
         
@@ -79,20 +79,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Course rates deviation.
+        ///   Looks up a localized string similar to Daily total balance.
         /// </summary>
-        public static string CourseRatesDeviationComboBoxItem {
+        public static string DailyTotalBalanceComboBoxItem {
             get {
-                return ResourceManager.GetString("CourseRatesDeviationComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Daily shutter.
-        /// </summary>
-        public static string DailyShutterComboBoxItem {
-            get {
-                return ResourceManager.GetString("DailyShutterComboBoxItem", resourceCulture);
+                return ResourceManager.GetString("DailyTotalBalanceComboBoxItem", resourceCulture);
             }
         }
         
@@ -115,6 +106,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee.
+        /// </summary>
+        public static string EmployeePickerTitle {
+            get {
+                return ResourceManager.GetString("EmployeePickerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string HomeTitle {
@@ -133,11 +133,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monthly shutter.
+        ///   Looks up a localized string similar to Monthly total balance.
         /// </summary>
-        public static string MonthlyShutterComboBoxItem {
+        public static string MonthlyTotalBalanceComboBoxItem {
             get {
-                return ResourceManager.GetString("MonthlyShutterComboBoxItem", resourceCulture);
+                return ResourceManager.GetString("MonthlyTotalBalanceComboBoxItem", resourceCulture);
             }
         }
         
@@ -178,29 +178,20 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Purchase report.
-        /// </summary>
-        public static string PurchaseReportComboBoxItem {
-            get {
-                return ResourceManager.GetString("PurchaseReportComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Shutter.
-        /// </summary>
-        public static string ShutterComboBoxTitle {
-            get {
-                return ResourceManager.GetString("ShutterComboBoxTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Storno.
         /// </summary>
         public static string StornoComboBoxItem {
             get {
                 return ResourceManager.GetString("StornoComboBoxItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total balance.
+        /// </summary>
+        public static string TotalBalanceComboBoxTitle {
+            get {
+                return ResourceManager.GetString("TotalBalanceComboBoxTitle", resourceCulture);
             }
         }
         
@@ -232,11 +223,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yearly shutter.
+        ///   Looks up a localized string similar to Yearly total balance.
         /// </summary>
-        public static string YearlyShutterComboBoxItem {
+        public static string YearlyTotalBalanceComboBoxItem {
             get {
-                return ResourceManager.GetString("YearlyShutterComboBoxItem", resourceCulture);
+                return ResourceManager.GetString("YearlyTotalBalanceComboBoxItem", resourceCulture);
             }
         }
     }

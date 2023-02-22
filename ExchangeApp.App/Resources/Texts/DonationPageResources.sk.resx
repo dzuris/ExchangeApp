@@ -138,4 +138,19 @@
   <data name="NewQuantityLabel" xml:space="preserve">
     <value>Nové množstvo:</value>
   </data>
+  <data name="CurrencyCodeListHeaderLabel" xml:space="preserve">
+    <value>Mena</value>
+  </data>
+  <data name="StateListHeaderLabel" xml:space="preserve">
+    <value>Štát</value>
+  </data>
+  <data name="DepositPickerItem" xml:space="preserve">
+    <value>Vklad</value>
+  </data>
+  <data name="LevyPickerItem" xml:space="preserve">
+    <value>Odvod</value>
+  </data>
+  <data name="WithdrawPickerItem" xml:space="preserve">
+    <value>Výber</value>
+  </data>
 </root>

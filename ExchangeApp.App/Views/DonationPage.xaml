@@ -2,49 +2,109 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:models="clr-namespace:ExchangeApp.BL.Models;assembly=ExchangeApp.BL"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Donation"
              x:Class="ExchangeApp.App.Views.DonationPage"
              Title="{x:Static texts:DonationPageResources.DonationTitle}"
-             Style="{StaticResource ContentPageStyle}">
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:DonationCreateViewModel">
+
     <Grid
         RowDefinitions="*, Auto"
         ColumnDefinitions="Auto, *, Auto">
 
-        <Grid Grid.Column="1" ColumnDefinitions="*, *">
-            <VerticalStackLayout>
-                <HorizontalStackLayout Spacing="20" >
-                    <Label Text="{x:Static texts:DonationPageResources.TypeLabel}"/>
-                    <Label Style="{StaticResource InfoBoldStyle}" Text="Deposit" />
-                </HorizontalStackLayout>
-                <ListView>
+        <Grid Grid.Column="1" RowDefinitions="Auto, *, Auto" RowSpacing="15" ColumnDefinitions="*, *">
+            <HorizontalStackLayout Spacing="20" >
+                <Label
+                    VerticalTextAlignment="Center"
+                    Text="{x:Static texts:DonationPageResources.TypeLabel}"/>
+                <Picker
+                    MinimumWidthRequest="100">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="texts:DonationPageResources.DepositPickerItem" />
+                            <x:Static Member="texts:DonationPageResources.LevyPickerItem" />
+                            <x:Static Member="texts:DonationPageResources.WithdrawPickerItem" />
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </HorizontalStackLayout>
 
-                </ListView>
-                <HorizontalStackLayout Spacing="20">
-                    <Label Text="{x:Static texts:DonationPageResources.NoteLabel}" VerticalOptions="Center"/>
-                    <Entry 
-                        FontSize="14"
-                        MinimumWidthRequest="150"
-                        MaximumWidthRequest="400"
-                        VerticalOptions="Center"/>
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
+            <CollectionView 
+                Grid.Row="1" 
+                SelectionMode="Single"
+                SelectedItem="{Binding SelectedCurrency}">
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type models:CurrencyListModel}">
+                        <models:CurrencyListModel Code="EUR" State="European union" Quantity="7021" />
+                        <models:CurrencyListModel Code="CZK" State="Czech republic" Quantity="13120" />
+                        <models:CurrencyListModel Code="USD" State="United States" Quantity="3421" />
+                        <models:CurrencyListModel Code="GBP" State="Great Britain" Quantity="1774" />
+                        <models:CurrencyListModel Code="PLN" State="Poland" Quantity="17451" />
+                        <models:CurrencyListModel Code="CHF" State="Switzerland" Quantity="541" />
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.Header>
+                    <Grid ColumnDefinitions="80, *" ColumnSpacing="20" BackgroundColor="{StaticResource Primary}" Padding="10">
+                        <Label Text="{x:Static texts:DonationPageResources.CurrencyCodeListHeaderLabel}" TextColor="White"/>
+                        <Label Grid.Column="1" Text="{x:Static texts:DonationPageResources.StateListHeaderLabel}" TextColor="White"/>
+                    </Grid>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate  x:DataType="models:CurrencyListModel">
+                        <StackLayout>
+                            <Grid Padding="10" ColumnDefinitions="60,Auto, *" ColumnSpacing="20">
+                                <Label Text="{Binding Code}" />
+                                <BoxView Color="Black" WidthRequest="1" Grid.Column="1"/>
+                                <Label Grid.Column="2" Text="{Binding State}" />
+                            </Grid>
+                            <BoxView Color="Black" HeightRequest="1"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-            <Grid Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="10" ColumnDefinitions="*, *" ColumnSpacing="25" VerticalOptions="Center">
+            <HorizontalStackLayout Grid.Row="2" Spacing="20">
+                <Label Text="{x:Static texts:DonationPageResources.NoteLabel}" VerticalOptions="Center"/>
+                <Entry 
+                    FontSize="14"
+                    MinimumWidthRequest="200"
+                    MaximumWidthRequest="400"
+                    VerticalOptions="Center"
+                    Text="{Binding Donation.Note}"/>
+            </HorizontalStackLayout>
+
+            <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="10" ColumnDefinitions="*, *" ColumnSpacing="25" VerticalOptions="Center">
                 <Label Text="{x:Static texts:DonationPageResources.CurrentStateLabel}" HorizontalOptions="End"/>
                 <HorizontalStackLayout Grid.Column="1" Spacing="5">
-                    <Label Text="220 000"/>
-                    <Label Text="PLN"/>
+                    <Label Text="{Binding SelectedCurrency.Quantity, TargetNullValue='0', FallbackValue='0'}"/>
+                    <Label Text="{Binding SelectedCurrency.Code, TargetNullValue='', FallbackValue=''}"/>
                 </HorizontalStackLayout>
 
                 <Label Grid.Row="1" Text="{x:Static texts:DonationPageResources.DepositCourseRateLabel}" HorizontalOptions="End" VerticalOptions="Center"/>
-                <Entry Grid.Row="1" Grid.Column="1" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Entry 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    WidthRequest="100" 
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center" 
+                    Keyboard="Numeric"
+                    Text="{Binding Donation.CourseRate}"/>
 
                 <Label Grid.Row="2" Text="{x:Static texts:DonationPageResources.QuantityLabel}" HorizontalOptions="End" VerticalOptions="Center"/>
-                <Entry Grid.Row="2" Grid.Column="1" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Entry 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    WidthRequest="100" 
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Center" 
+                    Keyboard="Numeric"
+                    Text="{Binding Quantity}"/>
 
                 <Label Grid.Row="3" Text="{x:Static texts:DonationPageResources.NewQuantityLabel}" HorizontalOptions="End" Style="{StaticResource InfoBoldStyle}"/>
                 <HorizontalStackLayout Grid.Row="3" Grid.Column="1" Spacing="5">
-                    <Label Text="440 000" Style="{StaticResource InfoBoldStyle}"/>
-                    <Label Text="PLN" Style="{StaticResource InfoBoldStyle}"/>
+                    <Label Text="{Binding NewQuantity}" Style="{StaticResource InfoBoldStyle}"/>
+                    <Label Text="{Binding SelectedCurrency.Code, FallbackValue=''}" Style="{StaticResource InfoBoldStyle}"/>
                 </HorizontalStackLayout>
             </Grid>
         </Grid>

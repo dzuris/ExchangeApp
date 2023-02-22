@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Entities\Persons\" />
+    <Folder Include="UnitOfWork\" />
   </ItemGroup>
 
   <ItemGroup>

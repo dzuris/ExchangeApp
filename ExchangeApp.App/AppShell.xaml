@@ -31,16 +31,19 @@
     <ShellContent
         Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
         ContentTemplate="{DataTemplate views:NewCustomerIndividualPage}"
+        IsVisible="False"
         Route="NewCustomerIndividualPage"/>
 
     <ShellContent
         Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
         ContentTemplate="{DataTemplate views:NewCustomerBusinessPage}"
+        IsVisible="False"
         Route="NewCustomerBusinessPage"/>
 
     <ShellContent
         Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
         ContentTemplate="{DataTemplate views:NewCustomerMinorPage}"
+        IsVisible="False"
         Route="NewCustomerMinorPage"/>
 
     <ShellContent

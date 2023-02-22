@@ -61,6 +61,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string CurrencyCodeListHeaderLabel {
+            get {
+                return ResourceManager.GetString("CurrencyCodeListHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current state:.
         /// </summary>
         public static string CurrentStateLabel {
@@ -79,11 +88,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deposit.
+        /// </summary>
+        public static string DepositPickerItem {
+            get {
+                return ResourceManager.GetString("DepositPickerItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Donation.
         /// </summary>
         public static string DonationTitle {
             get {
                 return ResourceManager.GetString("DonationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Levy.
+        /// </summary>
+        public static string LevyPickerItem {
+            get {
+                return ResourceManager.GetString("LevyPickerItem", resourceCulture);
             }
         }
         
@@ -115,11 +142,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        public static string StateListHeaderLabel {
+            get {
+                return ResourceManager.GetString("StateListHeaderLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Type:.
         /// </summary>
         public static string TypeLabel {
             get {
                 return ResourceManager.GetString("TypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Withdraw.
+        /// </summary>
+        public static string WithdrawPickerItem {
+            get {
+                return ResourceManager.GetString("WithdrawPickerItem", resourceCulture);
             }
         }
     }

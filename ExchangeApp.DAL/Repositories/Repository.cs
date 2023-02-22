@@ -7,37 +7,44 @@ namespace ExchangeApp.DAL.Repositories;
 public class Repository<TEntity, TId> : IRepository<TEntity, TId>
     where TEntity : class, IEntity
 {
-    private readonly ExchangeAppDbContext _dbContext;
+    private readonly DbContext _dbContext;
     private readonly DbSet<TEntity> _dbSet;
 
-    public Repository(ExchangeAppDbContext dbContext)
+    public Repository(DbContext dbContext)
     {
         _dbContext = dbContext;
         _dbSet = dbContext.Set<TEntity>();
     }
-
-    public IEnumerable<TEntity> GetAll()
+    
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-        return _dbSet.ToList();
+        return await _dbSet.ToListAsync();
     }
 
-    public TEntity? GetById(TId id)
+    public async Task<TEntity?> GetByIdAsync(TId id)
     {
-        return _dbSet.Find(id);
+        return await _dbSet.FindAsync(id);
     }
 
-    public TEntity Insert(TEntity entity)
+    public async Task InsertAsync(TEntity entity)
     {
-        return _dbSet.Add(entity).Entity;
+        await _dbSet.AddAsync(entity);
     }
 
-    public void Update(TEntity entity)
+    public async Task UpdateAsync(TEntity entity)
     {
-        _dbContext.Entry(entity).State = EntityState.Modified;
+        _dbSet.Update(entity);
     }
 
-    public void Remove(TEntity entity)
+    public async Task DeleteAsync(TId id)
     {
+        var entity = await GetByIdAsync(id);
+
+        if (entity is null)
+        {
+            return;
+        }
+
         _dbSet.Remove(entity);
     }
 }

@@ -2,12 +2,12 @@
 
 namespace ExchangeApp.DAL.Repositories;
 
-public interface IRepository<TEntity, TId>
+public interface IRepository<TEntity, in TId>
     where TEntity : class, IEntity
 {
-    IEnumerable<TEntity> GetAll();
-    TEntity? GetById(TId id);
-    TEntity Insert (TEntity entity);
-    void Update (TEntity entity);
-    void Remove(TEntity entity);
+    Task<IEnumerable<TEntity>> GetAllAsync();
+    Task<TEntity?> GetByIdAsync(TId id);
+    Task InsertAsync (TEntity entity);
+    Task UpdateAsync (TEntity entity);
+    Task DeleteAsync(TId id);
 }

@@ -118,4 +118,19 @@
   <data name="NewQuantityLabel" xml:space="preserve">
     <value>New quantity:</value>
   </data>
+  <data name="CurrencyCodeListHeaderLabel" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="StateListHeaderLabel" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="DepositPickerItem" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="LevyPickerItem" xml:space="preserve">
+    <value>Levy</value>
+  </data>
+  <data name="WithdrawPickerItem" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
 </root>

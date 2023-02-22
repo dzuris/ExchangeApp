@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using ExchangeApp.App.Installers;
+using ExchangeApp.BL.Installers;
 using Microsoft.Extensions.Configuration;
 
 namespace ExchangeApp.App;
@@ -19,14 +20,17 @@ public static class MauiProgram
 
         ConfigureAppSettings(builder);
 
-        builder.Services.AddDALServices(builder.Configuration);
+        builder.Services
+            .AddDALServices(builder.Configuration)
+            .AddAppServices()
+            .AddBLServices();
 
-//#if DEBUG
-//		builder.Logging.AddDebug();
-//#endif
+        var app = builder.Build();
 
-		return builder.Build();
-	}
+        app.Services.GetRequiredService<IDbMigrator>().Migrate();
+
+        return app;
+    }
 
     private static void ConfigureAppSettings(MauiAppBuilder builder)
     {
