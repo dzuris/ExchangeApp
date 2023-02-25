@@ -23,15 +23,13 @@ public partial class DonationCreateViewModel : ViewModelBase
     {
         await base.LoadDataAsync();
 
-        Currencies = await _currencyFacade.GetAllAsync();
+        Currencies = await _currencyFacade.GetActiveCurrenciesAsync();
 
         _logger.LogInformation("Load async Donation Create View Model done.");
     }
 
     [ObservableProperty] 
     private IEnumerable<CurrencyListModel> _currencies = new List<CurrencyListModel>();
-
-    //public IEnumerable<CurrencyListModel> Currencies { get; set; } = new List<CurrencyListModel>();
 
     [ObservableProperty] [NotifyPropertyChangedFor(nameof(NewQuantity))]
     private CurrencyListModel? _selectedCurrency;
@@ -57,8 +55,8 @@ public partial class DonationCreateViewModel : ViewModelBase
             return DonationType switch
             {
                 null => SelectedCurrency.Quantity + Quantity,
-                Common.Enums.DonationType.Deposit => SelectedCurrency.Quantity - Quantity,
-                _ => SelectedCurrency.Quantity + Quantity
+                Common.Enums.DonationType.Deposit => SelectedCurrency.Quantity + Quantity,
+                _ => SelectedCurrency.Quantity - Quantity
             };
         }
     }

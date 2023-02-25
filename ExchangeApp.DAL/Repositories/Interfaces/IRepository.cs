@@ -1,6 +1,6 @@
 ﻿using ExchangeApp.DAL.Entities;
 
-namespace ExchangeApp.DAL.Repositories;
+namespace ExchangeApp.DAL.Repositories.Interfaces;
 
 public interface IRepository<TEntity, in TId>
     where TEntity : class, IEntity

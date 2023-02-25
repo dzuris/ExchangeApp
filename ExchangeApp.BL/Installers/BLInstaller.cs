@@ -13,7 +13,7 @@ public static class BLInstaller
 
         services.Scan(selector => selector
             .FromAssemblyOf<BusinessLogic>()
-            .AddClasses(classes => classes.AssignableTo(typeof(IFacade<,,>)))
+            .AddClasses(classes => classes.AssignableTo(typeof(IFacade)))
             .AsMatchingInterface()
             .WithScopedLifetime()
         );

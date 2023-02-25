@@ -1,4 +1,5 @@
-﻿using ExchangeApp.DAL.Entities;
+﻿using ExchangeApp.Common.Enums;
+using ExchangeApp.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExchangeApp.DAL.Seeds;
@@ -9,7 +10,8 @@ public static class CurrencySeeds
     {
         Code = "EUR".ToUpper(),
         State = "Európska menová únia",
-        PhotoUrl = "eur.png"
+        PhotoUrl = "eur.png",
+        Status = CurrencyState.Offline
     };
 
     public static readonly CurrencyEntity Czk = new()
