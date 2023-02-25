@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ExchangeApp.BL.Extensions;
 using ExchangeApp.BL.Models;
 using ExchangeApp.DAL.Entities;
 
@@ -9,8 +10,10 @@ public class DonationMapperProfile : Profile
     public DonationMapperProfile()
     {
         CreateMap<DonationEntity, DonationListModel>();
-        CreateMap<DonationEntity, DonationDetailModel>();
+        //CreateMap<DonationEntity, DonationDetailModel>();
 
-        CreateMap<DonationDetailModel, DonationEntity>();
+        //CreateMap<DonationDetailModel, DonationEntity>()
+        //    .Ignore(dst => dst.Employee)
+        //    .Ignore(dst => dst.Currency);
     }
 }

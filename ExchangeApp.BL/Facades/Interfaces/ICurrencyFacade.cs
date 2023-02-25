@@ -5,4 +5,5 @@ namespace ExchangeApp.BL.Facades.Interfaces;
 
 public interface ICurrencyFacade : IFacade<CurrencyListModel, CurrencyDetailModel, string>
 {
+    Task<IEnumerable<CurrencyListModel>> GetActiveCurrencyAsync();
 }

@@ -12,19 +12,11 @@ public record DonationEntity : IEntity
     public required float Quantity { get; set; }
     public required DonationType Type { get; set; }
     public required string Note { get; set; }
-    public bool IsCanceled { get; set; }
+    public bool IsCanceled { get; set; } = false;
 
-    public required Guid EmployeeId { get; set; }
+    public Guid EmployeeId { get; set; }
     public EmployeeEntity? Employee { get; set; }
 
     public required string CurrencyCode { get; set; }
     public CurrencyEntity? Currency { get; set; }
-}
-
-public class DonationEntityMapperProfile : Profile
-{
-    public DonationEntityMapperProfile()
-    {
-        CreateMap<DonationEntity, DonationEntity>();
-    }
 }

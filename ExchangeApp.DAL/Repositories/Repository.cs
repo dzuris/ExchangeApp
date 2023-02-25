@@ -18,7 +18,8 @@ public class Repository<TEntity, TId> : IRepository<TEntity, TId>
     
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-        return await _dbSet.ToListAsync();
+        var list = await _dbSet.ToListAsync();
+        return list;
     }
 
     public async Task<TEntity?> GetByIdAsync(TId id)

@@ -10,7 +10,7 @@ public record DonationDetailModel : ModelBase
     public required float Quantity { get; set; }
     public required DonationType Type { get; set; }
     public required string Note { get; set; }
-    public required bool IsCanceled { get; set; }
+    public bool IsCanceled { get; set; }
 
     public Guid EmployeeId { get; set; }
     public EmployeeListModel? Employee { get; set; }
@@ -21,11 +21,10 @@ public record DonationDetailModel : ModelBase
     public static DonationDetailModel Empty => new()
     {
         Time = DateTime.Now,
-        CourseRate = 1,
+        CourseRate = 0,
         Quantity = 0,
         Type = DonationType.Deposit,
         Note = string.Empty,
-        IsCanceled = false,
         Code = string.Empty
     };
 }

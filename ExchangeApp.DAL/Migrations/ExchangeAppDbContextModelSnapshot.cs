@@ -47,7 +47,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasKey("Code");
 
-                    b.ToTable("Currencies");
+                    b.ToTable("Currencies", (string)null);
 
                     b.HasData(
                         new
@@ -126,7 +126,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Donations");
+                    b.ToTable("Donations", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.PersonEntity", b =>
@@ -148,7 +148,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Persons", (string)null);
 
                     b.UseTptMappingStrategy();
                 });
@@ -172,7 +172,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("TotalBalances");
+                    b.ToTable("TotalBalances", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.TransactionEntity", b =>
@@ -212,7 +212,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Transactions");
+                    b.ToTable("Transactions", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", b =>
@@ -242,14 +242,14 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasIndex("TransactionId")
                         .IsUnique();
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", b =>
                 {
                     b.HasBaseType("ExchangeApp.DAL.Entities.Persons.PersonEntity");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.BusinessCustomerEntity", b =>
@@ -272,7 +272,7 @@ namespace ExchangeApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.ToTable("BusinessCustomers");
+                    b.ToTable("BusinessCustomers", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.IndividualCustomerEntity", b =>
@@ -283,14 +283,14 @@ namespace ExchangeApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.ToTable("IndividualCustomers");
+                    b.ToTable("IndividualCustomers", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.MinorCustomerEntity", b =>
                 {
                     b.HasBaseType("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity");
 
-                    b.ToTable("MinorCustomers");
+                    b.ToTable("MinorCustomers", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.DonationEntity", b =>

@@ -31,6 +31,6 @@ public class SqliteDbMigrator : IDbMigrator
     {
         await using ExchangeAppDbContext dbContext = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
-        await dbContext.Database.EnsureDeletedAsync(cancellationToken);
+        await dbContext.Database.EnsureCreatedAsync(cancellationToken);
     }
 }

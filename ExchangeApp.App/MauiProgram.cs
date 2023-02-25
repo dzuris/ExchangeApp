@@ -1,7 +1,12 @@
-﻿using System.Reflection;
+﻿using AutoMapper;
+using System.Reflection;
+using AutoMapper.Internal;
 using ExchangeApp.App.Installers;
 using ExchangeApp.BL.Installers;
+using ExchangeApp.BL.MapperProfiles;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace ExchangeApp.App;
 
@@ -10,7 +15,8 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-		builder
+
+        builder
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
@@ -20,6 +26,10 @@ public static class MauiProgram
 
         ConfigureAppSettings(builder);
 
+        ConfigureLogging(builder.Services);
+
+        ConfigureAutoMapper(builder.Services);
+
         builder.Services
             .AddDALServices(builder.Configuration)
             .AddAppServices()
@@ -27,9 +37,20 @@ public static class MauiProgram
 
         var app = builder.Build();
 
+        ValidateAutoMapperConfiguration(app.Services);
+
         app.Services.GetRequiredService<IDbMigrator>().Migrate();
 
         return app;
+    }
+
+    private static void ConfigureLogging(IServiceCollection builderServices)
+    {
+        builderServices.AddLogging(builder =>
+        {
+            builder.AddDebug();
+            builder.AddConsole();
+        });
     }
 
     private static void ConfigureAppSettings(MauiAppBuilder builder)
@@ -46,5 +67,21 @@ public static class MauiProgram
 
         var configuration = configurationBuilder.Build();
         builder.Configuration.AddConfiguration(configuration);
+    }
+
+    private static void ConfigureAutoMapper(IServiceCollection collection)
+    {
+        //collection.AddAutoMapper(configuration =>
+        //{
+        //    configuration.Internal().MethodMappingEnabled = false;
+        //}, typeof(BusinessLogic));
+
+        collection.AddAutoMapper(typeof(CurrencyMapperProfile).Assembly);
+    }
+
+    private static void ValidateAutoMapperConfiguration(IServiceProvider serviceProvider)
+    {
+        var mapper = serviceProvider.GetRequiredService<IMapper>();
+        mapper.ConfigurationProvider.AssertConfigurationIsValid();
     }
 }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:models="clr-namespace:ExchangeApp.BL.Models;assembly=ExchangeApp.BL"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Donation"
+             xmlns:enums="clr-namespace:ExchangeApp.Common.Enums;assembly=ExchangeApp.Common"
              x:Class="ExchangeApp.App.Views.DonationPage"
              Title="{x:Static texts:DonationPageResources.DonationTitle}"
              Style="{StaticResource ContentPageStyle}"
@@ -14,36 +16,23 @@
         ColumnDefinitions="Auto, *, Auto">
 
         <Grid Grid.Column="1" RowDefinitions="Auto, *, Auto" RowSpacing="15" ColumnDefinitions="*, *">
-            <HorizontalStackLayout Spacing="20" >
+            <HorizontalStackLayout Spacing="20">
                 <Label
                     VerticalTextAlignment="Center"
                     Text="{x:Static texts:DonationPageResources.TypeLabel}"/>
+                <!-- Picker Items source and Item selected are in the code behind due to the 
+                needing converting values through text resources -->
                 <Picker
+                    x:Name="DonationTypePicker"
                     MinimumWidthRequest="100">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:Static Member="texts:DonationPageResources.DepositPickerItem" />
-                            <x:Static Member="texts:DonationPageResources.LevyPickerItem" />
-                            <x:Static Member="texts:DonationPageResources.WithdrawPickerItem" />
-                        </x:Array>
-                    </Picker.ItemsSource>
                 </Picker>
             </HorizontalStackLayout>
 
             <CollectionView 
                 Grid.Row="1" 
                 SelectionMode="Single"
+                ItemsSource="{Binding Currencies}"
                 SelectedItem="{Binding SelectedCurrency}">
-                <CollectionView.ItemsSource>
-                    <x:Array Type="{x:Type models:CurrencyListModel}">
-                        <models:CurrencyListModel Code="EUR" State="European union" Quantity="7021" />
-                        <models:CurrencyListModel Code="CZK" State="Czech republic" Quantity="13120" />
-                        <models:CurrencyListModel Code="USD" State="United States" Quantity="3421" />
-                        <models:CurrencyListModel Code="GBP" State="Great Britain" Quantity="1774" />
-                        <models:CurrencyListModel Code="PLN" State="Poland" Quantity="17451" />
-                        <models:CurrencyListModel Code="CHF" State="Switzerland" Quantity="541" />
-                    </x:Array>
-                </CollectionView.ItemsSource>
                 <CollectionView.Header>
                     <Grid ColumnDefinitions="80, *" ColumnSpacing="20" BackgroundColor="{StaticResource Primary}" Padding="10">
                         <Label Text="{x:Static texts:DonationPageResources.CurrencyCodeListHeaderLabel}" TextColor="White"/>
@@ -119,4 +108,4 @@
             Source="check_circle.png"
             Style="{StaticResource IconStyle}"/>
     </Grid>
-</ContentPage>
+</views:ContentPageBase>

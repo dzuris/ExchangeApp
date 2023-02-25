@@ -9,11 +9,11 @@ public static class AppInstaller
     {
         services.AddSingleton<AppShell>();
 
-        //services.Scan(selector => selector
-        //    .FromAssemblyOf<App>()
-        //    .AddClasses(filter => filter.AssignableTo<ContentPageBase>())
-        //    .AsSelf()
-        //    .WithTransientLifetime());
+        services.Scan(selector => selector
+            .FromAssemblyOf<App>()
+            .AddClasses(filter => filter.AssignableTo<ContentPageBase>())
+            .AsSelf()
+            .WithTransientLifetime());
 
         services.Scan(selector => selector
             .FromAssemblyOf<App>()

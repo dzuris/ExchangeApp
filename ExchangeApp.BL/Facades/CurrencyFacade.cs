@@ -15,4 +15,9 @@ public class CurrencyFacade :
         : base(unitOfWorkFactory, mapper)
     {
     }
+
+    public Task<IEnumerable<CurrencyListModel>> GetActiveCurrencyAsync()
+    {
+        throw new NotImplementedException();
+    }
 }

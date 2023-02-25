@@ -12,7 +12,6 @@ public abstract class
     where TEntity : class, IEntity
     where TListModel : IModel
     where TDetailModel : class, IModel
-    where TId : class
 {
     protected readonly IUnitOfWorkFactory UnitOfWorkFactory;
     protected readonly IUnitOfWork UnitOfWork;

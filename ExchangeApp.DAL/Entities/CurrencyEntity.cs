@@ -16,11 +16,3 @@ public record CurrencyEntity : IEntity
     public float? SellRate { get; set; }
     public CurrencyState Status { get; set; } = CurrencyState.NotInUse;
 }
-
-public class CurrencyEntityMapperProfile : Profile
-{
-    public CurrencyEntityMapperProfile()
-    {
-        CreateMap<CurrencyEntity, CurrencyEntity>();
-    }
-}

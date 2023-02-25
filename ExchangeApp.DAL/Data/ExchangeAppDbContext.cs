@@ -65,7 +65,7 @@ public class ExchangeAppDbContext : DbContext
             .WithOne(t => t.Customer)
             .HasForeignKey<CustomerEntity>(i => i.TransactionId)
             .OnDelete(DeleteBehavior.Restrict);
-
+        
         // Using table-per-type configuration see https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration
         modelBuilder.Entity<CustomerEntity>().UseTptMappingStrategy();
 
