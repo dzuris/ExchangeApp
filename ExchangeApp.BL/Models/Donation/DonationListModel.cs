@@ -1,4 +1,6 @@
-﻿namespace ExchangeApp.BL.Models;
+﻿using ExchangeApp.BL.Models.Person;
+
+namespace ExchangeApp.BL.Models.Donation;
 
 public record DonationListModel : ModelBase
 {

@@ -9,8 +9,9 @@ namespace ExchangeApp.DAL.UnitOfWork;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly DbContext _dbContext;
-    private ICurrencyRepository? _currencyEntityRepository;
-    private IDonationRepository? _donationEntityRepository;
+    private ICurrencyRepository? _currencyRepository;
+    private IDonationRepository? _donationRepository;
+    private ITransactionRepository? _transactionRepository;
 
     public UnitOfWork(ExchangeAppDbContext dbContext)
     {
@@ -18,14 +19,13 @@ public class UnitOfWork : IUnitOfWork
     }
 
     public ICurrencyRepository CurrencyRepository 
-        => _currencyEntityRepository ??= new CurrencyRepository(_dbContext);
+        => _currencyRepository ??= new CurrencyRepository(_dbContext);
 
     public IDonationRepository DonationRepository
-        => _donationEntityRepository ??= new DonationRepository(_dbContext);
+        => _donationRepository ??= new DonationRepository(_dbContext);
 
-    //public IRepository<TEntity, TId> GetRepository<TEntity, TId>()
-    //    where TEntity : class, IEntity
-    //    => new RepositoryBase<TEntity, TId>(_dbContext);
+    public ITransactionRepository TransactionRepository 
+        => _transactionRepository ??= new TransactionRepository(_dbContext);
 
     public async Task CommitAsync() => await _dbContext.SaveChangesAsync();
 

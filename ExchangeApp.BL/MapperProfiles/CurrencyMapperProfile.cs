@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.Models;
+using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.DAL.Entities;
 
 namespace ExchangeApp.BL.MapperProfiles;

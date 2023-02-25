@@ -1,6 +1,8 @@
-﻿using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.BL.Models.Currency;
+using ExchangeApp.BL.Models.Person;
+using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.BL.Models;
+namespace ExchangeApp.BL.Models.Donation;
 
 public record DonationDetailModel : ModelBase
 {

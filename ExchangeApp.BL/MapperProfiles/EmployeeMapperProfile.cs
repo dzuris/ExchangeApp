@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.Extensions;
 using ExchangeApp.BL.Models;
+using ExchangeApp.BL.Models.Person;
 using ExchangeApp.DAL.Entities.Persons;
 
 namespace ExchangeApp.BL.MapperProfiles;

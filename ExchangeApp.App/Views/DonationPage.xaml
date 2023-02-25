@@ -6,6 +6,7 @@
              xmlns:models="clr-namespace:ExchangeApp.BL.Models;assembly=ExchangeApp.BL"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Donation"
              xmlns:enums="clr-namespace:ExchangeApp.Common.Enums;assembly=ExchangeApp.Common"
+             xmlns:currency="clr-namespace:ExchangeApp.BL.Models.Currency;assembly=ExchangeApp.BL"
              x:Class="ExchangeApp.App.Views.DonationPage"
              Title="{x:Static texts:DonationPageResources.DonationTitle}"
              Style="{StaticResource ContentPageStyle}"
@@ -40,7 +41,7 @@
                     </Grid>
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate  x:DataType="models:CurrencyListModel">
+                    <DataTemplate  x:DataType="currency:CurrencyListModel">
                         <StackLayout>
                             <Grid Padding="10" ColumnDefinitions="60,Auto, *" ColumnSpacing="20">
                                 <Label Text="{Binding Code}" />

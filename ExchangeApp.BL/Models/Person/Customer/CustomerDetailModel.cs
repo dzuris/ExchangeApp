@@ -1,6 +1,7 @@
-﻿using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.BL.Models.Transaction;
+using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.BL.Models;
+namespace ExchangeApp.BL.Models.Person.Customer;
 
 public record CustomerDetailModel : ModelBase
 {

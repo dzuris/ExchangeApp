@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models;
+using ExchangeApp.BL.Models.Currency;
+using ExchangeApp.BL.Models.Donation;
 using ExchangeApp.Common.Enums;
 using Microsoft.Extensions.Logging;
 
