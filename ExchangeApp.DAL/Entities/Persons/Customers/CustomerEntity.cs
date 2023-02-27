@@ -11,6 +11,9 @@ public record CustomerEntity : PersonEntity
     public required string Address { get; set; }
     public required EvidenceType EvidenceType { get; set; }
     public required string EvidenceNumber { get; set; }
+
+    public required int TransactionId { get; set; }
+    public TransactionEntity? Transaction { get; set; }
 }
 
 public class CustomerEntityMapperProfile : Profile

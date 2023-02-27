@@ -5,7 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
     xmlns:views="clr-namespace:ExchangeApp.App.Views"
-    Shell.FlyoutBehavior="Flyout">
+    FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="{StaticResource FlyoutBackground}">
+
+    <Shell.FlyoutHeader>
+        <Label 
+            Text="{x:Static texts:AppResources.AppName}" 
+            FontSize="32" 
+            HorizontalOptions="Center" 
+            Padding="15" 
+            FontAttributes="Bold" 
+            TextColor="{StaticResource Secondary}" />
+    </Shell.FlyoutHeader>
 
     <ShellContent
         Title="{x:Static texts:MainPageResources.HomeTitle}"
@@ -18,13 +29,14 @@
         Route="TransactionPage"/>
 
     <ShellContent
-        Title="{x:Static texts:TransactionDetailPageResources.TransactionDetailTitle}"
-        ContentTemplate="{DataTemplate views:TransactionDetailPage}"
-        Route="TransactionDetailPage"/>
-
-    <ShellContent
         Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"
         ContentTemplate="{DataTemplate views:CustomerDetailPage}"
+        IsVisible="False"
         Route="CustomerDetailPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:DonationPageResources.DonationTitle}"
+        ContentTemplate="{DataTemplate views:DonationPage}"
+        Route="DonationPage"/>
 
 </Shell>

@@ -6,13 +6,72 @@
              Title="{x:Static texts:MainPageResources.HomeTitle}"
              Style="{StaticResource ContentPageStyle}">
 
-    <Grid RowDefinitions="*, Auto" RowSpacing="20">
+    <Grid RowDefinitions="Auto, *, *, Auto" RowSpacing="20">
+        <Picker
+            Title="{x:Static texts:MainPageResources.EmployeePickerTitle}"
+            SelectedItem="Peter Employee"
+            MinimumWidthRequest="150"
+            HorizontalOptions="End">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Joseph New</x:String>
+                    <x:String>Peter Employee</x:String>
+                    <x:String>John Doe</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
         <HorizontalStackLayout
-            Grid.Row="0">
-            
+            Grid.Row="1"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+            <Picker
+                Title="{x:Static texts:MainPageResources.TradeComboBoxTitle}"
+                Style="{StaticResource MainPageMenuPicker}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:Static Member="texts:MainPageResources.TransactionComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.StornoComboBoxItem"/>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Picker
+                Title="{x:Static texts:MainPageResources.DonationComboBoxTitle}"
+                Style="{StaticResource MainPageMenuPicker}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:Static Member="texts:MainPageResources.DepositComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.LevyComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.WithdrawComboBoxItem"/>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Picker
+                Title="{x:Static texts:MainPageResources.TotalBalanceComboBoxTitle}"
+                Style="{StaticResource MainPageMenuPicker}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:Static Member="texts:MainPageResources.DailyTotalBalanceComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.MonthlyTotalBalanceComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.YearlyTotalBalanceComboBoxItem"/>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Picker
+                Title="{x:Static texts:MainPageResources.OthersComboBoxTitle}"
+                Style="{StaticResource MainPageMenuPicker}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:Static Member="texts:MainPageResources.CourseRatesComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.CashRegisterStatusComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.OperationsListComboBoxItem"/>
+                        <x:Static Member="texts:MainPageResources.ProfitCalculationComboBoxItem"/>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
         </HorizontalStackLayout>
 
-        <Grid Grid.Row="1" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+        <Grid Grid.Row="3" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
             <ImageButton
                 Grid.Column="0"
                 Source="settings.png"

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Transaction"
              x:Class="ExchangeApp.App.Views.TransactionPage"
              Title="{x:Static texts:TransactionPageResources.TransactionTitle}"
-             Style="{StaticResource ContentPageStyle}">
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:TransactionCreateViewModel">
 
     <Grid RowDefinitions="*, Auto" ColumnDefinitions="*, *">
         <Grid 
@@ -18,18 +21,11 @@
                     Style="{StaticResource InputLabelStyle}"
                     Text="{x:Static texts:TransactionPageResources.CurrencyFromLabel}"/>
                 <Picker
-                    SelectedItem="EUR"
+                    x:Name="Currency1"
                     WidthRequest="150"
-                    HorizontalOptions="Start">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>EUR</x:String>
-                            <x:String>CZK</x:String>
-                            <x:String>PLN</x:String>
-                            <x:String>USD</x:String>
-                            <x:String>GBP</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
+                    HorizontalOptions="Start"
+                    ItemsSource="{Binding Currencies}"
+                    ItemDisplayBinding="{Binding Code}">
                 </Picker>
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="15" Grid.Column="1">
@@ -37,18 +33,11 @@
                     Style="{StaticResource InputLabelStyle}"
                     Text="{x:Static texts:TransactionPageResources.CurrencyToLabel}"/>
                 <Picker
-                    SelectedItem="EUR"
+                    x:Name="Currency2"
                     WidthRequest="150"
-                    HorizontalOptions="Start">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>EUR</x:String>
-                            <x:String>CZK</x:String>
-                            <x:String>PLN</x:String>
-                            <x:String>USD</x:String>
-                            <x:String>GBP</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
+                    HorizontalOptions="Start"
+                    ItemsSource="{Binding Currencies}"
+                    ItemDisplayBinding="{Binding Code}">
                 </Picker>
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="15" Grid.Row="1">
@@ -183,4 +172,4 @@
             Style="{StaticResource IconStyle}"
             Source="check_circle.png"/>
     </Grid>
-</ContentPage>
+</views:ContentPageBase>

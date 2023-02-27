@@ -14,68 +14,42 @@
             RowSpacing="15"
             ColumnDefinitions="Auto, Auto"
             ColumnSpacing="25">
-            <Label
-                Text="{x:Static texts:CustomerDetailPageResources.PersonTypeLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Column="1"
-                Text="Normal person"/>
-            <Label
-                Grid.Row="1"
-                Text="{x:Static texts:CustomerDetailPageResources.CustomerNameLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="1"
-                Grid.Column="1"
-                Text="Joseph Customer"/>
-            <Label
-                Grid.Row="2"
-                Text="{x:Static texts:CustomerDetailPageResources.IdentificationNumberLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="2"
-                Grid.Column="1"
-                Text="000111/9999"/>
-            <Label
-                Grid.Row="3"
-                Text="{x:Static texts:CustomerDetailPageResources.BirthDateLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="3"
-                Grid.Column="1"
-                Text="1.1.1975"/>
-            <Label
-                Grid.Row="4"
-                Text="{x:Static texts:CustomerDetailPageResources.AddressLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="4"
-                Grid.Column="1"
-                Text="Random address 615, New Jersey, Random State, Long address"/>
-            <Label
-                Grid.Row="5"
-                Text="{x:Static texts:CustomerDetailPageResources.NationalityLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="5"
-                Grid.Column="1"
-                Text="Slovak"/>
-            <Label
-                Grid.Row="6"
-                Text="{x:Static texts:CustomerDetailPageResources.IdentificationCardTypeLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="6"
-                Grid.Column="1"
-                Text="Identification card"/>
-            <Label
-                Grid.Row="7"
-                Text="{x:Static texts:CustomerDetailPageResources.IdentificationCardNumberLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="7"
-                Grid.Column="1"
-                Text="HH152125"/>
+            <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.PersonTypeLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.CustomerNameLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.IdentificationNumberLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.BirthDateLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.AddressLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.NationalityLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.IdentificationCardTypeLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label
+                    Text="{x:Static texts:CustomerDetailPageResources.IdentificationCardNumberLabel}"
+                    Style="{StaticResource InputLabelStyle}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                <Label Text="Normal person"/>
+                <Label Text="Joseph Customer"/>
+                <Label Text="000111/9999"/>
+                <Label Text="1.1.1975"/>
+                <Label Text="Random address 615, New Jersey, Random State, Long address"/>
+                <Label Text="Slovak"/>
+                <Label Text="Identification card"/>
+                <Label Text="HH152125"/>
+            </VerticalStackLayout>
         </Grid>
         <ImageButton
             Grid.Row="1"
