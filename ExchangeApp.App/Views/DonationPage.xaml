@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
-             xmlns:models="clr-namespace:ExchangeApp.BL.Models;assembly=ExchangeApp.BL"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Donation"
-             xmlns:enums="clr-namespace:ExchangeApp.Common.Enums;assembly=ExchangeApp.Common"
              xmlns:currency="clr-namespace:ExchangeApp.BL.Models.Currency;assembly=ExchangeApp.BL"
              x:Class="ExchangeApp.App.Views.DonationPage"
              Title="{x:Static texts:DonationPageResources.DonationTitle}"
@@ -61,7 +59,7 @@
                     MinimumWidthRequest="200"
                     MaximumWidthRequest="400"
                     VerticalOptions="Center"
-                    Text="{Binding Donation.Note}"/>
+                    Text="{Binding Note}"/>
             </HorizontalStackLayout>
 
             <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="10" ColumnDefinitions="*, *" ColumnSpacing="25" VerticalOptions="Center">
@@ -79,7 +77,7 @@
                     HorizontalOptions="Start" 
                     VerticalOptions="Center" 
                     Keyboard="Numeric"
-                    Text="{Binding Donation.CourseRate}"/>
+                    Text="{Binding CourseRate}"/>
 
                 <Label Grid.Row="2" Text="{x:Static texts:DonationPageResources.QuantityLabel}" HorizontalOptions="End" VerticalOptions="Center"/>
                 <Entry 
@@ -107,6 +105,7 @@
             Grid.Row="1"
             Grid.Column="2"
             Source="check_circle.png"
-            Style="{StaticResource IconStyle}"/>
+            Style="{StaticResource IconStyle}"
+            Command="{Binding SaveCommand}"/>
     </Grid>
 </views:ContentPageBase>

@@ -13,8 +13,9 @@ public class DonationMapperProfile : Profile
         CreateMap<DonationEntity, DonationListModel>();
         //CreateMap<DonationEntity, DonationDetailModel>();
 
-        //CreateMap<DonationDetailModel, DonationEntity>()
-        //    .Ignore(dst => dst.Employee)
-        //    .Ignore(dst => dst.Currency);
+        CreateMap<DonationDetailModel, DonationEntity>()
+            .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.Code))
+            .ForMember(dst => dst.Employee, opt => opt.Ignore())
+            .ForMember(dst => dst.Currency, opt => opt.Ignore());
     }
 }

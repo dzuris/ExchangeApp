@@ -23,9 +23,11 @@ public class CurrencyFacade : ICurrencyFacade
         _mapper = mapper;
     }
 
-    public Task<CurrencyDetailModel?> GetById(string id)
+    public async Task<CurrencyDetailModel?> GetById(string id)
     {
-        throw new NotImplementedException();
+        var entity = await _repository.GetByIdAsync(id);
+
+        return entity is null ? null : _mapper.Map<CurrencyDetailModel>(entity);
     }
 
     public async Task<List<CurrencyListModel>> GetNonActiveCurrenciesAsync()
@@ -38,5 +40,17 @@ public class CurrencyFacade : ICurrencyFacade
     {
         var entities = await _repository.GetActiveCurrenciesAsync();
         return _mapper.Map<List<CurrencyListModel>>(entities);
+    }
+
+    public async Task<List<CurrencyNewTransactionModel>> GetActiveCurrenciesForTransactionAsync()
+    {
+        var entities = await _repository.GetActiveCurrenciesAsync();
+        return _mapper.Map<List<CurrencyNewTransactionModel>>(entities);
+    }
+
+    public async Task UpdateQuantityAsync(string code, float newQuantity)
+    {
+        await _repository.UpdateQuantityAsync(code, newQuantity);
+        await _unitOfWork.CommitAsync();
     }
 }

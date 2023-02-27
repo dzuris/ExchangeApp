@@ -14,7 +14,7 @@ public record DonationDetailModel : ModelBase
     public required string Note { get; set; }
     public bool IsCanceled { get; set; }
 
-    public Guid EmployeeId { get; set; }
+    public Guid? EmployeeId { get; set; }
     public EmployeeListModel? Employee { get; set; }
 
     public required string Code { get; set; }

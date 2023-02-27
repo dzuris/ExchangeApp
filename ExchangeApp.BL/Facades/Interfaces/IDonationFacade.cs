@@ -1,6 +1,4 @@
-﻿using ExchangeApp.BL.Models;
-using ExchangeApp.BL.Models.Donation;
-using ExchangeApp.DAL.Entities;
+﻿using ExchangeApp.BL.Models.Donation;
 
 namespace ExchangeApp.BL.Facades.Interfaces;
 
