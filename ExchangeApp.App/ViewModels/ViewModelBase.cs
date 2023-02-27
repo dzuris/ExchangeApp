@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ExchangeApp.App.ViewModels;
 
-public class ViewModelBase : ObservableRecipient, IViewModel
+public class ViewModelBase : ObservableObject, IViewModel
 {
     public async Task OnAppearingAsync()
     {

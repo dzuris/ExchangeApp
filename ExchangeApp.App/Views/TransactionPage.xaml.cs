@@ -1,15 +1,20 @@
-using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.App.ViewModels.Transaction;
 
 namespace ExchangeApp.App.Views;
 
-public partial class TransactionPage : ContentPage
+public partial class TransactionPage
 {
-    string _currency = "EUR";
-
-	public TransactionPage()
+	public TransactionPage(TransactionCreateViewModel viewModel)
+	    : base(viewModel)
 	{
 		InitializeComponent();
-        CurrencyLabel.Text = String.Format(TransactionPageResources.CurrencyInCashRegisterAmountLabel, _currency);
+    }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        Currency1.SelectedIndex = 0;
+        Currency2.SelectedIndex = 0;
     }
 }

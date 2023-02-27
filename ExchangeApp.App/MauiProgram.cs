@@ -71,11 +71,6 @@ public static class MauiProgram
 
     private static void ConfigureAutoMapper(IServiceCollection collection)
     {
-        //collection.AddAutoMapper(configuration =>
-        //{
-        //    configuration.Internal().MethodMappingEnabled = false;
-        //}, typeof(BusinessLogic));
-
         collection.AddAutoMapper(typeof(CurrencyMapperProfile).Assembly);
     }
 

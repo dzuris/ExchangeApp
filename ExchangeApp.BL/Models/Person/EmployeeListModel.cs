@@ -1,4 +1,4 @@
-﻿namespace ExchangeApp.BL.Models;
+﻿namespace ExchangeApp.BL.Models.Person;
 
 public record EmployeeListModel : ModelBase
 {

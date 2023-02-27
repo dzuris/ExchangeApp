@@ -106,6 +106,51 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Course rate must be number higher than 0..
+        /// </summary>
+        public static string ErrorMessage_CourseRateNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_CourseRateNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select donation type..
+        /// </summary>
+        public static string ErrorMessage_DonationTypeEmpty {
+            get {
+                return ResourceManager.GetString("ErrorMessage_DonationTypeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fill note entry..
+        /// </summary>
+        public static string ErrorMessage_NoteEmpty {
+            get {
+                return ResourceManager.GetString("ErrorMessage_NoteEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity must be number higher than 0, also you need to have enough money in the cash register..
+        /// </summary>
+        public static string ErrorMessage_QuantityNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_QuantityNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select currency..
+        /// </summary>
+        public static string ErrorMessage_SelectedCurrencyEmpty {
+            get {
+                return ResourceManager.GetString("ErrorMessage_SelectedCurrencyEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Levy.
         /// </summary>
         public static string LevyPickerItem {

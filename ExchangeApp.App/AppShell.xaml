@@ -9,7 +9,13 @@
     FlyoutBackgroundColor="{StaticResource FlyoutBackground}">
 
     <Shell.FlyoutHeader>
-        <Label Text="{x:Static texts:AppResources.AppName}" FontSize="32" HorizontalOptions="Center" Padding="15" FontAttributes="Bold" TextColor="{StaticResource Secondary}" />
+        <Label 
+            Text="{x:Static texts:AppResources.AppName}" 
+            FontSize="32" 
+            HorizontalOptions="Center" 
+            Padding="15" 
+            FontAttributes="Bold" 
+            TextColor="{StaticResource Secondary}" />
     </Shell.FlyoutHeader>
 
     <ShellContent
@@ -21,30 +27,6 @@
         Title="{x:Static texts:TransactionPageResources.TransactionTitle}"
         ContentTemplate="{DataTemplate views:TransactionPage}"
         Route="TransactionPage"/>
-
-    <ShellContent
-        Title="{x:Static texts:TransactionDetailPageResources.TransactionDetailTitle}"
-        ContentTemplate="{DataTemplate views:TransactionDetailPage}"
-        IsVisible="False"
-        Route="TransactionDetailPage"/>
-
-    <ShellContent
-        Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
-        ContentTemplate="{DataTemplate views:NewCustomerIndividualPage}"
-        IsVisible="False"
-        Route="NewCustomerIndividualPage"/>
-
-    <ShellContent
-        Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
-        ContentTemplate="{DataTemplate views:NewCustomerBusinessPage}"
-        IsVisible="False"
-        Route="NewCustomerBusinessPage"/>
-
-    <ShellContent
-        Title="{x:Static texts:CustomerResources.NewCustomerTitle}"
-        ContentTemplate="{DataTemplate views:NewCustomerMinorPage}"
-        IsVisible="False"
-        Route="NewCustomerMinorPage"/>
 
     <ShellContent
         Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"

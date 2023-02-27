@@ -1,6 +1,6 @@
 ﻿using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.BL.Models;
+namespace ExchangeApp.BL.Models.Person.Customer;
 
 public record IndividualCustomerDetailModel : CustomerDetailModel
 {

@@ -1,6 +1,8 @@
-﻿using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.BL.Models.Currency;
+using ExchangeApp.BL.Models.Person;
+using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.BL.Models;
+namespace ExchangeApp.BL.Models.Donation;
 
 public record DonationDetailModel : ModelBase
 {
@@ -12,7 +14,7 @@ public record DonationDetailModel : ModelBase
     public required string Note { get; set; }
     public bool IsCanceled { get; set; }
 
-    public Guid EmployeeId { get; set; }
+    public Guid? EmployeeId { get; set; }
     public EmployeeListModel? Employee { get; set; }
 
     public required string Code { get; set; }

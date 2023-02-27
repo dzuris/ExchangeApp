@@ -1,8 +1,8 @@
 ﻿using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.BL.Models;
+namespace ExchangeApp.BL.Models.Currency;
 
-public record CurrencyCoursesListModel : ModelBase
+public record CurrencyDetailModel : ModelBase
 {
     public required string Code { get; set; }
     public required string State { get; set; }

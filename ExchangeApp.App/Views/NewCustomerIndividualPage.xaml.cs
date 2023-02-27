@@ -22,13 +22,19 @@ public partial class NewCustomerIndividualPage : ContentPage
     {
         var selectedIndex = CustomerPicker.SelectedIndex;
 
+        //foreach (var route in Shell.Current.Items)
+        //{
+        //    Console.WriteLine(route.Route);
+        //}
+        //return;
+
         switch (selectedIndex)
         {
             case 1:
-                await Shell.Current.GoToAsync($"//NewCustomerBusinessPage");
+                await Shell.Current.GoToAsync($"{nameof(NewCustomerBusinessPage)}");
                 break;
             case 2:
-                await Shell.Current.GoToAsync($"//NewCustomerMinorPage");
+                await Shell.Current.GoToAsync($"{nameof(NewCustomerMinorPage)}");
                 break;
         }
     }

@@ -1,6 +1,9 @@
-﻿using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.BL.Models.Currency;
+using ExchangeApp.BL.Models.Person;
+using ExchangeApp.BL.Models.Person.Customer;
+using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.BL.Models;
+namespace ExchangeApp.BL.Models.Transaction;
 
 public record TransactionDetailModel : ModelBase
 {

@@ -1,8 +1,8 @@
-﻿using ExchangeApp.BL.Models;
-using ExchangeApp.DAL.Entities;
+﻿using ExchangeApp.BL.Models.Donation;
 
 namespace ExchangeApp.BL.Facades.Interfaces;
 
-public interface IDonationFacade : IFacade<DonationListModel, DonationDetailModel, int>
+public interface IDonationFacade : IFacade
 {
+    Task InsertAsync(DonationDetailModel model);
 }
