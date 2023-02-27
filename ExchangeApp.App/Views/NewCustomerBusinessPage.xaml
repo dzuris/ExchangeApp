@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             x:Class="ExchangeApp.App.Views.NewCustomerBusinessPage"
+             Title="{x:Static texts:CustomerResources.BusinessCustomer}"
+             Style="{StaticResource ContentPageStyle}">
+    <Grid RowDefinitions="Auto, *" RowSpacing="15">
+        <Picker 
+            x:Name="CustomerPicker" 
+            Style="{StaticResource CustomerPicker}"
+            SelectedIndexChanged="OnPagePickerSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:Static Member="texts:CustomerResources.IndividualCustomer"/>
+                    <x:Static Member="texts:CustomerResources.BusinessCustomer"/>
+                    <x:Static Member="texts:CustomerResources.MinorCustomer"/>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <ScrollView Grid.Row="1">
+            <StackLayout MaximumWidthRequest="400" Padding="20"  Spacing="40">
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.FirstNameLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.LastNameLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.BirthDateLabel}"/>
+                    <DatePicker 
+                        Date="1990-01-01"
+                        Format="d/MM/yyyy"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.AddressLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}"/>
+                    <Picker></Picker>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.NationalityLabel}"/>
+                    <Label
+                        Text="{x:Static texts:CustomerResources.RefugeesInfoLabel}"
+                        Style="{StaticResource InfoLabelLight}"/>
+                    <Entry Placeholder="{x:Static texts:CustomerResources.DefaultNationalityPlaceholder}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.BusinessCompanyNameLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.BusinessAddressCompanyLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                    <Label Text="{x:Static texts:CustomerResources.BusinessIdentificationNumberLabel}"/>
+                    <Entry/>
+                </VerticalStackLayout>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
