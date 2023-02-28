@@ -71,9 +71,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Controls\" />
+	  <Folder Include="Converters\" />
 	  <Folder Include="Resources\Images\Icons\" />
 	  <Folder Include="ViewModels\Donation\" />
+	  <Folder Include="ViewModels\Settings\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -120,6 +121,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>MainPageResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsPageResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\TransactionDetailPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -165,6 +171,10 @@
 	  <EmbeddedResource Update="Resources\Texts\MainPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>MainPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\TransactionDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

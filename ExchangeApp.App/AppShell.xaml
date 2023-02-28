@@ -29,14 +29,13 @@
         Route="TransactionPage"/>
 
     <ShellContent
-        Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"
-        ContentTemplate="{DataTemplate views:CustomerDetailPage}"
-        IsVisible="False"
-        Route="CustomerDetailPage"/>
-
-    <ShellContent
         Title="{x:Static texts:DonationPageResources.DonationTitle}"
         ContentTemplate="{DataTemplate views:DonationPage}"
         Route="DonationPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:SettingsPageResources.PageTitle}"
+        ContentTemplate="{DataTemplate views:SettingsPage}"
+        Route="SettingsPage"/>
 
 </Shell>

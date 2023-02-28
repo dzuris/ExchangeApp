@@ -23,7 +23,10 @@
                 needing converting values through text resources -->
                 <Picker
                     x:Name="DonationTypePicker"
-                    MinimumWidthRequest="100">
+                    MinimumWidthRequest="100"
+                    ItemsSource="{Binding DonationTypes}"
+                    ItemDisplayBinding="{Binding Converter={StaticResource DonationTypeToStringConverter}}"
+                    SelectedItem="{Binding DonationType}">
                 </Picker>
             </HorizontalStackLayout>
 

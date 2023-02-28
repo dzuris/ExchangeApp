@@ -9,4 +9,14 @@ public class DonationRepository : RepositoryBase<DonationEntity, int>, IDonation
     public DonationRepository(DbContext appDbContext) : base(appDbContext)
     {
     }
+
+    public override async Task<int> InsertAsync(DonationEntity entity)
+    {
+        await AppDbContext
+            .Set<DonationEntity>()
+            .AddAsync(entity);
+        await AppDbContext.SaveChangesAsync();
+
+        return entity.Id;
+    }
 }

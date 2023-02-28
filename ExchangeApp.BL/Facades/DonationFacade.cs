@@ -23,10 +23,12 @@ public class DonationFacade : IDonationFacade
         _mapper = mapper;
     }
 
-    public async Task InsertAsync(DonationDetailModel model)
+    public async Task<int> InsertAsync(DonationDetailModel model)
     {
         var entity = _mapper.Map<DonationEntity>(model);
-        await _repository.InsertAsync(entity);
+        var id = await _repository.InsertAsync(entity);
         await _unitOfWork.CommitAsync();
+
+        return id;
     }
 }

@@ -36,6 +36,9 @@ public partial class DonationCreateViewModel : ViewModelBase
         Currencies = await _currencyFacade.GetActiveCurrenciesAsync();
     }
 
+    public List<DonationType> DonationTypes 
+        => Enum.GetValues(typeof(DonationType)).Cast<DonationType>().ToList();
+
     [ObservableProperty] 
     private IEnumerable<CurrencyListModel> _currencies = new List<CurrencyListModel>();
 
@@ -78,30 +81,30 @@ public partial class DonationCreateViewModel : ViewModelBase
     [RelayCommand]
     private async Task SaveAsync()
     {
-        //var validationMessage = ValidateData();
+        var validationMessage = ValidateData();
 
-        //if (validationMessage != string.Empty)
-        //{
-        //    await Application.Current?.MainPage?.DisplayAlert("Validation Error", validationMessage, "OK")!;
-        //    return;
-        //}
+        if (validationMessage != string.Empty)
+        {
+            await Application.Current?.MainPage?.DisplayAlert("Validation Error", validationMessage, "OK")!;
+            return;
+        }
 
-        //var donation = new DonationDetailModel
-        //{
-        //    Time = DateTime.Now,
-        //    CourseRate = StrToFloat(CourseRate),
-        //    Quantity = Quantity,
-        //    Type = DonationType ?? Common.Enums.DonationType.Deposit,
-        //    Note = Note,
-        //    Code = SelectedCurrency!.Code
-        //};
+        var donation = new DonationDetailModel
+        {
+            Time = DateTime.Now,
+            CourseRate = StrToFloat(CourseRate),
+            Quantity = Quantity,
+            Type = DonationType ?? Common.Enums.DonationType.Deposit,
+            Note = Note,
+            Code = SelectedCurrency!.Code
+        };
 
-        var donation = DonationDetailModel.Empty;
-
-        //await _donationFacade.InsertAsync(donation);
+        //var id = await _donationFacade.InsertAsync(donation);
         //await _currencyFacade.UpdateQuantityAsync(SelectedCurrency.Code, NewQuantity);
 
-        await Shell.Current.GoToAsync($"../{nameof(DonationDetailPage)}", true, new Dictionary<string, object>
+        var id = 9999;
+        donation.Id = id;
+        await Shell.Current.GoToAsync($"{nameof(DonationDetailPage)}", true, new Dictionary<string, object>
         {
             {"Donation", donation}
         });
@@ -122,8 +125,8 @@ public partial class DonationCreateViewModel : ViewModelBase
         if (SelectedCurrency is null)
             errorMessage += resourceManager.GetString("ErrorMessage_SelectedCurrencyEmpty") + "\n";
 
-        if (string.IsNullOrEmpty(Note))
-            errorMessage += resourceManager.GetString("ErrorMessage_NoteEmpty") + "\n";
+        //if (string.IsNullOrEmpty(Note))
+        //    errorMessage += resourceManager.GetString("ErrorMessage_NoteEmpty") + "\n";
 
         if (Quantity <= 0 || (DonationType != Common.Enums.DonationType.Deposit && SelectedCurrency?.Quantity < Quantity))
             errorMessage += resourceManager.GetString("ErrorMessage_QuantityNotValid") + "\n";
@@ -140,7 +143,7 @@ public partial class DonationCreateViewModel : ViewModelBase
     /// </summary>
     /// <param name="str">Float as string</param>
     /// <returns>Converted float number or 0 if string is not valid</returns>
-    private float StrToFloat(string str)
+    private static float StrToFloat(string str)
     {
         if (float.TryParse(str, CultureInfo.CurrentCulture, out var result))
         {

@@ -170,6 +170,7 @@
             WidthRequest="40"
             HeightRequest="40"
             Style="{StaticResource IconStyle}"
-            Source="check_circle.png"/>
+            Source="check_circle.png"
+            Command="{Binding SaveCommand}"/>
     </Grid>
 </views:ContentPageBase>

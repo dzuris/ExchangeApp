@@ -98,12 +98,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DonationType_Deposit" xml:space="preserve">
-    <value>Deposit</value>
+    <value>Deposit_res</value>
   </data>
   <data name="DonationType_Levy" xml:space="preserve">
-    <value>Levy</value>
+    <value>Levy_res</value>
   </data>
   <data name="DonationType_Withdraw" xml:space="preserve">
-    <value>Withdraw</value>
+    <value>Withdraw_res</value>
   </data>
 </root>

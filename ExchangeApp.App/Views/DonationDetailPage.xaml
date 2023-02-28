@@ -3,15 +3,104 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Donation"
              x:Class="ExchangeApp.App.Views.DonationDetailPage"
              Title="{x:Static texts:DonationDetailPageResources.PageTitle}"
-             Style="{StaticResource ContentPageStyle}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label
-            x:Name="TestLabel"/>
-    </VerticalStackLayout>
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:DonationDetailViewModel">
+    <Grid
+        RowDefinitions="*, Auto"
+        Margin="50">
+        <Grid
+            RowDefinitions="*, Auto"
+            ColumnDefinitions="*, *"
+            Margin="50, 0">
+            <Grid
+                RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, *"
+                RowSpacing="5"
+                ColumnDefinitions="Auto, Auto"
+                ColumnSpacing="40"
+                Padding="0, 0, 0, 50">
+                <Label
+                    Style="{StaticResource InfoLabelLight}"
+                    Text="{x:Static texts:DonationDetailPageResources.DonationNumberLabel}"/>
+                <Label
+                    Grid.Column="1"
+                    Text="{Binding DonationNumber}"/>
+                <Label
+                    Grid.Row="1"
+                    Text="{x:Static texts:DonationDetailPageResources.DonationTypeLabel}"
+                    Style="{StaticResource InfoBoldStyle}"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding Donation.Type, Converter={StaticResource DonationTypeToStringConverter}}"/>
+                <Label
+                    Grid.Row="2"
+                    Text="{x:Static texts:DonationDetailPageResources.QuantityLabel}"
+                    Style="{StaticResource InfoBoldStyle}"/>
+                <HorizontalStackLayout
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Spacing="5">
+                    <Label
+                        Text="{Binding Donation.Quantity}"/>
+                    <Label
+                        Text="{Binding Donation.Code}"/>
+                </HorizontalStackLayout>
+                <Label
+                    Grid.Row="3"
+                    Text="{x:Static texts:DonationDetailPageResources.CurrencyCodeLabel}"
+                    Style="{StaticResource InfoBoldStyle}"/>
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Text="{Binding Donation.Code}"/>
+                <Label
+                    Grid.Row="4"
+                    Text="{x:Static texts:DonationDetailPageResources.CourseRateLabel}"
+                    Style="{StaticResource InfoBoldStyle}"/>
+                <Label/>
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Text="{Binding Donation.CourseRate}"/>
+                <Label
+                    Grid.Row="5"
+                    Text="{x:Static texts:DonationDetailPageResources.NoteLabel}"
+                    Style="{StaticResource InfoBoldStyle}"/>
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Text="{Binding Donation.Note}"/>
+                <Label
+                    Grid.Row="6"
+                    VerticalOptions="End"
+                    Text="{x:Static texts:DonationDetailPageResources.EmployeeLabel}"/>
+            </Grid>
+            <VerticalStackLayout
+                Grid.Column="1"
+                HorizontalOptions="End">
+                <HorizontalStackLayout Spacing="40">
+                    <Label
+                        Text="{x:Static texts:DonationDetailPageResources.DateAndTimeLabel}"
+                        Style="{StaticResource InfoLabelLight}"/>
+                    <Label
+                        Text="{Binding Donation.Time}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+        <HorizontalStackLayout
+            Grid.Row="1"
+            HorizontalOptions="End"
+            Spacing="20">
+            <Button
+                Text="{x:Static texts:DonationDetailPageResources.CancelButtonText}"/>
+            <ImageButton
+                Source="print.png"
+                HorizontalOptions="Start"
+                Style="{StaticResource IconStyle}"/>
+
+        </HorizontalStackLayout>
+    </Grid>
 </views:ContentPageBase>

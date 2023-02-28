@@ -1,6 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using ExchangeApp.App.Views;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
+using ExchangeApp.BL.Models.Transaction;
 using Microsoft.Extensions.Logging;
 
 namespace ExchangeApp.App.ViewModels.Transaction;
@@ -30,4 +33,14 @@ public partial class TransactionCreateViewModel : ViewModelBase
 
     [ObservableProperty]
     private List<CurrencyNewTransactionModel> _currencies = new();
+
+    [RelayCommand]
+    private async Task SaveAsync()
+    {
+        var transaction = TransactionDetailModel.Empty;
+        await Shell.Current.GoToAsync($"{nameof(NewCustomerIndividualPage)}", true, new Dictionary<string, object>
+        {
+            {"Transaction", transaction}
+        });
+    }
 }
