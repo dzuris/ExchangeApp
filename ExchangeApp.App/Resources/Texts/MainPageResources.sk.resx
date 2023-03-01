@@ -120,58 +120,19 @@
   <data name="HomeTitle" xml:space="preserve">
     <value>Domov</value>
   </data>
-  <data name="TradeComboBoxTitle" xml:space="preserve">
-    <value>Obchod</value>
-  </data>
-  <data name="DonationComboBoxTitle" xml:space="preserve">
-    <value>Dotácia</value>
-  </data>
-  <data name="TotalBalanceComboBoxTitle" xml:space="preserve">
-    <value>Uzávierka</value>
-  </data>
-  <data name="OthersComboBoxTitle" xml:space="preserve">
-    <value>Ostatné</value>
-  </data>
-  <data name="TransactionComboBoxItem" xml:space="preserve">
-    <value>Transakcia</value>
-  </data>
-  <data name="StornoComboBoxItem" xml:space="preserve">
-    <value>Storno</value>
-  </data>
-  <data name="DepositComboBoxItem" xml:space="preserve">
-    <value>Vklad</value>
-  </data>
-  <data name="WithdrawComboBoxItem" xml:space="preserve">
-    <value>Výber</value>
-  </data>
-  <data name="LevyComboBoxItem" xml:space="preserve">
-    <value>Odvod</value>
-  </data>
-  <data name="DailyTotalBalanceComboBoxItem" xml:space="preserve">
-    <value>Denná uzávierka</value>
-  </data>
-  <data name="MonthlyTotalBalanceComboBoxItem" xml:space="preserve">
-    <value>Mesačná uzávierka</value>
-  </data>
-  <data name="YearlyTotalBalanceComboBoxItem" xml:space="preserve">
-    <value>Ročná uzávierka</value>
-  </data>
-  <data name="CourseRatesComboBoxItem" xml:space="preserve">
-    <value>Kurzy</value>
-  </data>
-  <data name="CashRegisterStatusComboBoxItem" xml:space="preserve">
-    <value>Stav pokladne</value>
-  </data>
-  <data name="OperationsListComboBoxItem" xml:space="preserve">
-    <value>Zoznam operácií</value>
-  </data>
-  <data name="ProfitCalculationComboBoxItem" xml:space="preserve">
-    <value>Výpočet zisku</value>
-  </data>
   <data name="OperationsInDayLabel" xml:space="preserve">
     <value>Dnešný počet operácií:</value>
   </data>
   <data name="EmployeePickerTitle" xml:space="preserve">
     <value>Zamestnanec</value>
+  </data>
+  <data name="TransactionCreateFrameLabel" xml:space="preserve">
+    <value>Vytvoriť transakciu</value>
+  </data>
+  <data name="DonationCreateFrameLabel" xml:space="preserve">
+    <value>Vytvoriť dotáciu</value>
+  </data>
+  <data name="OperationsListFrameLabel" xml:space="preserve">
+    <value>Zoznam operácií</value>
   </data>
 </root>

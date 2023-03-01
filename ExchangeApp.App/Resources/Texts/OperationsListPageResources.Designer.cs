@@ -22,14 +22,14 @@ namespace ExchangeApp.App.Resources.Texts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MainPageResources {
+    public class OperationsListPageResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MainPageResources() {
+        internal OperationsListPageResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ExchangeApp.App.Resources.Texts {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.MainPageResources", typeof(MainPageResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.OperationsListPageResources", typeof(OperationsListPageResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create donation.
+        ///   Looks up a localized string similar to OperationsList.
         /// </summary>
-        public static string DonationCreateFrameLabel {
+        public static string PageTitle {
             get {
-                return ResourceManager.GetString("DonationCreateFrameLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Employee.
-        /// </summary>
-        public static string EmployeePickerTitle {
-            get {
-                return ResourceManager.GetString("EmployeePickerTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Home.
-        /// </summary>
-        public static string HomeTitle {
-            get {
-                return ResourceManager.GetString("HomeTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number of todays operations:.
-        /// </summary>
-        public static string OperationsInDayLabel {
-            get {
-                return ResourceManager.GetString("OperationsInDayLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Operations list.
-        /// </summary>
-        public static string OperationsListFrameLabel {
-            get {
-                return ResourceManager.GetString("OperationsListFrameLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create transaction.
-        /// </summary>
-        public static string TransactionCreateFrameLabel {
-            get {
-                return ResourceManager.GetString("TransactionCreateFrameLabel", resourceCulture);
+                return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
     }

@@ -121,6 +121,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>MainPageResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\OperationsListPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>OperationsListPageResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -172,6 +177,10 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>MainPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\OperationsListPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>OperationsListPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>SettingsPageResources.Designer.cs</LastGenOutput>
@@ -198,6 +207,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\EntryStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\FrameStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ImageButtonStyle.xaml">

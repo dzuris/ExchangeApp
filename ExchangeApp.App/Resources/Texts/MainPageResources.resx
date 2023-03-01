@@ -120,58 +120,19 @@
   <data name="HomeTitle" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="TradeComboBoxTitle" xml:space="preserve">
-    <value>Trade</value>
-  </data>
-  <data name="DonationComboBoxTitle" xml:space="preserve">
-    <value>Donation</value>
-  </data>
-  <data name="TotalBalanceComboBoxTitle" xml:space="preserve">
-    <value>Total balance</value>
-  </data>
-  <data name="OthersComboBoxTitle" xml:space="preserve">
-    <value>Others</value>
-  </data>
-  <data name="TransactionComboBoxItem" xml:space="preserve">
-    <value>Transaction</value>
-  </data>
-  <data name="StornoComboBoxItem" xml:space="preserve">
-    <value>Storno</value>
-  </data>
-  <data name="DepositComboBoxItem" xml:space="preserve">
-    <value>Deposit</value>
-  </data>
-  <data name="LevyComboBoxItem" xml:space="preserve">
-    <value>Levy</value>
-  </data>
-  <data name="WithdrawComboBoxItem" xml:space="preserve">
-    <value>Withdraw</value>
-  </data>
-  <data name="DailyTotalBalanceComboBoxItem" xml:space="preserve">
-    <value>Daily total balance</value>
-  </data>
-  <data name="MonthlyTotalBalanceComboBoxItem" xml:space="preserve">
-    <value>Monthly total balance</value>
-  </data>
-  <data name="YearlyTotalBalanceComboBoxItem" xml:space="preserve">
-    <value>Yearly total balance</value>
-  </data>
-  <data name="CourseRatesComboBoxItem" xml:space="preserve">
-    <value>Course rates</value>
-  </data>
-  <data name="CashRegisterStatusComboBoxItem" xml:space="preserve">
-    <value>Cash register status</value>
-  </data>
-  <data name="OperationsListComboBoxItem" xml:space="preserve">
-    <value>Operations list</value>
-  </data>
-  <data name="ProfitCalculationComboBoxItem" xml:space="preserve">
-    <value>Profit calculation</value>
-  </data>
   <data name="OperationsInDayLabel" xml:space="preserve">
     <value>Number of todays operations:</value>
   </data>
   <data name="EmployeePickerTitle" xml:space="preserve">
     <value>Employee</value>
+  </data>
+  <data name="TransactionCreateFrameLabel" xml:space="preserve">
+    <value>Create transaction</value>
+  </data>
+  <data name="DonationCreateFrameLabel" xml:space="preserve">
+    <value>Create donation</value>
+  </data>
+  <data name="OperationsListFrameLabel" xml:space="preserve">
+    <value>Operations list</value>
   </data>
 </root>

@@ -117,52 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DonationTitle" xml:space="preserve">
-    <value>Dotácia</value>
-  </data>
-  <data name="TypeLabel" xml:space="preserve">
-    <value>Typ:</value>
-  </data>
-  <data name="NoteLabel" xml:space="preserve">
-    <value>Poznámka:</value>
-  </data>
-  <data name="CurrentStateLabel" xml:space="preserve">
-    <value>Aktuálny stav:</value>
-  </data>
-  <data name="DepositCourseRateLabel" xml:space="preserve">
-    <value>Vkladový kurz:</value>
-  </data>
-  <data name="QuantityLabel" xml:space="preserve">
-    <value>Množstvo:</value>
-  </data>
-  <data name="NewQuantityLabel" xml:space="preserve">
-    <value>Nové množstvo:</value>
-  </data>
-  <data name="CurrencyCodeListHeaderLabel" xml:space="preserve">
-    <value>Mena</value>
-  </data>
-  <data name="StateListHeaderLabel" xml:space="preserve">
-    <value>Štát</value>
-  </data>
-  <data name="ErrorMessage_SelectedCurrencyEmpty" xml:space="preserve">
-    <value>Zvoľte menu.</value>
-  </data>
-  <data name="ErrorMessage_NoteEmpty" xml:space="preserve">
-    <value>Vyplňte poznámku.</value>
-  </data>
-  <data name="ErrorMessage_DonationTypeEmpty" xml:space="preserve">
-    <value>Zvoľte druh dotácie.</value>
-  </data>
-  <data name="ErrorMessage_CourseRateNotValid" xml:space="preserve">
-    <value>Kurz musí byť číslo väčšie ako 0.</value>
-  </data>
-  <data name="ErrorMessage_QuantityNotValid" xml:space="preserve">
-    <value>Množstvo musí byť celé číslo väčšie ako 0, zároveň je nutné mať v pokladnici dostatočný obnos peňazí.</value>
-  </data>
-  <data name="DisplayAlertValidationErrorTitle" xml:space="preserve">
-    <value>Chyba validácie</value>
-  </data>
-  <data name="DisplayAlertCancelButtonText" xml:space="preserve">
-    <value>OK</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Zoznam operácií</value>
   </data>
 </root>

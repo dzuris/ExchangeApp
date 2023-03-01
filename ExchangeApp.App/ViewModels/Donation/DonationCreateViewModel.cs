@@ -85,7 +85,11 @@ public partial class DonationCreateViewModel : ViewModelBase
 
         if (validationMessage != string.Empty)
         {
-            await Application.Current?.MainPage?.DisplayAlert("Validation Error", validationMessage, "OK")!;
+            var rm = new ResourceManager(typeof(DonationPageResources));
+            await Application.Current?.MainPage?.DisplayAlert(
+                rm.GetString("DisplayAlertValidationErrorTitle"), 
+                validationMessage, 
+                rm.GetString("DisplayAlertCancelButtonText"))!;
             return;
         }
 
@@ -104,7 +108,7 @@ public partial class DonationCreateViewModel : ViewModelBase
 
         var id = 9999;
         donation.Id = id;
-        await Shell.Current.GoToAsync($"{nameof(DonationDetailPage)}", true, new Dictionary<string, object>
+        await Shell.Current.GoToAsync($"../{nameof(DonationDetailPage)}", true, new Dictionary<string, object>
         {
             {"Donation", donation}
         });
