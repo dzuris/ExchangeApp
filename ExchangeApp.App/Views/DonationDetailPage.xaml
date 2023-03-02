@@ -10,17 +10,14 @@
              x:DataType="vm:DonationDetailViewModel">
     <Grid
         RowDefinitions="*, Auto"
-        Margin="50">
+        RowSpacing="80">
         <Grid
-            RowDefinitions="*, Auto"
-            ColumnDefinitions="*, *"
-            Margin="50, 0">
+            ColumnDefinitions="*, *">
             <Grid
                 RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, *"
                 RowSpacing="5"
                 ColumnDefinitions="Auto, Auto"
-                ColumnSpacing="40"
-                Padding="0, 0, 0, 50">
+                ColumnSpacing="40">
                 <Label
                     Style="{StaticResource InfoLabelLight}"
                     Text="{x:Static texts:DonationDetailPageResources.DonationNumberLabel}"/>

@@ -3,5 +3,5 @@
 public enum CurrencyState
 {
     NotInUse,
-    Offline
+    Own
 }

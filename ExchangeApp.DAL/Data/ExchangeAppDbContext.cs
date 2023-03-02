@@ -4,6 +4,7 @@ using ExchangeApp.DAL.Entities.Persons.Customers;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Seeds;
 
 namespace ExchangeApp.DAL.Data;

@@ -23,11 +23,3 @@ public record TransactionEntity : IEntity
     public required string CurrencyCode { get; set; }
     public CurrencyEntity? Currency { get; set; }
 }
-
-public class TransactionEntityMapperProfile : Profile
-{
-    public TransactionEntityMapperProfile()
-    {
-        CreateMap<TransactionEntity, TransactionEntity>();
-    }
-}

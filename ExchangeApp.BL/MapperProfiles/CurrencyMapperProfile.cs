@@ -9,8 +9,11 @@ public class CurrencyMapperProfile : Profile
 {
     public CurrencyMapperProfile()
     {
+        CreateMap<CurrencyEntity, CurrencyEntity>();
+
         CreateMap<CurrencyEntity, CurrencyListModel>();
         CreateMap<CurrencyEntity, CurrencyNewTransactionModel>();
+        CreateMap<CurrencyEntity, CurrencyCoursesListModel>();
         CreateMap<CurrencyEntity, CurrencyDetailModel>()
             .ReverseMap();
     }

@@ -1,4 +1,5 @@
-﻿using ExchangeApp.DAL.Data;
+﻿using AutoMapper;
+using ExchangeApp.DAL.Data;
 using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Repositories;
 using ExchangeApp.DAL.Repositories.Interfaces;
@@ -12,14 +13,16 @@ public class UnitOfWork : IUnitOfWork
     private ICurrencyRepository? _currencyRepository;
     private IDonationRepository? _donationRepository;
     private ITransactionRepository? _transactionRepository;
+    private IMapper _mapper;
 
-    public UnitOfWork(ExchangeAppDbContext dbContext)
+    public UnitOfWork(ExchangeAppDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        _mapper = mapper;
     }
 
     public ICurrencyRepository CurrencyRepository 
-        => _currencyRepository ??= new CurrencyRepository(_dbContext);
+        => _currencyRepository ??= new CurrencyRepository(_dbContext, _mapper);
 
     public IDonationRepository DonationRepository
         => _donationRepository ??= new DonationRepository(_dbContext);

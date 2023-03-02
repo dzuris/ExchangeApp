@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Courses"
+             x:Class="ExchangeApp.App.Views.CourseDetailPage"
+             Title="{x:Static texts:CourseDetailPageResources.PageTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:CourseDetailViewModel">
+    <Grid RowDefinitions="*, Auto" ColumnDefinitions="*, *">
+        <StackLayout HorizontalOptions="Start" Spacing="40">
+            <Image
+                HorizontalOptions="Start"
+                Source="{Binding Currency.PhotoUrl}"
+                WidthRequest="70"/>
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="10" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
+                <Label Grid.Row="0" Text="{x:Static texts:CourseDetailPageResources.StateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Label Grid.Row="1" Text="{x:Static texts:CourseDetailPageResources.CurrencyCodeLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Label Grid.Row="2" Text="{x:Static texts:CourseDetailPageResources.InCashRegisterLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Label Grid.Row="3" Text="{x:Static texts:CourseDetailPageResources.BuyCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Label Grid.Row="4" Text="{x:Static texts:CourseDetailPageResources.SellCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Label Grid.Row="5" Text="{x:Static texts:CourseDetailPageResources.AverageCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Currency.Code, Converter={StaticResource CurrencyCodeToStateConverter}}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Currency.Code}"/>
+                <HorizontalStackLayout Grid.Row="2" Grid.Column="1" Spacing="5">
+                    <Label Text="{Binding Currency.Quantity}"/>
+                    <Label Text="{Binding Currency.Code}"/>
+                </HorizontalStackLayout>
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Currency.BuyRate, TargetNullValue='-'}"/>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Currency.SellRate, TargetNullValue='-'}"/>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding Currency.AverageCourseRate}"/>
+            </Grid>
+        </StackLayout>
+        <HorizontalStackLayout
+            Grid.Column="1"
+            Spacing="70">
+            <VerticalStackLayout Spacing="20">
+                <Label Text="{x:Static texts:CourseDetailPageResources.BuyCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Entry Text="{Binding BuyRate}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="20">
+                <Label Text="{x:Static texts:CourseDetailPageResources.SellCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Entry Text="{Binding SellRate}"/>
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        <ImageButton
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalOptions="End"
+            Source="save.png"
+            Style="{StaticResource IconStyle}"
+            Command="{Binding SaveCommand}"
+            />
+    </Grid>
+</views:ContentPageBase>

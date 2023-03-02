@@ -1,6 +1,6 @@
 ﻿namespace ExchangeApp.App.ViewModels.OperationsList;
 
-public class OperationsListViewModel : ViewModelBase
+public partial class OperationsListViewModel : ViewModelBase
 {
     
 }

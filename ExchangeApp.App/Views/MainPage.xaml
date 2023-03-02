@@ -30,9 +30,9 @@
                     <TapGestureRecognizer Tapped="OnCreateTransactionPageTapped"/>
                 </Frame.GestureRecognizers>
                 <StackLayout Margin="10" Spacing="10">
-                    <ImageButton
+                    <Image
                         Source="currency_exchange.png"
-                        Style="{StaticResource MainPageMenuIconStyle}"/>
+                        Style="{StaticResource MainPageBigIconImageStyle}"/>
                     <Label
                         Text="{x:Static texts:MainPageResources.TransactionCreateFrameLabel}"
                         TextColor="White"/>
@@ -43,9 +43,9 @@
                     <TapGestureRecognizer Tapped="OnCreateDonationPageTapped"/>
                 </Frame.GestureRecognizers>
                 <StackLayout Margin="10" Spacing="10">
-                    <ImageButton
+                    <Image
                         Source="point_of_sale.png"
-                        Style="{StaticResource MainPageMenuIconStyle}"/>
+                        Style="{StaticResource MainPageBigIconImageStyle}"/>
                     <Label
                         Text="{x:Static texts:MainPageResources.DonationCreateFrameLabel}"
                         TextColor="White"/>
@@ -56,9 +56,9 @@
                     <TapGestureRecognizer Tapped="OnOperationsListPageTapped"/>
                 </Frame.GestureRecognizers>
                 <StackLayout Margin="10" Spacing="10">
-                    <ImageButton
+                    <Image
                         Source="fact_check.png"
-                        Style="{StaticResource MainPageMenuIconStyle}"/>
+                        Style="{StaticResource MainPageBigIconImageStyle}"/>
                     <Label
                         Text="{x:Static texts:MainPageResources.OperationsListFrameLabel}"
                         TextColor="White"/>

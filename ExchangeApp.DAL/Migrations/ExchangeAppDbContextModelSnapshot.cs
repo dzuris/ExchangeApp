@@ -38,10 +38,6 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<float?>("SellRate")
                         .HasColumnType("REAL");
 
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<int>("Status")
                         .HasColumnType("INTEGER");
 
@@ -56,7 +52,6 @@ namespace ExchangeApp.DAL.Migrations
                             AverageCourseRate = 1f,
                             PhotoUrl = "eur.png",
                             Quantity = 0f,
-                            State = "Európska menová únia",
                             Status = 1
                         },
                         new
@@ -65,7 +60,6 @@ namespace ExchangeApp.DAL.Migrations
                             AverageCourseRate = 1f,
                             PhotoUrl = "czk.png",
                             Quantity = 0f,
-                            State = "Česko",
                             Status = 0
                         },
                         new
@@ -74,7 +68,6 @@ namespace ExchangeApp.DAL.Migrations
                             AverageCourseRate = 1f,
                             PhotoUrl = "usd.png",
                             Quantity = 0f,
-                            State = "Spojené štáty americké",
                             Status = 0
                         },
                         new
@@ -83,7 +76,6 @@ namespace ExchangeApp.DAL.Migrations
                             AverageCourseRate = 1f,
                             PhotoUrl = "pln.png",
                             Quantity = 0f,
-                            State = "Poľsko",
                             Status = 0
                         },
                         new
@@ -92,7 +84,14 @@ namespace ExchangeApp.DAL.Migrations
                             AverageCourseRate = 1f,
                             PhotoUrl = "jpn.png",
                             Quantity = 0f,
-                            State = "Japonsko",
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "GBP",
+                            AverageCourseRate = 1f,
+                            PhotoUrl = "gbp.png",
+                            Quantity = 0f,
                             Status = 0
                         });
                 });

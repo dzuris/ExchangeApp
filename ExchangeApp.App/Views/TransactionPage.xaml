@@ -9,13 +9,12 @@
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:TransactionCreateViewModel">
 
-    <Grid RowDefinitions="*, Auto" ColumnDefinitions="*, *">
+    <Grid RowDefinitions="*, Auto" RowSpacing="20" ColumnDefinitions="*, *">
         <Grid 
             RowDefinitions="Auto, Auto, Auto"
             RowSpacing="25"
             ColumnDefinitions="Auto, Auto" 
-            ColumnSpacing="35" 
-            Padding="50, 40">
+            ColumnSpacing="35">
             <VerticalStackLayout Spacing="15">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
@@ -154,14 +153,6 @@
                     Text="EUR"/>
             </HorizontalStackLayout>
         </Grid>
-
-        <ImageButton
-            Grid.Row="1"
-            HorizontalOptions="Start"
-            WidthRequest="40"
-            HeightRequest="40"
-            Style="{StaticResource IconStyle}"
-            Source="arrow_back.png"/>
 
         <ImageButton
             Grid.Row="1"

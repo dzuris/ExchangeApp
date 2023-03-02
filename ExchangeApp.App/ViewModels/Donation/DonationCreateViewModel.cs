@@ -9,22 +9,19 @@ using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Donation;
 using ExchangeApp.Common.Enums;
-using Microsoft.Extensions.Logging;
+using ExchangeApp.App.Utilities;
 
 namespace ExchangeApp.App.ViewModels.Donation;
 
 public partial class DonationCreateViewModel : ViewModelBase
 {
-    private readonly ILogger<DonationCreateViewModel> _logger;
     private readonly IDonationFacade _donationFacade;
     private readonly ICurrencyFacade _currencyFacade;
 
     public DonationCreateViewModel(
-        ILogger<DonationCreateViewModel> logger, 
         IDonationFacade donationFacade, 
         ICurrencyFacade currencyFacade)
     {
-        _logger = logger;
         _donationFacade = donationFacade;
         _currencyFacade = currencyFacade;
     }
@@ -93,10 +90,11 @@ public partial class DonationCreateViewModel : ViewModelBase
             return;
         }
 
+        var courseRate = Utilities.Utilities.StrToFloat(CourseRate) ?? -1;
         var donation = new DonationDetailModel
         {
             Time = DateTime.Now,
-            CourseRate = StrToFloat(CourseRate),
+            CourseRate = courseRate,
             Quantity = Quantity,
             Type = DonationType ?? Common.Enums.DonationType.Deposit,
             Note = Note,
@@ -106,7 +104,7 @@ public partial class DonationCreateViewModel : ViewModelBase
         //var id = await _donationFacade.InsertAsync(donation);
         //await _currencyFacade.UpdateQuantityAsync(SelectedCurrency.Code, NewQuantity);
 
-        var id = 9999;
+        const int id = 9999;
         donation.Id = id;
         await Shell.Current.GoToAsync($"../{nameof(DonationDetailPage)}", true, new Dictionary<string, object>
         {
@@ -135,30 +133,10 @@ public partial class DonationCreateViewModel : ViewModelBase
         if (Quantity <= 0 || (DonationType != Common.Enums.DonationType.Deposit && SelectedCurrency?.Quantity < Quantity))
             errorMessage += resourceManager.GetString("ErrorMessage_QuantityNotValid") + "\n";
 
-        var courseRateRes = StrToFloat(CourseRate);
-        if (courseRateRes <= 0)
+        var courseRateRes = Utilities.Utilities.StrToFloat(CourseRate);
+        if (courseRateRes is null || courseRateRes <= 0)
             errorMessage += resourceManager.GetString("ErrorMessage_CourseRateNotValid") + "\n";
         
         return errorMessage;
-    }
-
-    /// <summary>
-    /// Converts string to float for both 3.14 and 3,14 formats (dots, comma)
-    /// </summary>
-    /// <param name="str">Float as string</param>
-    /// <returns>Converted float number or 0 if string is not valid</returns>
-    private static float StrToFloat(string str)
-    {
-        if (float.TryParse(str, CultureInfo.CurrentCulture, out var result))
-        {
-            return result;
-        }
-
-        if (float.TryParse(str, CultureInfo.InvariantCulture, out result))
-        {
-            return result;
-        }
-
-        return 0;
     }
 }

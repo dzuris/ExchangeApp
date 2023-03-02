@@ -35,6 +35,7 @@ public class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
 
     public virtual async Task UpdateAsync(TEntity entity)
     {
+        _dbSet.Attach(entity);
         _dbSet.Update(entity);
         await AppDbContext.SaveChangesAsync();
     }

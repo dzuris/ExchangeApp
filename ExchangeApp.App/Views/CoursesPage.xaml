@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Courses"
+             xmlns:currency="clr-namespace:ExchangeApp.BL.Models.Currency;assembly=ExchangeApp.BL"
              x:Class="ExchangeApp.App.Views.CoursesPage"
-             Title="CoursesPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-</ContentPage>
+             Title="{x:Static texts:CoursesPageResources.PageTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:CoursesPageViewModel">
+    <Grid
+        RowDefinitions="*, Auto" RowSpacing="20">
+
+        <CollectionView
+            SelectionMode="None"
+            ItemsSource="{Binding Currencies}">
+            <CollectionView.Header>
+                <Frame BackgroundColor="{StaticResource Primary}">
+                    <Grid ColumnDefinitions="*, *, *, *, *, *">
+                        <Label Grid.Column="0" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelFlag}" TextColor="White"/>
+                        <Label Grid.Column="1" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelState}" TextColor="White"/>
+                        <Label Grid.Column="2" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelCurrencyCode}" TextColor="White"/>
+                        <Label Grid.Column="3" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelBuyCourse}" TextColor="White" HorizontalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelSellCourse}" TextColor="White" HorizontalOptions="Center"/>
+                        <Label Grid.Column="5" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelAverageCourse}" TextColor="White" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="currency:CurrencyCoursesListModel">
+                    <Grid Padding="10">
+                        <Frame BorderColor="{StaticResource Gray400}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CoursesPageViewModel}}, Path=GoToDetailsCommand}"
+                                                      CommandParameter="{Binding Code}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid
+                                ColumnDefinitions="*, *, *, *, *, *">
+                                <Image HorizontalOptions="Start" Source="{Binding PhotoUrl}" WidthRequest="40"/>
+                                <Label Grid.Column="1" Text="{Binding Code, Converter={StaticResource CurrencyCodeToStateConverter}}" LineBreakMode="CharacterWrap"/>
+                                <Label Grid.Column="2" Text="{Binding Code}"/>
+                                <Label Grid.Column="3" Text="{Binding BuyRate, TargetNullValue='-'}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="4" Text="{Binding SellRate, TargetNullValue='-'}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="5" Text="{Binding AverageCourseRate}" HorizontalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ImageButton
+            Grid.Row="1"
+            HorizontalOptions="End"
+            Source="print.png"
+            Style="{StaticResource IconStyle}"/>
+    </Grid>
+</views:ContentPageBase>

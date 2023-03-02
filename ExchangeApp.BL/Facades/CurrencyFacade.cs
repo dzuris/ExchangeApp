@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.Facades.Interfaces;
-using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Repositories.Interfaces;
@@ -48,9 +47,22 @@ public class CurrencyFacade : ICurrencyFacade
         return _mapper.Map<List<CurrencyNewTransactionModel>>(entities);
     }
 
+    public async Task<List<CurrencyCoursesListModel>> GetActiveCurrenciesForCoursesAsync()
+    {
+        var entities = await _repository.GetActiveCurrenciesAsync();
+        return _mapper.Map<List<CurrencyCoursesListModel>>(entities);
+    }
+
     public async Task UpdateQuantityAsync(string code, float newQuantity)
     {
         await _repository.UpdateQuantityAsync(code, newQuantity);
+        await _unitOfWork.CommitAsync();
+    }
+
+    public async Task UpdateAsync(CurrencyDetailModel model)
+    {
+        var entity = _mapper.Map<CurrencyEntity>(model);
+        await _repository.UpdateAsync(entity);
         await _unitOfWork.CommitAsync();
     }
 }

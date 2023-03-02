@@ -23,6 +23,13 @@
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
 
+    <!-- Total balance page needed -->
+
+    <ShellContent
+        Title="{x:Static texts:CoursesPageResources.PageTitle}"
+        ContentTemplate="{DataTemplate views:CoursesPage}"
+        Route="CoursesPage"/>
+
     <ShellContent
         Title="{x:Static texts:SettingsPageResources.PageTitle}"
         ContentTemplate="{DataTemplate views:SettingsPage}"

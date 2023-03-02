@@ -53,10 +53,18 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
+	  <None Remove="Resources\Images\Flags\czk.png" />
+	  <None Remove="Resources\Images\Flags\eur.png" />
+	  <None Remove="Resources\Images\Flags\gbp.png" />
+	  <None Remove="Resources\Images\Flags\jpn.png" />
+	  <None Remove="Resources\Images\Flags\pln.png" />
+	  <None Remove="Resources\Images\Flags\usd.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json" />
+	  <MauiImage Include="Resources\Images\Flags\czk.png" />
+	  <MauiImage Include="Resources\Images\Flags\gbp.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -74,7 +82,15 @@
 	  <Folder Include="Converters\" />
 	  <Folder Include="Resources\Images\Icons\" />
 	  <Folder Include="ViewModels\Donation\" />
+	  <Folder Include="ViewModels\Courses\" />
 	  <Folder Include="ViewModels\Settings\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\Flags\eur.png" />
+	  <MauiImage Include="Resources\Images\Flags\jpn.png" />
+	  <MauiImage Include="Resources\Images\Flags\pln.png" />
+	  <MauiImage Include="Resources\Images\Flags\usd.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -90,6 +106,21 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>AppResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CourseDetailPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CourseDetailPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CoursesPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CoursesPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CurrencyResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CurrencyResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\CustomerDetailPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -153,6 +184,18 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CourseDetailPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CourseDetailPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CoursesPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CoursesPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CurrencyResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CurrencyResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\CustomerDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>CustomerDetailPageResources.Designer.cs</LastGenOutput>
@@ -200,6 +243,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\ButtonStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ContentPageStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -212,7 +258,13 @@
 	  <MauiXaml Update="Resources\Styles\FrameStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\GridStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ImageButtonStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\ImageStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\LabelStyle.xaml">
@@ -230,7 +282,7 @@
 	  <MauiXaml Update="Views\CashRegisterStatusPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CourseChangePage.xaml">
+	  <MauiXaml Update="Views\CourseDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CoursesPage.xaml">
