@@ -33,18 +33,19 @@
                 <Label Grid.Row="5" Grid.Column="1" Text="{Binding Currency.AverageCourseRate}"/>
             </Grid>
         </StackLayout>
-        <HorizontalStackLayout
-            Grid.Column="1"
-            Spacing="70">
-            <VerticalStackLayout Spacing="20">
-                <Label Text="{x:Static texts:CourseDetailPageResources.BuyCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                <Entry Text="{Binding BuyRate}"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Spacing="20">
-                <Label Text="{x:Static texts:CourseDetailPageResources.SellCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                <Entry Text="{Binding SellRate}"/>
-            </VerticalStackLayout>
-        </HorizontalStackLayout>
+        <StackLayout Grid.Column="1" Spacing="15">
+            <HorizontalStackLayout Spacing="70" HorizontalOptions="Center">
+                <VerticalStackLayout Spacing="20">
+                    <Label Text="{x:Static texts:CourseDetailPageResources.BuyCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                    <Entry Text="{Binding BuyRate}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="20">
+                    <Label Text="{x:Static texts:CourseDetailPageResources.SellCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                    <Entry Text="{Binding SellRate}"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <Label TextColor="Red" HorizontalOptions="Center" IsVisible="{Binding IsErrorMessageVisible}" Text="{x:Static texts:CourseDetailPageResources.CoursesErrorMessage}"/>
+        </StackLayout>
         <ImageButton
             Grid.Row="1"
             Grid.Column="1"

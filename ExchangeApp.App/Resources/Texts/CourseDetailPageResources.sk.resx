@@ -138,4 +138,7 @@
   <data name="StateLabel" xml:space="preserve">
     <value>Štát:</value>
   </data>
+  <data name="CoursesErrorMessage" xml:space="preserve">
+    <value>Nákupný kurz musí byť vyšší alebo rovný ako predajný kurz</value>
+  </data>
 </root>

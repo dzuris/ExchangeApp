@@ -120,4 +120,13 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Menové kurzy</value>
   </data>
+  <data name="AddCurrencyLabel" xml:space="preserve">
+    <value>Pridať menu:</value>
+  </data>
+  <data name="ActiveCurrenciesListHeader" xml:space="preserve">
+    <value>Aktívne meny</value>
+  </data>
+  <data name="NonActiveCurrenciesListHeader" xml:space="preserve">
+    <value>Nektívne meny</value>
+  </data>
 </root>

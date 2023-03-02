@@ -1,7 +1,11 @@
-﻿namespace ExchangeApp.BL.Models.Currency;
+﻿using ExchangeApp.Common.Enums;
+
+namespace ExchangeApp.BL.Models.Currency;
 
 public record CurrencyListModel : ModelBase
 {
     public required string Code { get; set; }
-    public float Quantity { get; set; }
+    public decimal Quantity { get; set; }
+    public required string PhotoUrl { get; set; }
+    public required CurrencyState Status { get; set; }
 }

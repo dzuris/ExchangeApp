@@ -95,7 +95,6 @@
 	  <Folder Include="Resources\Images\Icons\" />
 	  <Folder Include="ViewModels\Donation\" />
 	  <Folder Include="ViewModels\Courses\" />
-	  <Folder Include="ViewModels\Settings\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -124,10 +123,15 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>CourseDetailPageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\CoursesManagerPageResources.Designer.cs">
+	  <Compile Update="Resources\Texts\EnumTransactionTypeResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>CoursesManagerPageResources.resx</DependentUpon>
+	    <DependentUpon>EnumTransactionTypeResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsCoursesManagerPageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\CoursesPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -154,10 +158,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>DonationDetailPageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\DonationEnumResources.Designer.cs">
+	  <Compile Update="Resources\Texts\EnumDonationTypeResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>DonationEnumResources.resx</DependentUpon>
+	    <DependentUpon>EnumDonationTypeResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\DonationPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -208,9 +212,13 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>CourseDetailPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\CoursesManagerPageResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\EnumTransactionTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>CoursesManagerPageResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>EnumTransactionTypeResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsCoursesManagerPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\CoursesPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -232,9 +240,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>DonationDetailPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\DonationEnumResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\EnumDonationTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>DonationEnumResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>EnumDonationTypeResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\DonationPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

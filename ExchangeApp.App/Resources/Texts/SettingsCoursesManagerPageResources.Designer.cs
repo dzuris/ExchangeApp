@@ -22,14 +22,14 @@ namespace ExchangeApp.App.Resources.Texts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CourseDetailPageResources {
+    public class SettingsCoursesManagerPageResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CourseDetailPageResources() {
+        internal SettingsCoursesManagerPageResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ExchangeApp.App.Resources.Texts {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.CourseDetailPageResources", typeof(CourseDetailPageResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.SettingsCoursesManagerPageResources", typeof(SettingsCoursesManagerPageResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,38 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Average course rate:.
+        ///   Looks up a localized string similar to Active currencies.
         /// </summary>
-        public static string AverageCourseRateLabel {
+        public static string ActiveCurrenciesListHeader {
             get {
-                return ResourceManager.GetString("AverageCourseRateLabel", resourceCulture);
+                return ResourceManager.GetString("ActiveCurrenciesListHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buy course rate:.
+        ///   Looks up a localized string similar to Add currency:.
         /// </summary>
-        public static string BuyCourseRateLabel {
+        public static string AddCurrencyLabel {
             get {
-                return ResourceManager.GetString("BuyCourseRateLabel", resourceCulture);
+                return ResourceManager.GetString("AddCurrencyLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buy course rate must be higher or equal than sell course rate.
+        ///   Looks up a localized string similar to Non active currencies.
         /// </summary>
-        public static string CoursesErrorMessage {
+        public static string NonActiveCurrenciesListHeader {
             get {
-                return ResourceManager.GetString("CoursesErrorMessage", resourceCulture);
+                return ResourceManager.GetString("NonActiveCurrenciesListHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency code:.
-        /// </summary>
-        public static string CurrencyCodeLabel {
-            get {
-                return ResourceManager.GetString("CurrencyCodeLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In cash register:.
-        /// </summary>
-        public static string InCashRegisterLabel {
-            get {
-                return ResourceManager.GetString("InCashRegisterLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Course rate change.
+        ///   Looks up a localized string similar to Courses manager.
         /// </summary>
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sell course rate:.
-        /// </summary>
-        public static string SellCourseRateLabel {
-            get {
-                return ResourceManager.GetString("SellCourseRateLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to State:.
-        /// </summary>
-        public static string StateLabel {
-            get {
-                return ResourceManager.GetString("StateLabel", resourceCulture);
             }
         }
     }

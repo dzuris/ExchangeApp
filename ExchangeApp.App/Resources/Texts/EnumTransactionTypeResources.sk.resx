@@ -117,43 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EUR" xml:space="preserve">
-    <value>Európska menová únia</value>
+  <data name="Buy" xml:space="preserve">
+    <value>Nákup</value>
   </data>
-  <data name="CZK" xml:space="preserve">
-    <value>Česko</value>
-  </data>
-  <data name="JPY" xml:space="preserve">
-    <value>Japonsko</value>
-  </data>
-  <data name="PLN" xml:space="preserve">
-    <value>Poľsko</value>
-  </data>
-  <data name="USD" xml:space="preserve">
-    <value>Spojené štáty americké</value>
-  </data>
-  <data name="TEST" xml:space="preserve">
-    <value>Veľmi dlhý text na testovanie pretečenia textu pri labeloch. bla bla bla bla bla bla bla bla bla</value>
-  </data>
-  <data name="GBP" xml:space="preserve">
-    <value>Spojené kráľovstvo</value>
-  </data>
-  <data name="CHF" xml:space="preserve">
-    <value>Švajčiarsko</value>
-  </data>
-  <data name="HUF" xml:space="preserve">
-    <value>Maďarsko</value>
-  </data>
-  <data name="CAD" xml:space="preserve">
-    <value>Kanada</value>
-  </data>
-  <data name="NOK" xml:space="preserve">
-    <value>Nórsko</value>
-  </data>
-  <data name="BGN" xml:space="preserve">
-    <value>Bulharsko</value>
-  </data>
-  <data name="RUB" xml:space="preserve">
-    <value>Rusko</value>
+  <data name="Sell" xml:space="preserve">
+    <value>Predaj</value>
   </data>
 </root>

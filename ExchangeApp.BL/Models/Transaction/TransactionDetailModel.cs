@@ -9,12 +9,12 @@ public record TransactionDetailModel : ModelBase
 {
     public int Id { get; set; }
     public required DateTime Time { get; set; }
-    public required float CourseRate { get; set; }
-    public required float Quantity { get; set; }
+    public required decimal CourseRate { get; set; }
+    public required decimal Quantity { get; set; }
     public required TransactionType TransactionType { get; set; }
-    public float Amount => GetAmount(TransactionType, Quantity, CourseRate);
-    public float Rounding => GetRounding(Amount);
-    public float TotalAmount => Amount + Rounding;
+    public decimal Amount => GetAmount(TransactionType, Quantity, CourseRate);
+    public decimal Rounding => GetRounding(Amount);
+    public decimal TotalAmount => Amount + Rounding;
 
     public required string CurrencyCode { get; set; }
     public CurrencyListModel? Currency { get; set; }
@@ -42,16 +42,16 @@ public record TransactionDetailModel : ModelBase
     /// </summary>
     /// <param name="amount">Not rounded amount</param>
     /// <returns>Round from amount to 0.05</returns>
-    private static float GetRounding(float amount)
+    private static decimal GetRounding(decimal amount)
     {
         if (amount <= 0)
             return 0;
 
-        if (amount < 0.03)
-            return 0.05F - amount;
+        if (amount < 0.03M)
+            return 0.05M - amount;
 
         // Rounds number to 0.05
-        var roundedAmount = (float)Math.Round(amount * 20F) / 20F;
+        var roundedAmount = Math.Round(amount * 20) / 20;
 
         return amount - roundedAmount;
     }
@@ -63,9 +63,9 @@ public record TransactionDetailModel : ModelBase
     /// <param name="quantity">How much money is user changing</param>
     /// <param name="courseRate">Course rate of the transaction</param>
     /// <returns>Rounded amount of the transaction to 2 decimal points</returns>
-    private static float GetAmount(TransactionType type, float quantity, float courseRate)
+    private static decimal GetAmount(TransactionType type, decimal quantity, decimal courseRate)
     {
-        float result;
+        decimal result;
 
         if (type == TransactionType.Buy)
         {
@@ -77,6 +77,6 @@ public record TransactionDetailModel : ModelBase
         }
 
         // Rounds number to 2 decimal points
-        return (float)Math.Round(result * 100F) / 100F;
+        return Math.Round(result * 100) / 100;
     }
 }

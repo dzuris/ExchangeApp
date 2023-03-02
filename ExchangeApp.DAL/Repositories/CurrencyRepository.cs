@@ -42,7 +42,7 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
             .ToListAsync();
     }
 
-    public async Task UpdateQuantityAsync(string code, float newQuantity)
+    public async Task UpdateQuantityAsync(string code, decimal newQuantity)
     {
         var entity = await GetByIdAsync(code);
 
@@ -52,6 +52,19 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
         }
 
         entity.Quantity = newQuantity;
+        AppDbContext
+            .Set<CurrencyEntity>()
+            .Update(entity);
+        await AppDbContext.SaveChangesAsync();
+    }
+
+    public async Task UpdateStatus(string code, CurrencyState status)
+    {
+        var entity = await GetByIdAsync(code);
+
+        if (entity == null) return;
+
+        entity.Status = status;
         AppDbContext
             .Set<CurrencyEntity>()
             .Update(entity);

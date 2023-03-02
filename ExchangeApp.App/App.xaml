@@ -23,6 +23,7 @@
 
             <converters:DonationTypeToStringConverter x:Key="DonationTypeToStringConverter"/>
             <converters:CurrencyCodeToStateConverter x:Key="CurrencyCodeToStateConverter"/>
+            <converters:TransactionTypeToStringConverter x:Key="TransactionTypeToStringConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

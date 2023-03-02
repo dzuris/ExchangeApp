@@ -10,11 +10,19 @@ public partial class TransactionPage
 		InitializeComponent();
     }
 
-    protected override void OnAppearing()
+    private void CurrencyFromChangedPicker_OnSelectedIndexChanged(object? sender, EventArgs e)
     {
-        base.OnAppearing();
+        if (BindingContext is TransactionCreateViewModel viewModel)
+        {
+            viewModel.OnCurrencyFromChanged();
+        }
+    }
 
-        Currency1.SelectedIndex = 0;
-        Currency2.SelectedIndex = 0;
+    private void CurrencyToChangedPicker_OnSelectedIndexChanged(object? sender, EventArgs e)
+    {
+        if (BindingContext is TransactionCreateViewModel viewModel)
+        {
+            viewModel.OnCurrencyToChanged();
+        }
     }
 }

@@ -5,18 +5,18 @@ using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.App.Converters;
 
-public class DonationTypeToStringConverter : IValueConverter
+public class TransactionTypeToStringConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is not DonationType)
+        if (value is not TransactionType)
         {
             return value;
         }
 
-        var rm = new ResourceManager(typeof(EnumDonationTypeResources));
+        var rm = new ResourceManager(typeof(EnumTransactionTypeResources));
 
-        var res = rm.GetString("DonationType_" + value) ?? "Error in converting donation type to the text resources";
+        var res = rm.GetString(value.ToString() ?? string.Empty) ?? "Error in converting transaction type to the text resources";
 
         return res;
     }

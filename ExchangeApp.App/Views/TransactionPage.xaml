@@ -20,11 +20,12 @@
                     Style="{StaticResource InputLabelStyle}"
                     Text="{x:Static texts:TransactionPageResources.CurrencyFromLabel}"/>
                 <Picker
-                    x:Name="Currency1"
-                    WidthRequest="150"
+                    WidthRequest="200"
                     HorizontalOptions="Start"
                     ItemsSource="{Binding Currencies}"
-                    ItemDisplayBinding="{Binding Code}">
+                    ItemDisplayBinding="{Binding Code}"
+                    SelectedItem="{Binding CurrencyFrom}"
+                    SelectedIndexChanged="CurrencyFromChangedPicker_OnSelectedIndexChanged">
                 </Picker>
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="15" Grid.Column="1">
@@ -32,11 +33,12 @@
                     Style="{StaticResource InputLabelStyle}"
                     Text="{x:Static texts:TransactionPageResources.CurrencyToLabel}"/>
                 <Picker
-                    x:Name="Currency2"
-                    WidthRequest="150"
+                    WidthRequest="200"
                     HorizontalOptions="Start"
                     ItemsSource="{Binding Currencies}"
-                    ItemDisplayBinding="{Binding Code}">
+                    ItemDisplayBinding="{Binding Code}"
+                    SelectedItem="{Binding CurrencyTo}"
+                    SelectedIndexChanged="CurrencyToChangedPicker_OnSelectedIndexChanged">
                 </Picker>
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="15" Grid.Row="1">
@@ -44,21 +46,24 @@
                     Style="{StaticResource InputLabelStyle}"
                     Text="{x:Static texts:TransactionPageResources.AmountFromLabel}"/>
                 <Entry
-                    Keyboard="Numeric"/>
+                    Keyboard="Numeric"
+                    Text="{Binding QuantityFrom}"/>
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="15" Grid.Row="1" Grid.Column="1">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
                     Text="{x:Static texts:TransactionPageResources.AmountToLabel}"/>
                 <Entry
-                    Keyboard="Numeric"/>
+                    Keyboard="Numeric"
+                    Text="{Binding QuantityTo}"/>
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="15" Grid.Row="2">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
                     Text="{x:Static texts:TransactionPageResources.CourseRateLabel}"/>
                 <Entry
-                    Keyboard="Numeric"/>
+                    Keyboard="Numeric"
+                    Text="{Binding CourseRate}"/>
             </VerticalStackLayout>
         </Grid>
         <Grid 
@@ -74,16 +79,16 @@
                 Text="{x:Static texts:TransactionPageResources.TransactionTypeLabel}"/>
             <Label
                 Grid.Column="1"
-                Text="Sell"/>
+                Text="{Binding TransactionTypeProp, Converter={StaticResource TransactionTypeToStringConverter}, TargetNullValue=''}"/>
             <Label
                 x:Name="CurrencyLabel"
                 Grid.Row="1"
                 HorizontalOptions="End"
-                Text="{x:Static texts:TransactionPageResources.CurrencyInCashRegisterAmountLabel}"/>
+                Text="{Binding CurrencyTo.Code, StringFormat={x:Static texts:TransactionPageResources.CurrencyInCashRegisterAmountLabel}}"/>
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="27 514"/>
+                Text="{Binding CurrencyTo.Quantity}"/>
             <Label
                 Grid.Row="2"
                 HorizontalOptions="End"
@@ -95,10 +100,10 @@
                 Spacing="5">
                 <Label
                     FontAttributes="Bold"
-                    Text="2560"/>
+                    Text="{Binding QuantityFrom}"/>
                 <Label
                     FontAttributes="Bold"
-                    Text="CZK"/>
+                    Text="{Binding CurrencyFrom.Code}"/>
             </HorizontalStackLayout>
             <Label
                 Grid.Row="3"
@@ -112,10 +117,12 @@
                 <Entry
                     FontSize="16"
                     WidthRequest="100"
-                    HeightRequest="10"/>
+                    HeightRequest="10"
+                    Placeholder="{Binding QuantityFrom}"
+                    VerticalTextAlignment="Center"/>
                 <Label
                     VerticalOptions="Center"
-                    Text="CZK"/>
+                    Text="{Binding CurrencyFrom.Code}"/>
             </HorizontalStackLayout>
             <Label
                 Grid.Row="4"
@@ -126,9 +133,9 @@
                 Grid.Column="1"
                 Spacing="5">
                 <Label
-                    Text="40"/>
+                    Text="{Binding Tip}"/>
                 <Label
-                    Text="CZK"/>
+                    Text="{Binding CurrencyFrom.Code}"/>
             </HorizontalStackLayout>
             <Line
                 Grid.Row="5"
@@ -147,10 +154,10 @@
                 Spacing="5">
                 <Label
                     FontAttributes="Bold"
-                    Text="101.7"/>
+                    Text="{Binding ForPayment}"/>
                 <Label
                     FontAttributes="Bold"
-                    Text="EUR"/>
+                    Text="{Binding CurrencyTo.Code}"/>
             </HorizontalStackLayout>
         </Grid>
 

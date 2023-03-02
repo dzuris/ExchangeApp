@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
+using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using ExchangeApp.DAL.UnitOfWork;
+using System.Collections.ObjectModel;
 
 namespace ExchangeApp.BL.Facades;
 
@@ -29,16 +31,16 @@ public class CurrencyFacade : ICurrencyFacade
         return entity is null ? null : _mapper.Map<CurrencyDetailModel>(entity);
     }
 
-    public async Task<List<CurrencyListModel>> GetNonActiveCurrenciesAsync()
+    public async Task<ObservableCollection<CurrencyListModel>> GetNonActiveCurrenciesAsync()
     {
         var entities = await _repository.GetNonActiveCurrenciesAsync();
-        return _mapper.Map<List<CurrencyListModel>>(entities);
+        return _mapper.Map<ObservableCollection<CurrencyListModel>>(entities);
     }
 
-    public async Task<List<CurrencyListModel>> GetActiveCurrenciesAsync()
+    public async Task<ObservableCollection<CurrencyListModel>> GetActiveCurrenciesAsync()
     {
         var entities = await _repository.GetActiveCurrenciesAsync();
-        return _mapper.Map<List<CurrencyListModel>>(entities);
+        return _mapper.Map<ObservableCollection<CurrencyListModel>>(entities);
     }
 
     public async Task<List<CurrencyNewTransactionModel>> GetActiveCurrenciesForTransactionAsync()
@@ -53,9 +55,15 @@ public class CurrencyFacade : ICurrencyFacade
         return _mapper.Map<List<CurrencyCoursesListModel>>(entities);
     }
 
-    public async Task UpdateQuantityAsync(string code, float newQuantity)
+    public async Task UpdateQuantityAsync(string code, decimal newQuantity)
     {
         await _repository.UpdateQuantityAsync(code, newQuantity);
+        await _unitOfWork.CommitAsync();
+    }
+
+    public async Task UpdateStatus(string code, CurrencyState status)
+    {
+        await _repository.UpdateStatus(code, status);
         await _unitOfWork.CommitAsync();
     }
 

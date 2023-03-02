@@ -31,7 +31,7 @@ public partial class SettingsPage
         switch (index)
         {
             case 0:
-                await Shell.Current.GoToAsync("");
+                //await Shell.Current.GoToAsync("");
                 break;
             case 1:
                 await Shell.Current.GoToAsync($"{nameof(SettingsCoursesManagerPage)}");

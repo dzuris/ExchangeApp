@@ -20,6 +20,9 @@ public partial class CourseDetailViewModel : ViewModelBase
         await base.LoadDataAsync();
 
         Currency = await _currencyFacade.GetById(Code);
+
+        if (Currency is null) return;
+
         if (Currency.BuyRate is not null)
         {
             BuyRate = Currency.BuyRate.ToString();
@@ -43,21 +46,30 @@ public partial class CourseDetailViewModel : ViewModelBase
     [ObservableProperty] 
     private string _sellRate = string.Empty;
 
+    [ObservableProperty] 
+    private bool _isErrorMessageVisible;
+
     [RelayCommand]
     private async Task SaveAsync()
     {
         if (Currency is null)
             return;
 
-        var resBuyRate = Utilities.Utilities.StrToFloat(BuyRate);
+        var resBuyRate = Utilities.Utilities.StrToDecimal(BuyRate);
         if (resBuyRate is null)
         {
             return;
         }
 
-        var resSellRate = Utilities.Utilities.StrToFloat(SellRate);
+        var resSellRate = Utilities.Utilities.StrToDecimal(SellRate);
         if (resSellRate is null)
         {
+            return;
+        }
+
+        if (resSellRate > resBuyRate)
+        {
+            IsErrorMessageVisible = true;
             return;
         }
 

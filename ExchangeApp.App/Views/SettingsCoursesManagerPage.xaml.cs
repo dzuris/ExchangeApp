@@ -4,7 +4,7 @@ namespace ExchangeApp.App.Views;
 
 public partial class SettingsCoursesManagerPage
 {
-	public SettingsCoursesManagerPage(CoursesManagerViewModel viewModel)
+	public SettingsCoursesManagerPage(SettingsCoursesManagerViewModel viewModel)
 	    : base(viewModel)
 	{
 		InitializeComponent();

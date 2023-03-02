@@ -98,27 +98,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PageTitle" xml:space="preserve">
-    <value>Course rate change</value>
+    <value>Courses manager</value>
   </data>
-  <data name="StateLabel" xml:space="preserve">
-    <value>State:</value>
+  <data name="AddCurrencyLabel" xml:space="preserve">
+    <value>Add currency:</value>
   </data>
-  <data name="CurrencyCodeLabel" xml:space="preserve">
-    <value>Currency code:</value>
+  <data name="ActiveCurrenciesListHeader" xml:space="preserve">
+    <value>Active currencies</value>
   </data>
-  <data name="InCashRegisterLabel" xml:space="preserve">
-    <value>In cash register:</value>
-  </data>
-  <data name="AverageCourseRateLabel" xml:space="preserve">
-    <value>Average course rate:</value>
-  </data>
-  <data name="BuyCourseRateLabel" xml:space="preserve">
-    <value>Buy course rate:</value>
-  </data>
-  <data name="SellCourseRateLabel" xml:space="preserve">
-    <value>Sell course rate:</value>
-  </data>
-  <data name="CoursesErrorMessage" xml:space="preserve">
-    <value>Buy course rate must be higher or equal than sell course rate</value>
+  <data name="NonActiveCurrenciesListHeader" xml:space="preserve">
+    <value>Non active currencies</value>
   </data>
 </root>

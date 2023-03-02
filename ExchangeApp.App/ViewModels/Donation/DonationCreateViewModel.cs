@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Globalization;
-using System.Resources;
+﻿using System.Resources;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
@@ -9,7 +7,6 @@ using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Donation;
 using ExchangeApp.Common.Enums;
-using ExchangeApp.App.Utilities;
 
 namespace ExchangeApp.App.ViewModels.Donation;
 
@@ -55,9 +52,9 @@ public partial class DonationCreateViewModel : ViewModelBase
 
     [ObservableProperty] 
     [NotifyPropertyChangedFor(nameof(NewQuantity))]
-    private float _quantity;
+    private decimal _quantity;
 
-    public float NewQuantity
+    public decimal NewQuantity
     {
         get
         {
@@ -90,7 +87,7 @@ public partial class DonationCreateViewModel : ViewModelBase
             return;
         }
 
-        var courseRate = Utilities.Utilities.StrToFloat(CourseRate) ?? -1;
+        var courseRate = Utilities.Utilities.StrToDecimal(CourseRate) ?? -1;
         var donation = new DonationDetailModel
         {
             Time = DateTime.Now,
@@ -126,14 +123,11 @@ public partial class DonationCreateViewModel : ViewModelBase
 
         if (SelectedCurrency is null)
             errorMessage += resourceManager.GetString("ErrorMessage_SelectedCurrencyEmpty") + "\n";
-
-        //if (string.IsNullOrEmpty(Note))
-        //    errorMessage += resourceManager.GetString("ErrorMessage_NoteEmpty") + "\n";
-
+        
         if (Quantity <= 0 || (DonationType != Common.Enums.DonationType.Deposit && SelectedCurrency?.Quantity < Quantity))
             errorMessage += resourceManager.GetString("ErrorMessage_QuantityNotValid") + "\n";
 
-        var courseRateRes = Utilities.Utilities.StrToFloat(CourseRate);
+        var courseRateRes = Utilities.Utilities.StrToDecimal(CourseRate);
         if (courseRateRes is null || courseRateRes <= 0)
             errorMessage += resourceManager.GetString("ErrorMessage_CourseRateNotValid") + "\n";
         
