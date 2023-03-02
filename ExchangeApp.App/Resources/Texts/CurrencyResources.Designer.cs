@@ -61,6 +61,33 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bulgaria.
+        /// </summary>
+        public static string BGN {
+            get {
+                return ResourceManager.GetString("BGN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canada.
+        /// </summary>
+        public static string CAD {
+            get {
+                return ResourceManager.GetString("CAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switzerland.
+        /// </summary>
+        public static string CHF {
+            get {
+                return ResourceManager.GetString("CHF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Czech.
         /// </summary>
         public static string CZK {
@@ -88,6 +115,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hungary.
+        /// </summary>
+        public static string HUF {
+            get {
+                return ResourceManager.GetString("HUF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Japan.
         /// </summary>
         public static string JPY {
@@ -97,11 +133,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Norway.
+        /// </summary>
+        public static string NOK {
+            get {
+                return ResourceManager.GetString("NOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Poland.
         /// </summary>
         public static string PLN {
             get {
                 return ResourceManager.GetString("PLN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Russia.
+        /// </summary>
+        public static string RUB {
+            get {
+                return ResourceManager.GetString("RUB", resourceCulture);
             }
         }
         

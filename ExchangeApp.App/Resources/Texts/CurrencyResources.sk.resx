@@ -138,4 +138,22 @@
   <data name="GBP" xml:space="preserve">
     <value>Veľká Británia</value>
   </data>
+  <data name="CHF" xml:space="preserve">
+    <value>Švajčiarsko</value>
+  </data>
+  <data name="HUF" xml:space="preserve">
+    <value>Maďarsko</value>
+  </data>
+  <data name="CAD" xml:space="preserve">
+    <value>Kanada</value>
+  </data>
+  <data name="NOK" xml:space="preserve">
+    <value>Nórsko</value>
+  </data>
+  <data name="BGN" xml:space="preserve">
+    <value>Bulharsko</value>
+  </data>
+  <data name="RUB" xml:space="preserve">
+    <value>Rusko</value>
+  </data>
 </root>

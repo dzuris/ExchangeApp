@@ -98,30 +98,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PageTitle" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="OperationsAutomaticSaveListItem" xml:space="preserve">
-    <value>Automatic operations saving</value>
-  </data>
-  <data name="CourseRatesListItem" xml:space="preserve">
-    <value>Course rates</value>
-  </data>
-  <data name="CourseRatesSalesListItem" xml:space="preserve">
-    <value>Course rates sales</value>
-  </data>
-  <data name="TotalBalanceListItem" xml:space="preserve">
-    <value>Total balances settings</value>
-  </data>
-  <data name="EmployeeListItem" xml:space="preserve">
-    <value>Employee settings</value>
-  </data>
-  <data name="CompanyInfoListItem" xml:space="preserve">
-    <value>Setting company info</value>
-  </data>
-  <data name="BranchInfoListItem" xml:space="preserve">
-    <value>Setting branch info</value>
-  </data>
-  <data name="LicenseInfoListItem" xml:space="preserve">
-    <value>License</value>
+    <value>Courses manager</value>
   </data>
 </root>

@@ -1,3 +1,4 @@
+using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.ViewModels.Settings;
 
 namespace ExchangeApp.App.Views;
@@ -9,4 +10,32 @@ public partial class SettingsPage
 	{
 		InitializeComponent();
 	}
+
+    private readonly string[] _options =
+    {
+        SettingsPageResources.OperationsAutomaticSaveListItem,
+        SettingsPageResources.CourseRatesListItem,
+        SettingsPageResources.TotalBalanceListItem,
+        SettingsPageResources.EmployeeListItem,
+        SettingsPageResources.BranchInfoListItem,
+        SettingsPageResources.CompanyInfoListItem,
+        SettingsPageResources.LicenseInfoListItem
+    };
+
+    private async void TapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
+    {
+        if ((sender as Frame)?.BindingContext is not string selectedOption) return;
+
+        var index = Array.IndexOf(_options, selectedOption);
+
+        switch (index)
+        {
+            case 0:
+                await Shell.Current.GoToAsync("");
+                break;
+            case 1:
+                await Shell.Current.GoToAsync($"{nameof(SettingsCoursesManagerPage)}");
+                break;
+        }
+    }
 }

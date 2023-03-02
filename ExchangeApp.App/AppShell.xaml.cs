@@ -21,5 +21,7 @@ public partial class AppShell
 		Routing.RegisterRoute(nameof(OperationsListPage), typeof(OperationsListPage));
 
 		Routing.RegisterRoute(nameof(CourseDetailPage), typeof(CourseDetailPage));
+
+		Routing.RegisterRoute(nameof(SettingsCoursesManagerPage), typeof(SettingsCoursesManagerPage));
 	}
 }

@@ -43,6 +43,42 @@ public static class CurrencySeeds
         PhotoUrl = "gbp.png"
     };
 
+    public static readonly CurrencyEntity Chf = new()
+    {
+        Code = "CHF".ToUpper(),
+        PhotoUrl = "chf.png"
+    };
+
+    public static readonly CurrencyEntity Huf = new()
+    {
+        Code = "HUF".ToUpper(),
+        PhotoUrl = "huf.png"
+    };
+
+    public static readonly CurrencyEntity Cad = new()
+    {
+        Code = "CAD".ToUpper(),
+        PhotoUrl = "cad.png"
+    };
+
+    public static readonly CurrencyEntity Nok = new()
+    {
+        Code = "NOK".ToUpper(),
+        PhotoUrl = "nok.png"
+    };
+
+    public static readonly CurrencyEntity Bgn = new()
+    {
+        Code = "BGN".ToUpper(),
+        PhotoUrl = "bgn.png"
+    };
+
+    public static readonly CurrencyEntity Rub = new()
+    {
+        Code = "RUB".ToUpper(),
+        PhotoUrl = "rub.png"
+    };
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CurrencyEntity>().HasData(
@@ -51,7 +87,13 @@ public static class CurrencySeeds
             Usd,
             Pln,
             Jpy,
-            Gbp
+            Gbp,
+            Chf,
+            Huf,
+            Cad,
+            Nok,
+            Bgn,
+            Rub
         );
     }
 }

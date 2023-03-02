@@ -53,18 +53,30 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
+	  <None Remove="Resources\Images\Flags\bgn.png" />
+	  <None Remove="Resources\Images\Flags\cad.png" />
+	  <None Remove="Resources\Images\Flags\chf.png" />
 	  <None Remove="Resources\Images\Flags\czk.png" />
 	  <None Remove="Resources\Images\Flags\eur.png" />
 	  <None Remove="Resources\Images\Flags\gbp.png" />
+	  <None Remove="Resources\Images\Flags\huf.png" />
 	  <None Remove="Resources\Images\Flags\jpn.png" />
+	  <None Remove="Resources\Images\Flags\nok.png" />
 	  <None Remove="Resources\Images\Flags\pln.png" />
+	  <None Remove="Resources\Images\Flags\rub.png" />
 	  <None Remove="Resources\Images\Flags\usd.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json" />
+	  <MauiImage Include="Resources\Images\Flags\bgn.png" />
+	  <MauiImage Include="Resources\Images\Flags\cad.png" />
+	  <MauiImage Include="Resources\Images\Flags\chf.png" />
 	  <MauiImage Include="Resources\Images\Flags\czk.png" />
 	  <MauiImage Include="Resources\Images\Flags\gbp.png" />
+	  <MauiImage Include="Resources\Images\Flags\huf.png" />
+	  <MauiImage Include="Resources\Images\Flags\nok.png" />
+	  <MauiImage Include="Resources\Images\Flags\rub.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -111,6 +123,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>CourseDetailPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CoursesManagerPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CoursesManagerPageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\CoursesPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -177,6 +194,9 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>TransactionTypeResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\SettingsCoursesManagerPage.xaml.cs">
+	    <DependentUpon>SettingsCoursesManagerPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -187,6 +207,10 @@
 	  <EmbeddedResource Update="Resources\Texts\CourseDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>CourseDetailPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CoursesManagerPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CoursesManagerPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\CoursesPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -283,6 +307,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CourseDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingsCoursesManagerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CoursesPage.xaml">

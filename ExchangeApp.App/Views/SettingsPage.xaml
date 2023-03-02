@@ -8,10 +8,31 @@
              Title="{x:Static texts:SettingsPageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:SettingsPageViewModel">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <CollectionView>
+        <CollectionView.ItemsSource>
+            <x:Array Type="{x:Type x:String}">
+                <x:Static Member="texts:SettingsPageResources.OperationsAutomaticSaveListItem"/>
+                <x:Static Member="texts:SettingsPageResources.CourseRatesListItem"/>
+                <x:Static Member="texts:SettingsPageResources.TotalBalanceListItem"/>
+                <x:Static Member="texts:SettingsPageResources.EmployeeListItem"/>
+                <x:Static Member="texts:SettingsPageResources.BranchInfoListItem"/>
+                <x:Static Member="texts:SettingsPageResources.CompanyInfoListItem"/>
+                <x:Static Member="texts:SettingsPageResources.LicenseInfoListItem"/>
+            </x:Array>
+        </CollectionView.ItemsSource>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="x:String">
+                <Grid Padding="10">
+                    <Frame>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
+                        </Frame.GestureRecognizers>
+                        <Grid>
+                            <Label Text="{Binding .}"/>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </views:ContentPageBase>
