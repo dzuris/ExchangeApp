@@ -1,6 +1,6 @@
 ﻿namespace ExchangeApp.BL.Models.Currency;
 
-public record CurrencyNewTransactionModel : ModelBase
+public record CurrencyTransactionListModel : ModelBase
 {
     public required string Code { get; set; }
     public required decimal Quantity { get; set; }

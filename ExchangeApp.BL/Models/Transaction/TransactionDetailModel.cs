@@ -17,7 +17,7 @@ public record TransactionDetailModel : ModelBase
     public decimal TotalAmount => Amount + Rounding;
 
     public required string CurrencyCode { get; set; }
-    public CurrencyListModel? Currency { get; set; }
+    public CurrencyTransactionListModel? Currency { get; set; }
 
     public required Guid EmployeeId { get; set; }
     public EmployeeListModel? Employee { get; set; }
@@ -44,16 +44,20 @@ public record TransactionDetailModel : ModelBase
     /// <returns>Round from amount to 0.05</returns>
     private static decimal GetRounding(decimal amount)
     {
-        if (amount <= 0)
-            return 0;
+        switch (amount)
+        {
+            case <= 0:
+                return 0;
+            case < 0.03M:
+                return 0.05M - amount;
+            default:
+            {
+                // Rounds number to 0.05
+                var roundedAmount = Math.Round(amount * 20) / 20;
 
-        if (amount < 0.03M)
-            return 0.05M - amount;
-
-        // Rounds number to 0.05
-        var roundedAmount = Math.Round(amount * 20) / 20;
-
-        return amount - roundedAmount;
+                return roundedAmount - amount;
+            }
+        }
     }
 
     /// <summary>
@@ -69,7 +73,8 @@ public record TransactionDetailModel : ModelBase
 
         if (type == TransactionType.Buy)
         {
-            result = quantity * courseRate;
+            if (courseRate == 0) return -1;
+            result = quantity / courseRate;
         }
         else
         {

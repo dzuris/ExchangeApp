@@ -107,10 +107,10 @@
     <value>Currency to:</value>
   </data>
   <data name="AmountFromLabel" xml:space="preserve">
-    <value>Amount from:</value>
+    <value>Quantity from:</value>
   </data>
   <data name="AmountToLabel" xml:space="preserve">
-    <value>Amount to:</value>
+    <value>Quantity to:</value>
   </data>
   <data name="CourseRateLabel" xml:space="preserve">
     <value>Course rate:</value>
@@ -132,5 +132,14 @@
   </data>
   <data name="TransactionTypeLabel" xml:space="preserve">
     <value>Transaction type:</value>
+  </data>
+  <data name="AmountLabel" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
+  <data name="RoundingLabel" xml:space="preserve">
+    <value>Rounding:</value>
+  </data>
+  <data name="OriginalCourseRateLabel" xml:space="preserve">
+    <value>Original course rate: {0}</value>
   </data>
 </root>

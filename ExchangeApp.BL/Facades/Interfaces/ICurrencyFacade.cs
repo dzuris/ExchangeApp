@@ -11,7 +11,7 @@ public interface ICurrencyFacade : IFacade
     Task<CurrencyDetailModel?> GetById(string id);
     Task<ObservableCollection<CurrencyListModel>> GetNonActiveCurrenciesAsync();
     Task<ObservableCollection<CurrencyListModel>> GetActiveCurrenciesAsync();
-    Task<List<CurrencyNewTransactionModel>> GetActiveCurrenciesForTransactionAsync();
+    Task<List<CurrencyTransactionListModel>> GetActiveCurrenciesForTransactionAsync();
     Task<List<CurrencyCoursesListModel>> GetActiveCurrenciesForCoursesAsync();
     Task UpdateAsync(CurrencyDetailModel model);
     Task UpdateQuantityAsync(string code, decimal newQuantity);

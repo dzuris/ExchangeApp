@@ -12,7 +12,7 @@ public class CurrencyMapperProfile : Profile
         CreateMap<CurrencyEntity, CurrencyEntity>();
 
         CreateMap<CurrencyEntity, CurrencyListModel>();
-        CreateMap<CurrencyEntity, CurrencyNewTransactionModel>();
+        CreateMap<CurrencyEntity, CurrencyTransactionListModel>();
         CreateMap<CurrencyEntity, CurrencyCoursesListModel>();
         CreateMap<CurrencyEntity, CurrencyDetailModel>()
             .ReverseMap();

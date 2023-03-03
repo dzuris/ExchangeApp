@@ -153,4 +153,13 @@
   <data name="TransactionTypeLabel" xml:space="preserve">
     <value>Typ transakcie:</value>
   </data>
+  <data name="AmountLabel" xml:space="preserve">
+    <value>Suma:</value>
+  </data>
+  <data name="RoundingLabel" xml:space="preserve">
+    <value>Zaokrúhlenie:</value>
+  </data>
+  <data name="OriginalCourseRateLabel" xml:space="preserve">
+    <value>Pôvodný kurz: {0}</value>
+  </data>
 </root>

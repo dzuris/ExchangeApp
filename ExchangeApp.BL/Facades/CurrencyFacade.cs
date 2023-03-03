@@ -43,10 +43,10 @@ public class CurrencyFacade : ICurrencyFacade
         return _mapper.Map<ObservableCollection<CurrencyListModel>>(entities);
     }
 
-    public async Task<List<CurrencyNewTransactionModel>> GetActiveCurrenciesForTransactionAsync()
+    public async Task<List<CurrencyTransactionListModel>> GetActiveCurrenciesForTransactionAsync()
     {
         var entities = await _repository.GetActiveCurrenciesAsync();
-        return _mapper.Map<List<CurrencyNewTransactionModel>>(entities);
+        return _mapper.Map<List<CurrencyTransactionListModel>>(entities);
     }
 
     public async Task<List<CurrencyCoursesListModel>> GetActiveCurrenciesForCoursesAsync()
