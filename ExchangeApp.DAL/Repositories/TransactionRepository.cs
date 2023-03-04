@@ -9,4 +9,14 @@ public class TransactionRepository : RepositoryBase<TransactionEntity, int>, ITr
     public TransactionRepository(DbContext appDbContext) : base(appDbContext)
     {
     }
+
+    public override async Task<int> InsertAsync(TransactionEntity entity)
+    {
+        await AppDbContext
+            .Set<TransactionEntity>()
+            .AddAsync(entity);
+        await AppDbContext.SaveChangesAsync();
+
+        return entity.Id;
+    }
 }

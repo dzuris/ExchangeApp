@@ -52,25 +52,6 @@ public partial class TransactionCreateViewModel : ViewModelBase
 
     [ObservableProperty]
     private CurrencyTransactionListModel? _currencyTo;
-    
-    // Property just rounds the value when transaction type is sell
-    private decimal _toPay;
-    public decimal ToPay
-    {
-        get => _toPay;
-        set
-        {
-            if (TransactionTypeProp is TransactionType.Sell)
-            {
-                var roundedValue = Math.Round(value * 20) / 20;
-                SetProperty(ref _toPay, roundedValue);
-            }
-            else
-            {
-                SetProperty(ref _toPay, value);
-            }
-        }
-    }
 
     private bool _quantityCalculatorBlocked;
     private string _quantityFrom = string.Empty;
@@ -84,14 +65,13 @@ public partial class TransactionCreateViewModel : ViewModelBase
             // If empty then resets the fields
             if (_quantityFrom.Length == 0)
             {
-                Transaction.Quantity = 0;
+                Transaction.QuantityForeignCurrency = 0;
                 OnPropertyChanged(nameof(Transaction));
                 return;
             }
 
             var quantityFromDecimal = Utilities.Utilities.StrToDecimal(value);
             if (quantityFromDecimal is null or <= 0) return;
-            ToPay = (decimal)quantityFromDecimal;
 
             var courseRateDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
 
@@ -109,7 +89,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             }
 
             // Sets transaction quantity according to transaction type
-            Transaction.Quantity = TransactionTypeProp == TransactionType.Buy 
+            Transaction.QuantityForeignCurrency = TransactionTypeProp == TransactionType.Buy 
                 ? (decimal)quantityFromDecimal 
                 : Utilities.Utilities.StrToDecimal(_quantityTo) ?? 1;
             
@@ -126,6 +106,9 @@ public partial class TransactionCreateViewModel : ViewModelBase
             {
                 _quantityCalculatorBlocked = false;
             }
+
+            OnPropertyChanged(nameof(ToPay));
+            OnPropertyChanged(nameof(ForPayment));
         }
     }
     
@@ -140,7 +123,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             // If empty then resets the fields
             if (_quantityTo.Length == 0)
             {
-                Transaction.Quantity = 0;
+                Transaction.QuantityForeignCurrency = 0;
                 OnPropertyChanged(nameof(Transaction));
                 return;
             }
@@ -164,7 +147,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             }
 
             // Sets transaction quantity according to transaction type
-            Transaction.Quantity = TransactionTypeProp == TransactionType.Sell 
+            Transaction.QuantityForeignCurrency = TransactionTypeProp == TransactionType.Sell 
                 ? (decimal)quantityToDecimal 
                 : Utilities.Utilities.StrToDecimal(_quantityFrom) ?? 1;
             
@@ -181,6 +164,9 @@ public partial class TransactionCreateViewModel : ViewModelBase
             {
                 _quantityCalculatorBlocked = false;
             }
+
+            OnPropertyChanged(nameof(ToPay));
+            OnPropertyChanged(nameof(ForPayment));
         }
     }
     
@@ -213,6 +199,9 @@ public partial class TransactionCreateViewModel : ViewModelBase
             {
                 _quantityCalculatorBlocked = false;
             }
+
+            OnPropertyChanged(nameof(ToPay));
+            OnPropertyChanged(nameof(ForPayment));
         }
     }
 
@@ -245,6 +234,32 @@ public partial class TransactionCreateViewModel : ViewModelBase
             var result = (Utilities.Utilities.StrToDecimal(Payment) ?? 0) - ToPay;
 
             return result < 0 ? 0 : result;
+        }
+    }
+
+    public decimal ToPay
+    {
+        get
+        {
+            return TransactionTypeProp switch
+            {
+                null => 0,
+                TransactionType.Buy => Transaction.QuantityForeignCurrency,
+                _ => Transaction.TotalAmountDomesticCurrency
+            };
+        }
+    }
+
+    public decimal ForPayment
+    {
+        get
+        {
+            return TransactionTypeProp switch
+            {
+                null => 0,
+                TransactionType.Buy => Transaction.TotalAmountDomesticCurrency,
+                _ => Transaction.QuantityForeignCurrency
+            };
         }
     }
 
@@ -282,6 +297,9 @@ public partial class TransactionCreateViewModel : ViewModelBase
         OnPropertyChanged(nameof(QuantityFrom));
 
         Payment = string.Empty;
+
+        OnPropertyChanged(nameof(ToPay));
+        OnPropertyChanged(nameof(ForPayment));
     }
 
     public void OnCurrencyToChanged()
@@ -315,6 +333,9 @@ public partial class TransactionCreateViewModel : ViewModelBase
         OnPropertyChanged(nameof(QuantityFrom));
 
         Payment = string.Empty;
+
+        OnPropertyChanged(nameof(ToPay));
+        OnPropertyChanged(nameof(ForPayment));
     }
 
     [RelayCommand]
@@ -332,13 +353,27 @@ public partial class TransactionCreateViewModel : ViewModelBase
             return;
         }
         
-        // TODO save transaction and decide to go to the detail page or customer create according to transaction amount
-
         Transaction.CurrencyCode = Transaction.Currency!.Code;
-        await Shell.Current.GoToAsync($"{nameof(NewCustomerIndividualPage)}", true, new Dictionary<string, object>
+        
+        if (Transaction.TotalAmountDomesticCurrency > 1000)
         {
-            {"Transaction", Transaction}
-        });
+            // Needs to go to the customer create page
+            await Shell.Current.GoToAsync($"{nameof(NewCustomerIndividualPage)}", true, new Dictionary<string, object>
+            {
+                {"Transaction", Transaction}
+            });
+        }
+        else
+        {
+            // Create transaction because it is not over 1000 euros
+            var id = await _transactionFacade.InsertAsync(Transaction);
+            Transaction.Id = id;
+
+            await Shell.Current.GoToAsync($"../{nameof(TransactionDetailPage)}", true, new Dictionary<string, object>
+            {
+                {"Transaction", Transaction}
+            });
+        }
     }
 
     private string ValidateData()

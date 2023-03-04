@@ -1,4 +1,4 @@
-﻿using ExchangeApp.DAL.Entities.Persons.Customers;
+﻿using ExchangeApp.DAL.Entities.Customers;
 
 namespace ExchangeApp.DAL.Repositories.Interfaces;
 

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.Facades.Interfaces;
-using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Repositories.Interfaces;
@@ -21,10 +20,12 @@ public class TransactionFacade : ITransactionFacade
         _mapper = mapper;
     }
 
-    public async Task InsertAsync(TransactionDetailModel model)
+    public async Task<int> InsertAsync(TransactionDetailModel model)
     {
         var entity = _mapper.Map<TransactionEntity>(model);
-        await _repository.InsertAsync(entity);
+        var id = await _repository.InsertAsync(entity);
         await _unitOfWork.CommitAsync();
+
+        return id;
     }
 }

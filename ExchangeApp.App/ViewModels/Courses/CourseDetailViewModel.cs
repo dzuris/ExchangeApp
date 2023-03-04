@@ -25,12 +25,12 @@ public partial class CourseDetailViewModel : ViewModelBase
 
         if (Currency.BuyRate is not null)
         {
-            BuyRate = Currency.BuyRate.ToString();
+            BuyRate = Currency.BuyRate.ToString() ?? string.Empty;
         }
 
         if (Currency.SellRate is not null)
         {
-            SellRate = Currency.SellRate.ToString();
+            SellRate = Currency.SellRate.ToString() ?? string.Empty;
         }
     }
 

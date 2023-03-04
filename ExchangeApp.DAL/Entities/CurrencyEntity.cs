@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using AutoMapper;
 using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.DAL.Entities;

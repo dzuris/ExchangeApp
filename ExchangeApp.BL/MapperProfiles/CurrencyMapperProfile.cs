@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.DAL.Entities;
 
@@ -14,6 +13,7 @@ public class CurrencyMapperProfile : Profile
         CreateMap<CurrencyEntity, CurrencyListModel>();
         CreateMap<CurrencyEntity, CurrencyTransactionListModel>();
         CreateMap<CurrencyEntity, CurrencyCoursesListModel>();
+
         CreateMap<CurrencyEntity, CurrencyDetailModel>()
             .ReverseMap();
     }

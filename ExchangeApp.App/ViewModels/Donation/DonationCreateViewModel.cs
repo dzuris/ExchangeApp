@@ -98,8 +98,17 @@ public partial class DonationCreateViewModel : ViewModelBase
             Code = SelectedCurrency!.Code
         };
 
-        var id = await _donationFacade.InsertAsync(donation);
-        await _currencyFacade.UpdateQuantityAsync(SelectedCurrency.Code, NewQuantity);
+        int id;
+        try
+        {
+            id = await _donationFacade.InsertAsync(donation);
+            await _currencyFacade.UpdateQuantityAsync(SelectedCurrency.Code, NewQuantity);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
         
         donation.Id = id;
         await Shell.Current.GoToAsync($"../{nameof(DonationDetailPage)}", true, new Dictionary<string, object>

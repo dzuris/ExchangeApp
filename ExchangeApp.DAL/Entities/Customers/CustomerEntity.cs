@@ -1,11 +1,10 @@
-﻿using ExchangeApp.BL.Models.Transaction;
-using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.BL.Models.Person.Customer;
+namespace ExchangeApp.DAL.Entities.Customers;
 
-public record CustomerDetailModel : ModelBase
+public record CustomerEntity : IEntity
 {
-    public Guid Id { get; set; }
+    public required Guid Id { get; set; }
     public required DateTime Created { get; set; }
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
@@ -16,5 +15,5 @@ public record CustomerDetailModel : ModelBase
     public required string EvidenceNumber { get; set; }
 
     public required int TransactionId { get; set; }
-    public TransactionDetailModel? Transaction { get; set; }
+    public TransactionEntity? Transaction { get; set; }
 }

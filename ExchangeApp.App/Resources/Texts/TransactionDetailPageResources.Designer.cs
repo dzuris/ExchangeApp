@@ -142,7 +142,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Result amount:.
+        ///   Looks up a localized string similar to Given amount:.
         /// </summary>
         public static string ResultAmountLabel {
             get {

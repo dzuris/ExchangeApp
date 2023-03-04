@@ -156,7 +156,7 @@
                 Spacing="5"
                 IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
                 <Label
-                    Text="{Binding Transaction.Amount}"/>
+                    Text="{Binding Transaction.AmountDomesticCurrency}"/>
                 <Label
                     Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
             </HorizontalStackLayout>
@@ -192,7 +192,7 @@
                 Spacing="5">
                 <Label
                     FontAttributes="Bold"
-                    Text="{Binding Transaction.TotalAmount}"/>
+                    Text="{Binding ForPayment}"/>
                 <Label
                     FontAttributes="Bold"
                     Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>

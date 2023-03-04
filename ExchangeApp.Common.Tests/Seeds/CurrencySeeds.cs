@@ -9,9 +9,9 @@ public static class CurrencySeeds
     public static readonly CurrencyEntity CurrencyEntity = new()
     {
         Code = "EUR_TestSeed",
-        Quantity = 15415.55F,
+        Quantity = 15415.55M,
         PhotoUrl = "eur_TestSeed.png",
-        BuyRate = 1F,
+        BuyRate = 1M,
         Status = CurrencyState.Own
     };
 

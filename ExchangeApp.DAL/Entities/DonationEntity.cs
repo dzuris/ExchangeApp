@@ -1,5 +1,4 @@
 ﻿using ExchangeApp.Common.Enums;
-using ExchangeApp.DAL.Entities.Persons;
 
 namespace ExchangeApp.DAL.Entities;
 
@@ -12,9 +11,6 @@ public record DonationEntity : IEntity
     public required DonationType Type { get; set; }
     public required string Note { get; set; }
     public bool IsCanceled { get; set; } = false;
-
-    public Guid? EmployeeId { get; set; }
-    public EmployeeEntity? Employee { get; set; }
 
     public required string CurrencyCode { get; set; }
     public CurrencyEntity? Currency { get; set; }

@@ -14,7 +14,7 @@ public class EvidenceTypeToStringConverter : IValueConverter
             return value;
         }
 
-        var rm = new ResourceManager(typeof(EvidenceTypeResources));
+        var rm = new ResourceManager(typeof(EnumEvidenceTypeResources));
 
         var res = rm.GetString(value.ToString() ?? string.Empty) ?? "Error in converting evidence type to the text resources";
 

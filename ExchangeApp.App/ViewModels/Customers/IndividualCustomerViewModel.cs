@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.BL.Facades.Interfaces;
-using ExchangeApp.BL.Models.Person.Customer;
+using ExchangeApp.BL.Models.Customer;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
 

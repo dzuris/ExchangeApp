@@ -61,7 +61,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deposit_res.
+        ///   Looks up a localized string similar to Deposit.
         /// </summary>
         public static string DonationType_Deposit {
             get {
@@ -70,7 +70,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Levy_res.
+        ///   Looks up a localized string similar to Levy.
         /// </summary>
         public static string DonationType_Levy {
             get {
@@ -79,7 +79,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Withdraw_res.
+        ///   Looks up a localized string similar to Withdraw.
         /// </summary>
         public static string DonationType_Withdraw {
             get {

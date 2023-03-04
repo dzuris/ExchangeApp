@@ -3,6 +3,7 @@ using System;
 using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExchangeApp.DAL.Migrations
 {
     [DbContext(typeof(ExchangeAppDbContext))]
-    partial class ExchangeAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230304203653_EmployeeRemoved")]
+    partial class EmployeeRemoved
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
@@ -418,7 +421,7 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<bool>("IsCanceled")
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal>("QuantityForeignCurrency")
+                    b.Property<decimal>("Quantity")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Time")

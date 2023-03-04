@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace ExchangeApp.DAL.Entities.Persons.Customers;
+﻿namespace ExchangeApp.DAL.Entities.Customers;
 
 public record BusinessCustomerEntity : CustomerEntity
 {

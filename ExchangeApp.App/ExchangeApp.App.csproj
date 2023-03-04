@@ -173,10 +173,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>ErrorResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\EvidenceTypeResources.Designer.cs">
+	  <Compile Update="Resources\Texts\EnumEvidenceTypeResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>EvidenceTypeResources.resx</DependentUpon>
+	    <DependentUpon>EnumEvidenceTypeResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -270,9 +270,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\EvidenceTypeResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\EnumEvidenceTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>EvidenceTypeResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>EnumEvidenceTypeResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

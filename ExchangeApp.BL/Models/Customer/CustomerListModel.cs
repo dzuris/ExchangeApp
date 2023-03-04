@@ -1,4 +1,4 @@
-﻿namespace ExchangeApp.BL.Models.Person.Customer;
+﻿namespace ExchangeApp.BL.Models.Customer;
 
 public record CustomerListModel : ModelBase
 {

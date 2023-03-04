@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ExchangeApp.DAL.Entities.Persons.Customers;
+using ExchangeApp.DAL.Entities.Customers;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,148 +1,186 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Transaction"
              x:Class="ExchangeApp.App.Views.TransactionDetailPage"
              Title="{x:Static texts:TransactionDetailPageResources.TransactionDetailTitle}"
-             Style="{StaticResource ContentPageStyle}">
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:TransactionDetailViewModel">
     <Grid 
-        RowDefinitions="Auto, *, *, Auto" 
-        RowSpacing="10"
+        RowDefinitions="*, Auto" 
         ColumnDefinitions="*, *"
-        ColumnSpacing="50">
-        <HorizontalStackLayout Spacing="10" Margin="60, 0">
+        RowSpacing="80">
+        <Grid 
+            RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, *, Auto"
+            RowSpacing="25"
+            ColumnDefinitions="Auto, Auto"
+            ColumnSpacing="40">
             <Label
                 Text="{x:Static texts:TransactionDetailPageResources.TransactionNumberLabel}"
                 Style="{StaticResource InfoLabelLight}"/>
             <Label
-                Text="20220701/6176"/>
-        </HorizontalStackLayout>
+                Grid.Column="1"
+                Text="{Binding TransactionNumber}"/>
+            <Label
+                Grid.Row="1"
+                Text="{x:Static texts:TransactionDetailPageResources.TransactionTypeLabel}"
+                Style="{StaticResource InputLabelStyle}"/>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeToStringConverter}, FallbackValue=''}"/>
+            <Label
+                Grid.Row="2"
+                Text="{x:Static texts:TransactionDetailPageResources.QuantityLabel}"
+                Style="{StaticResource InputLabelStyle}"/>
+            <HorizontalStackLayout
+                Grid.Row="2"
+                Grid.Column="1"
+                Spacing="5">
+                <Label Text="{Binding Transaction.QuantityForeignCurrency, FallbackValue=''}"/>
+                <Label Text="{Binding Transaction.CurrencyCode, FallbackValue=''}" />
+            </HorizontalStackLayout>
+            <Label
+                Grid.Row="3"
+                Text="{x:Static texts:TransactionDetailPageResources.CurrencyLabel}"
+                Style="{StaticResource InputLabelStyle}"/>
+            <Label
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="{Binding Transaction.CurrencyCode, FallbackValue=''}"/>
+            <Label
+                Grid.Row="4"
+                Text="{x:Static texts:TransactionDetailPageResources.CourseRateLabel}"
+                Style="{StaticResource InputLabelStyle}"/>
+            <Label
+                Grid.Row="4"
+                Grid.Column="1"
+                Text="{Binding Transaction.CourseRate, FallbackValue=''}"/>
+            <Label
+                Grid.Row="5"
+                Text="{x:Static texts:TransactionDetailPageResources.AmountLabel}"
+                Style="{StaticResource InputLabelStyle}"/>
+            <HorizontalStackLayout
+                Grid.Row="5"
+                Grid.Column="1"
+                Spacing="5">
+                <Label Text="{Binding Transaction.AmountDomesticCurrency, FallbackValue=''}"/>
+                <Label Text="{Binding DomesticCurrencyCode}" />
+            </HorizontalStackLayout>
+            <Label
+                Grid.Row="6"
+                VerticalOptions="End"
+                IsVisible="{Binding HasTransactionCustomer}"
+                Text="{x:Static texts:TransactionDetailPageResources.CustomerNameLabel}"/>
+            <Label
+                Grid.Row="6"
+                Grid.Column="1"
+                VerticalOptions="End"
+                IsVisible="{Binding HasTransactionCustomer}"
+                Text="{Binding Transaction.Customer.WholeName, FallbackValue=''}"/>
+            <Button
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                IsVisible="{Binding HasTransactionCustomer}"
+                Text="{x:Static texts:TransactionDetailPageResources.CustomerDetailButtonText}"/>
+        </Grid>
+
         <HorizontalStackLayout Grid.Column="1" Spacing="10" HorizontalOptions="End" Margin="60, 0">
             <Label
                 Text="{x:Static texts:TransactionDetailPageResources.DateAndTimeLabel}"
                 Style="{StaticResource InfoLabelLight}"/>
-            <Label Text="1.7.2022  15:35:18"/>
+            <Label Text="{Binding Transaction.Time, FallbackValue=''}"/>
         </HorizontalStackLayout>
-        <Grid 
-            Grid.Row="1"
-            RowDefinitions="Auto, Auto, Auto, Auto, Auto"
-            RowSpacing="10"
-            ColumnDefinitions="Auto, Auto"
-            ColumnSpacing="15"
-            VerticalOptions="Center"
-            Margin="60, 0">
-            <Label
-                Text="{x:Static texts:TransactionDetailPageResources.TransactionTypeLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Column="1"
-                Text="Buy"/>
-            <Label
-                Grid.Row="1"
-                Text="{x:Static texts:TransactionDetailPageResources.QuantityLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <HorizontalStackLayout
-                Grid.Row="1"
-                Grid.Column="1"
-                Spacing="5">
-                <Label Text="2560"/>
-                <Label Text="CZK" />
-            </HorizontalStackLayout>
-            <Label
-                Grid.Row="2"
-                Text="{x:Static texts:TransactionDetailPageResources.CurrencyLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="2"
-                Grid.Column="1"
-                Text="CZK"/>
-            <Label
-                Grid.Row="3"
-                Text="{x:Static texts:TransactionDetailPageResources.CourseRateLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <Label
-                Grid.Row="3"
-                Grid.Column="1"
-                Text="25.176"/>
-            <Label
-                Grid.Row="4"
-                Text="{x:Static texts:TransactionDetailPageResources.AmountLabel}"
-                Style="{StaticResource InputLabelStyle}"/>
-            <HorizontalStackLayout
-                Grid.Row="4"
-                Grid.Column="1"
-                Spacing="5">
-                <Label Text="101.68"/>
-                <Label Text="EUR" />
-            </HorizontalStackLayout>
-        </Grid>
-        <Grid
-            Grid.Row="2"
-            RowDefinitions="Auto, Auto, Auto"
-            RowSpacing="35"
-            ColumnDefinitions="Auto, Auto"
-            ColumnSpacing="15"
-            VerticalOptions="Center"
-            Margin="60, 0">
-            <Label Text="{x:Static texts:TransactionDetailPageResources.EmployeeLabel}"/>
-            <Label
-                Grid.Column="1"
-                Text="Peter Employee"/>
-            <Label
-                Grid.Row="1"
-                Text="{x:Static texts:TransactionDetailPageResources.CustomerNameLabel}"/>
-            <Label
-                Grid.Row="1"
-                Grid.Column="1"
-                Text="Joseph Customer"/>
-            <Button
-                Grid.Row="2"
-                Grid.ColumnSpan="2"
-                Text="{x:Static texts:TransactionDetailPageResources.CustomerDetailButtonText}"/>
-        </Grid>
 
         <Grid
-            Grid.Row="1"
-            Grid.RowSpan="2"
             Grid.Column="1"
-            RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
-            RowSpacing="10"
+            RowDefinitions="Auto, Auto, Auto, Auto, Auto"
             ColumnDefinitions="Auto, Auto"
-            ColumnSpacing="15"
-            HorizontalOptions="End"
-            VerticalOptions="End"
-            Margin="60, 40">
+            ColumnSpacing="40"
+            VerticalOptions="End">
+            <!-- First line -->
+            <!-- Buy transaction -->
             <Label
                 HorizontalOptions="End"
-                Text="{x:Static texts:TransactionDetailPageResources.ToPayLabel}"/>
-            <HorizontalStackLayout
-                Grid.Column="1"
-                Spacing="5">
-                <Label Text="2560" />
-                <Label Text="CZK" />
-            </HorizontalStackLayout>
-            <Label
-                Grid.Row="1"
-                HorizontalOptions="End"
+                IsVisible="{Binding IsTransactionBuy}"
                 Text="{x:Static texts:TransactionDetailPageResources.PaidLabel}"/>
             <HorizontalStackLayout
+                Grid.Column="1"
+                Spacing="5"
+                IsVisible="{Binding IsTransactionBuy}">
+                <Label Text="{Binding Transaction.QuantityForeignCurrency, FallbackValue=''}" />
+                <Label Text="{Binding Transaction.CurrencyCode, FallbackValue=''}" />
+            </HorizontalStackLayout>
+            <!-- Sell transaction -->
+            <Label
+                HorizontalOptions="End"
+                IsVisible="{Binding IsTransactionSell}"
+                Text="{x:Static texts:TransactionDetailPageResources.AmountLabel}"/>
+            <HorizontalStackLayout
+                Grid.Column="1"
+                Spacing="5"
+                IsVisible="{Binding IsTransactionSell}">
+                <Label Text="{Binding Transaction.QuantityForeignCurrency, FallbackValue=''}" />
+                <Label Text="{Binding Transaction.CurrencyCode, FallbackValue=''}" />
+            </HorizontalStackLayout>
+
+            <!-- Second line -->
+            <!-- Buy transaction -->
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="End"
+                IsVisible="{Binding IsTransactionBuy}"
+                Text="{x:Static texts:TransactionDetailPageResources.AmountLabel}"/>
+            <HorizontalStackLayout
                 Grid.Row="1"
                 Grid.Column="1"
-                Spacing="5">
-                <Label Text="2600" />
-                <Label Text="CZK" />
+                Spacing="5"
+                IsVisible="{Binding IsTransactionBuy}">
+                <Label Text="{Binding Transaction.AmountDomesticCurrency, FallbackValue=''}" />
+                <Label Text="{Binding DomesticCurrencyCode}" />
             </HorizontalStackLayout>
+            <!-- Sell transaction -->
+            <Label
+                Grid.Row="1"
+                HorizontalOptions="End"
+                IsVisible="{Binding IsTransactionSell}"
+                Text="{x:Static texts:TransactionDetailPageResources.RoundLabel}"/>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                IsVisible="{Binding IsTransactionSell}"
+                Text="{Binding Transaction.Rounding, Converter={StaticResource DecimalToDecimalWithSignStringConverter}, FallbackValue=''}"/>
+
+            <!-- Third line -->
+            <!-- Buy transaction -->
             <Label
                 Grid.Row="2"
                 HorizontalOptions="End"
-                Text="{x:Static texts:TransactionDetailPageResources.TipLabel}"/>
+                IsVisible="{Binding IsTransactionBuy}"
+                Text="{x:Static texts:TransactionDetailPageResources.RoundLabel}"/>
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                IsVisible="{Binding IsTransactionBuy}"
+                Text="{Binding Transaction.Rounding, Converter={StaticResource DecimalToDecimalWithSignStringConverter}, FallbackValue=''}"/>
+            <!-- Sell transaction -->
+            <Label
+                Grid.Row="2"
+                HorizontalOptions="End"
+                IsVisible="{Binding IsTransactionSell}"
+                Text="{x:Static texts:TransactionDetailPageResources.PaidLabel}"/>
             <HorizontalStackLayout
                 Grid.Row="2"
                 Grid.Column="1"
-                Spacing="5">
-                <Label Text="40" />
-                <Label Text="CZK" />
+                Spacing="5"
+                IsVisible="{Binding IsTransactionSell}">
+                <Label Text="{Binding Transaction.TotalAmountDomesticCurrency, FallbackValue=''}" />
+                <Label Text="{Binding DomesticCurrencyCode}" />
             </HorizontalStackLayout>
+
+            <!-- Same for both -->
             <Line
                 Grid.Row="3"
                 Grid.ColumnSpan="2"
@@ -152,38 +190,23 @@
             <Label
                 Grid.Row="4"
                 HorizontalOptions="End"
-                Text="{x:Static texts:TransactionDetailPageResources.RoundLabel}"/>
-            <HorizontalStackLayout
-                Grid.Row="4"
-                Grid.Column="1">
-                <Label Text="+" />
-                <Label Text="0.05" />
-            </HorizontalStackLayout>
-            <Label
-                Grid.Row="5"
-                HorizontalOptions="End"
                 Text="{x:Static texts:TransactionDetailPageResources.ResultAmountLabel}"
                 Style="{StaticResource InputLabelStyle}"/>
             <HorizontalStackLayout
-                Grid.Row="5"
+                Grid.Row="4"
                 Grid.Column="1"
                 Spacing="5">
                 <Label 
-                    Text="101.7" 
+                    Text="{Binding Transaction.TotalAmountDomesticCurrency, FallbackValue=''}" 
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label 
-                    Text="EUR"
+                    Text="{Binding DomesticCurrencyCode}"
                     Style="{StaticResource InputLabelStyle}"/>
             </HorizontalStackLayout>
         </Grid>
 
-        <ImageButton
-            Grid.Row="3"
-            HorizontalOptions="Start"
-            Source="arrow_back.png"
-            Style="{StaticResource IconStyle}"/>
         <HorizontalStackLayout
-            Grid.Row="3"
+            Grid.Row="1"
             Grid.Column="1"
             HorizontalOptions="End"
             Spacing="15">
@@ -195,4 +218,4 @@
                 Style="{StaticResource IconStyle}"/>
         </HorizontalStackLayout>
     </Grid>
-</ContentPage>
+</views:ContentPageBase>
