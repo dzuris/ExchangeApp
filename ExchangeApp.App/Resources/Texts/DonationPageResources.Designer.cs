@@ -88,24 +88,6 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OK.
-        /// </summary>
-        public static string DisplayAlertCancelButtonText {
-            get {
-                return ResourceManager.GetString("DisplayAlertCancelButtonText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Validation error.
-        /// </summary>
-        public static string DisplayAlertValidationErrorTitle {
-            get {
-                return ResourceManager.GetString("DisplayAlertValidationErrorTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Donation.
         /// </summary>
         public static string DonationTitle {

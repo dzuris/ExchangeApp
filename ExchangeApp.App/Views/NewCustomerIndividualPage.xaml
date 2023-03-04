@@ -5,7 +5,7 @@
              x:Class="ExchangeApp.App.Views.NewCustomerIndividualPage"
              Title="{x:Static texts:CustomerResources.IndividualCustomer}"
              Style="{StaticResource ContentPageStyle}">
-    <Grid RowDefinitions="Auto, *" RowSpacing="15">
+    <Grid RowDefinitions="Auto, *, Auto" RowSpacing="15">
         <Picker 
             x:Name="CustomerPicker" 
             Style="{StaticResource CustomerPicker}"
@@ -36,7 +36,7 @@
                     <Label Text="{x:Static texts:CustomerResources.BirthDateLabel}"/>
                     <DatePicker 
                         Date="1990-01-01"
-                        Format="d/MM/yyyy"/>
+                        WidthRequest="360"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.AddressLabel}"/>
@@ -44,7 +44,8 @@
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}"/>
-                    <Picker></Picker>
+                    <Picker
+                        WidthRequest="360"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}"/>
@@ -59,5 +60,11 @@
                 </VerticalStackLayout>
             </StackLayout>
         </ScrollView>
+        <ImageButton
+            Grid.Row="2"
+            Source="check_circle.png"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Style="{StaticResource IconStyle}"/>
     </Grid>
 </ContentPage>

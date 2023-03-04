@@ -104,7 +104,7 @@
                 Spacing="5">
                 <Label
                     FontAttributes="Bold"
-                    Text="{Binding QuantityFrom}"/>
+                    Text="{Binding ToPay}"/>
                 <Label
                     FontAttributes="Bold"
                     Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
@@ -122,7 +122,7 @@
                     FontSize="16"
                     WidthRequest="100"
                     HeightRequest="10"
-                    Placeholder="{Binding QuantityFrom}"
+                    Placeholder="{Binding ToPay}"
                     VerticalTextAlignment="Center"
                     Text="{Binding Payment}"/>
                 <Label
@@ -148,11 +148,13 @@
             <Label
                 Grid.Row="5"
                 HorizontalOptions="End"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"
                 Text="{x:Static texts:TransactionPageResources.AmountLabel}"/>
             <HorizontalStackLayout
                 Grid.Row="5"
                 Grid.Column="1"
-                Spacing="5">
+                Spacing="5"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
                 <Label
                     Text="{Binding Transaction.Amount}"/>
                 <Label
@@ -161,15 +163,17 @@
             <Label
                 Grid.Row="6"
                 HorizontalOptions="End"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"
                 Text="{x:Static texts:TransactionPageResources.RoundingLabel}"/>
             <HorizontalStackLayout
                 Grid.Row="6"
                 Grid.Column="1"
-                Spacing="5">
+                Spacing="5"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
                 <Label
                     Text="{Binding Transaction.Rounding}"/>
                 <Label
-                    Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
+                    Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
             </HorizontalStackLayout>
             <Line
                 Grid.Row="7"

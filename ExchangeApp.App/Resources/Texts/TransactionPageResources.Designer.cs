@@ -124,6 +124,60 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The course rate can not exceed the opposite course rate..
+        /// </summary>
+        public static string ErrorMessage_CourseRateExceededOtherOne {
+            get {
+                return ResourceManager.GetString("ErrorMessage_CourseRateExceededOtherOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Course rate can not be empty, 0 or less than zero..
+        /// </summary>
+        public static string ErrorMessage_CourseRateNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_CourseRateNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One selected currency must be domestic and the other one must be different..
+        /// </summary>
+        public static string ErrorMessage_CurrencySelection {
+            get {
+                return ResourceManager.GetString("ErrorMessage_CurrencySelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough money in cash register..
+        /// </summary>
+        public static string ErrorMessage_InsufficientMoneyInCashRegister {
+            get {
+                return ResourceManager.GetString("ErrorMessage_InsufficientMoneyInCashRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity from can not be empty, 0 or less than zero..
+        /// </summary>
+        public static string ErrorMessage_QuantityFromNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_QuantityFromNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity to can not be empty, 0 or less than zero..
+        /// </summary>
+        public static string ErrorMessage_QuantityToNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_QuantityToNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to For payment:.
         /// </summary>
         public static string ForPaymentLabel {

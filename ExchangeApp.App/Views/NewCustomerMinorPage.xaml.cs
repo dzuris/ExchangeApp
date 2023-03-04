@@ -25,10 +25,10 @@ public partial class NewCustomerMinorPage : ContentPage
         switch (selectedIndex)
         {
             case 0:
-                await Shell.Current.GoToAsync($"{nameof(NewCustomerIndividualPage)}");
+                await Shell.Current.GoToAsync($"../{nameof(NewCustomerIndividualPage)}");
                 break;
             case 1:
-                await Shell.Current.GoToAsync($"{nameof(NewCustomerBusinessPage)}");
+                await Shell.Current.GoToAsync($"../{nameof(NewCustomerBusinessPage)}");
                 break;
         }
     }

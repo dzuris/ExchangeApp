@@ -53,30 +53,70 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
+	  <None Remove="Resources\Images\Flags\aud.png" />
 	  <None Remove="Resources\Images\Flags\bgn.png" />
+	  <None Remove="Resources\Images\Flags\brl.png" />
 	  <None Remove="Resources\Images\Flags\cad.png" />
 	  <None Remove="Resources\Images\Flags\chf.png" />
+	  <None Remove="Resources\Images\Flags\cny.png" />
 	  <None Remove="Resources\Images\Flags\czk.png" />
+	  <None Remove="Resources\Images\Flags\dkk.png" />
 	  <None Remove="Resources\Images\Flags\eur.png" />
 	  <None Remove="Resources\Images\Flags\gbp.png" />
+	  <None Remove="Resources\Images\Flags\hkd.png" />
 	  <None Remove="Resources\Images\Flags\huf.png" />
+	  <None Remove="Resources\Images\Flags\idr.png" />
+	  <None Remove="Resources\Images\Flags\ils.png" />
+	  <None Remove="Resources\Images\Flags\inr.png" />
+	  <None Remove="Resources\Images\Flags\isk.png" />
 	  <None Remove="Resources\Images\Flags\jpn.png" />
+	  <None Remove="Resources\Images\Flags\krw.png" />
+	  <None Remove="Resources\Images\Flags\mxn.png" />
+	  <None Remove="Resources\Images\Flags\myr.png" />
 	  <None Remove="Resources\Images\Flags\nok.png" />
+	  <None Remove="Resources\Images\Flags\nzd.png" />
+	  <None Remove="Resources\Images\Flags\php.png" />
 	  <None Remove="Resources\Images\Flags\pln.png" />
+	  <None Remove="Resources\Images\Flags\ron.png" />
 	  <None Remove="Resources\Images\Flags\rub.png" />
+	  <None Remove="Resources\Images\Flags\sek.png" />
+	  <None Remove="Resources\Images\Flags\sgd.png" />
+	  <None Remove="Resources\Images\Flags\thb.png" />
+	  <None Remove="Resources\Images\Flags\try.png" />
 	  <None Remove="Resources\Images\Flags\usd.png" />
+	  <None Remove="Resources\Images\Flags\zar.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json" />
+	  <MauiImage Include="Resources\Images\Flags\aud.png" />
 	  <MauiImage Include="Resources\Images\Flags\bgn.png" />
+	  <MauiImage Include="Resources\Images\Flags\brl.png" />
 	  <MauiImage Include="Resources\Images\Flags\cad.png" />
 	  <MauiImage Include="Resources\Images\Flags\chf.png" />
+	  <MauiImage Include="Resources\Images\Flags\cny.png" />
 	  <MauiImage Include="Resources\Images\Flags\czk.png" />
+	  <MauiImage Include="Resources\Images\Flags\dkk.png" />
 	  <MauiImage Include="Resources\Images\Flags\gbp.png" />
+	  <MauiImage Include="Resources\Images\Flags\hkd.png" />
 	  <MauiImage Include="Resources\Images\Flags\huf.png" />
+	  <MauiImage Include="Resources\Images\Flags\idr.png" />
+	  <MauiImage Include="Resources\Images\Flags\ils.png" />
+	  <MauiImage Include="Resources\Images\Flags\inr.png" />
+	  <MauiImage Include="Resources\Images\Flags\isk.png" />
+	  <MauiImage Include="Resources\Images\Flags\krw.png" />
+	  <MauiImage Include="Resources\Images\Flags\mxn.png" />
+	  <MauiImage Include="Resources\Images\Flags\myr.png" />
 	  <MauiImage Include="Resources\Images\Flags\nok.png" />
+	  <MauiImage Include="Resources\Images\Flags\nzd.png" />
+	  <MauiImage Include="Resources\Images\Flags\php.png" />
+	  <MauiImage Include="Resources\Images\Flags\ron.png" />
 	  <MauiImage Include="Resources\Images\Flags\rub.png" />
+	  <MauiImage Include="Resources\Images\Flags\sek.png" />
+	  <MauiImage Include="Resources\Images\Flags\sgd.png" />
+	  <MauiImage Include="Resources\Images\Flags\thb.png" />
+	  <MauiImage Include="Resources\Images\Flags\try.png" />
+	  <MauiImage Include="Resources\Images\Flags\zar.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -91,7 +131,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Converters\" />
 	  <Folder Include="Resources\Images\Icons\" />
 	  <Folder Include="ViewModels\Donation\" />
 	  <Folder Include="ViewModels\Courses\" />
@@ -127,6 +166,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>EnumTransactionTypeResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\ErrorResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ErrorResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -215,6 +259,10 @@
 	  <EmbeddedResource Update="Resources\Texts\EnumTransactionTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumTransactionTypeResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\ErrorResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

@@ -14,7 +14,7 @@ public record TransactionEntity : IEntity
     public required TransactionType TransactionType { get; set; }
     public bool IsCanceled { get; set; }
 
-    public required Guid EmployeeId { get; set; }
+    public Guid? EmployeeId { get; set; }
     public EmployeeEntity? Employee { get; set; }
 
     public Guid? CustomerId { get; set; }

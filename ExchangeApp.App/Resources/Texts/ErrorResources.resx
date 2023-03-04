@@ -97,67 +97,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TransactionTitle" xml:space="preserve">
-    <value>Transaction</value>
+  <data name="DisplayAlertValidationErrorTitle" xml:space="preserve">
+    <value>Validation error</value>
   </data>
-  <data name="CurrencyFromLabel" xml:space="preserve">
-    <value>Currency from:</value>
-  </data>
-  <data name="CurrencyToLabel" xml:space="preserve">
-    <value>Currency to:</value>
-  </data>
-  <data name="AmountFromLabel" xml:space="preserve">
-    <value>Quantity from:</value>
-  </data>
-  <data name="AmountToLabel" xml:space="preserve">
-    <value>Quantity to:</value>
-  </data>
-  <data name="CourseRateLabel" xml:space="preserve">
-    <value>Course rate:</value>
-  </data>
-  <data name="CurrencyInCashRegisterAmountLabel" xml:space="preserve">
-    <value>{0} in cash register:</value>
-  </data>
-  <data name="ToPayLabel" xml:space="preserve">
-    <value>To pay:</value>
-  </data>
-  <data name="PaymentLabel" xml:space="preserve">
-    <value>Payment:</value>
-  </data>
-  <data name="TipLabel" xml:space="preserve">
-    <value>Tip:</value>
-  </data>
-  <data name="ForPaymentLabel" xml:space="preserve">
-    <value>For payment:</value>
-  </data>
-  <data name="TransactionTypeLabel" xml:space="preserve">
-    <value>Transaction type:</value>
-  </data>
-  <data name="AmountLabel" xml:space="preserve">
-    <value>Amount:</value>
-  </data>
-  <data name="RoundingLabel" xml:space="preserve">
-    <value>Rounding:</value>
-  </data>
-  <data name="OriginalCourseRateLabel" xml:space="preserve">
-    <value>Original course rate: {0}</value>
-  </data>
-  <data name="ErrorMessage_CurrencySelection" xml:space="preserve">
-    <value>One selected currency must be domestic and the other one must be different.</value>
-  </data>
-  <data name="ErrorMessage_InsufficientMoneyInCashRegister" xml:space="preserve">
-    <value>Not enough money in cash register.</value>
-  </data>
-  <data name="ErrorMessage_CourseRateExceededOtherOne" xml:space="preserve">
-    <value>The course rate can not exceed the opposite course rate.</value>
-  </data>
-  <data name="ErrorMessage_QuantityFromNotValid" xml:space="preserve">
-    <value>Quantity from can not be empty, 0 or less than zero.</value>
-  </data>
-  <data name="ErrorMessage_QuantityToNotValid" xml:space="preserve">
-    <value>Quantity to can not be empty, 0 or less than zero.</value>
-  </data>
-  <data name="ErrorMessage_CourseRateNotValid" xml:space="preserve">
-    <value>Course rate can not be empty, 0 or less than zero.</value>
+  <data name="DisplayAlertCancelButtonText" xml:space="preserve">
+    <value>OK</value>
   </data>
 </root>

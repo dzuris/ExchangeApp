@@ -159,10 +159,4 @@
   <data name="ErrorMessage_QuantityNotValid" xml:space="preserve">
     <value>Množstvo musí byť celé číslo väčšie ako 0, zároveň je nutné mať v pokladnici dostatočný obnos peňazí.</value>
   </data>
-  <data name="DisplayAlertValidationErrorTitle" xml:space="preserve">
-    <value>Chyba validácie</value>
-  </data>
-  <data name="DisplayAlertCancelButtonText" xml:space="preserve">
-    <value>OK</value>
-  </data>
 </root>

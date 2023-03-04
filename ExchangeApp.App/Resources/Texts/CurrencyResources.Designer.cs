@@ -61,11 +61,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Australia.
+        /// </summary>
+        public static string AUD {
+            get {
+                return ResourceManager.GetString("AUD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bulgaria.
         /// </summary>
         public static string BGN {
             get {
                 return ResourceManager.GetString("BGN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Brazil.
+        /// </summary>
+        public static string BRL {
+            get {
+                return ResourceManager.GetString("BRL", resourceCulture);
             }
         }
         
@@ -88,11 +106,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to China.
+        /// </summary>
+        public static string CNY {
+            get {
+                return ResourceManager.GetString("CNY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Czech.
         /// </summary>
         public static string CZK {
             get {
                 return ResourceManager.GetString("CZK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Denmark.
+        /// </summary>
+        public static string DKK {
+            get {
+                return ResourceManager.GetString("DKK", resourceCulture);
             }
         }
         
@@ -115,11 +151,56 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Honk Kong.
+        /// </summary>
+        public static string HKD {
+            get {
+                return ResourceManager.GetString("HKD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hungary.
         /// </summary>
         public static string HUF {
             get {
                 return ResourceManager.GetString("HUF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indonesia.
+        /// </summary>
+        public static string IDR {
+            get {
+                return ResourceManager.GetString("IDR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Israel.
+        /// </summary>
+        public static string ILS {
+            get {
+                return ResourceManager.GetString("ILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to India.
+        /// </summary>
+        public static string INR {
+            get {
+                return ResourceManager.GetString("INR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iceland.
+        /// </summary>
+        public static string ISK {
+            get {
+                return ResourceManager.GetString("ISK", resourceCulture);
             }
         }
         
@@ -133,11 +214,56 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to South Korea.
+        /// </summary>
+        public static string KRW {
+            get {
+                return ResourceManager.GetString("KRW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mexico.
+        /// </summary>
+        public static string MXN {
+            get {
+                return ResourceManager.GetString("MXN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Malaysia.
+        /// </summary>
+        public static string MYR {
+            get {
+                return ResourceManager.GetString("MYR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Norway.
         /// </summary>
         public static string NOK {
             get {
                 return ResourceManager.GetString("NOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Zealand.
+        /// </summary>
+        public static string NZD {
+            get {
+                return ResourceManager.GetString("NZD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Philippines.
+        /// </summary>
+        public static string PHP {
+            get {
+                return ResourceManager.GetString("PHP", resourceCulture);
             }
         }
         
@@ -151,11 +277,38 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Romania.
+        /// </summary>
+        public static string RON {
+            get {
+                return ResourceManager.GetString("RON", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Russia.
         /// </summary>
         public static string RUB {
             get {
                 return ResourceManager.GetString("RUB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sweden.
+        /// </summary>
+        public static string SEK {
+            get {
+                return ResourceManager.GetString("SEK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Singapore.
+        /// </summary>
+        public static string SGD {
+            get {
+                return ResourceManager.GetString("SGD", resourceCulture);
             }
         }
         
@@ -169,11 +322,38 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thailand.
+        /// </summary>
+        public static string THB {
+            get {
+                return ResourceManager.GetString("THB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turkey.
+        /// </summary>
+        public static string TRY {
+            get {
+                return ResourceManager.GetString("TRY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to United states of America.
         /// </summary>
         public static string USD {
             get {
                 return ResourceManager.GetString("USD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to South Africa.
+        /// </summary>
+        public static string ZAR {
+            get {
+                return ResourceManager.GetString("ZAR", resourceCulture);
             }
         }
     }

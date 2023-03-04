@@ -3,6 +3,7 @@ using System;
 using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExchangeApp.DAL.Migrations
 {
     [DbContext(typeof(ExchangeAppDbContext))]
-    partial class ExchangeAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230304101545_FinalCurrencySeeds")]
+    partial class FinalCurrencySeeds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
@@ -399,7 +402,7 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<Guid?>("CustomerId")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("EmployeeId")
+                    b.Property<Guid>("EmployeeId")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsCanceled")
@@ -541,7 +544,8 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Currency");
 

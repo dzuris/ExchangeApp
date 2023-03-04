@@ -151,7 +151,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Round:.
+        ///   Looks up a localized string similar to Rounding:.
         /// </summary>
         public static string RoundLabel {
             get {

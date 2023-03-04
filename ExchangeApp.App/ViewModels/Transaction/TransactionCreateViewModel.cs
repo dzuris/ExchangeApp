@@ -1,6 +1,8 @@
 ﻿using System.Globalization;
+using System.Resources;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Views;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
@@ -22,14 +24,18 @@ public partial class TransactionCreateViewModel : ViewModelBase
         _currencyFacade = currencyFacade;
     }
 
+    private bool _isFirstAppear = true;
     protected override async Task LoadDataAsync()
     {
         await base.LoadDataAsync();
 
-        Currencies = await _currencyFacade.GetActiveCurrenciesForTransactionAsync();
-
-        CurrencyFrom = Currencies.ElementAt(0);
-        CurrencyTo = Currencies.ElementAt(0);
+        if (_isFirstAppear)
+        {
+            Currencies = await _currencyFacade.GetActiveCurrenciesForTransactionAsync();
+            CurrencyFrom = Currencies.ElementAt(0);
+            CurrencyTo = Currencies.ElementAt(0);
+            _isFirstAppear = false;
+        }
     }
 
     [ObservableProperty]
@@ -46,6 +52,25 @@ public partial class TransactionCreateViewModel : ViewModelBase
 
     [ObservableProperty]
     private CurrencyTransactionListModel? _currencyTo;
+    
+    // Property just rounds the value when transaction type is sell
+    private decimal _toPay;
+    public decimal ToPay
+    {
+        get => _toPay;
+        set
+        {
+            if (TransactionTypeProp is TransactionType.Sell)
+            {
+                var roundedValue = Math.Round(value * 20) / 20;
+                SetProperty(ref _toPay, roundedValue);
+            }
+            else
+            {
+                SetProperty(ref _toPay, value);
+            }
+        }
+    }
 
     private bool _quantityCalculatorBlocked;
     private string _quantityFrom = string.Empty;
@@ -66,6 +91,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
 
             var quantityFromDecimal = Utilities.Utilities.StrToDecimal(value);
             if (quantityFromDecimal is null or <= 0) return;
+            ToPay = (decimal)quantityFromDecimal;
 
             var courseRateDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
 
@@ -84,7 +110,8 @@ public partial class TransactionCreateViewModel : ViewModelBase
 
             // Sets transaction quantity according to transaction type
             Transaction.Quantity = TransactionTypeProp == TransactionType.Buy 
-                ? (decimal)quantityFromDecimal : Utilities.Utilities.StrToDecimal(_quantityTo) ?? 1;
+                ? (decimal)quantityFromDecimal 
+                : Utilities.Utilities.StrToDecimal(_quantityTo) ?? 1;
             
             OnPropertyChanged(nameof(Transaction));
             OnPropertyChanged(nameof(Tip));
@@ -138,7 +165,8 @@ public partial class TransactionCreateViewModel : ViewModelBase
 
             // Sets transaction quantity according to transaction type
             Transaction.Quantity = TransactionTypeProp == TransactionType.Sell 
-                ? (decimal)quantityToDecimal : Utilities.Utilities.StrToDecimal(_quantityFrom) ?? 1;
+                ? (decimal)quantityToDecimal 
+                : Utilities.Utilities.StrToDecimal(_quantityFrom) ?? 1;
             
             OnPropertyChanged(nameof(Transaction));
             OnPropertyChanged(nameof(Tip));
@@ -176,7 +204,9 @@ public partial class TransactionCreateViewModel : ViewModelBase
             try
             {
                 _quantityCalculatorBlocked = true;
-                var result = Math.Round((decimal)(quantityFromDecimal / courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture);
+                var result = TransactionTypeProp == TransactionType.Buy 
+                    ? Math.Round((decimal)(quantityFromDecimal / courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture) 
+                    : Math.Round((decimal)(quantityFromDecimal * courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture);
                 QuantityTo = result;
             }
             finally
@@ -212,14 +242,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 return 0;
             }
 
-            var quantityFromDecimal = Utilities.Utilities.StrToDecimal(QuantityFrom);
-
-            if (quantityFromDecimal is null)
-            {
-                return 0;
-            }
-
-            var result = (Utilities.Utilities.StrToDecimal(Payment) ?? 0) - (decimal)quantityFromDecimal;
+            var result = (Utilities.Utilities.StrToDecimal(Payment) ?? 0) - ToPay;
 
             return result < 0 ? 0 : result;
         }
@@ -257,6 +280,8 @@ public partial class TransactionCreateViewModel : ViewModelBase
         QuantityTo = string.Empty;
         OnPropertyChanged(nameof(QuantityTo));
         OnPropertyChanged(nameof(QuantityFrom));
+
+        Payment = string.Empty;
     }
 
     public void OnCurrencyToChanged()
@@ -288,15 +313,84 @@ public partial class TransactionCreateViewModel : ViewModelBase
         QuantityTo = string.Empty;
         OnPropertyChanged(nameof(QuantityTo));
         OnPropertyChanged(nameof(QuantityFrom));
+
+        Payment = string.Empty;
     }
 
     [RelayCommand]
     private async Task SaveAsync()
     {
-        var transaction = TransactionDetailModel.Empty;
+        var validationMessage = ValidateData();
+
+        if (validationMessage != string.Empty)
+        {
+            var rm = new ResourceManager(typeof(ErrorResources));
+            await Application.Current?.MainPage?.DisplayAlert(
+                rm.GetString("DisplayAlertValidationErrorTitle"),
+                validationMessage,
+                rm.GetString("DisplayAlertCancelButtonText"))!;
+            return;
+        }
+        
+        // TODO save transaction and decide to go to the detail page or customer create according to transaction amount
+
+        Transaction.CurrencyCode = Transaction.Currency!.Code;
         await Shell.Current.GoToAsync($"{nameof(NewCustomerIndividualPage)}", true, new Dictionary<string, object>
         {
-            {"Transaction", transaction}
+            {"Transaction", Transaction}
         });
+    }
+
+    private string ValidateData()
+    {
+        var rm = new ResourceManager(typeof(TransactionPageResources));
+        var errorMessage = string.Empty;
+
+        const string domesticCurrencyCode = "EUR";
+
+        // Currencies can not be null, one must be domestic and the other one different
+        if (CurrencyTo is null 
+            || CurrencyFrom is null 
+            ||
+            (CurrencyTo.Code != domesticCurrencyCode 
+                && CurrencyFrom.Code != domesticCurrencyCode) 
+            || (CurrencyFrom.Code == domesticCurrencyCode 
+                && CurrencyTo.Code == domesticCurrencyCode))
+            errorMessage += rm.GetString("ErrorMessage_CurrencySelection") + "\n";
+
+        // Quantity from validation
+        var quantityFromDecimal = Utilities.Utilities.StrToDecimal(QuantityFrom);
+        if (string.IsNullOrWhiteSpace(QuantityFrom) || quantityFromDecimal is null or <= 0)
+            errorMessage += rm.GetString("ErrorMessage_QuantityFromNotValid") + "\n";
+
+        // Quantity to validation
+        var quantityToDecimal = Utilities.Utilities.StrToDecimal(QuantityTo);
+        if (string.IsNullOrWhiteSpace(QuantityTo) || quantityToDecimal is null or <= 0)
+            errorMessage += rm.GetString("ErrorMessage_QuantityToNotValid") + "\n";
+
+        // Course rate validation
+        var courseRateToDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
+        if (string.IsNullOrWhiteSpace(CourseRate) || courseRateToDecimal is null or <= 0)
+            errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
+        // Course rate can not exceed opposite course rate
+        else if (CurrencyFrom is not null && CurrencyTo is not null)
+        {
+            switch (TransactionTypeProp)
+            {
+                case TransactionType.Buy when (decimal)courseRateToDecimal < CurrencyFrom.SellRate:
+                case TransactionType.Sell when (decimal)courseRateToDecimal > CurrencyTo.BuyRate:
+                    errorMessage += rm.GetString("ErrorMessage_CourseRateExceededOtherOne") + "\n";
+                    break;
+            }
+        }
+
+        // Not enough money in cash register check
+        if (CurrencyTo is not null)
+        {
+            if (quantityToDecimal is null || quantityToDecimal > CurrencyTo.Quantity)
+                errorMessage += rm.GetString("ErrorMessage_InsufficientMoneyInCashRegister") + "\n";
+        }
+
+        return errorMessage;
     }
 }

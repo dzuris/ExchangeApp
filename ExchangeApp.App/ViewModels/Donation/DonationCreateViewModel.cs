@@ -79,7 +79,7 @@ public partial class DonationCreateViewModel : ViewModelBase
 
         if (validationMessage != string.Empty)
         {
-            var rm = new ResourceManager(typeof(DonationPageResources));
+            var rm = new ResourceManager(typeof(ErrorResources));
             await Application.Current?.MainPage?.DisplayAlert(
                 rm.GetString("DisplayAlertValidationErrorTitle"), 
                 validationMessage, 
@@ -98,10 +98,9 @@ public partial class DonationCreateViewModel : ViewModelBase
             Code = SelectedCurrency!.Code
         };
 
-        //var id = await _donationFacade.InsertAsync(donation);
-        //await _currencyFacade.UpdateQuantityAsync(SelectedCurrency.Code, NewQuantity);
-
-        const int id = 9999;
+        var id = await _donationFacade.InsertAsync(donation);
+        await _currencyFacade.UpdateQuantityAsync(SelectedCurrency.Code, NewQuantity);
+        
         donation.Id = id;
         await Shell.Current.GoToAsync($"../{nameof(DonationDetailPage)}", true, new Dictionary<string, object>
         {
@@ -115,21 +114,21 @@ public partial class DonationCreateViewModel : ViewModelBase
     /// <returns>Empty string if there is no error, or error message with all things which are bad</returns>
     private string ValidateData()
     {
-        var resourceManager = new ResourceManager(typeof(DonationPageResources));
+        var rm = new ResourceManager(typeof(DonationPageResources));
         var errorMessage = string.Empty;
 
         if (DonationType is null)
-            errorMessage += resourceManager.GetString("ErrorMessage_DonationTypeEmpty") + "\n";
+            errorMessage += rm.GetString("ErrorMessage_DonationTypeEmpty") + "\n";
 
         if (SelectedCurrency is null)
-            errorMessage += resourceManager.GetString("ErrorMessage_SelectedCurrencyEmpty") + "\n";
+            errorMessage += rm.GetString("ErrorMessage_SelectedCurrencyEmpty") + "\n";
         
         if (Quantity <= 0 || (DonationType != Common.Enums.DonationType.Deposit && SelectedCurrency?.Quantity < Quantity))
-            errorMessage += resourceManager.GetString("ErrorMessage_QuantityNotValid") + "\n";
+            errorMessage += rm.GetString("ErrorMessage_QuantityNotValid") + "\n";
 
         var courseRateRes = Utilities.Utilities.StrToDecimal(CourseRate);
         if (courseRateRes is null || courseRateRes <= 0)
-            errorMessage += resourceManager.GetString("ErrorMessage_CourseRateNotValid") + "\n";
+            errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
         
         return errorMessage;
     }

@@ -2,6 +2,7 @@
 using ExchangeApp.BL.Models.Person;
 using ExchangeApp.BL.Models.Person.Customer;
 using ExchangeApp.Common.Enums;
+using ExchangeApp.DAL.Entities;
 
 namespace ExchangeApp.BL.Models.Transaction;
 
@@ -10,16 +11,18 @@ public record TransactionDetailModel : ModelBase
     public int Id { get; set; }
     public required DateTime Time { get; set; }
     public required decimal CourseRate { get; set; }
+    // Quantity got from customer
     public required decimal Quantity { get; set; }
     public required TransactionType TransactionType { get; set; }
+    // Amount given to customer
     public decimal Amount => GetAmount(TransactionType, Quantity, CourseRate);
-    public decimal Rounding => GetRounding(Amount);
+    public decimal Rounding => GetRounding(Amount, TransactionType);
     public decimal TotalAmount => Amount + Rounding;
 
     public required string CurrencyCode { get; set; }
     public CurrencyTransactionListModel? Currency { get; set; }
 
-    public required Guid EmployeeId { get; set; }
+    public Guid? EmployeeId { get; set; }
     public EmployeeListModel? Employee { get; set; }
 
     public Guid? CustomerId { get; set; }
@@ -31,8 +34,7 @@ public record TransactionDetailModel : ModelBase
         CourseRate = 1,
         Quantity = 0,
         TransactionType = TransactionType.Buy,
-        CurrencyCode = "",
-        EmployeeId = Guid.Empty
+        CurrencyCode = ""
     };
 
     /// <summary>
@@ -42,8 +44,13 @@ public record TransactionDetailModel : ModelBase
     /// </summary>
     /// <param name="amount">Not rounded amount</param>
     /// <returns>Round from amount to 0.05</returns>
-    private static decimal GetRounding(decimal amount)
+    private static decimal GetRounding(decimal amount, TransactionType type)
     {
+        if (type == TransactionType.Sell)
+        {
+            return 0;
+        }
+
         switch (amount)
         {
             case <= 0:
@@ -78,7 +85,7 @@ public record TransactionDetailModel : ModelBase
         }
         else
         {
-            result = quantity / courseRate;
+            result = quantity;
         }
 
         // Rounds number to 2 decimal points

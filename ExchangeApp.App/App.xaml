@@ -24,6 +24,7 @@
             <converters:DonationTypeToStringConverter x:Key="DonationTypeToStringConverter"/>
             <converters:CurrencyCodeToStateConverter x:Key="CurrencyCodeToStateConverter"/>
             <converters:TransactionTypeToStringConverter x:Key="TransactionTypeToStringConverter"/>
+            <converters:TransactionTypeBuyToVisibilityConverter x:Key="TransactionTypeBuyToVisibilityConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
