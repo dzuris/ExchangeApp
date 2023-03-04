@@ -2,8 +2,6 @@ namespace ExchangeApp.App.Views;
 
 public partial class NewCustomerMinorPage : ContentPage
 {
-    public int SpacingLabelInput { get; set; } = 20;
-
     public NewCustomerMinorPage()
 	{
 		InitializeComponent();

@@ -11,7 +11,8 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
     private const string DomesticCurrencyCode = "EUR";
     private readonly IMapper _mapper;
 
-    public CurrencyRepository(DbContext appDbContext, IMapper mapper) : base(appDbContext)
+    public CurrencyRepository(DbContext appDbContext, IMapper mapper) 
+        : base(appDbContext)
     {
         _mapper = mapper;
     }

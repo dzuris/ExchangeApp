@@ -13,6 +13,7 @@ public class UnitOfWork : IUnitOfWork
     private ICurrencyRepository? _currencyRepository;
     private IDonationRepository? _donationRepository;
     private ITransactionRepository? _transactionRepository;
+    private ICustomerRepository? _customerRepository;
     private IMapper _mapper;
 
     public UnitOfWork(ExchangeAppDbContext dbContext, IMapper mapper)
@@ -29,6 +30,9 @@ public class UnitOfWork : IUnitOfWork
 
     public ITransactionRepository TransactionRepository 
         => _transactionRepository ??= new TransactionRepository(_dbContext);
+
+    public ICustomerRepository CustomerRepository 
+        => _customerRepository ??= new CustomerRepository(_dbContext);
 
     public async Task CommitAsync() => await _dbContext.SaveChangesAsync();
 

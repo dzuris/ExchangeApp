@@ -16,7 +16,7 @@ public record BusinessCustomerDetailModel : CustomerDetailModel
         FirstName = string.Empty,
         LastName = string.Empty,
         Address = string.Empty,
-        EvidenceType = EvidenceType.None,
+        EvidenceType = EvidenceType.IdentificationCard,
         EvidenceNumber = string.Empty,
         TransactionId = 0,
         TradeNameOfTheOwner = string.Empty,

@@ -15,11 +15,3 @@ public record CustomerEntity : PersonEntity
     public required int TransactionId { get; set; }
     public TransactionEntity? Transaction { get; set; }
 }
-
-public class CustomerEntityMapperProfile : Profile
-{
-    public CustomerEntityMapperProfile()
-    {
-        CreateMap<CustomerEntity, CustomerEntity>();
-    }
-}

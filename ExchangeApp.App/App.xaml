@@ -25,6 +25,7 @@
             <converters:CurrencyCodeToStateConverter x:Key="CurrencyCodeToStateConverter"/>
             <converters:TransactionTypeToStringConverter x:Key="TransactionTypeToStringConverter"/>
             <converters:TransactionTypeBuyToVisibilityConverter x:Key="TransactionTypeBuyToVisibilityConverter"/>
+            <converters:EvidenceTypeToStringConverter x:Key="EvidenceTypeToStringConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -25,39 +25,38 @@
             Style="{StaticResource InfoLabelLight}"/>
         <ScrollView Grid.Row="2">
             <StackLayout MaximumWidthRequest="400" Padding="20"  Spacing="40">
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.FirstNameLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.LastNameLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.BirthDateLabel}"/>
                     <DatePicker 
                         Date="1990-01-01"
-                        Format="d/MM/yyyy"/>
+                        WidthRequest="360"/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.AddressLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}"/>
-                    <Picker>
-
-                    </Picker>
+                    <Picker
+                        WidthRequest="360"/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}"/>
                     <Entry/>
                 </VerticalStackLayout>
-                <VerticalStackLayout Spacing="{Binding SpacingLabelInput}">
+                <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.NationalityLabel}"/>
                     <Label
                         Text="{x:Static texts:CustomerResources.RefugeesInfoLabel}"

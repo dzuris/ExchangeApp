@@ -1,14 +1,13 @@
+using ExchangeApp.App.ViewModels.Customers;
+
 namespace ExchangeApp.App.Views;
 
-public partial class NewCustomerIndividualPage : ContentPage
+public partial class NewCustomerIndividualPage
 {
-    public int SpacingLabelInput { get; set; } = 20;
-
-    public NewCustomerIndividualPage()
+    public NewCustomerIndividualPage(IndividualCustomerViewModel viewModel)
+        : base(viewModel)
 	{
 		InitializeComponent();
-
-        BindingContext = this;
     }
 
     protected override void OnAppearing()

@@ -13,7 +13,7 @@ public record IndividualCustomerDetailModel : CustomerDetailModel
         FirstName = string.Empty,
         LastName = string.Empty,
         Address = string.Empty,
-        EvidenceType = EvidenceType.None,
+        EvidenceType = EvidenceType.IdentificationCard,
         EvidenceNumber = string.Empty,
         TransactionId = 0,
         Nationality = string.Empty

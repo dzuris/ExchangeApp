@@ -9,11 +9,3 @@ public record BusinessCustomerEntity : CustomerEntity
     public required string ICO { get; set; }
     public required string Nationality { get; set; }
 }
-
-public class BusinessCustomerEntityMapperProfile : Profile
-{
-    public BusinessCustomerEntityMapperProfile()
-    {
-        CreateMap<BusinessCustomerEntity, BusinessCustomerEntity>();
-    }
-}

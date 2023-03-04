@@ -12,6 +12,7 @@ public interface IUnitOfWork : IAsyncDisposable
     ICurrencyRepository CurrencyRepository { get; }
     IDonationRepository DonationRepository { get; }
     ITransactionRepository TransactionRepository { get; }
+    ICustomerRepository CustomerRepository { get; }
 
     Task CommitAsync();
 }

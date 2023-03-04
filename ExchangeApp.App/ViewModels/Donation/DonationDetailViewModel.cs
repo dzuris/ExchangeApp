@@ -19,7 +19,7 @@ public partial class DonationDetailViewModel : ViewModelBase
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DonationNumber))]
-    DonationDetailModel? _donation;
+    private DonationDetailModel? _donation;
 
     public string DonationNumber
     {

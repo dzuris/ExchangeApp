@@ -16,7 +16,6 @@
                     VerticalTextAlignment="Center"
                     Text="{x:Static texts:DonationPageResources.TypeLabel}"/>
             <Picker
-                    x:Name="DonationTypePicker"
                     MinimumWidthRequest="100"
                     ItemsSource="{Binding DonationTypes}"
                     ItemDisplayBinding="{Binding Converter={StaticResource DonationTypeToStringConverter}}"

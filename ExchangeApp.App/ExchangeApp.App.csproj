@@ -134,6 +134,7 @@
 	  <Folder Include="Resources\Images\Icons\" />
 	  <Folder Include="ViewModels\Donation\" />
 	  <Folder Include="ViewModels\Courses\" />
+	  <Folder Include="ViewModels\Customers\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -171,6 +172,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>ErrorResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\EvidenceTypeResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EvidenceTypeResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -263,6 +269,10 @@
 	  <EmbeddedResource Update="Resources\Texts\ErrorResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EvidenceTypeResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EvidenceTypeResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
