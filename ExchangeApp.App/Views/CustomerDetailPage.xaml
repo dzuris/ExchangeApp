@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              x:Class="ExchangeApp.App.Views.CustomerDetailPage"
-             Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"
+             Title="{x:Static texts:CustomerResources.CustomerDetailPageTitle}"
              Style="{StaticResource ContentPageStyle}">
     <Grid
         RowDefinitions="*, Auto"
@@ -16,28 +16,28 @@
             ColumnSpacing="25">
             <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWithSpacing}">
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.PersonTypeLabel}"
+                    Text="{x:Static texts:CustomerResources.PersonTypeLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.CustomerNameLabel}"
+                    Text="{x:Static texts:CustomerResources.WholeNameLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.IdentificationNumberLabel}"
+                    Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.BirthDateLabel}"
+                    Text="{x:Static texts:CustomerResources.BirthDateLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.AddressLabel}"
+                    Text="{x:Static texts:CustomerResources.AddressLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.NationalityLabel}"
+                    Text="{x:Static texts:CustomerResources.NationalityLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.IdentificationCardTypeLabel}"
+                    Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label
-                    Text="{x:Static texts:CustomerDetailPageResources.IdentificationCardNumberLabel}"
+                    Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}"
                     Style="{StaticResource InputLabelStyle}"/>
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
@@ -51,11 +51,6 @@
                 <Label Text="HH152125"/>
             </VerticalStackLayout>
         </Grid>
-        <ImageButton
-            Grid.Row="1"
-            HorizontalOptions="Start"
-            Source="arrow_back.png"
-            Style="{StaticResource IconStyle}"/>
         <ImageButton
             Grid.Row="1"
             Grid.Column="1"

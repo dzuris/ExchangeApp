@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Customers"
              x:Class="ExchangeApp.App.Views.NewCustomerBusinessPage"
              Title="{x:Static texts:CustomerResources.BusinessCustomer}"
-             Style="{StaticResource ContentPageStyle}">
-    <Grid RowDefinitions="Auto, *" RowSpacing="15">
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:BusinessCustomerViewModel">
+    <Grid RowDefinitions="Auto, *, Auto" RowSpacing="15">
         <Picker 
             x:Name="CustomerPicker" 
             Style="{StaticResource CustomerPicker}"
@@ -22,55 +25,66 @@
             <StackLayout MaximumWidthRequest="400" Padding="20"  Spacing="40">
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.FirstNameLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.FirstName}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.LastNameLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.LastName}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.IdentificationNumber}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.BirthDateLabel}"/>
                     <DatePicker 
-                        Date="1990-01-01"
-                        WidthRequest="360"/>
+                        WidthRequest="360"
+                        Date="{Binding SelectedDate}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.AddressLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.Address}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}"/>
                     <Picker
-                        WidthRequest="360"/>
+                        WidthRequest="360"
+                        ItemsSource="{Binding EvidenceTypes}"
+                        ItemDisplayBinding="{Binding Converter={StaticResource EvidenceTypeToStringConverter}}"
+                        SelectedItem="{Binding Customer.EvidenceType}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.EvidenceNumber}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.NationalityLabel}"/>
                     <Label
                         Text="{x:Static texts:CustomerResources.RefugeesInfoLabel}"
                         Style="{StaticResource InfoLabelLight}"/>
-                    <Entry Placeholder="{x:Static texts:CustomerResources.DefaultNationalityPlaceholder}"/>
+                    <Entry 
+                        Placeholder="{x:Static texts:CustomerResources.DefaultNationalityPlaceholder}"
+                        Text="{Binding Customer.Nationality}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.BusinessCompanyNameLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.TradeNameOfTheOwner}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.BusinessAddressCompanyLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.TradeAddress}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.BusinessIdentificationNumberLabel}"/>
-                    <Entry/>
+                    <Entry Text="{Binding Customer.ICO}"/>
                 </VerticalStackLayout>
             </StackLayout>
         </ScrollView>
+        <ImageButton
+            Grid.Row="2"
+            Source="check_circle.png"
+            HorizontalOptions="End"
+            Style="{StaticResource IconStyle}"
+            Command="{Binding SaveCommand}"/>
     </Grid>
-</ContentPage>
+</views:ContentPageBase>

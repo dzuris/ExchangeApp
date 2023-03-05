@@ -21,14 +21,9 @@ public partial class NewCustomerIndividualPage
     {
         var selectedIndex = CustomerPicker.SelectedIndex;
 
-        switch (selectedIndex)
+        if (BindingContext is IndividualCustomerViewModel viewModel)
         {
-            case 1:
-                await Shell.Current.GoToAsync($"../{nameof(NewCustomerBusinessPage)}");
-                break;
-            case 2:
-                await Shell.Current.GoToAsync($"../{nameof(NewCustomerMinorPage)}");
-                break;
+            await viewModel.NavigateToPage(selectedIndex);
         }
     }
 }

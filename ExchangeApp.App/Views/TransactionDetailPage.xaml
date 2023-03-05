@@ -14,7 +14,7 @@
         RowSpacing="80">
         <Grid 
             RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, *, Auto"
-            RowSpacing="25"
+            RowSpacing="5"
             ColumnDefinitions="Auto, Auto"
             ColumnSpacing="40">
             <Label
@@ -87,26 +87,28 @@
                 Text="{x:Static texts:TransactionDetailPageResources.CustomerDetailButtonText}"/>
         </Grid>
 
-        <HorizontalStackLayout Grid.Column="1" Spacing="10" HorizontalOptions="End" Margin="60, 0">
-            <Label
-                Text="{x:Static texts:TransactionDetailPageResources.DateAndTimeLabel}"
-                Style="{StaticResource InfoLabelLight}"/>
-            <Label Text="{Binding Transaction.Time, FallbackValue=''}"/>
-        </HorizontalStackLayout>
-
         <Grid
             Grid.Column="1"
-            RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+            RowDefinitions="*, Auto, Auto, Auto, Auto, Auto"
+            RowSpacing="15"
             ColumnDefinitions="Auto, Auto"
             ColumnSpacing="40"
-            VerticalOptions="End">
+            HorizontalOptions="Center">
+            <Label
+                Text="{x:Static texts:TransactionDetailPageResources.DateAndTimeLabel}"
+                Style="{StaticResource InfoLabelLight}"
+                HorizontalOptions="End"/>
+            <Label Grid.Column="1" Text="{Binding Transaction.Time, FallbackValue=''}"/>
+
             <!-- First line -->
             <!-- Buy transaction -->
             <Label
+                Grid.Row="1"
                 HorizontalOptions="End"
                 IsVisible="{Binding IsTransactionBuy}"
                 Text="{x:Static texts:TransactionDetailPageResources.PaidLabel}"/>
             <HorizontalStackLayout
+                Grid.Row="1"
                 Grid.Column="1"
                 Spacing="5"
                 IsVisible="{Binding IsTransactionBuy}">
@@ -115,10 +117,12 @@
             </HorizontalStackLayout>
             <!-- Sell transaction -->
             <Label
+                Grid.Row="1"
                 HorizontalOptions="End"
                 IsVisible="{Binding IsTransactionSell}"
                 Text="{x:Static texts:TransactionDetailPageResources.AmountLabel}"/>
             <HorizontalStackLayout
+                Grid.Row="1"
                 Grid.Column="1"
                 Spacing="5"
                 IsVisible="{Binding IsTransactionSell}">
@@ -129,12 +133,12 @@
             <!-- Second line -->
             <!-- Buy transaction -->
             <Label
-                Grid.Row="1"
+                Grid.Row="2"
                 HorizontalOptions="End"
                 IsVisible="{Binding IsTransactionBuy}"
                 Text="{x:Static texts:TransactionDetailPageResources.AmountLabel}"/>
             <HorizontalStackLayout
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 Spacing="5"
                 IsVisible="{Binding IsTransactionBuy}">
@@ -143,12 +147,12 @@
             </HorizontalStackLayout>
             <!-- Sell transaction -->
             <Label
-                Grid.Row="1"
+                Grid.Row="2"
                 HorizontalOptions="End"
                 IsVisible="{Binding IsTransactionSell}"
                 Text="{x:Static texts:TransactionDetailPageResources.RoundLabel}"/>
             <Label
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 IsVisible="{Binding IsTransactionSell}"
                 Text="{Binding Transaction.Rounding, Converter={StaticResource DecimalToDecimalWithSignStringConverter}, FallbackValue=''}"/>
@@ -156,23 +160,23 @@
             <!-- Third line -->
             <!-- Buy transaction -->
             <Label
-                Grid.Row="2"
+                Grid.Row="3"
                 HorizontalOptions="End"
                 IsVisible="{Binding IsTransactionBuy}"
                 Text="{x:Static texts:TransactionDetailPageResources.RoundLabel}"/>
             <Label
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
                 IsVisible="{Binding IsTransactionBuy}"
                 Text="{Binding Transaction.Rounding, Converter={StaticResource DecimalToDecimalWithSignStringConverter}, FallbackValue=''}"/>
             <!-- Sell transaction -->
             <Label
-                Grid.Row="2"
+                Grid.Row="3"
                 HorizontalOptions="End"
                 IsVisible="{Binding IsTransactionSell}"
                 Text="{x:Static texts:TransactionDetailPageResources.PaidLabel}"/>
             <HorizontalStackLayout
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
                 Spacing="5"
                 IsVisible="{Binding IsTransactionSell}">
@@ -182,18 +186,17 @@
 
             <!-- Same for both -->
             <Line
-                Grid.Row="3"
-                Grid.ColumnSpan="2"
-                X2="150"
-                Stroke="Black"
-                HorizontalOptions="Center"/>
-            <Label
                 Grid.Row="4"
+                Grid.ColumnSpan="2"
+                X2="250"
+                Stroke="Black"/>
+            <Label
+                Grid.Row="5"
                 HorizontalOptions="End"
                 Text="{x:Static texts:TransactionDetailPageResources.ResultAmountLabel}"
                 Style="{StaticResource InputLabelStyle}"/>
             <HorizontalStackLayout
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="1"
                 Spacing="5">
                 <Label 

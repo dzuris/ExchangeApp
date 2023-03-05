@@ -72,7 +72,6 @@
             Grid.Row="2"
             Source="check_circle.png"
             HorizontalOptions="End"
-            VerticalOptions="End"
             Style="{StaticResource IconStyle}"
             Command="{Binding SaveCommand}"/>
     </Grid>

@@ -369,6 +369,23 @@ public partial class TransactionCreateViewModel : ViewModelBase
             var id = await _transactionFacade.InsertAsync(Transaction);
             Transaction.Id = id;
 
+            // Updates currencies quantities
+            if (Transaction.TransactionType == TransactionType.Buy)
+            {
+                await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
+                    CurrencyFrom.Quantity + Transaction.QuantityForeignCurrency);
+                await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code, 
+                    CurrencyTo.Quantity - Transaction.TotalAmountDomesticCurrency);
+            }
+            else
+            {
+                await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
+                    CurrencyFrom.Quantity + Transaction.TotalAmountDomesticCurrency);
+                await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code,
+                    CurrencyTo.Quantity - Transaction.QuantityForeignCurrency);
+            }
+
+            // Go to transaction detail page
             await Shell.Current.GoToAsync($"../{nameof(TransactionDetailPage)}", true, new Dictionary<string, object>
             {
                 {"Transaction", Transaction}

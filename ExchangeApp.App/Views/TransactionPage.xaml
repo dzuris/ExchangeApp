@@ -171,7 +171,7 @@
                 Spacing="5"
                 IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
                 <Label
-                    Text="{Binding Transaction.Rounding}"/>
+                    Text="{Binding Transaction.Rounding, Converter={StaticResource DecimalToDecimalWithSignStringConverter}}"/>
                 <Label
                     Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
             </HorizontalStackLayout>

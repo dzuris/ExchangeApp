@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EE72F0E6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeApp.DAL.Tests", "ExchangeApp.DAL.Tests\ExchangeApp.DAL.Tests.csproj", "{1352B8AC-310B-4F35-8EC7-94C9DE55B030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeApp.Common.Tests", "ExchangeApp.Common.Tests\ExchangeApp.Common.Tests.csproj", "{4742F2E1-C70E-4E00-A6DB-624175296B0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeApp.Common.Tests", "ExchangeApp.Common.Tests\ExchangeApp.Common.Tests.csproj", "{4742F2E1-C70E-4E00-A6DB-624175296B0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

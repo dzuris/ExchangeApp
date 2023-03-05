@@ -7,20 +7,6 @@
              Style="{StaticResource ContentPageStyle}">
 
     <Grid RowDefinitions="*, Auto" RowSpacing="20">
-        <Picker
-            Title="{x:Static texts:MainPageResources.EmployeePickerTitle}"
-            SelectedItem="Peter Employee"
-            MinimumWidthRequest="150"
-            HorizontalOptions="End">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Joseph New</x:String>
-                    <x:String>Peter Employee</x:String>
-                    <x:String>John Doe</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
-
         <HorizontalStackLayout
             HorizontalOptions="Center"
             VerticalOptions="Center"

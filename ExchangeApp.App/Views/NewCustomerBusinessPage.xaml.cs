@@ -1,12 +1,13 @@
+using ExchangeApp.App.ViewModels.Customers;
+
 namespace ExchangeApp.App.Views;
 
-public partial class NewCustomerBusinessPage : ContentPage
+public partial class NewCustomerBusinessPage
 {
-	public NewCustomerBusinessPage()
+	public NewCustomerBusinessPage(BusinessCustomerViewModel viewModel)
+        : base(viewModel)
 	{
 		InitializeComponent();
-
-        BindingContext = this;
     }
 
     protected override void OnAppearing()
@@ -20,14 +21,9 @@ public partial class NewCustomerBusinessPage : ContentPage
     {
         var selectedIndex = CustomerPicker.SelectedIndex;
 
-        switch (selectedIndex)
+        if (BindingContext is BusinessCustomerViewModel viewModel)
         {
-            case 0:
-                await Shell.Current.GoToAsync($"../{nameof(NewCustomerIndividualPage)}");
-                break;
-            case 2:
-                await Shell.Current.GoToAsync($"../{nameof(NewCustomerMinorPage)}");
-                break;
+            await viewModel.NavigateToPage(selectedIndex);
         }
     }
 }
