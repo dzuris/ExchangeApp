@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.DAL.Entities;
+using ExchangeApp.DAL.Entities.Operations;
 
 namespace ExchangeApp.BL.MapperProfiles;
 

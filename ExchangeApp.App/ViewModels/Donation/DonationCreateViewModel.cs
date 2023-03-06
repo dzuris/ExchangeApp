@@ -95,7 +95,7 @@ public partial class DonationCreateViewModel : ViewModelBase
             Quantity = Quantity,
             Type = DonationType ?? Common.Enums.DonationType.Deposit,
             Note = Note,
-            Code = SelectedCurrency!.Code
+            CurrencyCode = SelectedCurrency!.Code
         };
 
         int id;

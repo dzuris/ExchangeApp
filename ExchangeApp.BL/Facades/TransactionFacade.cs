@@ -2,6 +2,7 @@
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.DAL.Entities;
+using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using ExchangeApp.DAL.UnitOfWork;
 

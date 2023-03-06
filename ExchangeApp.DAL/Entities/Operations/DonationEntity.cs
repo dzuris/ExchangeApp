@@ -1,6 +1,6 @@
 ﻿using ExchangeApp.Common.Enums;
 
-namespace ExchangeApp.DAL.Entities;
+namespace ExchangeApp.DAL.Entities.Operations;
 
 public record DonationEntity : IEntity
 {

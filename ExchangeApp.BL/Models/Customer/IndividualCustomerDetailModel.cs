@@ -15,7 +15,6 @@ public record IndividualCustomerDetailModel : CustomerDetailModel
         Address = string.Empty,
         EvidenceType = EvidenceType.IdentificationCard,
         EvidenceNumber = string.Empty,
-        TransactionId = 0,
         Nationality = string.Empty
     };
 }

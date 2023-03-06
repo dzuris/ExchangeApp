@@ -1,6 +1,7 @@
 ﻿using ExchangeApp.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using ExchangeApp.DAL.Entities.Customers;
+using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Seeds;
 
 namespace ExchangeApp.DAL.Data;
@@ -36,11 +37,10 @@ public class ExchangeAppDbContext : DbContext
             .WithOne(i => i.Currency)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Relationship Customer (1) - Transaction (1)
+        // Relationship Transaction (1) - Customer (1)
         modelBuilder.Entity<CustomerEntity>()
-            .HasOne(i => i.Transaction)
-            .WithOne(t => t.Customer)
-            .HasForeignKey<CustomerEntity>(i => i.TransactionId)
+            .HasOne<TransactionEntity>()
+            .WithOne(i => i.Customer)
             .OnDelete(DeleteBehavior.Restrict);
         
         // Using table-per-type configuration see https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Services.Interfaces;
+using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Donation;
 
 namespace ExchangeApp.App.ViewModels.Donation;
@@ -8,10 +10,12 @@ namespace ExchangeApp.App.ViewModels.Donation;
 public partial class DonationDetailViewModel : ViewModelBase
 {
     private readonly IPrinterService _printerService;
+    private readonly ICustomerFacade _customerFacade;
 
-    public DonationDetailViewModel(IPrinterService printerService)
+    public DonationDetailViewModel(IPrinterService printerService, ICustomerFacade customerFacade)
     {
         _printerService = printerService;
+        _customerFacade = customerFacade;
     }
 
     [ObservableProperty]
@@ -29,5 +33,11 @@ public partial class DonationDetailViewModel : ViewModelBase
 
             return Donation.Time.ToString("yyyyMMdd") + " / " + Donation.Id;
         }
+    }
+
+    [RelayCommand]
+    private async Task GoToCustomerDetailAsync()
+    {
+
     }
 }

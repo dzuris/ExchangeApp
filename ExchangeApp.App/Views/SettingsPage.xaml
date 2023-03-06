@@ -14,7 +14,6 @@
                 <x:Static Member="texts:SettingsPageResources.OperationsAutomaticSaveListItem"/>
                 <x:Static Member="texts:SettingsPageResources.CourseRatesListItem"/>
                 <x:Static Member="texts:SettingsPageResources.TotalBalanceListItem"/>
-                <x:Static Member="texts:SettingsPageResources.EmployeeListItem"/>
                 <x:Static Member="texts:SettingsPageResources.BranchInfoListItem"/>
                 <x:Static Member="texts:SettingsPageResources.CompanyInfoListItem"/>
                 <x:Static Member="texts:SettingsPageResources.LicenseInfoListItem"/>

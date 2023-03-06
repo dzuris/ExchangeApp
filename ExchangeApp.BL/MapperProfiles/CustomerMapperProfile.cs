@@ -9,5 +9,9 @@ public class CustomerMapperProfile : Profile
     public CustomerMapperProfile()
     {
         CreateMap<CustomerEntity, CustomerListModel>();
+
+        CreateMap<IndividualCustomerDetailModel, IndividualCustomerEntity>();
+        CreateMap<BusinessCustomerDetailModel, BusinessCustomerEntity>();
+        CreateMap<MinorCustomerDetailModel, MinorCustomerEntity>();
     }
 }

@@ -12,7 +12,6 @@ public record MinorCustomerDetailModel : CustomerDetailModel
         LastName = string.Empty,
         Address = string.Empty,
         EvidenceType = EvidenceType.IdentificationCard,
-        EvidenceNumber = string.Empty,
-        TransactionId = 0
+        EvidenceNumber = string.Empty
     };
 }

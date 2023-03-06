@@ -1,4 +1,5 @@
 ﻿using ExchangeApp.DAL.Entities;
+using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

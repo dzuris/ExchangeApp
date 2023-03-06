@@ -13,7 +13,7 @@ public record DonationDetailModel : ModelBase
     public required string Note { get; set; }
     public bool IsCanceled { get; set; }
 
-    public required string Code { get; set; }
+    public required string CurrencyCode { get; set; }
     public CurrencyListModel? Currency { get; set; }
 
     public static DonationDetailModel Empty => new()
@@ -23,6 +23,6 @@ public record DonationDetailModel : ModelBase
         Quantity = 0,
         Type = DonationType.Deposit,
         Note = string.Empty,
-        Code = string.Empty
+        CurrencyCode = string.Empty
     };
 }

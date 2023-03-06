@@ -4,14 +4,47 @@
              xmlns:views="clr-namespace:ExchangeApp.App.Views.Base"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.OperationsList"
+             xmlns:transaction="clr-namespace:ExchangeApp.BL.Models.Transaction;assembly=ExchangeApp.BL"
+             xmlns:donation="clr-namespace:ExchangeApp.BL.Models.Donation;assembly=ExchangeApp.BL"
+             xmlns:controls="clr-namespace:ExchangeApp.App.Controls"
              x:Class="ExchangeApp.App.Views.OperationsListPage"
              Title="{x:Static texts:OperationsListPageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:OperationsListViewModel">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <views:ContentPageBase.Resources>
+        <DataTemplate x:Key="DonationTemplate" x:DataType="donation:DonationListModel">
+            <VerticalStackLayout BackgroundColor="DodgerBlue">
+                <Label Text="This is donation type template" />
+                <HorizontalStackLayout Spacing="15">
+                    <Label Text="Id: "/>
+                    <Label Text="{Binding Id}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="15">
+                    <Label Text="Type: "/>
+                    <Label Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TransactionTemplate" x:DataType="transaction:TransactionListModel">
+            <VerticalStackLayout BackgroundColor="Yellow">
+                <Label Text="This is transaction type template" />
+                <HorizontalStackLayout Spacing="15">
+                    <Label Text="Id: "/>
+                    <Label Text="{Binding Id}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="15">
+                    <Label Text="Type: "/>
+                    <Label Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </DataTemplate>
+
+        <controls:ListModelDataTemplateSelector x:Key="ListModelSelector"
+                                                DonationTemplate="{StaticResource DonationTemplate}"
+                                                TransactionTemplate="{StaticResource TransactionTemplate}"/>
+    </views:ContentPageBase.Resources>
+
+    <CollectionView ItemsSource="{Binding Operations}" ItemTemplate="{StaticResource ListModelSelector}">
+    </CollectionView>
 </views:ContentPageBase>

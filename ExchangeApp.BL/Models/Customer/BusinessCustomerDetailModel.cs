@@ -18,7 +18,6 @@ public record BusinessCustomerDetailModel : CustomerDetailModel
         Address = string.Empty,
         EvidenceType = EvidenceType.IdentificationCard,
         EvidenceNumber = string.Empty,
-        TransactionId = 0,
         TradeNameOfTheOwner = string.Empty,
         TradeAddress = string.Empty,
         ICO = string.Empty,

@@ -16,7 +16,6 @@ public partial class SettingsPage
         SettingsPageResources.OperationsAutomaticSaveListItem,
         SettingsPageResources.CourseRatesListItem,
         SettingsPageResources.TotalBalanceListItem,
-        SettingsPageResources.EmployeeListItem,
         SettingsPageResources.BranchInfoListItem,
         SettingsPageResources.CompanyInfoListItem,
         SettingsPageResources.LicenseInfoListItem

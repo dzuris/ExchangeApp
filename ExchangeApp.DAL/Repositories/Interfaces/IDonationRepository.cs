@@ -1,4 +1,5 @@
 ﻿using ExchangeApp.DAL.Entities;
+using ExchangeApp.DAL.Entities.Operations;
 
 namespace ExchangeApp.DAL.Repositories.Interfaces;
 

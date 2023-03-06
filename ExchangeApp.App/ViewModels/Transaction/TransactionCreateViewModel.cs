@@ -360,29 +360,39 @@ public partial class TransactionCreateViewModel : ViewModelBase
             // Needs to go to the customer create page
             await Shell.Current.GoToAsync($"{nameof(NewCustomerIndividualPage)}", true, new Dictionary<string, object>
             {
-                {"Transaction", Transaction}
+                {"Transaction", Transaction},
+                {"CurrencyFrom", CurrencyFrom!},
+                {"CurrencyTo", CurrencyTo!}
             });
         }
         else
         {
-            // Create transaction because it is not over 1000 euros
-            var id = await _transactionFacade.InsertAsync(Transaction);
-            Transaction.Id = id;
+            try
+            {
+                // Create transaction because it is not over 1000 euros
+                var id = await _transactionFacade.InsertAsync(Transaction);
+                Transaction.Id = id;
 
-            // Updates currencies quantities
-            if (Transaction.TransactionType == TransactionType.Buy)
-            {
-                await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
-                    CurrencyFrom.Quantity + Transaction.QuantityForeignCurrency);
-                await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code, 
-                    CurrencyTo.Quantity - Transaction.TotalAmountDomesticCurrency);
+                // Updates currencies quantities
+                if (Transaction.TransactionType == TransactionType.Buy)
+                {
+                    await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
+                        CurrencyFrom.Quantity + Transaction.QuantityForeignCurrency);
+                    await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code, 
+                        CurrencyTo.Quantity - Transaction.TotalAmountDomesticCurrency);
+                }
+                else
+                {
+                    await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
+                        CurrencyFrom.Quantity + Transaction.TotalAmountDomesticCurrency);
+                    await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code,
+                        CurrencyTo.Quantity - Transaction.QuantityForeignCurrency);
+                }
             }
-            else
+            catch (Exception e)
             {
-                await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
-                    CurrencyFrom.Quantity + Transaction.TotalAmountDomesticCurrency);
-                await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code,
-                    CurrencyTo.Quantity - Transaction.QuantityForeignCurrency);
+                Console.WriteLine(e);
+                throw;
             }
 
             // Go to transaction detail page

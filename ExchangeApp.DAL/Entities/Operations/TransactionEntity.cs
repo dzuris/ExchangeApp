@@ -1,7 +1,7 @@
 ﻿using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities.Customers;
 
-namespace ExchangeApp.DAL.Entities;
+namespace ExchangeApp.DAL.Entities.Operations;
 
 public record TransactionEntity : IEntity
 {

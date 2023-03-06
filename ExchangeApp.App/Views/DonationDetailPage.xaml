@@ -31,7 +31,7 @@
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
-                    Text="{Binding Donation.Type, Converter={StaticResource DonationTypeToStringConverter}}"/>
+                    Text="{Binding Donation.Type, Converter={StaticResource DonationTypeToStringConverter}, FallbackValue=''}"/>
                 <Label
                     Grid.Row="2"
                     Text="{x:Static texts:DonationDetailPageResources.QuantityLabel}"
@@ -41,9 +41,9 @@
                     Grid.Column="1"
                     Spacing="5">
                     <Label
-                        Text="{Binding Donation.Quantity}"/>
+                        Text="{Binding Donation.Quantity, FallbackValue=''}"/>
                     <Label
-                        Text="{Binding Donation.Code}"/>
+                        Text="{Binding Donation.CurrencyCode, FallbackValue=''}"/>
                 </HorizontalStackLayout>
                 <Label
                     Grid.Row="3"
@@ -52,7 +52,7 @@
                 <Label
                     Grid.Row="3"
                     Grid.Column="1"
-                    Text="{Binding Donation.Code}"/>
+                    Text="{Binding Donation.CurrencyCode, FallbackValue=''}"/>
                 <Label
                     Grid.Row="4"
                     Text="{x:Static texts:DonationDetailPageResources.CourseRateLabel}"
@@ -61,7 +61,7 @@
                 <Label
                     Grid.Row="4"
                     Grid.Column="1"
-                    Text="{Binding Donation.CourseRate}"/>
+                    Text="{Binding Donation.CourseRate, FallbackValue=''}"/>
                 <Label
                     Grid.Row="5"
                     Text="{x:Static texts:DonationDetailPageResources.NoteLabel}"
@@ -69,11 +69,7 @@
                 <Label
                     Grid.Row="5"
                     Grid.Column="1"
-                    Text="{Binding Donation.Note}"/>
-                <Label
-                    Grid.Row="6"
-                    VerticalOptions="End"
-                    Text="{x:Static texts:DonationDetailPageResources.EmployeeLabel}"/>
+                    Text="{Binding Donation.Note, FallbackValue=''}"/>
             </Grid>
             <VerticalStackLayout
                 Grid.Column="1"
@@ -83,7 +79,7 @@
                         Text="{x:Static texts:DonationDetailPageResources.DateAndTimeLabel}"
                         Style="{StaticResource InfoLabelLight}"/>
                     <Label
-                        Text="{Binding Donation.Time}"/>
+                        Text="{Binding Donation.Time, FallbackValue=''}"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Grid>

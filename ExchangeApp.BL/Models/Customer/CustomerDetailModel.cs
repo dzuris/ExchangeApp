@@ -1,5 +1,4 @@
-﻿using ExchangeApp.BL.Models.Transaction;
-using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.BL.Models.Customer;
 
@@ -14,7 +13,4 @@ public record CustomerDetailModel : ModelBase
     public required string Address { get; set; }
     public required EvidenceType EvidenceType { get; set; }
     public required string EvidenceNumber { get; set; }
-
-    public required int TransactionId { get; set; }
-    public TransactionDetailModel? Transaction { get; set; }
 }

@@ -38,7 +38,7 @@
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}"/>
-                    <Entry Text="{Binding Customer.IdentificationNumber}"/>
+                    <Entry Text="{Binding IdentificationNumber}"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
                     <Label Text="{x:Static texts:CustomerResources.BirthDateLabel}"/>
