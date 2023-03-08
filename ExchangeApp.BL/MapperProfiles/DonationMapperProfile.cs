@@ -14,7 +14,6 @@ public class DonationMapperProfile : Profile
             .ForMember(dst => dst.Time, opt => opt.MapFrom(src => src.Time))
             .ForMember(dst => dst.Type, opt => opt.MapFrom(src => src.Type))
             .ForMember(dst => dst.CurrencyCode, opt => opt.MapFrom(src => src.CurrencyCode));
-        //CreateMap<DonationEntity, DonationDetailModel>();
 
         CreateMap<DonationDetailModel, DonationEntity>()
             .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.CurrencyCode))

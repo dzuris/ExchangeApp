@@ -185,7 +185,7 @@
     <value>You have to enter at least one birth date or identification number.</value>
   </data>
   <data name="ErrorMessage_IdentificationNumberNotValid" xml:space="preserve">
-    <value>Identification number has wrong format. (try for example 000101/9999, 000528/1)</value>
+    <value>Identification number has wrong format. (try for example 000101/9999, 000528/1). If customer is from country with another identification number format, fill only his birth date and the identification number entry set as empty.</value>
   </data>
   <data name="BusinessCompanyNameLabel" xml:space="preserve">
     <value>Company name:</value>

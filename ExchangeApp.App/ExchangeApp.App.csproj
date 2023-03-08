@@ -135,6 +135,8 @@
 	  <Folder Include="ViewModels\Donation\" />
 	  <Folder Include="ViewModels\Courses\" />
 	  <Folder Include="ViewModels\Customers\" />
+	  <Folder Include="ViewModels\CashRegister\" />
+	  <Folder Include="ViewModels\ProfitCalculate\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -158,6 +160,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>AppResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\CashRegisterStatusPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CashRegisterStatusPageResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\CourseDetailPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -177,6 +184,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>EnumEvidenceTypeResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\ProfitCalculatePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ProfitCalculatePageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -248,7 +260,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>TransactionTypeResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\SettingsCoursesManagerPage.xaml.cs">
+	  <Compile Update="Views\Donation\DonationCreatePage.xaml.cs">
+	    <DependentUpon>DonationCreatePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Settings\SettingsCoursesManagerPage.xaml.cs">
 	    <DependentUpon>SettingsCoursesManagerPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
@@ -257,6 +272,10 @@
 	  <EmbeddedResource Update="Resources\Texts\AppResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CashRegisterStatusPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CashRegisterStatusPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\CourseDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -273,6 +292,10 @@
 	  <EmbeddedResource Update="Resources\Texts\EnumEvidenceTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumEvidenceTypeResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\ProfitCalculatePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ProfitCalculatePageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -366,52 +389,52 @@
 	  <MauiXaml Update="Resources\Styles\VerticalStackLayoutStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Base\ContentPageBase.xaml">
+	  <MauiXaml Update="Views\ContentPageBase.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CashRegisterStatusPage.xaml">
+	  <MauiXaml Update="Views\CashRegister\CashRegisterStatusPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CourseDetailPage.xaml">
+	  <MauiXaml Update="Views\Courses\CourseDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\SettingsCoursesManagerPage.xaml">
+	  <MauiXaml Update="Views\ProfitCalculate\ProfitCalculatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CoursesPage.xaml">
+	  <MauiXaml Update="Views\Settings\SettingsCoursesManagerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CustomerCreatePage.xaml">
+	  <MauiXaml Update="Views\Courses\CoursesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CustomerDetailPage.xaml">
+	  <MauiXaml Update="Views\Customers\CustomerDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DonationDetailPage.xaml">
+	  <MauiXaml Update="Views\Donation\DonationDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DonationPage.xaml">
+	  <MauiXaml Update="Views\Donation\DonationCreatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\NewCustomerBusinessPage.xaml">
+	  <MauiXaml Update="Views\Customers\NewCustomerBusinessPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\NewCustomerIndividualPage.xaml">
+	  <MauiXaml Update="Views\Customers\NewCustomerIndividualPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\NewCustomerMinorPage.xaml">
+	  <MauiXaml Update="Views\Customers\NewCustomerMinorPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\OperationsListPage.xaml">
+	  <MauiXaml Update="Views\OperationsList\OperationsListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\SettingsPage.xaml">
+	  <MauiXaml Update="Views\Settings\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TransactionDetailPage.xaml">
+	  <MauiXaml Update="Views\Transaction\TransactionDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TransactionPage.xaml">
+	  <MauiXaml Update="Views\Transaction\TransactionPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

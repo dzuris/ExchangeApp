@@ -5,17 +5,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExchangeApp.DAL.Repositories;
 
-public class OperationRepository : IOperationRepository
+public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOperationRepository
 {
-    private readonly DbContext _dbContext;
-
-    public OperationRepository(DbContext dbContext)
+    public OperationRepository(DbContext appDbContext)
+        : base(appDbContext)
     {
-        _dbContext = dbContext;
     }
 
-    public Task<IEnumerable<object>> GetOperationsAsync(int pageSize, int pageNumber)
+    public async Task<IEnumerable<OperationEntityBase>> GetLastOperationsAsync(int pageSize, int pageNumber)
     {
-        throw new NotImplementedException();
+        var list = await AppDbContext.Set<OperationEntityBase>()
+            .OrderByDescending(o => o.Time)
+            .Skip(pageSize * (pageNumber - 1))
+            .Take(pageSize)
+            .ToListAsync();
+
+        return list;
     }
 }

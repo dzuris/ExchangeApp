@@ -1,4 +1,9 @@
-﻿using ExchangeApp.App.Views;
+﻿using ExchangeApp.App.Views.Courses;
+using ExchangeApp.App.Views.Customers;
+using ExchangeApp.App.Views.Donation;
+using ExchangeApp.App.Views.OperationsList;
+using ExchangeApp.App.Views.Settings;
+using ExchangeApp.App.Views.Transaction;
 
 namespace ExchangeApp.App;
 
@@ -15,7 +20,7 @@ public partial class AppShell
 		Routing.RegisterRoute(nameof(NewCustomerBusinessPage), typeof(NewCustomerBusinessPage));
 		Routing.RegisterRoute(nameof(NewCustomerMinorPage), typeof(NewCustomerMinorPage));
 		
-		Routing.RegisterRoute(nameof(DonationPage), typeof(DonationPage));
+		Routing.RegisterRoute(nameof(DonationCreatePage), typeof(DonationCreatePage));
 		Routing.RegisterRoute(nameof(DonationDetailPage), typeof(DonationDetailPage));
 
 		Routing.RegisterRoute(nameof(OperationsListPage), typeof(OperationsListPage));

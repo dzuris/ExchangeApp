@@ -196,7 +196,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Identification number has wrong format. (try for example 000101/9999, 000528/1).
+        ///   Looks up a localized string similar to Identification number has wrong format. (try for example 000101/9999, 000528/1). If customer is from country with another identification number format, fill only his birth date and the identification number entry set as empty..
         /// </summary>
         public static string ErrorMessage_IdentificationNumberNotValid {
             get {

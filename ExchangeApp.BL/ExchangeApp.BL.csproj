@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Facades\Interfaces\" />
-    <Folder Include="MapperProfiles\" />
     <Folder Include="Installers\" />
     <Folder Include="Extensions\" />
   </ItemGroup>

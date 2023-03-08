@@ -1,6 +1,8 @@
-﻿namespace ExchangeApp.DAL.Repositories.Interfaces;
+﻿using ExchangeApp.DAL.Entities.Operations;
 
-public interface IOperationRepository
+namespace ExchangeApp.DAL.Repositories.Interfaces;
+
+public interface IOperationRepository : IRepository<OperationEntityBase, int>
 {
-    Task<IEnumerable<object>> GetOperationsAsync(int pageSize, int pageNumber);
+    Task<IEnumerable<OperationEntityBase>> GetLastOperationsAsync(int pageSize, int pageNumber);
 }

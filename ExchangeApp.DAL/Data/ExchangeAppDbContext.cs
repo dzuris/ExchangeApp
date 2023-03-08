@@ -9,6 +9,7 @@ namespace ExchangeApp.DAL.Data;
 public class ExchangeAppDbContext : DbContext
 {
     public DbSet<CurrencyEntity> Currencies => Set<CurrencyEntity>();
+    public DbSet<OperationEntityBase> Operations => Set<OperationEntityBase>();
     public DbSet<TransactionEntity> Transactions => Set<TransactionEntity>();
     public DbSet<DonationEntity> Donations => Set<DonationEntity>();
     public DbSet<TotalBalanceEntity> TotalBalances => Set<TotalBalanceEntity>();
@@ -42,7 +43,11 @@ public class ExchangeAppDbContext : DbContext
             .HasOne<TransactionEntity>()
             .WithOne(i => i.Customer)
             .OnDelete(DeleteBehavior.Restrict);
-        
+
+        modelBuilder.Entity<OperationEntityBase>()
+            .Property(o => o.Id)
+            .ValueGeneratedOnAdd();
+
         // Using table-per-type configuration see https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration
         modelBuilder.Entity<CustomerEntity>().UseTptMappingStrategy();
 

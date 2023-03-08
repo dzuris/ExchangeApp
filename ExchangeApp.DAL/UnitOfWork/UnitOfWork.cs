@@ -14,7 +14,8 @@ public class UnitOfWork : IUnitOfWork
     private IDonationRepository? _donationRepository;
     private ITransactionRepository? _transactionRepository;
     private ICustomerRepository? _customerRepository;
-    private IMapper _mapper;
+    private IOperationRepository? _operationRepository;
+    private readonly IMapper _mapper;
 
     public UnitOfWork(ExchangeAppDbContext dbContext, IMapper mapper)
     {
@@ -33,6 +34,9 @@ public class UnitOfWork : IUnitOfWork
 
     public ICustomerRepository CustomerRepository 
         => _customerRepository ??= new CustomerRepository(_dbContext);
+
+    public IOperationRepository OperationRepository
+        => _operationRepository ??= new OperationRepository(_dbContext);
 
     public async Task CommitAsync() => await _dbContext.SaveChangesAsync();
 

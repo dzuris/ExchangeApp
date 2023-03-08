@@ -205,7 +205,7 @@
     <value>Musí byť zadaná aspoň jedna položka z: dátum narodenia alebo rodné číslo.</value>
   </data>
   <data name="ErrorMessage_IdentificationNumberNotValid" xml:space="preserve">
-    <value>Nesprávny formát rodného čísla. (správny formát napríklad 000101/9999, 000528/1)</value>
+    <value>Nesprávny formát rodného čísla. (správny formát napríklad 000101/9999, 000528/1). Ak zákazník pochádza z krajiny s iným formátom rodného čísla, vyplňte iba jeho dátum narodenia a rodné číslo nechajte prázdne.</value>
   </data>
   <data name="BusinessCompanyNameLabel" xml:space="preserve">
     <value>Obchodné meno firmy:</value>

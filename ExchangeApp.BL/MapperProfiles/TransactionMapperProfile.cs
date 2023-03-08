@@ -24,5 +24,7 @@ public class TransactionMapperProfile : Profile
             .ForMember(
                 dst => dst.Customer,
                 opt => opt.Ignore());
+
+        CreateMap<TransactionEntity, TransactionListModel>();
     }
 }

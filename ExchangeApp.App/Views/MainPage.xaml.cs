@@ -1,6 +1,10 @@
-﻿namespace ExchangeApp.App.Views;
+﻿using ExchangeApp.App.Views.Donation;
+using ExchangeApp.App.Views.OperationsList;
+using ExchangeApp.App.Views.Transaction;
 
-public partial class MainPage : ContentPage
+namespace ExchangeApp.App.Views;
+
+public partial class MainPage
 {
 	public MainPage()
 	{
@@ -14,7 +18,7 @@ public partial class MainPage : ContentPage
 
     private async void OnCreateDonationPageTapped(object? sender, TappedEventArgs e)
     {
-        await Shell.Current.GoToAsync($"{nameof(DonationPage)}");
+        await Shell.Current.GoToAsync($"{nameof(DonationCreatePage)}");
     }
 
     private async void OnOperationsListPageTapped(object? sender, TappedEventArgs e)

@@ -120,4 +120,13 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Zoznam operácií</value>
   </data>
+  <data name="OperationsListHeaderTitle" xml:space="preserve">
+    <value>Operácie</value>
+  </data>
+  <data name="DonationListItemTitle" xml:space="preserve">
+    <value>Dotácia</value>
+  </data>
+  <data name="TransactionListItemTitle" xml:space="preserve">
+    <value>Transakcia</value>
+  </data>
 </root>

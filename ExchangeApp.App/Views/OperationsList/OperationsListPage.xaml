@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.OperationsList"
+             xmlns:transaction="clr-namespace:ExchangeApp.BL.Models.Transaction;assembly=ExchangeApp.BL"
+             xmlns:donation="clr-namespace:ExchangeApp.BL.Models.Donation;assembly=ExchangeApp.BL"
+             xmlns:controls="clr-namespace:ExchangeApp.App.Controls"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
+             x:Class="ExchangeApp.App.Views.OperationsList.OperationsListPage"
+             Title="{x:Static texts:OperationsListPageResources.PageTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:OperationsListViewModel">
+    <views:ContentPageBase.Resources>
+        <DataTemplate x:Key="DonationTemplate" x:DataType="donation:DonationListModel">
+            <Grid Padding="10">
+                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="#e6fbff">
+                    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
+                        <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
+                        <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.DonationListItemTitle}" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}" VerticalOptions="Center"/>
+                        <Label Grid.Column="3" Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TransactionTemplate" x:DataType="transaction:TransactionListModel">
+            <Grid Padding="10">
+                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="#d6f8ff">
+                    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
+                        <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
+                        <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.TransactionListItemTitle}" VerticalOptions="Center"/>
+                        <Label Grid.Column="2" Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}" VerticalOptions="Center"/>
+                        <Label Grid.Column="3" Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </DataTemplate>
+
+        <controls:ListModelDataTemplateSelector x:Key="ListModelSelector"
+                                                DonationTemplate="{StaticResource DonationTemplate}"
+                                                TransactionTemplate="{StaticResource TransactionTemplate}"/>
+    </views:ContentPageBase.Resources>
+
+    <CollectionView 
+        ItemsSource="{Binding Operations}" 
+        ItemTemplate="{StaticResource ListModelSelector}">
+        <CollectionView.Header>
+            <Frame BackgroundColor="{StaticResource Primary}">
+                <Label Text="{x:Static texts:OperationsListPageResources.OperationsListHeaderTitle}" TextColor="White" FontAttributes="Bold"/>
+            </Frame>
+        </CollectionView.Header>
+    </CollectionView>
+</views:ContentPageBase>

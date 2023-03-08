@@ -1,7 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ExchangeApp.App.Views;
-using ExchangeApp.BL.Facades;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Customer;
@@ -9,6 +7,8 @@ using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
 using System.Resources;
 using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.App.Views.Customers;
+using ExchangeApp.App.Views.Transaction;
 
 namespace ExchangeApp.App.ViewModels.Customers;
 

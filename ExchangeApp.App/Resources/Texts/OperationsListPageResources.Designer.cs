@@ -61,11 +61,38 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Donation.
+        /// </summary>
+        public static string DonationListItemTitle {
+            get {
+                return ResourceManager.GetString("DonationListItemTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operations.
+        /// </summary>
+        public static string OperationsListHeaderTitle {
+            get {
+                return ResourceManager.GetString("OperationsListHeaderTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OperationsList.
         /// </summary>
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction.
+        /// </summary>
+        public static string TransactionListItemTitle {
+            get {
+                return ResourceManager.GetString("TransactionListItemTitle", resourceCulture);
             }
         }
     }

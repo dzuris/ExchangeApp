@@ -100,4 +100,13 @@
   <data name="PageTitle" xml:space="preserve">
     <value>OperationsList</value>
   </data>
+  <data name="OperationsListHeaderTitle" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="TransactionListItemTitle" xml:space="preserve">
+    <value>Transaction</value>
+  </data>
+  <data name="DonationListItemTitle" xml:space="preserve">
+    <value>Donation</value>
+  </data>
 </root>

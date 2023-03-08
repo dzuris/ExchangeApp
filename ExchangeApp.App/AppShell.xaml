@@ -5,6 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
     xmlns:views="clr-namespace:ExchangeApp.App.Views"
+    xmlns:cashRegister="clr-namespace:ExchangeApp.App.Views.CashRegister"
+    xmlns:courses="clr-namespace:ExchangeApp.App.Views.Courses"
+    xmlns:settings="clr-namespace:ExchangeApp.App.Views.Settings"
     FlyoutBehavior="Flyout"
     FlyoutBackgroundColor="{StaticResource FlyoutBackground}">
 
@@ -27,12 +30,17 @@
 
     <ShellContent
         Title="{x:Static texts:CoursesPageResources.PageTitle}"
-        ContentTemplate="{DataTemplate views:CoursesPage}"
+        ContentTemplate="{DataTemplate courses:CoursesPage}"
         Route="CoursesPage"/>
 
     <ShellContent
+        Title="{x:Static texts:CashRegisterStatusPageResources.PageTitle}"
+        ContentTemplate="{DataTemplate cashRegister:CashRegisterStatusPage}"
+        Route="CashRegisterStatusPage"/>
+
+    <ShellContent
         Title="{x:Static texts:SettingsPageResources.PageTitle}"
-        ContentTemplate="{DataTemplate views:SettingsPage}"
+        ContentTemplate="{DataTemplate settings:SettingsPage}"
         Route="SettingsPage"/>
 
 </Shell>
