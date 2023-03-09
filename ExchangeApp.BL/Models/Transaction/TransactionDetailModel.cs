@@ -9,6 +9,8 @@ public record TransactionDetailModel : ModelBase
     public int Id { get; set; }
     public required DateTime Time { get; set; }
     public required decimal CourseRate { get; set; }
+    // Used for sell, levy and withdraw
+    public decimal? AverageCourseRate { get; set; }
     public required decimal QuantityForeignCurrency { get; set; }
     public required TransactionType TransactionType { get; set; }
     public bool IsCanceled { get; set; }
@@ -59,7 +61,6 @@ public record TransactionDetailModel : ModelBase
     /// <summary>
     /// Calculates amount of the transaction and round it to two decimals
     /// </summary>
-    /// <param name="type">Buy or sell</param>
     /// <param name="quantity">How much money is user changing</param>
     /// <param name="courseRate">Course rate of the transaction</param>
     /// <returns>Rounded amount of the transaction to 2 decimal points</returns>

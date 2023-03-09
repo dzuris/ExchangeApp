@@ -36,11 +36,13 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
 
     public async Task<IEnumerable<CurrencyEntity>> GetActiveCurrenciesAsync()
     {
-        return await AppDbContext
+        var list = await AppDbContext
             .Set<CurrencyEntity>()
+            .AsNoTracking()
             .Where(e => e.Status != CurrencyState.NotInUse)
             .OrderBy(item => item.Code != DomesticCurrencyCode)
             .ToListAsync();
+        return list;
     }
 
     public async Task UpdateQuantityAsync(string code, decimal newQuantity)
@@ -56,7 +58,21 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
         AppDbContext
             .Set<CurrencyEntity>()
             .Update(entity);
-        await AppDbContext.SaveChangesAsync();
+    }
+
+    public async Task UpdateAverageCourseAsync(string code, decimal newAverageCourse)
+    {
+        var entity = await GetByIdAsync(code);
+
+        if (entity == null)
+        {
+            return;
+        }
+
+        entity.AverageCourseRate = newAverageCourse;
+        AppDbContext
+            .Set<CurrencyEntity>()
+            .Update(entity);
     }
 
     public async Task UpdateStatus(string code, CurrencyState status)
@@ -69,10 +85,9 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
         AppDbContext
             .Set<CurrencyEntity>()
             .Update(entity);
-        await AppDbContext.SaveChangesAsync();
     }
 
-    public override async Task UpdateAsync(CurrencyEntity entity)
+    public async Task UpdateAsync(CurrencyEntity entity)
     {
         var existingEntity = await GetByIdAsync(entity.Code);
 
@@ -85,6 +100,5 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
         AppDbContext
             .Set<CurrencyEntity>()
             .Update(existingEntity);
-        await AppDbContext.SaveChangesAsync();
     }
 }

@@ -120,4 +120,28 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Stav pokladnice</value>
   </data>
+  <data name="CashRegisterTogetherLabel" xml:space="preserve">
+    <value>Spolu pokladnica:</value>
+  </data>
+  <data name="ListItemTitleCurrencyCode" xml:space="preserve">
+    <value>Kód meny</value>
+  </data>
+  <data name="ListItemTitleAverageCourseRate" xml:space="preserve">
+    <value>Priemerný kurz</value>
+  </data>
+  <data name="ListItemTitleExchangeRateValue" xml:space="preserve">
+    <value>Kurzová hodnota</value>
+  </data>
+  <data name="ListItemTitleFlag" xml:space="preserve">
+    <value>Vlajka</value>
+  </data>
+  <data name="ListItemTitleQuantity" xml:space="preserve">
+    <value>Valuty</value>
+  </data>
+  <data name="ListItemTitleState" xml:space="preserve">
+    <value>Názov štátu</value>
+  </data>
+  <data name="QuantityTogetherLabel" xml:space="preserve">
+    <value>Spolu valuty:</value>
+  </data>
 </root>

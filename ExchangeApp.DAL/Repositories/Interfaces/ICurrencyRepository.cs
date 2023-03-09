@@ -7,7 +7,8 @@ public interface ICurrencyRepository : IRepository<CurrencyEntity, string>
 {
     Task<IEnumerable<CurrencyEntity>> GetNonActiveCurrenciesAsync();
     Task<IEnumerable<CurrencyEntity>> GetActiveCurrenciesAsync();
-    new Task UpdateAsync(CurrencyEntity currency);
+    Task UpdateAsync(CurrencyEntity currency);
     Task UpdateQuantityAsync(string code, decimal newQuantity);
+    Task UpdateAverageCourseAsync (string code, decimal newAverageCourse);
     Task UpdateStatus(string code, CurrencyState status);
 }

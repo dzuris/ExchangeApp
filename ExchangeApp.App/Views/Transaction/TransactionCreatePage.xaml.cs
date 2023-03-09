@@ -2,9 +2,9 @@ using ExchangeApp.App.ViewModels.Transaction;
 
 namespace ExchangeApp.App.Views.Transaction;
 
-public partial class TransactionPage
+public partial class TransactionCreatePage
 {
-	public TransactionPage(TransactionCreateViewModel viewModel)
+	public TransactionCreatePage(TransactionCreateViewModel viewModel)
 	    : base(viewModel)
 	{
 		InitializeComponent();

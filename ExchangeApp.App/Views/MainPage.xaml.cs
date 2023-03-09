@@ -13,7 +13,7 @@ public partial class MainPage
 
     private async void OnCreateTransactionPageTapped(object? sender, TappedEventArgs e)
     {
-        await Shell.Current.GoToAsync($"{nameof(TransactionPage)}");
+        await Shell.Current.GoToAsync($"{nameof(TransactionCreatePage)}");
     }
 
     private async void OnCreateDonationPageTapped(object? sender, TappedEventArgs e)

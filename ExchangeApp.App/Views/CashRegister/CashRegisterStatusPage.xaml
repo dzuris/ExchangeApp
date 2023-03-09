@@ -4,14 +4,64 @@
              xmlns:views="clr-namespace:ExchangeApp.App.Views"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.CashRegister"
+             xmlns:currency="clr-namespace:ExchangeApp.BL.Models.Currency;assembly=ExchangeApp.BL"
              x:Class="ExchangeApp.App.Views.CashRegister.CashRegisterStatusPage"
              Title="{x:Static texts:CashRegisterStatusPageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:CashRegisterStatusViewModel">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid
+        RowDefinitions="*, Auto, Auto" RowSpacing="20">
+        <CollectionView SelectionMode="None" ItemsSource="{Binding Currencies}">
+            <CollectionView.Header>
+                <Frame BackgroundColor="{StaticResource Primary}">
+                    <Grid Padding="10, 0" ColumnDefinitions="100, *, *, *, *, *">
+                        <Label Grid.Column="0" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleFlag}" TextColor="White"/>
+                        <Label Grid.Column="1" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleState}" TextColor="White"/>
+                        <Label Grid.Column="2" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleCurrencyCode}" TextColor="White" HorizontalOptions="Center"/>
+                        <Label Grid.Column="3" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleQuantity}" TextColor="White" HorizontalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleAverageCourseRate}" TextColor="White" HorizontalOptions="Center"/>
+                        <Label Grid.Column="5" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleExchangeRateValue}" TextColor="White" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="currency:CurrencyListModel">
+                    <Grid Padding="10">
+                        <Frame BorderColor="{StaticResource Gray400}">
+                            <Grid ColumnDefinitions="100, *, *, *, *, *">
+                                <Image HorizontalOptions="Start" Source="{Binding PhotoUrl}" WidthRequest="40"/>
+                                <Label Grid.Column="1" Text="{Binding Code, Converter={StaticResource CurrencyCodeToStateConverter}}" LineBreakMode="CharacterWrap"/>
+                                <Label Grid.Column="2" Text="{Binding Code}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="3" Text="{Binding Quantity}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="4" Text="{Binding AverageCourseRate, FallbackValue='0'}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="5" Text="{Binding ExchangeRateValue}" HorizontalOptions="Center"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Total foreign currencies value and total cash register value -->
+        <Grid Grid.Row="1" RowDefinitions="Auto, Auto" RowSpacing="15" ColumnDefinitions="Auto, Auto" ColumnSpacing="50" HorizontalOptions="End" Padding="10">
+            <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:CashRegisterStatusPageResources.QuantityTogetherLabel}" FontSize="16"/>
+            <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="5">
+                <Label Text="{Binding ForeignCurrenciesValue}" FontAttributes="Bold" FontSize="16"/>
+                <Label Text="{Binding DomesticCurrencyCode}" FontSize="16"/>
+            </HorizontalStackLayout>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:CashRegisterStatusPageResources.CashRegisterTogetherLabel}" FontSize="16"/>
+            <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
+                <Label Text="{Binding TotalCurrenciesValue}" FontAttributes="Bold" FontSize="16"/>
+                <Label Text="{Binding DomesticCurrencyCode}" FontSize="16"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <!-- Print button -->
+        <ImageButton
+            Grid.Row="2"
+            HorizontalOptions="End"
+            Source="print.png"
+            Style="{StaticResource IconStyle}"/>
+    </Grid>
 </views:ContentPageBase>

@@ -13,8 +13,6 @@ using ExchangeApp.Common.Enums;
 namespace ExchangeApp.App.ViewModels.Customers;
 
 [QueryProperty(nameof(Transaction), "Transaction")]
-[QueryProperty(nameof(CurrencyFrom), "CurrencyFrom")]
-[QueryProperty(nameof(CurrencyTo), "CurrencyTo")]
 public partial class IndividualCustomerViewModel : ViewModelBase
 {
     private readonly ICustomerFacade _customerFacade;
@@ -38,12 +36,6 @@ public partial class IndividualCustomerViewModel : ViewModelBase
 
     [ObservableProperty] 
     private TransactionDetailModel _transaction = null!;
-
-    [ObservableProperty] 
-    private CurrencyTransactionListModel? _currencyFrom;
-
-    [ObservableProperty]
-    private CurrencyTransactionListModel? _currencyTo;
 
     [ObservableProperty]
     private IndividualCustomerDetailModel _customer = IndividualCustomerDetailModel.Empty;
@@ -78,9 +70,6 @@ public partial class IndividualCustomerViewModel : ViewModelBase
     [RelayCommand]
     private async Task SaveAsync()
     {
-        if (CurrencyFrom is null || CurrencyTo is null)
-            return;
-
         var validationMessage = ValidateData();
 
         if (validationMessage != string.Empty)
@@ -112,22 +101,6 @@ public partial class IndividualCustomerViewModel : ViewModelBase
 
             var id = await _transactionFacade.InsertAsync(Transaction);
             Transaction.Id = id;
-
-            // Updates currencies quantities
-            if (Transaction.TransactionType == TransactionType.Buy)
-            {
-                await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
-                    CurrencyFrom.Quantity + Transaction.QuantityForeignCurrency);
-                await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code,
-                    CurrencyTo.Quantity - Transaction.TotalAmountDomesticCurrency);
-            }
-            else
-            {
-                await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
-                    CurrencyFrom.Quantity + Transaction.TotalAmountDomesticCurrency);
-                await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code,
-                    CurrencyTo.Quantity - Transaction.QuantityForeignCurrency);
-            }
         }
         catch (Exception e)
         {
@@ -149,17 +122,13 @@ public partial class IndividualCustomerViewModel : ViewModelBase
             case 1:
                 await Shell.Current.GoToAsync($"../{nameof(NewCustomerBusinessPage)}", true, new Dictionary<string, object>
                 {
-                    {"Transaction", Transaction},
-                    {"CurrencyFrom", CurrencyFrom!},
-                    {"CurrencyTo", CurrencyTo!}
+                    {"Transaction", Transaction}
                 });
                 break;
             case 2:
                 await Shell.Current.GoToAsync($"../{nameof(NewCustomerMinorPage)}", true, new Dictionary<string, object>
                 {
-                    {"Transaction", Transaction},
-                    {"CurrencyFrom", CurrencyFrom!},
-                    {"CurrencyTo", CurrencyTo!}
+                    {"Transaction", Transaction}
                 });
                 break;
         }

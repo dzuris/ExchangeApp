@@ -10,7 +10,8 @@ public static class CurrencySeeds
     {
         Code = "EUR".ToUpper(),
         PhotoUrl = "eur.png",
-        Status = CurrencyState.Own
+        Status = CurrencyState.Own,
+        AverageCourseRate = 1
     };
 
     public static readonly CurrencyEntity Czk = new()

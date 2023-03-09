@@ -56,21 +56,15 @@ public partial class CourseDetailViewModel : ViewModelBase
             return;
 
         var resBuyRate = Utilities.Utilities.StrToDecimal(BuyRate);
-        if (resBuyRate is null)
-        {
-            return;
-        }
-
         var resSellRate = Utilities.Utilities.StrToDecimal(SellRate);
-        if (resSellRate is null)
-        {
-            return;
-        }
 
-        if (resSellRate > resBuyRate)
+        if (resBuyRate is not null && resSellRate is not null)
         {
-            IsErrorMessageVisible = true;
-            return;
+            if (resSellRate > resBuyRate)
+            {
+                IsErrorMessageVisible = true;
+                return;
+            }
         }
 
         Currency.BuyRate = resBuyRate;

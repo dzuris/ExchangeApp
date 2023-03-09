@@ -61,11 +61,83 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total currencies value:.
+        /// </summary>
+        public static string CashRegisterTogetherLabel {
+            get {
+                return ResourceManager.GetString("CashRegisterTogetherLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average course rate.
+        /// </summary>
+        public static string ListItemTitleAverageCourseRate {
+            get {
+                return ResourceManager.GetString("ListItemTitleAverageCourseRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency code.
+        /// </summary>
+        public static string ListItemTitleCurrencyCode {
+            get {
+                return ResourceManager.GetString("ListItemTitleCurrencyCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exchange rate value.
+        /// </summary>
+        public static string ListItemTitleExchangeRateValue {
+            get {
+                return ResourceManager.GetString("ListItemTitleExchangeRateValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flag.
+        /// </summary>
+        public static string ListItemTitleFlag {
+            get {
+                return ResourceManager.GetString("ListItemTitleFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity.
+        /// </summary>
+        public static string ListItemTitleQuantity {
+            get {
+                return ResourceManager.GetString("ListItemTitleQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        public static string ListItemTitleState {
+            get {
+                return ResourceManager.GetString("ListItemTitleState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cash register status.
         /// </summary>
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forreign currencies value:.
+        /// </summary>
+        public static string QuantityTogetherLabel {
+            get {
+                return ResourceManager.GetString("QuantityTogetherLabel", resourceCulture);
             }
         }
     }

@@ -355,7 +355,9 @@ public partial class TransactionCreateViewModel : ViewModelBase
         }
         
         Transaction.CurrencyCode = Transaction.Currency!.Code;
-        
+        Transaction.AverageCourseRate = Transaction.Currency!.AverageCourseRate;
+
+
         if (Transaction.TotalAmountDomesticCurrency > 1000)
         {
             // Needs to go to the customer create page
@@ -373,22 +375,6 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 // Create transaction because it is not over 1000 euros
                 var id = await _transactionFacade.InsertAsync(Transaction);
                 Transaction.Id = id;
-
-                // Updates currencies quantities
-                if (Transaction.TransactionType == TransactionType.Buy)
-                {
-                    await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
-                        CurrencyFrom.Quantity + Transaction.QuantityForeignCurrency);
-                    await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code, 
-                        CurrencyTo.Quantity - Transaction.TotalAmountDomesticCurrency);
-                }
-                else
-                {
-                    await _currencyFacade.UpdateQuantityAsync(CurrencyFrom!.Code,
-                        CurrencyFrom.Quantity + Transaction.TotalAmountDomesticCurrency);
-                    await _currencyFacade.UpdateQuantityAsync(CurrencyTo!.Code,
-                        CurrencyTo.Quantity - Transaction.QuantityForeignCurrency);
-                }
             }
             catch (Exception e)
             {

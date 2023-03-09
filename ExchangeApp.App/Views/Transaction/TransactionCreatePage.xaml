@@ -4,7 +4,7 @@
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Transaction"
              xmlns:views="clr-namespace:ExchangeApp.App.Views"
-             x:Class="ExchangeApp.App.Views.Transaction.TransactionPage"
+             x:Class="ExchangeApp.App.Views.Transaction.TransactionCreatePage"
              Title="{x:Static texts:TransactionPageResources.TransactionTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:TransactionCreateViewModel">

@@ -36,14 +36,46 @@ public partial class DonationCreateViewModel : ViewModelBase
 
     [ObservableProperty] 
     private IEnumerable<CurrencyListModel> _currencies = new List<CurrencyListModel>();
-
-    [ObservableProperty] 
-    [NotifyPropertyChangedFor(nameof(NewQuantity))]
+    
     private CurrencyListModel? _selectedCurrency;
+    public CurrencyListModel? SelectedCurrency
+    {
+        get => _selectedCurrency;
+        set
+        {
+            SetProperty(ref _selectedCurrency, value);
 
-    [ObservableProperty] 
-    [NotifyPropertyChangedFor(nameof(NewQuantity))]
+            OnPropertyChanged(nameof(NewQuantity));
+
+            CourseRate = "1";
+            if (DonationType is null or not Common.Enums.DonationType.Withdraw || value is null) return;
+
+            var averageCourseRate = value.AverageCourseRate.ToString();
+            if (averageCourseRate != null)
+            {
+                CourseRate = averageCourseRate;
+            }
+        }
+    }
+    
     private DonationType? _donationType;
+    public DonationType? DonationType
+    {
+        get => _donationType;
+        set
+        {
+            SetProperty(ref _donationType, value);
+
+            OnPropertyChanged(nameof(NewQuantity));
+
+            if (SelectedCurrency is null || value is not Common.Enums.DonationType.Withdraw) return;
+            var averageCourseRate = SelectedCurrency.AverageCourseRate.ToString();
+            if (averageCourseRate != null)
+            {
+                CourseRate = averageCourseRate;
+            }
+        }
+    }
 
     [ObservableProperty]
     private string _note = string.Empty;
@@ -93,17 +125,18 @@ public partial class DonationCreateViewModel : ViewModelBase
         {
             Time = DateTime.Now,
             CourseRate = courseRate,
+            AverageCourseRate = SelectedCurrency!.AverageCourseRate,
             Quantity = Quantity,
             Type = DonationType ?? Common.Enums.DonationType.Deposit,
             Note = Note,
-            CurrencyCode = SelectedCurrency!.Code
+            CurrencyCode = SelectedCurrency!.Code,
+            Currency = SelectedCurrency
         };
-
-        int id;
+        
         try
         {
-            id = await _donationFacade.InsertAsync(donation);
-            await _currencyFacade.UpdateQuantityAsync(SelectedCurrency.Code, NewQuantity);
+            var id = await _donationFacade.InsertAsync(donation);
+            donation.Id = id;
         }
         catch (Exception e)
         {
@@ -111,7 +144,6 @@ public partial class DonationCreateViewModel : ViewModelBase
             throw;
         }
         
-        donation.Id = id;
         await Shell.Current.GoToAsync($"../{nameof(DonationDetailPage)}", true, new Dictionary<string, object>
         {
             {"Donation", donation}
