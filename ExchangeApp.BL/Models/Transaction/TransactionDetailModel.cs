@@ -11,10 +11,10 @@ public record TransactionDetailModel : ModelBase
     public required decimal CourseRate { get; set; }
     // Used for sell, levy and withdraw
     public decimal? AverageCourseRate { get; set; }
-    public required decimal QuantityForeignCurrency { get; set; }
+    public required decimal Quantity { get; set; }
     public required TransactionType TransactionType { get; set; }
     public bool IsCanceled { get; set; }
-    public decimal AmountDomesticCurrency => GetAmount(QuantityForeignCurrency, CourseRate);
+    public decimal AmountDomesticCurrency => GetAmount(Quantity, CourseRate);
     public decimal Rounding => GetRounding(AmountDomesticCurrency);
     public decimal TotalAmountDomesticCurrency => AmountDomesticCurrency + Rounding;
 
@@ -28,7 +28,7 @@ public record TransactionDetailModel : ModelBase
     {
         Time = DateTime.Now,
         CourseRate = 1,
-        QuantityForeignCurrency = 0,
+        Quantity = 0,
         TransactionType = TransactionType.Buy,
         CurrencyCode = ""
     };

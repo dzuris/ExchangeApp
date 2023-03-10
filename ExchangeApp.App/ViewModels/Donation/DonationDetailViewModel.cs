@@ -7,16 +7,27 @@ using ExchangeApp.BL.Models.Donation;
 namespace ExchangeApp.App.ViewModels.Donation;
 
 [QueryProperty(nameof(Donation), "Donation")]
+[QueryProperty(nameof(Id), "id")]
 public partial class DonationDetailViewModel : ViewModelBase
 {
     private readonly IPrinterService _printerService;
-    private readonly ICustomerFacade _customerFacade;
+    private readonly IDonationFacade _donationFacade;
 
-    public DonationDetailViewModel(IPrinterService printerService, ICustomerFacade customerFacade)
+    public DonationDetailViewModel(IPrinterService printerService, IDonationFacade donationFacade)
     {
         _printerService = printerService;
-        _customerFacade = customerFacade;
+        _donationFacade = donationFacade;
     }
+
+    protected override async Task LoadDataAsync()
+    {
+        await base.LoadDataAsync();
+
+        Donation ??= await _donationFacade.GetById(Id);
+    }
+
+    [ObservableProperty]
+    private int _id;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(DonationNumber))]
@@ -36,7 +47,7 @@ public partial class DonationDetailViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private async Task GoToCustomerDetailAsync()
+    private async Task GoToCustomerDetailAsync(Guid Id)
     {
 
     }

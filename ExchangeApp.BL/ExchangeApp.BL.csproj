@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Facades\Interfaces\" />
     <Folder Include="Installers\" />
-    <Folder Include="Extensions\" />
   </ItemGroup>
 
   <ItemGroup>

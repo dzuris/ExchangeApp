@@ -32,9 +32,9 @@
                                 <Image HorizontalOptions="Start" Source="{Binding PhotoUrl}" WidthRequest="40"/>
                                 <Label Grid.Column="1" Text="{Binding Code, Converter={StaticResource CurrencyCodeToStateConverter}}" LineBreakMode="CharacterWrap"/>
                                 <Label Grid.Column="2" Text="{Binding Code}" HorizontalOptions="Center"/>
-                                <Label Grid.Column="3" Text="{Binding Quantity}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="3" Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="4" Text="{Binding AverageCourseRate, FallbackValue='0'}" HorizontalOptions="Center"/>
-                                <Label Grid.Column="5" Text="{Binding ExchangeRateValue}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="5" Text="{Binding ExchangeRateValue, StringFormat='{0:# ##0.##}'}" HorizontalOptions="Center"/>
                             </Grid>
                         </Frame>
                     </Grid>
@@ -46,13 +46,13 @@
         <Grid Grid.Row="1" RowDefinitions="Auto, Auto" RowSpacing="15" ColumnDefinitions="Auto, Auto" ColumnSpacing="50" HorizontalOptions="End" Padding="10">
             <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:CashRegisterStatusPageResources.QuantityTogetherLabel}" FontSize="16"/>
             <HorizontalStackLayout Grid.Row="0" Grid.Column="1" Spacing="5">
-                <Label Text="{Binding ForeignCurrenciesValue}" FontAttributes="Bold" FontSize="16"/>
+                <Label Text="{Binding ForeignCurrenciesValue, StringFormat='{0:# ##0.##}'}" FontAttributes="Bold" FontSize="16"/>
                 <Label Text="{Binding DomesticCurrencyCode}" FontSize="16"/>
             </HorizontalStackLayout>
 
             <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:CashRegisterStatusPageResources.CashRegisterTogetherLabel}" FontSize="16"/>
             <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
-                <Label Text="{Binding TotalCurrenciesValue}" FontAttributes="Bold" FontSize="16"/>
+                <Label Text="{Binding TotalCurrenciesValue, StringFormat='{0:# ##0.##}'}" FontAttributes="Bold" FontSize="16"/>
                 <Label Text="{Binding DomesticCurrencyCode}" FontSize="16"/>
             </HorizontalStackLayout>
         </Grid>

@@ -5,7 +5,6 @@ namespace ExchangeApp.DAL.Entities.Operations;
 
 public record TransactionEntity : OperationEntityBase
 {
-    public required decimal QuantityForeignCurrency { get; set; }
     public required TransactionType TransactionType { get; set; }
 
     public Guid? CustomerId { get; set; }

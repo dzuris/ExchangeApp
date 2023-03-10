@@ -2,7 +2,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
-using ExchangeApp.App.Views;
 using ExchangeApp.App.Views.Donation;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;

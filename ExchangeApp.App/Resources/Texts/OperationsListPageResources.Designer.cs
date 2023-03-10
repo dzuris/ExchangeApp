@@ -70,6 +70,60 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter.
+        /// </summary>
+        public static string FilterButtonText {
+            get {
+                return ResourceManager.GetString("FilterButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date from (Include):.
+        /// </summary>
+        public static string FilterMenuDateFromLabel {
+            get {
+                return ResourceManager.GetString("FilterMenuDateFromLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date until (Include):.
+        /// </summary>
+        public static string FilterMenuDateUntilLabel {
+            get {
+                return ResourceManager.GetString("FilterMenuDateUntilLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation id:.
+        /// </summary>
+        public static string FilterMenuOperationIdLabel {
+            get {
+                return ResourceManager.GetString("FilterMenuOperationIdLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operations:.
+        /// </summary>
+        public static string FilterMenuPickerLabel {
+            get {
+                return ResourceManager.GetString("FilterMenuPickerLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load more.
+        /// </summary>
+        public static string LoadMoreButtonText {
+            get {
+                return ResourceManager.GetString("LoadMoreButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Operations.
         /// </summary>
         public static string OperationsListHeaderTitle {
@@ -79,11 +133,38 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OperationsList.
+        ///   Looks up a localized string similar to Operations list.
         /// </summary>
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All operations.
+        /// </summary>
+        public static string PickerItemAllOperations {
+            get {
+                return ResourceManager.GetString("PickerItemAllOperations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donations.
+        /// </summary>
+        public static string PickerItemDonations {
+            get {
+                return ResourceManager.GetString("PickerItemDonations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transactions.
+        /// </summary>
+        public static string PickerItemTransactions {
+            get {
+                return ResourceManager.GetString("PickerItemTransactions", resourceCulture);
             }
         }
         

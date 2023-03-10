@@ -27,6 +27,7 @@
             <converters:TransactionTypeBuyToVisibilityConverter x:Key="TransactionTypeBuyToVisibilityConverter"/>
             <converters:EvidenceTypeToStringConverter x:Key="EvidenceTypeToStringConverter"/>
             <converters:DecimalToDecimalWithSignStringConverter x:Key="DecimalToDecimalWithSignStringConverter"/>
+            <converters:OperationFilterOptionToStringConverter x:Key="OperationFilterOptionToStringConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

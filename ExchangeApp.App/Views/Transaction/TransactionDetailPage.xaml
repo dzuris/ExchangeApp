@@ -39,7 +39,7 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 Spacing="5">
-                <Label Text="{Binding Transaction.QuantityForeignCurrency, FallbackValue=''}"/>
+                <Label Text="{Binding Transaction.Quantity, FallbackValue=''}"/>
                 <Label Text="{Binding Transaction.CurrencyCode, FallbackValue=''}" />
             </HorizontalStackLayout>
             <Label
@@ -112,7 +112,7 @@
                 Grid.Column="1"
                 Spacing="5"
                 IsVisible="{Binding IsTransactionBuy}">
-                <Label Text="{Binding Transaction.QuantityForeignCurrency, FallbackValue=''}" />
+                <Label Text="{Binding Transaction.Quantity, FallbackValue=''}" />
                 <Label Text="{Binding Transaction.CurrencyCode, FallbackValue=''}" />
             </HorizontalStackLayout>
             <!-- Sell transaction -->
@@ -126,8 +126,8 @@
                 Grid.Column="1"
                 Spacing="5"
                 IsVisible="{Binding IsTransactionSell}">
-                <Label Text="{Binding Transaction.QuantityForeignCurrency, FallbackValue=''}" />
-                <Label Text="{Binding Transaction.CurrencyCode, FallbackValue=''}" />
+                <Label Text="{Binding Transaction.AmountDomesticCurrency, FallbackValue=''}" />
+                <Label Text="{Binding DomesticCurrencyCode}" />
             </HorizontalStackLayout>
 
             <!-- Second line -->
@@ -184,26 +184,46 @@
                 <Label Text="{Binding DomesticCurrencyCode}" />
             </HorizontalStackLayout>
 
+            <!-- Fourth line -->
             <!-- Same for both -->
             <Line
                 Grid.Row="4"
                 Grid.ColumnSpan="2"
                 X2="250"
                 Stroke="Black"/>
+
             <Label
                 Grid.Row="5"
                 HorizontalOptions="End"
                 Text="{x:Static texts:TransactionDetailPageResources.ResultAmountLabel}"
                 Style="{StaticResource InputLabelStyle}"/>
+
+            <!-- Fifth line -->
+            <!-- Buy transaction -->
             <HorizontalStackLayout
                 Grid.Row="5"
                 Grid.Column="1"
-                Spacing="5">
+                Spacing="5"
+                IsVisible="{Binding IsTransactionBuy}">
                 <Label 
                     Text="{Binding Transaction.TotalAmountDomesticCurrency, FallbackValue=''}" 
                     Style="{StaticResource InputLabelStyle}"/>
                 <Label 
                     Text="{Binding DomesticCurrencyCode}"
+                    Style="{StaticResource InputLabelStyle}"/>
+            </HorizontalStackLayout>
+
+            <!-- Sell transaction -->
+            <HorizontalStackLayout
+                Grid.Row="5"
+                Grid.Column="1"
+                Spacing="5"
+                IsVisible="{Binding IsTransactionSell}">
+                <Label 
+                    Text="{Binding Transaction.Quantity, FallbackValue=''}" 
+                    Style="{StaticResource InputLabelStyle}"/>
+                <Label 
+                    Text="{Binding Transaction.CurrencyCode, FallbackValue=''}"
                     Style="{StaticResource InputLabelStyle}"/>
             </HorizontalStackLayout>
         </Grid>

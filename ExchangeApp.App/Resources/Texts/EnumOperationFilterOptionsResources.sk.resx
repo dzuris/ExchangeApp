@@ -117,43 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Zoznam operácií</value>
-  </data>
-  <data name="OperationsListHeaderTitle" xml:space="preserve">
-    <value>Operácie</value>
-  </data>
-  <data name="DonationListItemTitle" xml:space="preserve">
-    <value>Dotácia</value>
-  </data>
-  <data name="TransactionListItemTitle" xml:space="preserve">
-    <value>Transakcia</value>
-  </data>
-  <data name="LoadMoreButtonText" xml:space="preserve">
-    <value>Načítať ďalšie</value>
-  </data>
-  <data name="FilterButtonText" xml:space="preserve">
-    <value>Filtrovať</value>
-  </data>
-  <data name="FilterMenuDateFromLabel" xml:space="preserve">
-    <value>Dátum od (vrátane):</value>
-  </data>
-  <data name="FilterMenuDateUntilLabel" xml:space="preserve">
-    <value>Dátum do (vrátane):</value>
-  </data>
-  <data name="FilterMenuOperationIdLabel" xml:space="preserve">
-    <value>Id operácie:</value>
-  </data>
-  <data name="FilterMenuPickerLabel" xml:space="preserve">
-    <value>Operácie:</value>
-  </data>
-  <data name="PickerItemAllOperations" xml:space="preserve">
+  <data name="AllOperations" xml:space="preserve">
     <value>Všetky operácie</value>
   </data>
-  <data name="PickerItemDonations" xml:space="preserve">
+  <data name="Donations" xml:space="preserve">
     <value>Dotácie</value>
   </data>
-  <data name="PickerItemTransactions" xml:space="preserve">
+  <data name="Transactions" xml:space="preserve">
     <value>Transakcie</value>
   </data>
 </root>

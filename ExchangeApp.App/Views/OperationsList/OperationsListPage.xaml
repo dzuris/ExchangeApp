@@ -7,33 +7,51 @@
              xmlns:donation="clr-namespace:ExchangeApp.BL.Models.Donation;assembly=ExchangeApp.BL"
              xmlns:controls="clr-namespace:ExchangeApp.App.Controls"
              xmlns:views="clr-namespace:ExchangeApp.App.Views"
+             xmlns:operationPage="clr-namespace:ExchangeApp.App.Views.OperationsList"
              x:Class="ExchangeApp.App.Views.OperationsList.OperationsListPage"
              Title="{x:Static texts:OperationsListPageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:OperationsListViewModel">
     <views:ContentPageBase.Resources>
+
+        <!-- Donation template -->
         <DataTemplate x:Key="DonationTemplate" x:DataType="donation:DonationListModel">
             <Grid Padding="10">
-                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="#e6fbff">
+                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="#d6f8ff">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type operationPage:OperationsListPage}}, Path=BindingContext.GoToDonationDetailCommand}"
+                                              CommandParameter="{Binding Id}"/>
+                    </Frame.GestureRecognizers>
                     <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
                         <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
                         <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.DonationListItemTitle}" VerticalOptions="Center"/>
                         <Label Grid.Column="2" Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}" VerticalOptions="Center"/>
-                        <Label Grid.Column="3" Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
+                        <HorizontalStackLayout Grid.Column="3" Spacing="5">
+                            <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
+                            <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
                         <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>
             </Grid>
         </DataTemplate>
 
+        <!-- Transaction template -->
         <DataTemplate x:Key="TransactionTemplate" x:DataType="transaction:TransactionListModel">
             <Grid Padding="10">
-                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="#d6f8ff">
+                <Frame BorderColor="{StaticResource Gray400}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type operationPage:OperationsListPage}}, Path=BindingContext.GoToTransactionDetailCommand}"
+                                              CommandParameter="{Binding Id}"/>
+                    </Frame.GestureRecognizers>
                     <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
                         <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
                         <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.TransactionListItemTitle}" VerticalOptions="Center"/>
                         <Label Grid.Column="2" Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}" VerticalOptions="Center"/>
-                        <Label Grid.Column="3" Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
+                        <HorizontalStackLayout Grid.Column="3" Spacing="5">
+                            <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
+                            <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
                         <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>
@@ -45,13 +63,60 @@
                                                 TransactionTemplate="{StaticResource TransactionTemplate}"/>
     </views:ContentPageBase.Resources>
 
-    <CollectionView 
-        ItemsSource="{Binding Operations}" 
-        ItemTemplate="{StaticResource ListModelSelector}">
-        <CollectionView.Header>
-            <Frame BackgroundColor="{StaticResource Primary}">
-                <Label Text="{x:Static texts:OperationsListPageResources.OperationsListHeaderTitle}" TextColor="White" FontAttributes="Bold"/>
+    <Grid RowDefinitions="Auto, *" RowSpacing="20">
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource Tertiary}">
+                <Grid ColumnDefinitions="Auto, Auto, Auto, Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0" Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
+                        <Label Text="{x:Static texts:OperationsListPageResources.FilterMenuPickerLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                        <Picker
+                            HorizontalOptions="Start"
+                            WidthRequest="200"
+                            ItemsSource="{Binding FilterOptions}"
+                            ItemDisplayBinding="{Binding Converter={StaticResource OperationFilterOptionToStringConverter}}"
+                            SelectedItem="{Binding SelectedOperationFilterOption}"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
+                        <Label Text="{x:Static texts:OperationsListPageResources.FilterMenuOperationIdLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                        <Entry
+                            HorizontalOptions="Start"
+                            WidthRequest="140"
+                            Text="{Binding IdNumberFilter}"/>
+                    </VerticalStackLayout>
+                    <Button
+                        Grid.Column="2"
+                        Padding="30, 0"
+                        VerticalOptions="End"
+                        Text="{x:Static texts:OperationsListPageResources.FilterButtonText}"
+                        HeightRequest="44"
+                        Command="{Binding FilterCommand}"/>
+                    <ImageButton
+                        Grid.Column="3"
+                        Source="refresh.png"
+                        Style="{StaticResource IconStyle}"
+                        Command="{Binding ClearFilterCommand}"/>
+                </Grid>
             </Frame>
-        </CollectionView.Header>
-    </CollectionView>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="15">
+                <CollectionView 
+                    ItemsSource="{Binding Operations}" 
+                    ItemTemplate="{StaticResource ListModelSelector}"
+                    RemainingItemsThreshold="4"
+                    RemainingItemsThresholdReachedCommand="{Binding LoadMoreOperationsCommand}">
+                    <CollectionView.Header>
+                        <Frame BackgroundColor="{StaticResource Primary}">
+                            <Label Text="{x:Static texts:OperationsListPageResources.OperationsListHeaderTitle}" TextColor="White" FontAttributes="Bold"/>
+                        </Frame>
+                    </CollectionView.Header>
+                </CollectionView>
+                <Button
+                    Text="{x:Static texts:OperationsListPageResources.LoadMoreButtonText}"
+                    IsVisible="{Binding IsLoadMoreButtonVisible}"
+                    IsEnabled="{Binding IsNotLoading}"
+                    Command="{Binding LoadMoreOperationsCommand}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </views:ContentPageBase>

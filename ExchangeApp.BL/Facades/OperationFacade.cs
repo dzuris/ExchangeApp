@@ -2,6 +2,7 @@
 using AutoMapper;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models;
+using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using ExchangeApp.DAL.UnitOfWork;
 
@@ -25,6 +26,12 @@ public class OperationFacade : IOperationFacade
     public async Task<ObservableCollection<OperationListModelBase>> GetOperationsAsync(int pageSize, int pageNumber)
     {
         var entities = await _repository.GetLastOperationsAsync(pageSize, pageNumber);
+        return _mapper.Map<ObservableCollection<OperationListModelBase>>(entities);
+    }
+
+    public async Task<ObservableCollection<OperationListModelBase>> GetFilteredOperationsAsync(int pageSize, int pageNumber, OperationFilterOption option, int? id, DateTime? from, DateTime? until)
+    {
+        var entities = await _repository.GetFilteredOperationsAsync(pageSize, pageNumber, option, id, from, until);
         return _mapper.Map<ObservableCollection<OperationListModelBase>>(entities);
     }
 }

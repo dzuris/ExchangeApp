@@ -97,43 +97,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Operations list</value>
-  </data>
-  <data name="OperationsListHeaderTitle" xml:space="preserve">
-    <value>Operations</value>
-  </data>
-  <data name="TransactionListItemTitle" xml:space="preserve">
-    <value>Transaction</value>
-  </data>
-  <data name="DonationListItemTitle" xml:space="preserve">
-    <value>Donation</value>
-  </data>
-  <data name="LoadMoreButtonText" xml:space="preserve">
-    <value>Load more</value>
-  </data>
-  <data name="FilterMenuOperationIdLabel" xml:space="preserve">
-    <value>Operation id:</value>
-  </data>
-  <data name="FilterMenuDateFromLabel" xml:space="preserve">
-    <value>Date from (Include):</value>
-  </data>
-  <data name="FilterMenuDateUntilLabel" xml:space="preserve">
-    <value>Date until (Include):</value>
-  </data>
-  <data name="FilterButtonText" xml:space="preserve">
-    <value>Filter</value>
-  </data>
-  <data name="FilterMenuPickerLabel" xml:space="preserve">
-    <value>Operations:</value>
-  </data>
-  <data name="PickerItemAllOperations" xml:space="preserve">
+  <data name="AllOperations" xml:space="preserve">
     <value>All operations</value>
   </data>
-  <data name="PickerItemTransactions" xml:space="preserve">
+  <data name="Transactions" xml:space="preserve">
     <value>Transactions</value>
   </data>
-  <data name="PickerItemDonations" xml:space="preserve">
+  <data name="Donations" xml:space="preserve">
     <value>Donations</value>
   </data>
 </root>

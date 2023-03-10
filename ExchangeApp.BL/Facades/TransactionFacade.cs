@@ -22,6 +22,13 @@ public class TransactionFacade : ITransactionFacade
         _mapper = mapper;
     }
 
+    public async Task<TransactionDetailModel?> GetById(int id)
+    {
+        var entity = await _repository.GetByIdAsync(id);
+
+        return entity is null ? null : _mapper.Map<TransactionDetailModel>(entity);
+    }
+
     public async Task<int> InsertAsync(TransactionDetailModel model)
     {
         // Gets domestic and foreign currencies
@@ -51,7 +58,7 @@ public class TransactionFacade : ITransactionFacade
         {
             // Sets new quantities
             newDomesticCurrencyQuantity = domesticCurrencyEntity.Quantity - model.TotalAmountDomesticCurrency;
-            newForeignCurrencyQuantity = foreignCurrencyEntity.Quantity + model.QuantityForeignCurrency;
+            newForeignCurrencyQuantity = foreignCurrencyEntity.Quantity + model.Quantity;
 
             // Update average course rate
             decimal currentValue = 0;
@@ -60,7 +67,7 @@ public class TransactionFacade : ITransactionFacade
                 currentValue = foreignCurrencyEntity.Quantity / foreignCurrencyEntity.AverageCourseRate;
             }
 
-            var depositedValue = model.QuantityForeignCurrency / model.CourseRate;
+            var depositedValue = model.Quantity / model.CourseRate;
             var newValue = currentValue + depositedValue;
             var newAverageCourseRateForeignCurrency = newForeignCurrencyQuantity / newValue;
 
@@ -70,7 +77,7 @@ public class TransactionFacade : ITransactionFacade
         else
         {
             newDomesticCurrencyQuantity = domesticCurrencyEntity.Quantity + model.TotalAmountDomesticCurrency;
-            newForeignCurrencyQuantity = foreignCurrencyEntity.Quantity - model.QuantityForeignCurrency;
+            newForeignCurrencyQuantity = foreignCurrencyEntity.Quantity - model.Quantity;
         }
 
         // Update currencies quantities

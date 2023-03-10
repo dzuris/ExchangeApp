@@ -170,6 +170,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>CourseDetailPageResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\EnumOperationFilterOptionsResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumOperationFilterOptionsResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\EnumTransactionTypeResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -283,6 +288,10 @@
 	  <EmbeddedResource Update="Resources\Texts\CourseDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>CourseDetailPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumOperationFilterOptionsResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumOperationFilterOptionsResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\EnumTransactionTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

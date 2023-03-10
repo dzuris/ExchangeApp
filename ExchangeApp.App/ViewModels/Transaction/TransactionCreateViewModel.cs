@@ -66,7 +66,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             // If empty then resets the fields
             if (_quantityFrom.Length == 0)
             {
-                Transaction.QuantityForeignCurrency = 0;
+                Transaction.Quantity = 0;
                 OnPropertyChanged(nameof(Transaction));
                 return;
             }
@@ -90,7 +90,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             }
 
             // Sets transaction quantity according to transaction type
-            Transaction.QuantityForeignCurrency = TransactionTypeProp == TransactionType.Buy 
+            Transaction.Quantity = TransactionTypeProp == TransactionType.Buy 
                 ? (decimal)quantityFromDecimal 
                 : Utilities.Utilities.StrToDecimal(_quantityTo) ?? 1;
             
@@ -124,7 +124,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             // If empty then resets the fields
             if (_quantityTo.Length == 0)
             {
-                Transaction.QuantityForeignCurrency = 0;
+                Transaction.Quantity = 0;
                 OnPropertyChanged(nameof(Transaction));
                 return;
             }
@@ -148,7 +148,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             }
 
             // Sets transaction quantity according to transaction type
-            Transaction.QuantityForeignCurrency = TransactionTypeProp == TransactionType.Sell 
+            Transaction.Quantity = TransactionTypeProp == TransactionType.Sell 
                 ? (decimal)quantityToDecimal 
                 : Utilities.Utilities.StrToDecimal(_quantityFrom) ?? 1;
             
@@ -245,7 +245,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             return TransactionTypeProp switch
             {
                 null => 0,
-                TransactionType.Buy => Transaction.QuantityForeignCurrency,
+                TransactionType.Buy => Transaction.Quantity,
                 _ => Transaction.TotalAmountDomesticCurrency
             };
         }
@@ -259,7 +259,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             {
                 null => 0,
                 TransactionType.Buy => Transaction.TotalAmountDomesticCurrency,
-                _ => Transaction.QuantityForeignCurrency
+                _ => Transaction.Quantity
             };
         }
     }
