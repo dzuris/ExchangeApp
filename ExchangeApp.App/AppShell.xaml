@@ -5,6 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
     xmlns:views="clr-namespace:ExchangeApp.App.Views"
+    xmlns:cashRegister="clr-namespace:ExchangeApp.App.Views.CashRegister"
+    xmlns:courses="clr-namespace:ExchangeApp.App.Views.Courses"
+    xmlns:profitCalculate="clr-namespace:ExchangeApp.App.Views.ProfitCalculate"
+    xmlns:settings="clr-namespace:ExchangeApp.App.Views.Settings"
     FlyoutBehavior="Flyout"
     FlyoutBackgroundColor="{StaticResource FlyoutBackground}">
 
@@ -23,20 +27,26 @@
         ContentTemplate="{DataTemplate views:MainPage}"
         Route="MainPage" />
 
-    <ShellContent
-        Title="{x:Static texts:TransactionPageResources.TransactionTitle}"
-        ContentTemplate="{DataTemplate views:TransactionPage}"
-        Route="TransactionPage"/>
+    <!-- Total balance page needed -->
 
     <ShellContent
-        Title="{x:Static texts:CustomerDetailPageResources.CustomerDetailTitle}"
-        ContentTemplate="{DataTemplate views:CustomerDetailPage}"
-        IsVisible="False"
-        Route="CustomerDetailPage"/>
+        Title="{x:Static texts:CoursesPageResources.PageTitle}"
+        ContentTemplate="{DataTemplate courses:CoursesPage}"
+        Route="CoursesPage"/>
 
     <ShellContent
-        Title="{x:Static texts:DonationPageResources.DonationTitle}"
-        ContentTemplate="{DataTemplate views:DonationPage}"
-        Route="DonationPage"/>
+        Title="{x:Static texts:CashRegisterStatusPageResources.PageTitle}"
+        ContentTemplate="{DataTemplate cashRegister:CashRegisterStatusPage}"
+        Route="CashRegisterStatusPage"/>
+
+    <ShellContent
+        Title="{x:Static texts:ProfitCalculatePageResources.PageTitle}"
+        ContentTemplate="{DataTemplate profitCalculate:ProfitCalculatePage}"
+        Route="ProfitCalculatePage"/>
+
+    <ShellContent
+        Title="{x:Static texts:SettingsPageResources.PageTitle}"
+        ContentTemplate="{DataTemplate settings:SettingsPage}"
+        Route="SettingsPage"/>
 
 </Shell>

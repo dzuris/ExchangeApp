@@ -4,5 +4,6 @@ namespace ExchangeApp.BL.Facades.Interfaces;
 
 public interface IDonationFacade : IFacade
 {
-    Task InsertAsync(DonationDetailModel model);
+    Task<DonationDetailModel?> GetById(int id);
+    Task<int> InsertAsync(DonationDetailModel model);
 }

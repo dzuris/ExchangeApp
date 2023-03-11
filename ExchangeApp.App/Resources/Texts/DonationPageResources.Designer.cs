@@ -88,15 +88,6 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deposit.
-        /// </summary>
-        public static string DepositPickerItem {
-            get {
-                return ResourceManager.GetString("DepositPickerItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Donation.
         /// </summary>
         public static string DonationTitle {
@@ -151,15 +142,6 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Levy.
-        /// </summary>
-        public static string LevyPickerItem {
-            get {
-                return ResourceManager.GetString("LevyPickerItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to New quantity:.
         /// </summary>
         public static string NewQuantityLabel {
@@ -201,15 +183,6 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string TypeLabel {
             get {
                 return ResourceManager.GetString("TypeLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Withdraw.
-        /// </summary>
-        public static string WithdrawPickerItem {
-            get {
-                return ResourceManager.GetString("WithdrawPickerItem", resourceCulture);
             }
         }
     }

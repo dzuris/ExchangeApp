@@ -153,4 +153,31 @@
   <data name="TransactionTypeLabel" xml:space="preserve">
     <value>Typ transakcie:</value>
   </data>
+  <data name="AmountLabel" xml:space="preserve">
+    <value>Suma:</value>
+  </data>
+  <data name="RoundingLabel" xml:space="preserve">
+    <value>Zaokrúhlenie:</value>
+  </data>
+  <data name="OriginalCourseRateLabel" xml:space="preserve">
+    <value>Pôvodný kurz: {0}</value>
+  </data>
+  <data name="ErrorMessage_CurrencySelection" xml:space="preserve">
+    <value>Musí byť zvolená domáca mena a iná mena.</value>
+  </data>
+  <data name="ErrorMessage_InsufficientMoneyInCashRegister" xml:space="preserve">
+    <value>Nedostatok prostriedkov v pokladnici.</value>
+  </data>
+  <data name="ErrorMessage_CourseRateExceededOtherOne" xml:space="preserve">
+    <value>Kurz nesmie prekročiť opačný kurz.</value>
+  </data>
+  <data name="ErrorMessage_CourseRateNotValid" xml:space="preserve">
+    <value>Kurz nesmie byť nevyplnený, 0 alebo menší.</value>
+  </data>
+  <data name="ErrorMessage_QuantityFromNotValid" xml:space="preserve">
+    <value>Množstvo 'do' nesmie byť nevyplnené, 0 alebo menšie.</value>
+  </data>
+  <data name="ErrorMessage_QuantityToNotValid" xml:space="preserve">
+    <value>Množstvo 'z' nesmie byť nevyplnené, 0 alebo menšie.</value>
+  </data>
 </root>

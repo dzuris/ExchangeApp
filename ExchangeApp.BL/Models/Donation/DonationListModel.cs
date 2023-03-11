@@ -1,12 +1,8 @@
-﻿using ExchangeApp.BL.Models.Person;
+﻿using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.BL.Models.Donation;
 
-public record DonationListModel : ModelBase
+public record DonationListModel : OperationListModelBase
 {
-    public int Id { get; set; }
-    public required DateTime Time { get; set; }
-
-    public required Guid EmployeeId { get; set; }
-    public EmployeeListModel? Employee { get; set; }
+    public required DonationType Type { get; set; }
 }

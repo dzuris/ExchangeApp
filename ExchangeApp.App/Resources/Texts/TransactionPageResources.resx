@@ -107,10 +107,10 @@
     <value>Currency to:</value>
   </data>
   <data name="AmountFromLabel" xml:space="preserve">
-    <value>Amount from:</value>
+    <value>Quantity from:</value>
   </data>
   <data name="AmountToLabel" xml:space="preserve">
-    <value>Amount to:</value>
+    <value>Quantity to:</value>
   </data>
   <data name="CourseRateLabel" xml:space="preserve">
     <value>Course rate:</value>
@@ -132,5 +132,32 @@
   </data>
   <data name="TransactionTypeLabel" xml:space="preserve">
     <value>Transaction type:</value>
+  </data>
+  <data name="AmountLabel" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
+  <data name="RoundingLabel" xml:space="preserve">
+    <value>Rounding:</value>
+  </data>
+  <data name="OriginalCourseRateLabel" xml:space="preserve">
+    <value>Original course rate: {0}</value>
+  </data>
+  <data name="ErrorMessage_CurrencySelection" xml:space="preserve">
+    <value>One selected currency must be domestic and the other one must be different.</value>
+  </data>
+  <data name="ErrorMessage_InsufficientMoneyInCashRegister" xml:space="preserve">
+    <value>Not enough money in cash register.</value>
+  </data>
+  <data name="ErrorMessage_CourseRateExceededOtherOne" xml:space="preserve">
+    <value>The course rate can not exceed the opposite course rate.</value>
+  </data>
+  <data name="ErrorMessage_QuantityFromNotValid" xml:space="preserve">
+    <value>Quantity from can not be empty, 0 or less than zero.</value>
+  </data>
+  <data name="ErrorMessage_QuantityToNotValid" xml:space="preserve">
+    <value>Quantity to can not be empty, 0 or less than zero.</value>
+  </data>
+  <data name="ErrorMessage_CourseRateNotValid" xml:space="preserve">
+    <value>Course rate can not be empty, 0 or less than zero.</value>
   </data>
 </root>

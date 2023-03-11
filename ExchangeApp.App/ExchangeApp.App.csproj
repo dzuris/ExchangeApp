@@ -53,10 +53,70 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
+	  <None Remove="Resources\Images\Flags\aud.png" />
+	  <None Remove="Resources\Images\Flags\bgn.png" />
+	  <None Remove="Resources\Images\Flags\brl.png" />
+	  <None Remove="Resources\Images\Flags\cad.png" />
+	  <None Remove="Resources\Images\Flags\chf.png" />
+	  <None Remove="Resources\Images\Flags\cny.png" />
+	  <None Remove="Resources\Images\Flags\czk.png" />
+	  <None Remove="Resources\Images\Flags\dkk.png" />
+	  <None Remove="Resources\Images\Flags\eur.png" />
+	  <None Remove="Resources\Images\Flags\gbp.png" />
+	  <None Remove="Resources\Images\Flags\hkd.png" />
+	  <None Remove="Resources\Images\Flags\huf.png" />
+	  <None Remove="Resources\Images\Flags\idr.png" />
+	  <None Remove="Resources\Images\Flags\ils.png" />
+	  <None Remove="Resources\Images\Flags\inr.png" />
+	  <None Remove="Resources\Images\Flags\isk.png" />
+	  <None Remove="Resources\Images\Flags\jpn.png" />
+	  <None Remove="Resources\Images\Flags\krw.png" />
+	  <None Remove="Resources\Images\Flags\mxn.png" />
+	  <None Remove="Resources\Images\Flags\myr.png" />
+	  <None Remove="Resources\Images\Flags\nok.png" />
+	  <None Remove="Resources\Images\Flags\nzd.png" />
+	  <None Remove="Resources\Images\Flags\php.png" />
+	  <None Remove="Resources\Images\Flags\pln.png" />
+	  <None Remove="Resources\Images\Flags\ron.png" />
+	  <None Remove="Resources\Images\Flags\rub.png" />
+	  <None Remove="Resources\Images\Flags\sek.png" />
+	  <None Remove="Resources\Images\Flags\sgd.png" />
+	  <None Remove="Resources\Images\Flags\thb.png" />
+	  <None Remove="Resources\Images\Flags\try.png" />
+	  <None Remove="Resources\Images\Flags\usd.png" />
+	  <None Remove="Resources\Images\Flags\zar.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json" />
+	  <MauiImage Include="Resources\Images\Flags\aud.png" />
+	  <MauiImage Include="Resources\Images\Flags\bgn.png" />
+	  <MauiImage Include="Resources\Images\Flags\brl.png" />
+	  <MauiImage Include="Resources\Images\Flags\cad.png" />
+	  <MauiImage Include="Resources\Images\Flags\chf.png" />
+	  <MauiImage Include="Resources\Images\Flags\cny.png" />
+	  <MauiImage Include="Resources\Images\Flags\czk.png" />
+	  <MauiImage Include="Resources\Images\Flags\dkk.png" />
+	  <MauiImage Include="Resources\Images\Flags\gbp.png" />
+	  <MauiImage Include="Resources\Images\Flags\hkd.png" />
+	  <MauiImage Include="Resources\Images\Flags\huf.png" />
+	  <MauiImage Include="Resources\Images\Flags\idr.png" />
+	  <MauiImage Include="Resources\Images\Flags\ils.png" />
+	  <MauiImage Include="Resources\Images\Flags\inr.png" />
+	  <MauiImage Include="Resources\Images\Flags\isk.png" />
+	  <MauiImage Include="Resources\Images\Flags\krw.png" />
+	  <MauiImage Include="Resources\Images\Flags\mxn.png" />
+	  <MauiImage Include="Resources\Images\Flags\myr.png" />
+	  <MauiImage Include="Resources\Images\Flags\nok.png" />
+	  <MauiImage Include="Resources\Images\Flags\nzd.png" />
+	  <MauiImage Include="Resources\Images\Flags\php.png" />
+	  <MauiImage Include="Resources\Images\Flags\ron.png" />
+	  <MauiImage Include="Resources\Images\Flags\rub.png" />
+	  <MauiImage Include="Resources\Images\Flags\sek.png" />
+	  <MauiImage Include="Resources\Images\Flags\sgd.png" />
+	  <MauiImage Include="Resources\Images\Flags\thb.png" />
+	  <MauiImage Include="Resources\Images\Flags\try.png" />
+	  <MauiImage Include="Resources\Images\Flags\zar.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -71,9 +131,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Controls\" />
 	  <Folder Include="Resources\Images\Icons\" />
 	  <Folder Include="ViewModels\Donation\" />
+	  <Folder Include="ViewModels\Courses\" />
+	  <Folder Include="ViewModels\Customers\" />
+	  <Folder Include="ViewModels\CashRegister\" />
+	  <Folder Include="ViewModels\ProfitCalculate\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\Flags\eur.png" />
+	  <MauiImage Include="Resources\Images\Flags\jpn.png" />
+	  <MauiImage Include="Resources\Images\Flags\pln.png" />
+	  <MauiImage Include="Resources\Images\Flags\usd.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -90,6 +160,56 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>AppResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\CashRegisterStatusPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CashRegisterStatusPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CourseDetailPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CourseDetailPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\EnumOperationFilterOptionsResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumOperationFilterOptionsResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\EnumTransactionTypeResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumTransactionTypeResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\ErrorResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ErrorResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\EnumEvidenceTypeResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumEvidenceTypeResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\ProfitCalculatePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>ProfitCalculatePageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsCoursesManagerPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CoursesPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CoursesPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\CurrencyResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>CurrencyResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\CustomerDetailPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -105,10 +225,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>DonationDetailPageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\DonationEnumResources.Designer.cs">
+	  <Compile Update="Resources\Texts\EnumDonationTypeResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>DonationEnumResources.resx</DependentUpon>
+	    <DependentUpon>EnumDonationTypeResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\DonationPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -119,6 +239,16 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>MainPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\OperationsListPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>OperationsListPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsPageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\TransactionDetailPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -135,12 +265,61 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>TransactionTypeResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\Donation\DonationCreatePage.xaml.cs">
+	    <DependentUpon>DonationCreatePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Settings\SettingsCoursesManagerPage.xaml.cs">
+	    <DependentUpon>SettingsCoursesManagerPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Transaction\TransactionCreatePage.xaml.cs">
+	    <DependentUpon>TransactionCreatePage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Update="Resources\Texts\AppResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CashRegisterStatusPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CashRegisterStatusPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CourseDetailPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CourseDetailPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumOperationFilterOptionsResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumOperationFilterOptionsResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumTransactionTypeResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumTransactionTypeResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\ErrorResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumEvidenceTypeResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumEvidenceTypeResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\ProfitCalculatePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>ProfitCalculatePageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsCoursesManagerPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CoursesPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CoursesPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\CurrencyResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>CurrencyResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\CustomerDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -154,9 +333,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>DonationDetailPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\DonationEnumResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\EnumDonationTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>DonationEnumResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>EnumDonationTypeResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\DonationPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -165,6 +344,14 @@
 	  <EmbeddedResource Update="Resources\Texts\MainPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>MainPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\OperationsListPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>OperationsListPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\TransactionDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -181,6 +368,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\ButtonStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ContentPageStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -190,7 +380,16 @@
 	  <MauiXaml Update="Resources\Styles\EntryStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\FrameStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\GridStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ImageButtonStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\ImageStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\LabelStyle.xaml">
@@ -202,49 +401,52 @@
 	  <MauiXaml Update="Resources\Styles\VerticalStackLayoutStyle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Base\ContentPageBase.xaml">
+	  <MauiXaml Update="Views\ContentPageBase.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CashRegisterStatusPage.xaml">
+	  <MauiXaml Update="Views\CashRegister\CashRegisterStatusPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CourseChangePage.xaml">
+	  <MauiXaml Update="Views\Courses\CourseDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CoursesPage.xaml">
+	  <MauiXaml Update="Views\ProfitCalculate\ProfitCalculatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CustomerCreatePage.xaml">
+	  <MauiXaml Update="Views\Settings\SettingsCoursesManagerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CustomerDetailPage.xaml">
+	  <MauiXaml Update="Views\Courses\CoursesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DonationDetailPage.xaml">
+	  <MauiXaml Update="Views\Customers\CustomerDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DonationPage.xaml">
+	  <MauiXaml Update="Views\Donation\DonationDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\NewCustomerBusinessPage.xaml">
+	  <MauiXaml Update="Views\Donation\DonationCreatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\NewCustomerIndividualPage.xaml">
+	  <MauiXaml Update="Views\Customers\NewCustomerBusinessPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\NewCustomerMinorPage.xaml">
+	  <MauiXaml Update="Views\Customers\NewCustomerIndividualPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\OperationsListPage.xaml">
+	  <MauiXaml Update="Views\Customers\NewCustomerMinorPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\SettingsPage.xaml">
+	  <MauiXaml Update="Views\OperationsList\OperationsListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TransactionDetailPage.xaml">
+	  <MauiXaml Update="Views\Settings\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TransactionPage.xaml">
+	  <MauiXaml Update="Views\Transaction\TransactionDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Transaction\TransactionCreatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -124,15 +124,6 @@
   <data name="StateListHeaderLabel" xml:space="preserve">
     <value>State</value>
   </data>
-  <data name="DepositPickerItem" xml:space="preserve">
-    <value>Deposit</value>
-  </data>
-  <data name="LevyPickerItem" xml:space="preserve">
-    <value>Levy</value>
-  </data>
-  <data name="WithdrawPickerItem" xml:space="preserve">
-    <value>Withdraw</value>
-  </data>
   <data name="ErrorMessage_SelectedCurrencyEmpty" xml:space="preserve">
     <value>Select currency.</value>
   </data>

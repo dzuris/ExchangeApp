@@ -30,13 +30,6 @@ public class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
     public virtual async Task InsertAsync(TEntity entity)
     {
         await _dbSet.AddAsync(entity);
-        await AppDbContext.SaveChangesAsync();
-    }
-
-    public virtual async Task UpdateAsync(TEntity entity)
-    {
-        _dbSet.Update(entity);
-        await AppDbContext.SaveChangesAsync();
     }
 
     public virtual async Task DeleteAsync(TId id)
@@ -49,6 +42,5 @@ public class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
         }
 
         _dbSet.Remove(entity);
-        await AppDbContext.SaveChangesAsync();
     }
 }

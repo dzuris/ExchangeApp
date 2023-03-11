@@ -61,47 +61,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cash register status.
+        ///   Looks up a localized string similar to Create donation.
         /// </summary>
-        public static string CashRegisterStatusComboBoxItem {
+        public static string DonationCreateFrameLabel {
             get {
-                return ResourceManager.GetString("CashRegisterStatusComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Course rates.
-        /// </summary>
-        public static string CourseRatesComboBoxItem {
-            get {
-                return ResourceManager.GetString("CourseRatesComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Daily total balance.
-        /// </summary>
-        public static string DailyTotalBalanceComboBoxItem {
-            get {
-                return ResourceManager.GetString("DailyTotalBalanceComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Deposit.
-        /// </summary>
-        public static string DepositComboBoxItem {
-            get {
-                return ResourceManager.GetString("DepositComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Donation.
-        /// </summary>
-        public static string DonationComboBoxTitle {
-            get {
-                return ResourceManager.GetString("DonationComboBoxTitle", resourceCulture);
+                return ResourceManager.GetString("DonationCreateFrameLabel", resourceCulture);
             }
         }
         
@@ -124,24 +88,6 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Levy.
-        /// </summary>
-        public static string LevyComboBoxItem {
-            get {
-                return ResourceManager.GetString("LevyComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Monthly total balance.
-        /// </summary>
-        public static string MonthlyTotalBalanceComboBoxItem {
-            get {
-                return ResourceManager.GetString("MonthlyTotalBalanceComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Number of todays operations:.
         /// </summary>
         public static string OperationsInDayLabel {
@@ -153,81 +99,18 @@ namespace ExchangeApp.App.Resources.Texts {
         /// <summary>
         ///   Looks up a localized string similar to Operations list.
         /// </summary>
-        public static string OperationsListComboBoxItem {
+        public static string OperationsListFrameLabel {
             get {
-                return ResourceManager.GetString("OperationsListComboBoxItem", resourceCulture);
+                return ResourceManager.GetString("OperationsListFrameLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Others.
+        ///   Looks up a localized string similar to Create transaction.
         /// </summary>
-        public static string OthersComboBoxTitle {
+        public static string TransactionCreateFrameLabel {
             get {
-                return ResourceManager.GetString("OthersComboBoxTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Profit calculation.
-        /// </summary>
-        public static string ProfitCalculationComboBoxItem {
-            get {
-                return ResourceManager.GetString("ProfitCalculationComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Storno.
-        /// </summary>
-        public static string StornoComboBoxItem {
-            get {
-                return ResourceManager.GetString("StornoComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total balance.
-        /// </summary>
-        public static string TotalBalanceComboBoxTitle {
-            get {
-                return ResourceManager.GetString("TotalBalanceComboBoxTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Trade.
-        /// </summary>
-        public static string TradeComboBoxTitle {
-            get {
-                return ResourceManager.GetString("TradeComboBoxTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Transaction.
-        /// </summary>
-        public static string TransactionComboBoxItem {
-            get {
-                return ResourceManager.GetString("TransactionComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Withdraw.
-        /// </summary>
-        public static string WithdrawComboBoxItem {
-            get {
-                return ResourceManager.GetString("WithdrawComboBoxItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Yearly total balance.
-        /// </summary>
-        public static string YearlyTotalBalanceComboBoxItem {
-            get {
-                return ResourceManager.GetString("YearlyTotalBalanceComboBoxItem", resourceCulture);
+                return ResourceManager.GetString("TransactionCreateFrameLabel", resourceCulture);
             }
         }
     }

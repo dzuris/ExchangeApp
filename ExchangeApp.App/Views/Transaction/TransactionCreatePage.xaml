@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Transaction"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
+             x:Class="ExchangeApp.App.Views.Transaction.TransactionCreatePage"
+             Title="{x:Static texts:TransactionPageResources.TransactionTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:TransactionCreateViewModel">
+
+    <Grid RowDefinitions="*, Auto" RowSpacing="20" ColumnDefinitions="*, *">
+        <Grid 
+            RowDefinitions="Auto, Auto, Auto"
+            RowSpacing="25"
+            ColumnDefinitions="Auto, Auto" 
+            ColumnSpacing="35"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="15">
+                <Label
+                    Style="{StaticResource InputLabelStyle}"
+                    Text="{x:Static texts:TransactionPageResources.CurrencyFromLabel}"/>
+                <Picker
+                    WidthRequest="200"
+                    HorizontalOptions="Start"
+                    ItemsSource="{Binding Currencies}"
+                    ItemDisplayBinding="{Binding Code}"
+                    SelectedItem="{Binding CurrencyFrom}"
+                    SelectedIndexChanged="CurrencyFromChangedPicker_OnSelectedIndexChanged">
+                </Picker>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15" Grid.Column="1">
+                <Label
+                    Style="{StaticResource InputLabelStyle}"
+                    Text="{x:Static texts:TransactionPageResources.CurrencyToLabel}"/>
+                <Picker
+                    WidthRequest="200"
+                    HorizontalOptions="Start"
+                    ItemsSource="{Binding Currencies}"
+                    ItemDisplayBinding="{Binding Code}"
+                    SelectedItem="{Binding CurrencyTo}"
+                    SelectedIndexChanged="CurrencyToChangedPicker_OnSelectedIndexChanged">
+                </Picker>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15" Grid.Row="1">
+                <Label
+                    Style="{StaticResource InputLabelStyle}"
+                    Text="{x:Static texts:TransactionPageResources.AmountFromLabel}"/>
+                <Entry
+                    Keyboard="Numeric"
+                    Text="{Binding QuantityFrom}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15" Grid.Row="1" Grid.Column="1">
+                <Label
+                    Style="{StaticResource InputLabelStyle}"
+                    Text="{x:Static texts:TransactionPageResources.AmountToLabel}"/>
+                <Entry
+                    Keyboard="Numeric"
+                    Text="{Binding QuantityTo}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15" Grid.Row="2">
+                <Label
+                    Style="{StaticResource InputLabelStyle}"
+                    Text="{x:Static texts:TransactionPageResources.CourseRateLabel}"/>
+                <Entry
+                    Keyboard="Numeric"
+                    Text="{Binding CourseRate}"/>
+                <Label Text="{Binding OriginalCourseRate, StringFormat={x:Static texts:TransactionPageResources.OriginalCourseRateLabel}, TargetNullValue=''}" TextColor="{StaticResource Gray400}"/>
+            </VerticalStackLayout>
+        </Grid>
+        <Grid 
+            Grid.Column="1"
+            RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+            RowSpacing="10"
+            ColumnDefinitions="*, *"
+            ColumnSpacing="15"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0, 40">
+            <Label
+                HorizontalOptions="End"
+                Text="{x:Static texts:TransactionPageResources.TransactionTypeLabel}"/>
+            <Label
+                Grid.Column="1"
+                Text="{Binding TransactionTypeProp, Converter={StaticResource TransactionTypeToStringConverter}, TargetNullValue=''}"/>
+            <Label
+                x:Name="CurrencyLabel"
+                Grid.Row="1"
+                HorizontalOptions="End"
+                Text="{Binding CurrencyTo.Code, StringFormat={x:Static texts:TransactionPageResources.CurrencyInCashRegisterAmountLabel}, FallbackValue=''}"/>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding CurrencyTo.Quantity, FallbackValue='0'}"/>
+            <Label
+                Grid.Row="2"
+                HorizontalOptions="End"
+                FontAttributes="Bold"
+                Text="{x:Static texts:TransactionPageResources.ToPayLabel}"/>
+            <HorizontalStackLayout
+                Grid.Row="2"
+                Grid.Column="1"
+                Spacing="5">
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding ToPay}"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
+            </HorizontalStackLayout>
+            <Label
+                Grid.Row="3"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Text="{x:Static texts:TransactionPageResources.PaymentLabel}"/>
+            <HorizontalStackLayout
+                Grid.Row="3"
+                Grid.Column="1"
+                Spacing="5">
+                <Entry
+                    FontSize="16"
+                    WidthRequest="100"
+                    HeightRequest="10"
+                    Placeholder="{Binding ToPay}"
+                    VerticalTextAlignment="Center"
+                    Text="{Binding Payment}"/>
+                <Label
+                    VerticalOptions="Center"
+                    Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
+            </HorizontalStackLayout>
+            <Label
+                Grid.Row="4"
+                HorizontalOptions="End"
+                FontAttributes="Bold"
+                Text="{x:Static texts:TransactionPageResources.TipLabel}"/>
+            <HorizontalStackLayout
+                Grid.Row="4"
+                Grid.Column="1"
+                Spacing="5">
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding Tip}"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
+            </HorizontalStackLayout>
+            <Label
+                Grid.Row="5"
+                HorizontalOptions="End"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"
+                Text="{x:Static texts:TransactionPageResources.AmountLabel}"/>
+            <HorizontalStackLayout
+                Grid.Row="5"
+                Grid.Column="1"
+                Spacing="5"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
+                <Label
+                    Text="{Binding Transaction.AmountDomesticCurrency}"/>
+                <Label
+                    Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
+            </HorizontalStackLayout>
+            <Label
+                Grid.Row="6"
+                HorizontalOptions="End"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"
+                Text="{x:Static texts:TransactionPageResources.RoundingLabel}"/>
+            <HorizontalStackLayout
+                Grid.Row="6"
+                Grid.Column="1"
+                Spacing="5"
+                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
+                <Label
+                    Text="{Binding Transaction.Rounding, Converter={StaticResource DecimalToDecimalWithSignStringConverter}}"/>
+                <Label
+                    Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
+            </HorizontalStackLayout>
+            <Line
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Center"
+                X2="250"
+                Stroke="Black"/>
+            <Label
+                Grid.Row="8"
+                FontAttributes="Bold"
+                HorizontalOptions="End"
+                Text="{x:Static texts:TransactionPageResources.ForPaymentLabel}"/>
+            <HorizontalStackLayout
+                Grid.Row="8"
+                Grid.Column="1"
+                Spacing="5">
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding ForPayment}"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <ImageButton
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalOptions="End"
+            WidthRequest="40"
+            HeightRequest="40"
+            Style="{StaticResource IconStyle}"
+            Source="check_circle.png"
+            Command="{Binding SaveCommand}"/>
+    </Grid>
+</views:ContentPageBase>

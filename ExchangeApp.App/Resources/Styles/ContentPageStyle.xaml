@@ -4,7 +4,7 @@
              x:Class="ExchangeApp.App.Resources.Styles.ContentPageStyle">
 
     <Style x:Key="ContentPageStyle" TargetType="ContentPage">
-        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Padding" Value="80, 30"/>
         <Setter Property="BackgroundColor" Value="{StaticResource Background}"/>
     </Style>
 </ResourceDictionary>

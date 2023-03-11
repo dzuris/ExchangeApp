@@ -22,24 +22,20 @@ namespace ExchangeApp.DAL.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("AverageCourseRate")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("AverageCourseRate")
+                        .HasColumnType("TEXT");
 
-                    b.Property<float?>("BuyRate")
-                        .HasColumnType("REAL");
+                    b.Property<decimal?>("BuyRate")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PhotoUrl")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<float>("Quantity")
-                        .HasColumnType("REAL");
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("TEXT");
 
-                    b.Property<float?>("SellRate")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("State")
-                        .IsRequired()
+                    b.Property<decimal?>("SellRate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Status")
@@ -53,102 +49,281 @@ namespace ExchangeApp.DAL.Migrations
                         new
                         {
                             Code = "EUR",
-                            AverageCourseRate = 1f,
+                            AverageCourseRate = 1m,
                             PhotoUrl = "eur.png",
-                            Quantity = 0f,
-                            State = "Európska menová únia",
+                            Quantity = 0m,
                             Status = 1
                         },
                         new
                         {
                             Code = "CZK",
-                            AverageCourseRate = 1f,
+                            AverageCourseRate = 0m,
                             PhotoUrl = "czk.png",
-                            Quantity = 0f,
-                            State = "Česko",
+                            Quantity = 0m,
                             Status = 0
                         },
                         new
                         {
                             Code = "USD",
-                            AverageCourseRate = 1f,
+                            AverageCourseRate = 0m,
                             PhotoUrl = "usd.png",
-                            Quantity = 0f,
-                            State = "Spojené štáty americké",
+                            Quantity = 0m,
                             Status = 0
                         },
                         new
                         {
                             Code = "PLN",
-                            AverageCourseRate = 1f,
+                            AverageCourseRate = 0m,
                             PhotoUrl = "pln.png",
-                            Quantity = 0f,
-                            State = "Poľsko",
+                            Quantity = 0m,
                             Status = 0
                         },
                         new
                         {
                             Code = "JPY",
-                            AverageCourseRate = 1f,
+                            AverageCourseRate = 0m,
                             PhotoUrl = "jpn.png",
-                            Quantity = 0f,
-                            State = "Japonsko",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "GBP",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "gbp.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "CHF",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "chf.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "HUF",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "huf.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "CAD",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "cad.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "NOK",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "nok.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "BGN",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "bgn.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "RUB",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "rub.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "DKK",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "dkk.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "RON",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "ron.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "SEK",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "sek.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "TRY",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "try.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "AUD",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "aud.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "BRL",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "brl.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "CNY",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "cny.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "HKD",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "hkd.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "IDR",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "idr.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "ILS",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "ils.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "INR",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "inr.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "KRW",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "krw.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "MXN",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "mxn.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "MYR",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "myr.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "NZD",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "nzd.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "PHP",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "php.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "SGD",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "sgd.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "THB",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "thb.png",
+                            Quantity = 0m,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Code = "ZAR",
+                            AverageCourseRate = 0m,
+                            PhotoUrl = "zar.png",
+                            Quantity = 0m,
                             Status = 0
                         });
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.DonationEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("CourseRate")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("CurrencyCode")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("EmployeeId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsCanceled")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Note")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<float>("Quantity")
-                        .HasColumnType("REAL");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CurrencyCode");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.ToTable("Donations");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.PersonEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.CustomerEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly?>("BirthDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("EvidenceNumber")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("EvidenceType")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("IdentificationNumber")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
@@ -157,9 +332,49 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Customers");
 
                     b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Operations.OperationEntityBase", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal?>("AverageCourseRate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("CourseRate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsCanceled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CurrencyCode");
+
+                    b.ToTable("Operations");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("OperationEntityBase");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.TotalBalanceEntity", b =>
@@ -179,91 +394,12 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeId");
-
                     b.ToTable("TotalBalances");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.TransactionEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.BusinessCustomerEntity", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("CourseRate")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("CurrencyCode")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("CustomerId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("EmployeeId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsCanceled")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("Quantity")
-                        .HasColumnType("REAL");
-
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("TransactionType")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CurrencyCode");
-
-                    b.HasIndex("EmployeeId");
-
-                    b.ToTable("Transactions");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", b =>
-                {
-                    b.HasBaseType("ExchangeApp.DAL.Entities.Persons.PersonEntity");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateOnly?>("BirthDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EvidenceNumber")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("EvidenceType")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("IdentificationNumber")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("TransactionId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasIndex("TransactionId")
-                        .IsUnique();
-
-                    b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", b =>
-                {
-                    b.HasBaseType("ExchangeApp.DAL.Entities.Persons.PersonEntity");
-
-                    b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.BusinessCustomerEntity", b =>
-                {
-                    b.HasBaseType("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity");
+                    b.HasBaseType("ExchangeApp.DAL.Entities.Customers.CustomerEntity");
 
                     b.Property<string>("ICO")
                         .IsRequired()
@@ -284,9 +420,9 @@ namespace ExchangeApp.DAL.Migrations
                     b.ToTable("BusinessCustomers");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.IndividualCustomerEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.IndividualCustomerEntity", b =>
                 {
-                    b.HasBaseType("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity");
+                    b.HasBaseType("ExchangeApp.DAL.Entities.Customers.CustomerEntity");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
@@ -295,14 +431,44 @@ namespace ExchangeApp.DAL.Migrations
                     b.ToTable("IndividualCustomers");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.MinorCustomerEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.MinorCustomerEntity", b =>
                 {
-                    b.HasBaseType("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity");
+                    b.HasBaseType("ExchangeApp.DAL.Entities.Customers.CustomerEntity");
 
                     b.ToTable("MinorCustomers");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.DonationEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Operations.DonationEntity", b =>
+                {
+                    b.HasBaseType("ExchangeApp.DAL.Entities.Operations.OperationEntityBase");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
+                    b.HasDiscriminator().HasValue("DonationEntity");
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Operations.TransactionEntity", b =>
+                {
+                    b.HasBaseType("ExchangeApp.DAL.Entities.Operations.OperationEntityBase");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TransactionType")
+                        .HasColumnType("INTEGER");
+
+                    b.HasIndex("CustomerId")
+                        .IsUnique();
+
+                    b.HasDiscriminator().HasValue("TransactionEntity");
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Operations.OperationEntityBase", b =>
                 {
                     b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", "Currency")
                         .WithMany()
@@ -310,101 +476,43 @@ namespace ExchangeApp.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId")
+                    b.Navigation("Currency");
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.BusinessCustomerEntity", b =>
+                {
+                    b.HasOne("ExchangeApp.DAL.Entities.Customers.CustomerEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Customers.BusinessCustomerEntity", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.IndividualCustomerEntity", b =>
+                {
+                    b.HasOne("ExchangeApp.DAL.Entities.Customers.CustomerEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Customers.IndividualCustomerEntity", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.MinorCustomerEntity", b =>
+                {
+                    b.HasOne("ExchangeApp.DAL.Entities.Customers.CustomerEntity", null)
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Customers.MinorCustomerEntity", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.Operations.TransactionEntity", b =>
+                {
+                    b.HasOne("ExchangeApp.DAL.Entities.Customers.CustomerEntity", "Customer")
+                        .WithOne()
+                        .HasForeignKey("ExchangeApp.DAL.Entities.Operations.TransactionEntity", "CustomerId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("Currency");
-
-                    b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.TotalBalanceEntity", b =>
-                {
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.TransactionEntity", b =>
-                {
-                    b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", "Currency")
-                        .WithMany()
-                        .HasForeignKey("CurrencyCode")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Currency");
-
-                    b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", b =>
-                {
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.PersonEntity", null)
-                        .WithOne()
-                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ExchangeApp.DAL.Entities.TransactionEntity", "Transaction")
-                        .WithOne("Customer")
-                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", "TransactionId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Transaction");
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", b =>
-                {
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.PersonEntity", null)
-                        .WithOne()
-                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.EmployeeEntity", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.BusinessCustomerEntity", b =>
-                {
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", null)
-                        .WithOne()
-                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.BusinessCustomerEntity", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.IndividualCustomerEntity", b =>
-                {
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", null)
-                        .WithOne()
-                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.IndividualCustomerEntity", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.Persons.Customers.MinorCustomerEntity", b =>
-                {
-                    b.HasOne("ExchangeApp.DAL.Entities.Persons.Customers.CustomerEntity", null)
-                        .WithOne()
-                        .HasForeignKey("ExchangeApp.DAL.Entities.Persons.Customers.MinorCustomerEntity", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.TransactionEntity", b =>
-                {
                     b.Navigation("Customer");
                 });
 #pragma warning restore 612, 618
