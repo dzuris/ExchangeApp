@@ -26,6 +26,10 @@ public class CurrencyMapperProfile : Profile
                 => opt.MapFrom(src => Math.Round(src.AverageCourseRate, DecimalsRound)));
 
         CreateMap<CurrencyEntity, CurrencyDetailModel>()
-            .ReverseMap();
+            .ForMember(dst 
+                    => dst.AverageCourseRate, opt 
+                    => opt.MapFrom(src => Math.Round(src.AverageCourseRate, DecimalsRound)));
+
+        CreateMap<CurrencyDetailModel, CurrencyEntity>();
     }
 }

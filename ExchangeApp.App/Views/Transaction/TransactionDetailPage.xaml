@@ -84,7 +84,8 @@
                 Grid.Row="7"
                 Grid.ColumnSpan="2"
                 IsVisible="{Binding HasTransactionCustomer}"
-                Text="{x:Static texts:TransactionDetailPageResources.CustomerDetailButtonText}"/>
+                Text="{x:Static texts:TransactionDetailPageResources.CustomerDetailButtonText}"
+                Command="{Binding GoToCustomerDetailCommand}"/>
         </Grid>
 
         <Grid

@@ -20,6 +20,13 @@ public class CustomerFacade : ICustomerFacade
         _mapper = mapper;
     }
 
+    public async Task<CustomerDetailModel?> GetByIdAsync(Guid id)
+    {
+        var entity = await _repository.GetByIdAsync(id);
+        var model = entity is null ? null : _mapper.Map<CustomerDetailModel>(entity);
+        return model;
+    }
+
     public async Task InsertAsync(IndividualCustomerDetailModel model)
     {
         var entity = _mapper.Map<IndividualCustomerEntity>(model);

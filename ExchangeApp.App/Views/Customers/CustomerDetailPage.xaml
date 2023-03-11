@@ -1,61 +1,111 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Customers"
+             xmlns:customer="clr-namespace:ExchangeApp.BL.Models.Customer;assembly=ExchangeApp.BL"
+             xmlns:controls="clr-namespace:ExchangeApp.App.Controls"
              x:Class="ExchangeApp.App.Views.Customers.CustomerDetailPage"
              Title="{x:Static texts:CustomerResources.CustomerDetailPageTitle}"
-             Style="{StaticResource ContentPageStyle}">
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:CustomerDetailViewModel">
+    <views:ContentPageBase.Resources>
+
+        <!-- Individual customer template -->
+        <DataTemplate x:Key="IndividualCustomerTemplate" x:DataType="customer:IndividualCustomerDetailModel">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="20" ColumnDefinitions="Auto, Auto" ColumnSpacing="50">
+                <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:CustomerResources.PersonTypeLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="{x:Static texts:CustomerResources.IndividualCustomer}"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:CustomerResources.WholeNameLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
+                    <Label Text="{Binding FirstName}"/>
+                    <Label Text="{Binding LastName}"/>
+                </HorizontalStackLayout>
+                <Label Grid.Row="2" Grid.Column="0" Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdentificationNumber, FallbackValue='-'}"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="{x:Static texts:CustomerResources.BirthDateLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding BirthDate, FallbackValue=''}"/>
+                <Label Grid.Row="4" Grid.Column="0" Text="{x:Static texts:CustomerResources.AddressLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Address}"/>
+                <Label Grid.Row="5" Grid.Column="0" Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding EvidenceType, Converter={StaticResource EvidenceTypeToStringConverter}}"/>
+                <Label Grid.Row="6" Grid.Column="0" Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="6" Grid.Column="1" Text="{Binding EvidenceNumber}"/>
+                <Label Grid.Row="7" Grid.Column="0" Text="{x:Static texts:CustomerResources.NationalityLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="7" Grid.Column="1" Text="{Binding Nationality}"/>
+            </Grid>
+        </DataTemplate>
+
+        <!-- Business customer template -->
+        <DataTemplate x:Key="BusinessCustomerTemplate" x:DataType="customer:BusinessCustomerDetailModel">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="20" ColumnDefinitions="Auto, Auto" ColumnSpacing="50">
+                <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:CustomerResources.PersonTypeLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="{x:Static texts:CustomerResources.BusinessCustomer}"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:CustomerResources.WholeNameLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
+                    <Label Text="{Binding FirstName}"/>
+                    <Label Text="{Binding LastName}"/>
+                </HorizontalStackLayout>
+                <Label Grid.Row="2" Grid.Column="0" Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdentificationNumber, FallbackValue='-'}"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="{x:Static texts:CustomerResources.BirthDateLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding BirthDate, FallbackValue=''}"/>
+                <Label Grid.Row="4" Grid.Column="0" Text="{x:Static texts:CustomerResources.AddressLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Address}"/>
+                <Label Grid.Row="5" Grid.Column="0" Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding EvidenceType, Converter={StaticResource EvidenceTypeToStringConverter}}"/>
+                <Label Grid.Row="6" Grid.Column="0" Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="6" Grid.Column="1" Text="{Binding EvidenceNumber}"/>
+                <Label Grid.Row="7" Grid.Column="0" Text="{x:Static texts:CustomerResources.BusinessCompanyNameLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="7" Grid.Column="1" Text="{Binding TradeNameOfTheOwner}"/>
+                <Label Grid.Row="8" Grid.Column="0" Text="{x:Static texts:CustomerResources.BusinessAddressCompanyLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="8" Grid.Column="1" Text="{Binding TradeAddress}"/>
+                <Label Grid.Row="9" Grid.Column="0" Text="{x:Static texts:CustomerResources.BusinessIdentificationNumberLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="9" Grid.Column="1" Text="{Binding ICO}"/>
+                <Label Grid.Row="10" Grid.Column="0" Text="{x:Static texts:CustomerResources.NationalityLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="10" Grid.Column="1" Text="{Binding Nationality}"/>
+            </Grid>
+        </DataTemplate>
+
+        <!-- Minor customer template -->
+        <DataTemplate x:Key="MinorCustomerTemplate" x:DataType="customer:MinorCustomerDetailModel">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="20" ColumnDefinitions="Auto, Auto" ColumnSpacing="50">
+                <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:CustomerResources.PersonTypeLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="{x:Static texts:CustomerResources.MinorCustomer}"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:CustomerResources.WholeNameLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Spacing="5">
+                    <Label Text="{Binding FirstName}"/>
+                    <Label Text="{Binding LastName}"/>
+                </HorizontalStackLayout>
+                <Label Grid.Row="2" Grid.Column="0" Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding IdentificationNumber, FallbackValue='-'}"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="{x:Static texts:CustomerResources.BirthDateLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding BirthDate, FallbackValue=''}"/>
+                <Label Grid.Row="4" Grid.Column="0" Text="{x:Static texts:CustomerResources.AddressLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Address}"/>
+                <Label Grid.Row="5" Grid.Column="0" Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding EvidenceType, Converter={StaticResource EvidenceTypeToStringConverter}}"/>
+                <Label Grid.Row="6" Grid.Column="0" Text="{x:Static texts:CustomerResources.EvidenceNumberLegalRepresentativeLabel}" Style="{StaticResource CustomerDetailInfoLabel}"/>
+                <Label Grid.Row="6" Grid.Column="1" Text="{Binding EvidenceNumber}"/>
+            </Grid>
+        </DataTemplate>
+
+        <controls:CustomerDetailDataTemplateSelector x:Key="CustomerDetailDataTemplateSelector"
+                                                     IndividualCustomerTemplate="{StaticResource IndividualCustomerTemplate}"
+                                                     BusinessCustomerTemplate="{StaticResource BusinessCustomerTemplate}"
+                                                     MinorCustomerTemplate="{StaticResource MinorCustomerTemplate}"/>
+    </views:ContentPageBase.Resources>
+
     <Grid
-        RowDefinitions="*, Auto"
-        ColumnDefinitions="*, *">
-        <Grid
-            Grid.ColumnSpan="2"
-            RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
-            RowSpacing="15"
-            ColumnDefinitions="Auto, Auto"
-            ColumnSpacing="25">
-            <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                <Label
-                    Text="{x:Static texts:CustomerResources.PersonTypeLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-                <Label
-                    Text="{x:Static texts:CustomerResources.WholeNameLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-                <Label
-                    Text="{x:Static texts:CustomerResources.IdentificationNumberLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-                <Label
-                    Text="{x:Static texts:CustomerResources.BirthDateLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-                <Label
-                    Text="{x:Static texts:CustomerResources.AddressLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-                <Label
-                    Text="{x:Static texts:CustomerResources.NationalityLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-                <Label
-                    Text="{x:Static texts:CustomerResources.EvidenceTypeLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-                <Label
-                    Text="{x:Static texts:CustomerResources.EvidenceNumberLabel}"
-                    Style="{StaticResource InputLabelStyle}"/>
-            </VerticalStackLayout>
-            <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                <Label Text="Normal person"/>
-                <Label Text="Joseph Customer"/>
-                <Label Text="000111/9999"/>
-                <Label Text="1.1.1975"/>
-                <Label Text="Random address 615, New Jersey, Random State, Long address"/>
-                <Label Text="Slovak"/>
-                <Label Text="Identification card"/>
-                <Label Text="HH152125"/>
-            </VerticalStackLayout>
-        </Grid>
+        RowDefinitions="*, Auto" RowSpacing="15">
+        <CollectionView 
+            ItemsSource="{Binding Customers}"
+            ItemTemplate="{StaticResource CustomerDetailDataTemplateSelector}"/>
         <ImageButton
             Grid.Row="1"
-            Grid.Column="1"
             HorizontalOptions="End"
             Source="print.png"
             Style="{StaticResource IconStyle}"/>
     </Grid>
-</ContentPage>
+</views:ContentPageBase>

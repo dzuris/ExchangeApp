@@ -16,6 +16,13 @@
         <Setter Property="FontAttributes" Value="Bold" />
     </Style>
 
+    <Style x:Key="CustomerDetailInfoLabel" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="MaxLines" Value="3"/>
+        <Setter Property="LineBreakMode" Value="WordWrap"/>
+        <Setter Property="MaximumWidthRequest" Value="250"/>
+    </Style>
+
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />

@@ -28,6 +28,7 @@
             <converters:EvidenceTypeToStringConverter x:Key="EvidenceTypeToStringConverter"/>
             <converters:DecimalToDecimalWithSignStringConverter x:Key="DecimalToDecimalWithSignStringConverter"/>
             <converters:OperationFilterOptionToStringConverter x:Key="OperationFilterOptionToStringConverter"/>
+            <converters:CustomerDetailModelToStringConverter x:Key="CustomerDetailModelToStringConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

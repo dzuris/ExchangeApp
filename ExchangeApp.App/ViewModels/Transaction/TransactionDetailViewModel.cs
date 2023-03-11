@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Services.Interfaces;
+using ExchangeApp.App.Views.Customers;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
@@ -55,4 +57,16 @@ public partial class TransactionDetailViewModel : ViewModelBase
     public bool HasTransactionCustomer => Transaction?.CustomerId != null;
 
     public string DomesticCurrencyCode => "EUR";
+
+    [RelayCommand]
+    private async Task GoToCustomerDetailAsync()
+    {
+        if (Transaction?.CustomerId is null)
+        {
+            return;
+        }
+
+        var customerId = Transaction.CustomerId ?? Guid.Empty;
+        await Shell.Current.GoToAsync($"{nameof(CustomerDetailPage)}?id={customerId}");
+    }
 }

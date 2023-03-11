@@ -9,9 +9,13 @@ public class CustomerMapperProfile : Profile
     public CustomerMapperProfile()
     {
         CreateMap<CustomerEntity, CustomerListModel>();
+        CreateMap<CustomerEntity, CustomerDetailModel>()
+            .Include<IndividualCustomerEntity, IndividualCustomerDetailModel>()
+            .Include<BusinessCustomerEntity, BusinessCustomerDetailModel>()
+            .Include<MinorCustomerEntity, MinorCustomerDetailModel>();
 
-        CreateMap<IndividualCustomerDetailModel, IndividualCustomerEntity>();
-        CreateMap<BusinessCustomerDetailModel, BusinessCustomerEntity>();
-        CreateMap<MinorCustomerDetailModel, MinorCustomerEntity>();
+        CreateMap<IndividualCustomerDetailModel, IndividualCustomerEntity>().ReverseMap();
+        CreateMap<BusinessCustomerDetailModel, BusinessCustomerEntity>().ReverseMap();
+        CreateMap<MinorCustomerDetailModel, MinorCustomerEntity>().ReverseMap();
     }
 }
