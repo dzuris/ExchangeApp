@@ -1,20 +1,34 @@
 ﻿<?xml version = "1.0" encoding = "UTF-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ExchangeApp.App"
+             xmlns:converters="clr-namespace:ExchangeApp.App.Converters"
              x:Class="ExchangeApp.App.App">
     <Application.Resources>
-        <ResourceDictionary>
+        <ResourceDictionary> 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/ButtonStyle.xaml" />
                 <ResourceDictionary Source="Resources/Styles/ContentPageStyle.xaml" />
-                <ResourceDictionary Source="Resources/Styles/LabelStyle.xaml" />
-                <ResourceDictionary Source="Resources/Styles/ImageButtonStyle.xaml" />
-                <ResourceDictionary Source="Resources/Styles/PickerStyle.xaml" />
+                <ResourceDictionary Source="Resources/Styles/DatePickerStyle.xaml" />
                 <ResourceDictionary Source="Resources/Styles/EntryStyle.xaml" />
+                <ResourceDictionary Source="Resources/Styles/FrameStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/GridStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ImageButtonStyle.xaml" />
+                <ResourceDictionary Source="Resources/Styles/ImageStyle.xaml" />
+                <ResourceDictionary Source="Resources/Styles/LabelStyle.xaml" />
+                <ResourceDictionary Source="Resources/Styles/PickerStyle.xaml" />
                 <ResourceDictionary Source="Resources/Styles/VerticalStackLayoutStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <converters:DonationTypeToStringConverter x:Key="DonationTypeToStringConverter"/>
+            <converters:CurrencyCodeToStateConverter x:Key="CurrencyCodeToStateConverter"/>
+            <converters:TransactionTypeToStringConverter x:Key="TransactionTypeToStringConverter"/>
+            <converters:TransactionTypeBuyToVisibilityConverter x:Key="TransactionTypeBuyToVisibilityConverter"/>
+            <converters:EvidenceTypeToStringConverter x:Key="EvidenceTypeToStringConverter"/>
+            <converters:DecimalToDecimalWithSignStringConverter x:Key="DecimalToDecimalWithSignStringConverter"/>
+            <converters:OperationFilterOptionToStringConverter x:Key="OperationFilterOptionToStringConverter"/>
+            <converters:CustomerDetailModelToStringConverter x:Key="CustomerDetailModelToStringConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

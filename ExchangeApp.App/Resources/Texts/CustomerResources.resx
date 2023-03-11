@@ -136,9 +136,6 @@
   <data name="BusinessAddressCompanyLabel" xml:space="preserve">
     <value>Company address:</value>
   </data>
-  <data name="BusinessCompanyNameLabel" xml:space="preserve">
-    <value>Company name:</value>
-  </data>
   <data name="BusinessIdentificationNumberLabel" xml:space="preserve">
     <value>Identification number of business person (if the number was assigned):</value>
   </data>
@@ -150,5 +147,47 @@
   </data>
   <data name="RefugeesInfoLabel" xml:space="preserve">
     <value>For refugees, place of residence in a refugee camp</value>
+  </data>
+  <data name="EvidenceNumberLegalRepresentativeLabel" xml:space="preserve">
+    <value>Legal representative evidence number:</value>
+  </data>
+  <data name="CustomerDetailPageTitle" xml:space="preserve">
+    <value>Customer detail</value>
+  </data>
+  <data name="PersonTypeLabel" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="WholeNameLabel" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="ErrorMessage_FirstNameNotValid" xml:space="preserve">
+    <value>First name not valid or missing.</value>
+  </data>
+  <data name="ErrorMessage_LastNameNotValid" xml:space="preserve">
+    <value>Last name not valid or missing.</value>
+  </data>
+  <data name="ErrorMessage_AddressNotValid" xml:space="preserve">
+    <value>Address not valid or missing.</value>
+  </data>
+  <data name="ErrorMessage_EvidenceNumberNotValid" xml:space="preserve">
+    <value>Evidence number not valid or missing.</value>
+  </data>
+  <data name="ErrorMessage_BusinessCompanyNameNotValid" xml:space="preserve">
+    <value>Company name not valid or missing.</value>
+  </data>
+  <data name="ErrorMessage_BusinessAddressNotValid" xml:space="preserve">
+    <value>Company address not valid or missing.</value>
+  </data>
+  <data name="ErrorMessage_BusinessIdentificationNumberNotValid" xml:space="preserve">
+    <value>Identification number of business person not valid or missing.</value>
+  </data>
+  <data name="ErrorMessage_BirthDateAndIdentificationNumberNotValid" xml:space="preserve">
+    <value>You have to enter at least one birth date or identification number.</value>
+  </data>
+  <data name="ErrorMessage_IdentificationNumberNotValid" xml:space="preserve">
+    <value>Identification number has wrong format. (try for example 000101/9999, 000528/1). If customer is from country with another identification number format, fill only his birth date and the identification number entry set as empty.</value>
+  </data>
+  <data name="BusinessCompanyNameLabel" xml:space="preserve">
+    <value>Company name:</value>
   </data>
 </root>

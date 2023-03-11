@@ -9,13 +9,6 @@ interface IDbMigrator
     public Task MigrateAsync(CancellationToken cancellationToken);
 }
 
-public class NoneDbMigrator : IDbMigrator
-{
-    public void Migrate() { }
-
-    public Task MigrateAsync(CancellationToken cancellationToken) => Task.CompletedTask;
-}
-
 public class SqliteDbMigrator : IDbMigrator
 {
     private readonly IDbContextFactory<ExchangeAppDbContext> _dbContextFactory;

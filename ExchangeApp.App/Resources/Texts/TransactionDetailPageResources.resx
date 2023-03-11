@@ -140,10 +140,10 @@
     <value>Tip:</value>
   </data>
   <data name="RoundLabel" xml:space="preserve">
-    <value>Round:</value>
+    <value>Rounding:</value>
   </data>
   <data name="ResultAmountLabel" xml:space="preserve">
-    <value>Result amount:</value>
+    <value>Given amount:</value>
   </data>
   <data name="StornoButtonText" xml:space="preserve">
     <value>Storno</value>

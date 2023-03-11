@@ -1,5 +1,4 @@
 ﻿using ExchangeApp.BL.Models.Currency;
-using ExchangeApp.BL.Models.Person;
 using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.BL.Models.Donation;
@@ -8,16 +7,15 @@ public record DonationDetailModel : ModelBase
 {
     public int Id { get; set; }
     public required DateTime Time { get; set; }
-    public required float CourseRate { get; set; }
-    public required float Quantity { get; set; }
+    public required decimal CourseRate { get; set; }
+    // Used for levy and withdraw
+    public decimal? AverageCourseRate { get; set; }
+    public required decimal Quantity { get; set; }
     public required DonationType Type { get; set; }
     public required string Note { get; set; }
     public bool IsCanceled { get; set; }
 
-    public Guid? EmployeeId { get; set; }
-    public EmployeeListModel? Employee { get; set; }
-
-    public required string Code { get; set; }
+    public required string CurrencyCode { get; set; }
     public CurrencyListModel? Currency { get; set; }
 
     public static DonationDetailModel Empty => new()
@@ -27,6 +25,6 @@ public record DonationDetailModel : ModelBase
         Quantity = 0,
         Type = DonationType.Deposit,
         Note = string.Empty,
-        Code = string.Empty
+        CurrencyCode = string.Empty
     };
 }

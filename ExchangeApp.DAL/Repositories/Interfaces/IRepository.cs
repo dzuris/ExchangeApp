@@ -8,6 +8,5 @@ public interface IRepository<TEntity, in TId>
     Task<IEnumerable<TEntity>> GetAllAsync();
     Task<TEntity?> GetByIdAsync(TId id);
     Task InsertAsync (TEntity entity);
-    Task UpdateAsync (TEntity entity);
     Task DeleteAsync(TId id);
 }

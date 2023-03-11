@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using ExchangeApp.BL.Extensions;
-using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Donation;
-using ExchangeApp.DAL.Entities;
+using ExchangeApp.DAL.Entities.Operations;
 
 namespace ExchangeApp.BL.MapperProfiles;
 
@@ -11,11 +9,12 @@ public class DonationMapperProfile : Profile
     public DonationMapperProfile()
     {
         CreateMap<DonationEntity, DonationListModel>();
-        //CreateMap<DonationEntity, DonationDetailModel>();
 
         CreateMap<DonationDetailModel, DonationEntity>()
-            .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.Code))
-            .ForMember(dst => dst.Employee, opt => opt.Ignore())
+            .ForMember(dest => dest.CurrencyCode, opt => opt.MapFrom(src => src.CurrencyCode))
             .ForMember(dst => dst.Currency, opt => opt.Ignore());
+
+        CreateMap<DonationEntity, DonationDetailModel>()
+            .ForMember(dst => dst.Currency, opt => opt.MapFrom(src => src.Currency));
     }
 }

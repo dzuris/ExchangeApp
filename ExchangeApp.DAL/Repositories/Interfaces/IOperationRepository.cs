@@ -1,0 +1,10 @@
+﻿using ExchangeApp.Common.Enums;
+using ExchangeApp.DAL.Entities.Operations;
+
+namespace ExchangeApp.DAL.Repositories.Interfaces;
+
+public interface IOperationRepository : IRepository<OperationEntityBase, int>
+{
+    Task<IEnumerable<OperationEntityBase>> GetLastOperationsAsync(int pageSize, int pageNumber);
+    Task<IEnumerable<OperationEntityBase>> GetFilteredOperationsAsync(int pageSize, int pageNumber, OperationFilterOption option, int? id, DateTime? from, DateTime? until);
+}

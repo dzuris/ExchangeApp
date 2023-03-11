@@ -156,9 +156,6 @@
   <data name="BusinessAddressCompanyLabel" xml:space="preserve">
     <value>Adresa sídla:</value>
   </data>
-  <data name="BusinessCompanyNameLabel" xml:space="preserve">
-    <value>Obchodné meno:</value>
-  </data>
   <data name="BusinessIdentificationNumberLabel" xml:space="preserve">
     <value>Identifikačné číslo podnikateľa (ak mu bolo pridelené):</value>
   </data>
@@ -170,5 +167,47 @@
   </data>
   <data name="RefugeesInfoLabel" xml:space="preserve">
     <value>U utečencov, miesto pobytu v utečeneckom tábore</value>
+  </data>
+  <data name="EvidenceNumberLegalRepresentativeLabel" xml:space="preserve">
+    <value>Číslo dokladu zákonného zástupcu:</value>
+  </data>
+  <data name="CustomerDetailPageTitle" xml:space="preserve">
+    <value>Detail zákazníka</value>
+  </data>
+  <data name="PersonTypeLabel" xml:space="preserve">
+    <value>Typ:</value>
+  </data>
+  <data name="WholeNameLabel" xml:space="preserve">
+    <value>Meno:</value>
+  </data>
+  <data name="ErrorMessage_AddressNotValid" xml:space="preserve">
+    <value>Nevalidná alebo chýbajúca adresa.</value>
+  </data>
+  <data name="ErrorMessage_BusinessAddressNotValid" xml:space="preserve">
+    <value>Nevalidná alebo chýbajúca adresa sídla.</value>
+  </data>
+  <data name="ErrorMessage_BusinessCompanyNameNotValid" xml:space="preserve">
+    <value>Nevalidné alebo chýbajúce obchodné meno.</value>
+  </data>
+  <data name="ErrorMessage_BusinessIdentificationNumberNotValid" xml:space="preserve">
+    <value>Nevalidné alebo chýbajúce identifikačné číslo podnikateľa.</value>
+  </data>
+  <data name="ErrorMessage_EvidenceNumberNotValid" xml:space="preserve">
+    <value>Nevalidné alebo chýbajúce číslo dokladu totožnosti.</value>
+  </data>
+  <data name="ErrorMessage_FirstNameNotValid" xml:space="preserve">
+    <value>Nevalidné alebo chýbajúce krstné meno.</value>
+  </data>
+  <data name="ErrorMessage_LastNameNotValid" xml:space="preserve">
+    <value>Nevalidné alebo chýbajúce priezvisko.</value>
+  </data>
+  <data name="ErrorMessage_BirthDateAndIdentificationNumberNotValid" xml:space="preserve">
+    <value>Musí byť zadaná aspoň jedna položka z: dátum narodenia alebo rodné číslo.</value>
+  </data>
+  <data name="ErrorMessage_IdentificationNumberNotValid" xml:space="preserve">
+    <value>Nesprávny formát rodného čísla. (správny formát napríklad 000101/9999, 000528/1). Ak zákazník pochádza z krajiny s iným formátom rodného čísla, vyplňte iba jeho dátum narodenia a rodné číslo nechajte prázdne.</value>
+  </data>
+  <data name="BusinessCompanyNameLabel" xml:space="preserve">
+    <value>Obchodné meno firmy:</value>
   </data>
 </root>

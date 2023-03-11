@@ -61,7 +61,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amount from:.
+        ///   Looks up a localized string similar to Quantity from:.
         /// </summary>
         public static string AmountFromLabel {
             get {
@@ -70,7 +70,16 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amount to:.
+        ///   Looks up a localized string similar to Amount:.
+        /// </summary>
+        public static string AmountLabel {
+            get {
+                return ResourceManager.GetString("AmountLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity to:.
         /// </summary>
         public static string AmountToLabel {
             get {
@@ -115,6 +124,60 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The course rate can not exceed the opposite course rate..
+        /// </summary>
+        public static string ErrorMessage_CourseRateExceededOtherOne {
+            get {
+                return ResourceManager.GetString("ErrorMessage_CourseRateExceededOtherOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Course rate can not be empty, 0 or less than zero..
+        /// </summary>
+        public static string ErrorMessage_CourseRateNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_CourseRateNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One selected currency must be domestic and the other one must be different..
+        /// </summary>
+        public static string ErrorMessage_CurrencySelection {
+            get {
+                return ResourceManager.GetString("ErrorMessage_CurrencySelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough money in cash register..
+        /// </summary>
+        public static string ErrorMessage_InsufficientMoneyInCashRegister {
+            get {
+                return ResourceManager.GetString("ErrorMessage_InsufficientMoneyInCashRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity from can not be empty, 0 or less than zero..
+        /// </summary>
+        public static string ErrorMessage_QuantityFromNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_QuantityFromNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity to can not be empty, 0 or less than zero..
+        /// </summary>
+        public static string ErrorMessage_QuantityToNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_QuantityToNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to For payment:.
         /// </summary>
         public static string ForPaymentLabel {
@@ -124,11 +187,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Original course rate: {0}.
+        /// </summary>
+        public static string OriginalCourseRateLabel {
+            get {
+                return ResourceManager.GetString("OriginalCourseRateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Payment:.
         /// </summary>
         public static string PaymentLabel {
             get {
                 return ResourceManager.GetString("PaymentLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rounding:.
+        /// </summary>
+        public static string RoundingLabel {
+            get {
+                return ResourceManager.GetString("RoundingLabel", resourceCulture);
             }
         }
         

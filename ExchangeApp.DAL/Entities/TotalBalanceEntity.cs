@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ExchangeApp.Common.Enums;
-using ExchangeApp.DAL.Entities.Persons;
 
 namespace ExchangeApp.DAL.Entities;
 
@@ -10,7 +9,6 @@ public record TotalBalanceEntity : IEntity
     public required Guid EmployeeId { get; set; }
     public required TotalBalanceType Type { get; set; }
     public required DateOnly Date { get; set; }
-    public EmployeeEntity? Employee { get; set; }
 }
 
 public class TotalBalanceEntityMapperProfile : Profile

@@ -115,6 +115,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customer detail.
+        /// </summary>
+        public static string CustomerDetailPageTitle {
+            get {
+                return ResourceManager.GetString("CustomerDetailPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Slovak.
         /// </summary>
         public static string DefaultNationalityPlaceholder {
@@ -124,11 +133,101 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address not valid or missing..
+        /// </summary>
+        public static string ErrorMessage_AddressNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_AddressNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have to enter at least one birth date or identification number..
+        /// </summary>
+        public static string ErrorMessage_BirthDateAndIdentificationNumberNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_BirthDateAndIdentificationNumberNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company address not valid or missing..
+        /// </summary>
+        public static string ErrorMessage_BusinessAddressNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_BusinessAddressNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Company name not valid or missing..
+        /// </summary>
+        public static string ErrorMessage_BusinessCompanyNameNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_BusinessCompanyNameNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identification number of business person not valid or missing..
+        /// </summary>
+        public static string ErrorMessage_BusinessIdentificationNumberNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_BusinessIdentificationNumberNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evidence number not valid or missing..
+        /// </summary>
+        public static string ErrorMessage_EvidenceNumberNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_EvidenceNumberNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First name not valid or missing..
+        /// </summary>
+        public static string ErrorMessage_FirstNameNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_FirstNameNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identification number has wrong format. (try for example 000101/9999, 000528/1). If customer is from country with another identification number format, fill only his birth date and the identification number entry set as empty..
+        /// </summary>
+        public static string ErrorMessage_IdentificationNumberNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_IdentificationNumberNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name not valid or missing..
+        /// </summary>
+        public static string ErrorMessage_LastNameNotValid {
+            get {
+                return ResourceManager.GetString("ErrorMessage_LastNameNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Evidence number:.
         /// </summary>
         public static string EvidenceNumberLabel {
             get {
                 return ResourceManager.GetString("EvidenceNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legal representative evidence number:.
+        /// </summary>
+        public static string EvidenceNumberLegalRepresentativeLabel {
+            get {
+                return ResourceManager.GetString("EvidenceNumberLegalRepresentativeLabel", resourceCulture);
             }
         }
         
@@ -214,11 +313,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string PersonTypeLabel {
+            get {
+                return ResourceManager.GetString("PersonTypeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to For refugees, place of residence in a refugee camp.
         /// </summary>
         public static string RefugeesInfoLabel {
             get {
                 return ResourceManager.GetString("RefugeesInfoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name:.
+        /// </summary>
+        public static string WholeNameLabel {
+            get {
+                return ResourceManager.GetString("WholeNameLabel", resourceCulture);
             }
         }
     }

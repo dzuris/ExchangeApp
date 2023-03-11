@@ -18,7 +18,6 @@ public class DbContextCurrencyTests : DbContextTestsBase
         var entity = new CurrencyEntity
         {
             Code = "JPN_TestData",
-            State = "Japan_TestData",
             PhotoUrl = "jpn_TestData.png"
         };
 

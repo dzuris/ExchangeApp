@@ -144,15 +144,6 @@
   <data name="StateListHeaderLabel" xml:space="preserve">
     <value>Štát</value>
   </data>
-  <data name="DepositPickerItem" xml:space="preserve">
-    <value>Vklad</value>
-  </data>
-  <data name="LevyPickerItem" xml:space="preserve">
-    <value>Odvod</value>
-  </data>
-  <data name="WithdrawPickerItem" xml:space="preserve">
-    <value>Výber</value>
-  </data>
   <data name="ErrorMessage_SelectedCurrencyEmpty" xml:space="preserve">
     <value>Zvoľte menu.</value>
   </data>

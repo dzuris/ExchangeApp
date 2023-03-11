@@ -163,7 +163,7 @@
     <value>Zaokrúhlenie:</value>
   </data>
   <data name="ResultAmountLabel" xml:space="preserve">
-    <value>Výsledna suma:</value>
+    <value>Vydaná suma:</value>
   </data>
   <data name="StornoButtonText" xml:space="preserve">
     <value>Storno</value>

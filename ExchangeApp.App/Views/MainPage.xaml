@@ -6,76 +6,54 @@
              Title="{x:Static texts:MainPageResources.HomeTitle}"
              Style="{StaticResource ContentPageStyle}">
 
-    <Grid RowDefinitions="Auto, *, *, Auto" RowSpacing="20">
-        <Picker
-            Title="{x:Static texts:MainPageResources.EmployeePickerTitle}"
-            SelectedItem="Peter Employee"
-            MinimumWidthRequest="150"
-            HorizontalOptions="End">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Joseph New</x:String>
-                    <x:String>Peter Employee</x:String>
-                    <x:String>John Doe</x:String>
-                </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
-
+    <Grid RowDefinitions="*, Auto" RowSpacing="20">
         <HorizontalStackLayout
-            Grid.Row="1"
             HorizontalOptions="Center"
-            VerticalOptions="Center">
-            <Picker
-                Title="{x:Static texts:MainPageResources.TradeComboBoxTitle}"
-                Style="{StaticResource MainPageMenuPicker}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:Static Member="texts:MainPageResources.TransactionComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.StornoComboBoxItem"/>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            <Picker
-                Title="{x:Static texts:MainPageResources.DonationComboBoxTitle}"
-                Style="{StaticResource MainPageMenuPicker}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:Static Member="texts:MainPageResources.DepositComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.LevyComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.WithdrawComboBoxItem"/>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            <Picker
-                Title="{x:Static texts:MainPageResources.TotalBalanceComboBoxTitle}"
-                Style="{StaticResource MainPageMenuPicker}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:Static Member="texts:MainPageResources.DailyTotalBalanceComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.MonthlyTotalBalanceComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.YearlyTotalBalanceComboBoxItem"/>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            <Picker
-                Title="{x:Static texts:MainPageResources.OthersComboBoxTitle}"
-                Style="{StaticResource MainPageMenuPicker}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:Static Member="texts:MainPageResources.CourseRatesComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.CashRegisterStatusComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.OperationsListComboBoxItem"/>
-                        <x:Static Member="texts:MainPageResources.ProfitCalculationComboBoxItem"/>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            VerticalOptions="Center"
+            Spacing="50">
+            <Frame Style="{StaticResource MainPageFrame}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCreateTransactionPageTapped"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Margin="10" Spacing="10">
+                    <Image
+                        Source="currency_exchange.png"
+                        Style="{StaticResource MainPageBigIconImageStyle}"/>
+                    <Label
+                        Text="{x:Static texts:MainPageResources.TransactionCreateFrameLabel}"
+                        TextColor="White"/>
+                </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource MainPageFrame}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCreateDonationPageTapped"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Margin="10" Spacing="10">
+                    <Image
+                        Source="point_of_sale.png"
+                        Style="{StaticResource MainPageBigIconImageStyle}"/>
+                    <Label
+                        Text="{x:Static texts:MainPageResources.DonationCreateFrameLabel}"
+                        TextColor="White"/>
+                </StackLayout>
+            </Frame>
+            <Frame Style="{StaticResource MainPageFrame}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOperationsListPageTapped"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Margin="10" Spacing="10">
+                    <Image
+                        Source="fact_check.png"
+                        Style="{StaticResource MainPageBigIconImageStyle}"/>
+                    <Label
+                        Text="{x:Static texts:MainPageResources.OperationsListFrameLabel}"
+                        TextColor="White"/>
+                </StackLayout>
+            </Frame>
         </HorizontalStackLayout>
 
-        <Grid Grid.Row="3" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
-            <ImageButton
-                Grid.Column="0"
-                Source="settings.png"
-                Style="{StaticResource IconStyle}"/>
+
+        <Grid Grid.Row="2" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
             <HorizontalStackLayout
                 Grid.Column="1"
                 Spacing="10"
@@ -86,10 +64,6 @@
                 <Label
                     Text="126" />
             </HorizontalStackLayout>
-            <ImageButton
-                Grid.Column="2"
-                Source="logout.png"
-                Style="{StaticResource IconStyle}"/>
         </Grid>
     </Grid>
 
