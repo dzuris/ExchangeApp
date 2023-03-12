@@ -15,7 +15,6 @@ public partial class SettingsPage
     {
         SettingsPageResources.OperationsAutomaticSaveListItem,
         SettingsPageResources.CourseRatesListItem,
-        SettingsPageResources.TotalBalanceListItem,
         SettingsPageResources.BranchInfoListItem,
         SettingsPageResources.CompanyInfoListItem,
         SettingsPageResources.LicenseInfoListItem
@@ -30,10 +29,19 @@ public partial class SettingsPage
         switch (index)
         {
             case 0:
-                //await Shell.Current.GoToAsync("");
+                await Shell.Current.GoToAsync($"{nameof(SettingsAutomaticOperationsSavePage)}");
                 break;
             case 1:
                 await Shell.Current.GoToAsync($"{nameof(SettingsCoursesManagerPage)}");
+                break;
+            case 2:
+                await Shell.Current.GoToAsync($"{nameof(SettingsInfoBranchPage)}");
+                break;
+            case 3:
+                await Shell.Current.GoToAsync($"{nameof(SettingsInfoCompanyPage)}");
+                break;
+            case 4:
+                await Shell.Current.GoToAsync($"{nameof(SettingsLicencePage)}");
                 break;
         }
     }

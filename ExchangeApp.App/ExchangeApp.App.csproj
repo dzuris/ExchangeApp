@@ -195,6 +195,16 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>ProfitCalculatePageResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsAutomaticOperationSavePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsAutomaticOperationSavePageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsAutomaticTotalBalancePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsAutomaticTotalBalancePageResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -245,10 +255,30 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>OperationsListPageResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsInfoBranchPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsInfoBranchPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsInfoCompanyPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsInfoCompanyPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsLicencePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsLicencePageResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>SettingsPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\TotalBalancePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>TotalBalancePageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\TransactionDetailPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -259,11 +289,6 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>TransactionPageResources.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Resources\Texts\TransactionTypeResources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>TransactionTypeResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Donation\DonationCreatePage.xaml.cs">
 	    <DependentUpon>DonationCreatePage.xaml</DependentUpon>
@@ -309,6 +334,14 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ProfitCalculatePageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsAutomaticOperationSavePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsAutomaticOperationSavePageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsAutomaticTotalBalancePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsAutomaticTotalBalancePageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>SettingsCoursesManagerPageResources.Designer.cs</LastGenOutput>
@@ -349,9 +382,25 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>OperationsListPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsInfoBranchPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsInfoBranchPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsInfoCompanyPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsInfoCompanyPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsLicencePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsLicencePageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>SettingsPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\TotalBalancePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>TotalBalancePageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\TransactionDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -360,10 +409,6 @@
 	  <EmbeddedResource Update="Resources\Texts\TransactionPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>TransactionPageResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\TransactionTypeResources.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>TransactionTypeResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 
@@ -413,6 +458,12 @@
 	  <MauiXaml Update="Views\ProfitCalculate\ProfitCalculatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsAutomaticOperationsSavePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsAutomaticTotalBalancePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsCoursesManagerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -440,7 +491,19 @@
 	  <MauiXaml Update="Views\OperationsList\OperationsListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsInfoBranchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsInfoCompanyPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsLicencePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TotalBalance\TotalBalancePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Transaction\TransactionDetailPage.xaml">

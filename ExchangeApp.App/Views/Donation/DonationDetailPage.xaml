@@ -14,12 +14,13 @@
         <Grid
             ColumnDefinitions="*, *">
             <Grid
-                RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, *"
+                RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
                 RowSpacing="5"
                 ColumnDefinitions="Auto, Auto"
                 ColumnSpacing="40">
                 <Label
                     Style="{StaticResource InfoLabelLight}"
+                    Margin="0, 0, 0, 40"
                     Text="{x:Static texts:DonationDetailPageResources.DonationNumberLabel}"/>
                 <Label
                     Grid.Column="1"

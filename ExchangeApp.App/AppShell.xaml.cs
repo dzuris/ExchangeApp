@@ -35,5 +35,10 @@ public partial class AppShell
 
 		// Settings
 		Routing.RegisterRoute(nameof(SettingsCoursesManagerPage), typeof(SettingsCoursesManagerPage));
+		Routing.RegisterRoute(nameof(SettingsAutomaticOperationsSavePage), typeof(SettingsAutomaticOperationsSavePage));
+		Routing.RegisterRoute(nameof(SettingsAutomaticTotalBalancePage), typeof(SettingsAutomaticTotalBalancePage));
+		Routing.RegisterRoute(nameof(SettingsInfoBranchPage), typeof(SettingsInfoBranchPage));
+		Routing.RegisterRoute(nameof(SettingsInfoCompanyPage), typeof(SettingsInfoCompanyPage));
+		Routing.RegisterRoute(nameof(SettingsLicencePage), typeof(SettingsLicencePage));
 	}
 }

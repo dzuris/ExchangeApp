@@ -8,6 +8,7 @@
     xmlns:cashRegister="clr-namespace:ExchangeApp.App.Views.CashRegister"
     xmlns:courses="clr-namespace:ExchangeApp.App.Views.Courses"
     xmlns:profitCalculate="clr-namespace:ExchangeApp.App.Views.ProfitCalculate"
+    xmlns:totalBalance="clr-namespace:ExchangeApp.App.Views.TotalBalance"
     xmlns:settings="clr-namespace:ExchangeApp.App.Views.Settings"
     FlyoutBehavior="Flyout"
     FlyoutBackgroundColor="{StaticResource FlyoutBackground}">
@@ -44,6 +45,11 @@
         ContentTemplate="{DataTemplate profitCalculate:ProfitCalculatePage}"
         Route="ProfitCalculatePage"/>
 
+    <ShellContent
+        Title="{x:Static texts:TotalBalancePageResources.PageTitle}"
+        ContentTemplate="{DataTemplate totalBalance:TotalBalancePage}"
+        Route="TotalBalancePage"/>
+    
     <ShellContent
         Title="{x:Static texts:SettingsPageResources.PageTitle}"
         ContentTemplate="{DataTemplate settings:SettingsPage}"

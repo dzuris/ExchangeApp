@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Customer;
 
@@ -40,8 +39,7 @@ public partial class CustomerDetailViewModel : ViewModelBase
         get => _id.ToString();
         set
         {
-            Guid parsedId;
-            if (Guid.TryParse(value, out parsedId))
+            if (Guid.TryParse(value, out var parsedId))
             {
                 _id = parsedId;
             }

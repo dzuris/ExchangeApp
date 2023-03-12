@@ -22,14 +22,14 @@ namespace ExchangeApp.App.Resources.Texts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class TransactionTypeResources {
+    public class SettingsInfoBranchPageResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal TransactionTypeResources() {
+        internal SettingsInfoBranchPageResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ExchangeApp.App.Resources.Texts {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.TransactionTypeResources", typeof(TransactionTypeResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.SettingsInfoBranchPageResources", typeof(SettingsInfoBranchPageResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,65 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buy.
+        ///   Looks up a localized string similar to Address city:.
         /// </summary>
-        public static string BuyItem {
+        public static string BranchAddressCityLabel {
             get {
-                return ResourceManager.GetString("BuyItem", resourceCulture);
+                return ResourceManager.GetString("BranchAddressCityLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sell.
+        ///   Looks up a localized string similar to Address area code:.
         /// </summary>
-        public static string SellItem {
+        public static string BranchAddressNumberLabel {
             get {
-                return ResourceManager.GetString("SellItem", resourceCulture);
+                return ResourceManager.GetString("BranchAddressNumberLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address postal code:.
+        /// </summary>
+        public static string BranchAddressPostalCodeLabel {
+            get {
+                return ResourceManager.GetString("BranchAddressPostalCodeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address street:.
+        /// </summary>
+        public static string BranchAddressStreetLabel {
+            get {
+                return ResourceManager.GetString("BranchAddressStreetLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Branch name:.
+        /// </summary>
+        public static string BranchNameLabel {
+            get {
+                return ResourceManager.GetString("BranchNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting branch info.
+        /// </summary>
+        public static string PageTitle {
+            get {
+                return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Branch phone number:.
+        /// </summary>
+        public static string PhoneNumberBranchLabel {
+            get {
+                return ResourceManager.GetString("PhoneNumberBranchLabel", resourceCulture);
             }
         }
     }

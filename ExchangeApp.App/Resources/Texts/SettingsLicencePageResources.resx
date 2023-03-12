@@ -97,10 +97,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BuyItem" xml:space="preserve">
-    <value>Buy</value>
-  </data>
-  <data name="SellItem" xml:space="preserve">
-    <value>Sell</value>
+  <data name="PageTitle" xml:space="preserve">
+    <value>License</value>
   </data>
 </root>

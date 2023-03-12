@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Settings"
+             x:Class="ExchangeApp.App.Views.Settings.SettingsAutomaticOperationsSavePage"
+             Title="{x:Static texts:SettingsAutomaticOperationSavePageResources.PageTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:SettingsAutomaticOperationsSaveViewModel">
+    <Grid RowDefinitions="*, Auto" RowSpacing="15">
+        <ScrollView VerticalOptions="Center">
+            <VerticalStackLayout Spacing="50">
+                <HorizontalStackLayout Spacing="25">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.FolderForOperationsSavePathLabel}"/>
+                        <Entry IsReadOnly="True"/>
+                    </VerticalStackLayout>
+                    <Button
+                        HeightRequest="44"
+                        VerticalOptions="End"
+                        Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.SelectFolderButtonText}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="True" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.CheckBoxTextAutomaticTransactions}" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="False" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.CheckBoxTextAutomaticDonations}" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.StorageFormatDonationsLabel}"/>
+                    <Picker HorizontalOptions="Start" WidthRequest="200">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Item 1</x:String>
+                                <x:String>Item 2</x:String>
+                                <x:String>Item 3</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ImageButton
+            Grid.Row="1"
+            Source="save.png"
+            Style="{StaticResource IconStyle}"
+            HorizontalOptions="End"/>
+    </Grid>
+</views:ContentPageBase>
