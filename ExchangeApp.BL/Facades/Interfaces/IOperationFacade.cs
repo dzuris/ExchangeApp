@@ -8,4 +8,5 @@ public interface IOperationFacade : IFacade
 {
     Task<ObservableCollection<OperationListModelBase>> GetOperationsAsync(int pageSize, int pageNumber);
     Task<ObservableCollection<OperationListModelBase>> GetFilteredOperationsAsync(int pageSize, int pageNumber, OperationFilterOption option, int? id, DateTime? from, DateTime? until);
+    Task<int> GetTodayOperationsCount();
 }

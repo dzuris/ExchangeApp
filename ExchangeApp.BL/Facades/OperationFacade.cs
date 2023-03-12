@@ -34,4 +34,10 @@ public class OperationFacade : IOperationFacade
         var entities = await _repository.GetFilteredOperationsAsync(pageSize, pageNumber, option, id, from, until);
         return _mapper.Map<ObservableCollection<OperationListModelBase>>(entities);
     }
+
+    public async Task<int> GetTodayOperationsCount()
+    {
+        var count = await _repository.GetTodayOperationsCount();
+        return count;
+    }
 }

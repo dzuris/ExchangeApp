@@ -54,4 +54,12 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
             .ToListAsync();
         return list;
     }
+
+    public async Task<int> GetTodayOperationsCount()
+    {
+        var today = DateTime.Today;
+        var count = await AppDbContext.Set<OperationEntityBase>()
+            .CountAsync(o => o.Time >= today && o.Time < today.AddDays(1));
+        return count;
+    }
 }
