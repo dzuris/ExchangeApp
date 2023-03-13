@@ -22,14 +22,14 @@ namespace ExchangeApp.App.Resources.Texts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class SettingsLicencePageResources {
+    public class EnumDonationSaveFormatResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SettingsLicencePageResources() {
+        internal EnumDonationSaveFormatResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ExchangeApp.App.Resources.Texts {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.SettingsLicencePageResources", typeof(SettingsLicencePageResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.EnumDonationSaveFormatResources", typeof(EnumDonationSaveFormatResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to License:.
+        ///   Looks up a localized string similar to Omega .txt.
         /// </summary>
-        public static string LicenseLabel {
+        public static string OmegaTxt {
             get {
-                return ResourceManager.GetString("LicenseLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to License.
-        /// </summary>
-        public static string PageTitle {
-            get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
+                return ResourceManager.GetString("OmegaTxt", resourceCulture);
             }
         }
     }

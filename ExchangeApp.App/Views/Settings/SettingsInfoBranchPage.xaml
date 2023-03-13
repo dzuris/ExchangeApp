@@ -9,40 +9,43 @@
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:SettingsInfoBranchViewModel">
     <Grid RowDefinitions="*, Auto" RowSpacing="15">
-        <StackLayout>
-            <Frame BackgroundColor="{StaticResource Tertiary}">
-                <Grid RowDefinitions="Auto, Auto, Auto" RowSpacing="25" ColumnDefinitions="*, *" ColumnSpacing="25">
-                    <VerticalStackLayout Grid.Row="0" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                        <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchNameLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                        <Entry/>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Row="0" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                        <Label Text="{x:Static texts:SettingsInfoBranchPageResources.PhoneNumberBranchLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                        <Entry/>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Row="1" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                        <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressStreetLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                        <Entry/>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Row="1" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                        <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressNumberLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                        <Entry/>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Row="2" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                        <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressPostalCodeLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                        <Entry/>
-                    </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
-                        <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressCityLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                        <Entry/>
-                    </VerticalStackLayout>
-                </Grid>
-            </Frame>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Frame BackgroundColor="{StaticResource Tertiary}">
+                    <Grid RowDefinitions="Auto, Auto, Auto" RowSpacing="25" ColumnDefinitions="*, *" ColumnSpacing="25">
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchNameLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding BranchModel.Name}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoBranchPageResources.PhoneNumberBranchLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding BranchModel.PhoneNumber}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressStreetLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding BranchModel.Address.Street}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressNumberLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding BranchModel.Address.StreetNumber}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressPostalCodeLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding BranchModel.Address.PostalCode}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoBranchPageResources.BranchAddressCityLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding BranchModel.Address.City}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
         <ImageButton
             Grid.Row="1"
             Source="save.png"
             HorizontalOptions="End"
-            Style="{StaticResource IconStyle}"/>
+            Style="{StaticResource IconStyle}"
+            Command="{Binding SaveCommand}"/>
     </Grid>
 </views:ContentPageBase>

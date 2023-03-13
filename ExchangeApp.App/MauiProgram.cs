@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System.Reflection;
 using AutoMapper.Internal;
+using CommunityToolkit.Maui;
 using ExchangeApp.App.Installers;
 using ExchangeApp.BL.Installers;
 using ExchangeApp.BL.MapperProfiles;
@@ -18,6 +19,7 @@ public static class MauiProgram
 
         builder
 			.UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

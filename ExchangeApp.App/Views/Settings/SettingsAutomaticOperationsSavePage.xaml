@@ -14,39 +14,38 @@
                 <HorizontalStackLayout Spacing="25">
                     <VerticalStackLayout Spacing="15">
                         <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.FolderForOperationsSavePathLabel}"/>
-                        <Entry IsReadOnly="True"/>
+                        <Entry IsReadOnly="True" Text="{Binding SettingsData.FolderPath}"/>
                     </VerticalStackLayout>
                     <Button
                         HeightRequest="44"
                         VerticalOptions="End"
-                        Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.SelectFolderButtonText}"/>
+                        Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.SelectFolderButtonText}"
+                        Command="{Binding PickFolderCommand}"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <CheckBox IsChecked="True" VerticalOptions="Center"/>
+                    <CheckBox IsChecked="{Binding SettingsData.AutomaticTransactionSaveOption}" VerticalOptions="Center"/>
                     <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.CheckBoxTextAutomaticTransactions}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <CheckBox IsChecked="False" VerticalOptions="Center"/>
+                    <CheckBox IsChecked="{Binding SettingsData.AutomaticDonationSaveOption}" VerticalOptions="Center"/>
                     <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.CheckBoxTextAutomaticDonations}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <VerticalStackLayout Spacing="15">
                     <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.StorageFormatDonationsLabel}"/>
-                    <Picker HorizontalOptions="Start" WidthRequest="200">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Item 1</x:String>
-                                <x:String>Item 2</x:String>
-                                <x:String>Item 3</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
+                    <Picker 
+                        HorizontalOptions="Start" 
+                        WidthRequest="200"
+                        ItemsSource="{Binding DonationSaveFormats}"
+                        ItemDisplayBinding="{Binding Converter={StaticResource DonationSaveFormatToStringConverter}}"
+                        SelectedItem="{Binding SettingsData.DonationSaveForm}"/>
                 </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
         <ImageButton
             Grid.Row="1"
+            HorizontalOptions="End"
             Source="save.png"
             Style="{StaticResource IconStyle}"
-            HorizontalOptions="End"/>
+            Command="{Binding SaveCommand}"/>
     </Grid>
 </views:ContentPageBase>

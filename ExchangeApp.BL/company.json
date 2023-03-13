@@ -10,16 +10,5 @@
       "city": "City"
     },
     "phoneNumber": "+4124516541"
-  },
-  "Branch": {
-    "name": "branch name",
-    "address": {
-      "street": "xyz",
-      "streetNumber": "4561",
-      "PSC": "11111",
-      "city": "City"
-    },
-    "phoneNumber": "+456165461"
-  },
-  "RepositoryForSavingBills":  ""
+  }
 }
