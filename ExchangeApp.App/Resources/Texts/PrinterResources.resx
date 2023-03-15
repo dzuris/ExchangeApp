@@ -97,67 +97,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TransactionDetailTitle" xml:space="preserve">
-    <value>Transaction detail</value>
+  <data name="SellTransactionHeader" xml:space="preserve">
+    <value>Sell</value>
   </data>
-  <data name="TransactionNumberLabel" xml:space="preserve">
-    <value>Transaction number:</value>
+  <data name="BuyTransactionHeader" xml:space="preserve">
+    <value>Buy</value>
   </data>
-  <data name="DateAndTimeLabel" xml:space="preserve">
-    <value>Date and time:</value>
+  <data name="IdentificationNumberLabelBeforeIdNumber" xml:space="preserve">
+    <value>Deduction number:</value>
   </data>
-  <data name="TransactionTypeLabel" xml:space="preserve">
-    <value>Transaction type:</value>
+  <data name="CurrencyCodeTableHeader" xml:space="preserve">
+    <value>Currency code</value>
   </data>
-  <data name="QuantityLabel" xml:space="preserve">
-    <value>Quantity:</value>
+  <data name="CourseRateTableHeader" xml:space="preserve">
+    <value>Course rate</value>
   </data>
-  <data name="CurrencyLabel" xml:space="preserve">
-    <value>Currency:</value>
+  <data name="QuantityTableHeader" xml:space="preserve">
+    <value>Quantity</value>
   </data>
-  <data name="CourseRateLabel" xml:space="preserve">
-    <value>Course rate:</value>
+  <data name="AmountTableHeader" xml:space="preserve">
+    <value>Amount in {0}</value>
   </data>
-  <data name="AmountLabel" xml:space="preserve">
-    <value>Amount:</value>
-  </data>
-  <data name="EmployeeLabel" xml:space="preserve">
-    <value>Employee:</value>
-  </data>
-  <data name="CustomerNameLabel" xml:space="preserve">
-    <value>Customer name:</value>
-  </data>
-  <data name="CustomerDetailButtonText" xml:space="preserve">
-    <value>Customer detail</value>
-  </data>
-  <data name="ToPayLabel" xml:space="preserve">
-    <value>To pay:</value>
-  </data>
-  <data name="PaidLabel" xml:space="preserve">
-    <value>Paid:</value>
-  </data>
-  <data name="TipLabel" xml:space="preserve">
-    <value>Tip:</value>
-  </data>
-  <data name="RoundLabel" xml:space="preserve">
+  <data name="RoundingLabel" xml:space="preserve">
     <value>Rounding:</value>
   </data>
-  <data name="ResultAmountLabel" xml:space="preserve">
-    <value>Given amount:</value>
+  <data name="PaidAmountLabel" xml:space="preserve">
+    <value>Amount paid:</value>
   </data>
-  <data name="StornoButtonText" xml:space="preserve">
-    <value>Storno</value>
+  <data name="ReceivedAmountLabel" xml:space="preserve">
+    <value>Amount received:</value>
   </data>
-  <data name="PdfDownloadAlertTitle" xml:space="preserve">
-    <value>PDF save</value>
+  <data name="SignatureLabel" xml:space="preserve">
+    <value>Signature</value>
   </data>
-  <data name="PdfDownloadAlertMessage" xml:space="preserve">
-    <value>The data has been saved to your computer.</value>
+  <data name="FooterNiceSentence" xml:space="preserve">
+    <value>Thanks for visiting!</value>
   </data>
-  <data name="PdfDownloadAlertCancelButton" xml:space="preserve">
-    <value>OK</value>
+  <data name="IdentificationNumberCompanyLabel" xml:space="preserve">
+    <value>ID:</value>
   </data>
-  <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
-    <value>The folder path for saving the files is missing. This folder can be set in the settings.</value>
+  <data name="TinNumberCompanyLabel" xml:space="preserve">
+    <value>Tin:</value>
+  </data>
+  <data name="PhoneAbbreviationLabel" xml:space="preserve">
+    <value>Phone:</value>
+  </data>
+  <data name="AverageCourseRateTableHeader" xml:space="preserve">
+    <value>Average course rate</value>
+  </data>
+  <data name="NoteLabel" xml:space="preserve">
+    <value>Note:</value>
   </data>
 </root>

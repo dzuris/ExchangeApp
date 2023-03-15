@@ -237,10 +237,16 @@
             Spacing="15">
             <Button
                 WidthRequest="150"
-                Text="{x:Static texts:TransactionDetailPageResources.StornoButtonText}"/>
+                Text="{x:Static texts:TransactionDetailPageResources.StornoButtonText}"
+                Command="{Binding CancelCommand}"/>
+            <ImageButton
+                Source="download.png"
+                Style="{StaticResource IconStyle}"
+                Command="{Binding SaveTransactionToFolderCommand}"/>
             <ImageButton
                 Source="print.png"
-                Style="{StaticResource IconStyle}"/>
+                Style="{StaticResource IconStyle}"
+                Command="{Binding PrintCommand}"/>
         </HorizontalStackLayout>
     </Grid>
 </views:ContentPageBase>

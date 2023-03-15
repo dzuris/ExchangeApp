@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.App.Views.Donation;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
@@ -14,13 +15,17 @@ public partial class DonationCreateViewModel : ViewModelBase
 {
     private readonly IDonationFacade _donationFacade;
     private readonly ICurrencyFacade _currencyFacade;
+    private readonly ISettingsFacade _settingsFacade;
+    private readonly IPrinterService _printerService;
 
     public DonationCreateViewModel(
         IDonationFacade donationFacade, 
-        ICurrencyFacade currencyFacade)
+        ICurrencyFacade currencyFacade, ISettingsFacade settingsFacade, IPrinterService printerService)
     {
         _donationFacade = donationFacade;
         _currencyFacade = currencyFacade;
+        _settingsFacade = settingsFacade;
+        _printerService = printerService;
     }
 
     protected override async Task LoadDataAsync()
@@ -136,6 +141,17 @@ public partial class DonationCreateViewModel : ViewModelBase
         {
             var id = await _donationFacade.InsertAsync(donation);
             donation.Id = id;
+
+            try
+            {
+                if (await _settingsFacade.ShouldSaveDonationsAutomaticallyAsync())
+                {
+                    await _printerService.SavePdf(donation);
+                }
+            }
+            catch (ArgumentNullException)
+            {
+            }
         }
         catch (Exception e)
         {

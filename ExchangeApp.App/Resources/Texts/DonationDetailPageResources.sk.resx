@@ -147,4 +147,16 @@
   <data name="CancelButtonText" xml:space="preserve">
     <value>Storno</value>
   </data>
+  <data name="PdfDownloadAlertCancelButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PdfDownloadAlertMessage" xml:space="preserve">
+    <value>Dáta boli uložené do vášho počítača.</value>
+  </data>
+  <data name="PdfDownloadAlertTitle" xml:space="preserve">
+    <value>PDF uloženie</value>
+  </data>
+  <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
+    <value>Chýba cesta priečinku pre ukladanie súborov. Tento priečinok je možné nastaviť v nastaveniach.</value>
+  </data>
 </root>

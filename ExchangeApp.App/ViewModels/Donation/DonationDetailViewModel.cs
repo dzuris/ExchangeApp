@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Resources;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Donation;
@@ -47,8 +49,39 @@ public partial class DonationDetailViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private async Task GoToCustomerDetailAsync(Guid Id)
+    private async Task CancelAsync()
     {
+        // TODO
+    }
 
+    [RelayCommand]
+    private async Task SaveDonationToFolderAsync()
+    {
+        if (Donation is null) return;
+
+        var rm = new ResourceManager(typeof(DonationDetailPageResources));
+        try
+        {
+            await _printerService.SavePdf(Donation);
+        }
+        catch (ArgumentNullException)
+        {
+            await Application.Current?.MainPage?.DisplayAlert(
+                rm.GetString("PdfDownloadAlertTitle"),
+                rm.GetString("PdfDownloadAlertErrorMessage"),
+                rm.GetString("PdfDownloadAlertCancelButton"))!;
+            return;
+        }
+
+        await Application.Current?.MainPage?.DisplayAlert(
+            rm.GetString("PdfDownloadAlertTitle"),
+            rm.GetString("PdfDownloadAlertMessage"),
+            rm.GetString("PdfDownloadAlertCancelButton"))!;
+    }
+
+    [RelayCommand]
+    private async Task PrintAsync()
+    {
+        // TODO
     }
 }

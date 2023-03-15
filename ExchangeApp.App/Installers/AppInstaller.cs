@@ -10,7 +10,7 @@ public static class AppInstaller
     public static IServiceCollection AddAppServices(this IServiceCollection services)
     {
         services.AddSingleton<AppShell>();
-        services.AddSingleton<IPrinterService, PrinterService>();
+        services.AddTransient<IPrinterService, PrinterService>();
 
         services.Scan(selector => selector
             .FromAssemblyOf<App>()

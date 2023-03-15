@@ -89,11 +89,17 @@
             HorizontalOptions="End"
             Spacing="20">
             <Button
-                Text="{x:Static texts:DonationDetailPageResources.CancelButtonText}"/>
+                WidthRequest="150"
+                Text="{x:Static texts:DonationDetailPageResources.CancelButtonText}"
+                Command="{Binding CancelCommand}"/>
+            <ImageButton
+                Source="download.png"
+                Style="{StaticResource IconStyle}"
+                Command="{Binding SaveDonationToFolderCommand}"/>
             <ImageButton
                 Source="print.png"
-                HorizontalOptions="Start"
-                Style="{StaticResource IconStyle}"/>
+                Style="{StaticResource IconStyle}"
+                Command="{Binding PrintCommand}"/>
 
         </HorizontalStackLayout>
     </Grid>

@@ -133,6 +133,42 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string PdfDownloadAlertCancelButton {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertCancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The folder path for saving the files is missing. This folder can be set in the settings..
+        /// </summary>
+        public static string PdfDownloadAlertErrorMessage {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The data has been saved to your computer..
+        /// </summary>
+        public static string PdfDownloadAlertMessage {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF save.
+        /// </summary>
+        public static string PdfDownloadAlertTitle {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity:.
         /// </summary>
         public static string QuantityLabel {

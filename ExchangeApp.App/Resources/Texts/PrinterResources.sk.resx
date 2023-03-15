@@ -117,64 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TransactionDetailTitle" xml:space="preserve">
-    <value>Detail transakcie</value>
+  <data name="SellTransactionHeader" xml:space="preserve">
+    <value>Predaj valút</value>
   </data>
-  <data name="TransactionNumberLabel" xml:space="preserve">
-    <value>Číslo transakcie:</value>
+  <data name="BuyTransactionHeader" xml:space="preserve">
+    <value>Nákup valút</value>
   </data>
-  <data name="DateAndTimeLabel" xml:space="preserve">
-    <value>Dátum a čas:</value>
+  <data name="IdentificationNumberLabelBeforeIdNumber" xml:space="preserve">
+    <value>Číslo odpočtu:</value>
   </data>
-  <data name="TransactionTypeLabel" xml:space="preserve">
-    <value>Typ transakcie:</value>
+  <data name="CurrencyCodeTableHeader" xml:space="preserve">
+    <value>Kód meny</value>
   </data>
-  <data name="QuantityLabel" xml:space="preserve">
-    <value>Množstvo:</value>
+  <data name="CourseRateTableHeader" xml:space="preserve">
+    <value>Kurz</value>
   </data>
-  <data name="CurrencyLabel" xml:space="preserve">
-    <value>Mena:</value>
+  <data name="QuantityTableHeader" xml:space="preserve">
+    <value>Množstvo</value>
   </data>
-  <data name="CourseRateLabel" xml:space="preserve">
-    <value>Kurz:</value>
+  <data name="AmountTableHeader" xml:space="preserve">
+    <value>Suma v {0}</value>
   </data>
-  <data name="AmountLabel" xml:space="preserve">
-    <value>Suma:</value>
-  </data>
-  <data name="EmployeeLabel" xml:space="preserve">
-    <value>Zamestnanec:</value>
-  </data>
-  <data name="CustomerNameLabel" xml:space="preserve">
-    <value>Meno zákazníka:</value>
-  </data>
-  <data name="CustomerDetailButtonText" xml:space="preserve">
-    <value>Detail zákazníka</value>
-  </data>
-  <data name="ToPayLabel" xml:space="preserve">
-    <value>Na zaplatenie:</value>
-  </data>
-  <data name="PaidLabel" xml:space="preserve">
-    <value>Zaplatené:</value>
-  </data>
-  <data name="TipLabel" xml:space="preserve">
-    <value>Výdavok:</value>
-  </data>
-  <data name="RoundLabel" xml:space="preserve">
+  <data name="RoundingLabel" xml:space="preserve">
     <value>Zaokrúhlenie:</value>
   </data>
-  <data name="ResultAmountLabel" xml:space="preserve">
-    <value>Vydaná suma:</value>
+  <data name="PaidAmountLabel" xml:space="preserve">
+    <value>Vyplatená suma:</value>
   </data>
-  <data name="StornoButtonText" xml:space="preserve">
-    <value>Storno</value>
+  <data name="ReceivedAmountLabel" xml:space="preserve">
+    <value>Prijatá suma:</value>
   </data>
-  <data name="PdfDownloadAlertCancelButton" xml:space="preserve">
-    <value>OK</value>
+  <data name="SignatureLabel" xml:space="preserve">
+    <value>Podpis</value>
   </data>
-  <data name="PdfDownloadAlertMessage" xml:space="preserve">
-    <value>Dáta boli uložené do vášho počítača.</value>
+  <data name="FooterNiceSentence" xml:space="preserve">
+    <value>Ďakujeme za návštevu!</value>
   </data>
-  <data name="PdfDownloadAlertTitle" xml:space="preserve">
-    <value>PDF uloženie</value>
+  <data name="IdentificationNumberCompanyLabel" xml:space="preserve">
+    <value>IČO:</value>
+  </data>
+  <data name="TinNumberCompanyLabel" xml:space="preserve">
+    <value>DIČ:</value>
+  </data>
+  <data name="PhoneAbbreviationLabel" xml:space="preserve">
+    <value>Tel:</value>
+  </data>
+  <data name="AverageCourseRateTableHeader" xml:space="preserve">
+    <value>Priemerný kurz</value>
+  </data>
+  <data name="NoteLabel" xml:space="preserve">
+    <value>Poznámka:</value>
   </data>
 </root>

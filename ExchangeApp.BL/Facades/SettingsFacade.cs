@@ -1,9 +1,7 @@
-﻿using System.Reflection;
-using System.Text.Json;
+﻿using System.Text.Json;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Company;
-using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.BL.Facades;
 
@@ -32,6 +30,46 @@ public class SettingsFacade : ISettingsFacade
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         return data;
+    }
+
+    public async Task<string?> GetSaveFolderPathAsync()
+    {
+        if (!File.Exists(_fileNameData))
+        {
+            return null;
+        }
+
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
+        var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
+
+        var result = data?.FolderPath;
+        return string.IsNullOrWhiteSpace(result) ? null : result;
+    }
+
+    public async Task<bool> ShouldSaveTransactionsAutomaticallyAsync()
+    {
+        if (!File.Exists(_fileNameData))
+        {
+            return false;
+        }
+
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
+        var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
+
+        return data?.AutomaticTransactionSaveOption ?? false;
+    }
+
+    public async Task<bool> ShouldSaveDonationsAutomaticallyAsync()
+    {
+        if (!File.Exists(_fileNameData))
+        {
+            return false;
+        }
+
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
+        var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
+
+        return data?.AutomaticDonationSaveOption ?? false;
     }
 
     public async Task<CompanyDetailModel?> GetCompanyDataAsync()

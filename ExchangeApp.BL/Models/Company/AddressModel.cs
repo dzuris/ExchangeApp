@@ -7,11 +7,5 @@ public record AddressModel : ModelBase
     public string PostalCode { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
 
-    public static AddressModel Empty => new()
-    {
-        Street = string.Empty,
-        StreetNumber = string.Empty,
-        PostalCode = string.Empty,
-        City = string.Empty
-    };
+    public static AddressModel Empty => new();
 }

@@ -22,14 +22,14 @@ namespace ExchangeApp.App.Resources.Texts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class DonationDetailPageResources {
+    public class PrinterResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal DonationDetailPageResources() {
+        internal PrinterResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ExchangeApp.App.Resources.Texts {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.DonationDetailPageResources", typeof(DonationDetailPageResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.PrinterResources", typeof(PrinterResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,74 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Amount in {0}.
         /// </summary>
-        public static string CancelButtonText {
+        public static string AmountTableHeader {
             get {
-                return ResourceManager.GetString("CancelButtonText", resourceCulture);
+                return ResourceManager.GetString("AmountTableHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Course rate:.
+        ///   Looks up a localized string similar to Average course rate.
         /// </summary>
-        public static string CourseRateLabel {
+        public static string AverageCourseRateTableHeader {
             get {
-                return ResourceManager.GetString("CourseRateLabel", resourceCulture);
+                return ResourceManager.GetString("AverageCourseRateTableHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency code:.
+        ///   Looks up a localized string similar to Buy.
         /// </summary>
-        public static string CurrencyCodeLabel {
+        public static string BuyTransactionHeader {
             get {
-                return ResourceManager.GetString("CurrencyCodeLabel", resourceCulture);
+                return ResourceManager.GetString("BuyTransactionHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date and time:.
+        ///   Looks up a localized string similar to Course rate.
         /// </summary>
-        public static string DateAndTimeLabel {
+        public static string CourseRateTableHeader {
             get {
-                return ResourceManager.GetString("DateAndTimeLabel", resourceCulture);
+                return ResourceManager.GetString("CourseRateTableHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Donation number:.
+        ///   Looks up a localized string similar to Currency code.
         /// </summary>
-        public static string DonationNumberLabel {
+        public static string CurrencyCodeTableHeader {
             get {
-                return ResourceManager.GetString("DonationNumberLabel", resourceCulture);
+                return ResourceManager.GetString("CurrencyCodeTableHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Donation type:.
+        ///   Looks up a localized string similar to Thanks for visiting!.
         /// </summary>
-        public static string DonationTypeLabel {
+        public static string FooterNiceSentence {
             get {
-                return ResourceManager.GetString("DonationTypeLabel", resourceCulture);
+                return ResourceManager.GetString("FooterNiceSentence", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Employee:.
+        ///   Looks up a localized string similar to ID:.
         /// </summary>
-        public static string EmployeeLabel {
+        public static string IdentificationNumberCompanyLabel {
             get {
-                return ResourceManager.GetString("EmployeeLabel", resourceCulture);
+                return ResourceManager.GetString("IdentificationNumberCompanyLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deduction number:.
+        /// </summary>
+        public static string IdentificationNumberLabelBeforeIdNumber {
+            get {
+                return ResourceManager.GetString("IdentificationNumberLabelBeforeIdNumber", resourceCulture);
             }
         }
         
@@ -133,56 +142,74 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Donation detail.
+        ///   Looks up a localized string similar to Amount paid:.
         /// </summary>
-        public static string PageTitle {
+        public static string PaidAmountLabel {
             get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
+                return ResourceManager.GetString("PaidAmountLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OK.
+        ///   Looks up a localized string similar to Phone:.
         /// </summary>
-        public static string PdfDownloadAlertCancelButton {
+        public static string PhoneAbbreviationLabel {
             get {
-                return ResourceManager.GetString("PdfDownloadAlertCancelButton", resourceCulture);
+                return ResourceManager.GetString("PhoneAbbreviationLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The folder path for saving the files is missing. This folder can be set in the settings..
+        ///   Looks up a localized string similar to Quantity.
         /// </summary>
-        public static string PdfDownloadAlertErrorMessage {
+        public static string QuantityTableHeader {
             get {
-                return ResourceManager.GetString("PdfDownloadAlertErrorMessage", resourceCulture);
+                return ResourceManager.GetString("QuantityTableHeader", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The data has been saved to your computer..
+        ///   Looks up a localized string similar to Amount received:.
         /// </summary>
-        public static string PdfDownloadAlertMessage {
+        public static string ReceivedAmountLabel {
             get {
-                return ResourceManager.GetString("PdfDownloadAlertMessage", resourceCulture);
+                return ResourceManager.GetString("ReceivedAmountLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PDF save.
+        ///   Looks up a localized string similar to Rounding:.
         /// </summary>
-        public static string PdfDownloadAlertTitle {
+        public static string RoundingLabel {
             get {
-                return ResourceManager.GetString("PdfDownloadAlertTitle", resourceCulture);
+                return ResourceManager.GetString("RoundingLabel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity:.
+        ///   Looks up a localized string similar to Sell.
         /// </summary>
-        public static string QuantityLabel {
+        public static string SellTransactionHeader {
             get {
-                return ResourceManager.GetString("QuantityLabel", resourceCulture);
+                return ResourceManager.GetString("SellTransactionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signature.
+        /// </summary>
+        public static string SignatureLabel {
+            get {
+                return ResourceManager.GetString("SignatureLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tin:.
+        /// </summary>
+        public static string TinNumberCompanyLabel {
+            get {
+                return ResourceManager.GetString("TinNumberCompanyLabel", resourceCulture);
             }
         }
     }

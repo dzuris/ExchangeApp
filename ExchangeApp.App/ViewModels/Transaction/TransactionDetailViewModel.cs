@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Resources;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.App.Views.Customers;
 using ExchangeApp.BL.Facades.Interfaces;
@@ -68,5 +70,42 @@ public partial class TransactionDetailViewModel : ViewModelBase
 
         var customerId = Transaction.CustomerId ?? Guid.Empty;
         await Shell.Current.GoToAsync($"{nameof(CustomerDetailPage)}?id={customerId}");
+    }
+
+    [RelayCommand]
+    private async Task CancelAsync()
+    {
+        // TODO
+    }
+
+    [RelayCommand]
+    private async Task SaveTransactionToFolderAsync()
+    {
+        if (Transaction is null) return;
+
+        var rm = new ResourceManager(typeof(TransactionDetailPageResources));
+        try
+        {
+            await _printerService.SavePdf(Transaction);
+        }
+        catch (ArgumentNullException)
+        {
+            await Application.Current?.MainPage?.DisplayAlert(
+                rm.GetString("PdfDownloadAlertTitle"),
+                rm.GetString("PdfDownloadAlertErrorMessage"),
+                rm.GetString("PdfDownloadAlertCancelButton"))!;
+            return;
+        }
+        
+        await Application.Current?.MainPage?.DisplayAlert(
+            rm.GetString("PdfDownloadAlertTitle"), 
+            rm.GetString("PdfDownloadAlertMessage"), 
+            rm.GetString("PdfDownloadAlertCancelButton"))!;
+    }
+
+    [RelayCommand]
+    private async Task PrintAsync()
+    {
+        // TODO
     }
 }

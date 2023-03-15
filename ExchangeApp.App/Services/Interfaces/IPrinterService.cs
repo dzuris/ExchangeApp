@@ -1,7 +1,11 @@
-﻿namespace ExchangeApp.App.Services.Interfaces;
+﻿using ExchangeApp.BL.Models.Donation;
+using ExchangeApp.BL.Models.Transaction;
+
+namespace ExchangeApp.App.Services.Interfaces;
 
 public interface IPrinterService
 {
-    void SavePdf();
-    void Print();
+    Task SavePdf(TransactionDetailModel model);
+    Task SavePdf(DonationDetailModel model);
+    Task Print();
 }

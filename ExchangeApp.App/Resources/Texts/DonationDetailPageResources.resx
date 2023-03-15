@@ -127,4 +127,16 @@
   <data name="CancelButtonText" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="PdfDownloadAlertTitle" xml:space="preserve">
+    <value>PDF save</value>
+  </data>
+  <data name="PdfDownloadAlertMessage" xml:space="preserve">
+    <value>The data has been saved to your computer.</value>
+  </data>
+  <data name="PdfDownloadAlertCancelButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
+    <value>The folder path for saving the files is missing. This folder can be set in the settings.</value>
+  </data>
 </root>
