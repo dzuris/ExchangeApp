@@ -70,6 +70,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CANCELED.
+        /// </summary>
+        public static string CanceledLabel {
+            get {
+                return ResourceManager.GetString("CanceledLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Course rate:.
         /// </summary>
         public static string CourseRateLabel {

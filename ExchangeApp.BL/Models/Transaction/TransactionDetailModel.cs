@@ -9,9 +9,9 @@ public record TransactionDetailModel : ModelBase
     public int Id { get; set; }
     public required DateTime Time { get; set; }
     public required decimal CourseRate { get; set; }
-    // Used for sell, levy and withdraw
-    public decimal? AverageCourseRate { get; set; }
+    public decimal AverageCourseRate { get; set; }
     public required decimal Quantity { get; set; }
+    public required decimal CurrencyQuantityBefore { get; set; }
     public required TransactionType TransactionType { get; set; }
     public bool IsCanceled { get; set; }
     public decimal AmountDomesticCurrency => GetAmount(Quantity, CourseRate);
@@ -29,6 +29,7 @@ public record TransactionDetailModel : ModelBase
         Time = DateTime.Now,
         CourseRate = 1,
         Quantity = 0,
+        CurrencyQuantityBefore = 0,
         TransactionType = TransactionType.Buy,
         CurrencyCode = ""
     };

@@ -6,4 +6,5 @@ public interface ITransactionFacade : IFacade
 {
     Task<TransactionDetailModel?> GetById(int id);
     Task<int> InsertAsync(TransactionDetailModel model);
+    Task CancelTransaction(TransactionDetailModel model);
 }

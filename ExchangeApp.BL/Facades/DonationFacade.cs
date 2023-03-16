@@ -47,10 +47,6 @@ public class DonationFacade : IDonationFacade
             throw new ArgumentException("Course rate can't be 0 or lower");
         }
 
-        // Insert donation
-        var entity = _mapper.Map<DonationEntity>(model);
-        var id = await _repository.InsertAsync(entity);
-
         decimal newQuantity;
         // Update currency average course when donation is deposit, sets new currency quantity
         if (model.Type == DonationType.Deposit)
@@ -64,6 +60,7 @@ public class DonationFacade : IDonationFacade
             var depositedValue = model.Quantity / model.CourseRate;
             var newValue = currentValue + depositedValue;
             var newAverageCurrencyCourseRate = newQuantity / newValue;
+            model.AverageCourseRate = newAverageCurrencyCourseRate;
 
             // Update
             await currencyRepository.UpdateAverageCourseAsync(model.CurrencyCode, newAverageCurrencyCourseRate);
@@ -77,6 +74,10 @@ public class DonationFacade : IDonationFacade
 
             newQuantity = currentCurrencyEntity.Quantity - model.Quantity;
         }
+
+        // Insert donation
+        var entity = _mapper.Map<DonationEntity>(model);
+        var id = await _repository.InsertAsync(entity);
 
         // Update quantity
         await currencyRepository.UpdateQuantityAsync(model.CurrencyCode, newQuantity);

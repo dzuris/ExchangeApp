@@ -8,6 +8,7 @@ public class DonationMapperProfile : Profile
 {
     public DonationMapperProfile()
     {
+        CreateMap<DonationEntity, DonationEntity>();
         CreateMap<DonationEntity, DonationListModel>();
 
         CreateMap<DonationDetailModel, DonationEntity>()

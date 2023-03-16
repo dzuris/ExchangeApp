@@ -159,4 +159,7 @@
   <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
     <value>Chýba cesta priečinku pre ukladanie súborov. Tento priečinok je možné nastaviť v nastaveniach.</value>
   </data>
+  <data name="CanceledLabel" xml:space="preserve">
+    <value>STORNOVANÉ</value>
+  </data>
 </root>

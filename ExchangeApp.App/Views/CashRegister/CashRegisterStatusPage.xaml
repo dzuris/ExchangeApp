@@ -33,7 +33,7 @@
                                 <Label Grid.Column="1" Text="{Binding Code, Converter={StaticResource CurrencyCodeToStateConverter}}" LineBreakMode="CharacterWrap"/>
                                 <Label Grid.Column="2" Text="{Binding Code}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="3" Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" HorizontalOptions="Center"/>
-                                <Label Grid.Column="4" Text="{Binding AverageCourseRate, FallbackValue='0'}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="4" Text="{Binding AverageCourseRate, StringFormat='{0:N6}', FallbackValue='0'}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="5" Text="{Binding ExchangeRateValue, StringFormat='{0:# ##0.##}'}" HorizontalOptions="Center"/>
                             </Grid>
                         </Frame>

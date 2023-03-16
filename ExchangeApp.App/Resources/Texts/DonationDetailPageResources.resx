@@ -139,4 +139,7 @@
   <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
     <value>The folder path for saving the files is missing. This folder can be set in the settings.</value>
   </data>
+  <data name="CanceledLabel" xml:space="preserve">
+    <value>CANCELED</value>
+  </data>
 </root>

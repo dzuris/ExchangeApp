@@ -28,6 +28,11 @@ public partial class OperationsListViewModel : ViewModelBase
         IsLoadMoreButtonVisible = true;
 
         Operations = await _operationFacade.GetOperationsAsync(PageSize, _pageNumber);
+
+        if (Operations.Count < PageSize)
+        {
+            IsLoadMoreButtonVisible = false;
+        }
     }
 
     public List<OperationFilterOption> FilterOptions

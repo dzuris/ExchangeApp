@@ -30,7 +30,7 @@ public class UnitOfWork : IUnitOfWork
         => _donationRepository ??= new DonationRepository(_dbContext);
 
     public ITransactionRepository TransactionRepository 
-        => _transactionRepository ??= new TransactionRepository(_dbContext);
+        => _transactionRepository ??= new TransactionRepository(_dbContext, _mapper);
 
     public ICustomerRepository CustomerRepository 
         => _customerRepository ??= new CustomerRepository(_dbContext);

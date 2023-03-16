@@ -7,6 +7,7 @@ using ExchangeApp.App.Views.Customers;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
+using ExchangeApp.Common.Exceptions;
 
 namespace ExchangeApp.App.ViewModels.Transaction;
 
@@ -14,13 +15,15 @@ namespace ExchangeApp.App.ViewModels.Transaction;
 [QueryProperty(nameof(Id), "id")]
 public partial class TransactionDetailViewModel : ViewModelBase
 {
-    private readonly IPrinterService _printerService;
     private readonly ITransactionFacade _transactionFacade;
+    private readonly ISettingsFacade _settingsFacade;
+    private readonly IPrinterService _printerService;
 
-    public TransactionDetailViewModel(IPrinterService printerService, ITransactionFacade transactionFacade)
+    public TransactionDetailViewModel(IPrinterService printerService, ITransactionFacade transactionFacade, ISettingsFacade settingsFacade)
     {
         _printerService = printerService;
         _transactionFacade = transactionFacade;
+        _settingsFacade = settingsFacade;
     }
 
     protected override async Task LoadDataAsync()
@@ -75,7 +78,48 @@ public partial class TransactionDetailViewModel : ViewModelBase
     [RelayCommand]
     private async Task CancelAsync()
     {
-        // TODO
+        if (Transaction is null) return;
+
+        var rm = new ResourceManager(typeof(TransactionDetailPageResources));
+
+        var result = await Application.Current?.MainPage?.DisplayAlert(
+            rm.GetString("StornoAlertConfirmationTitle"),
+            rm.GetString("StornoAlertConfirmationMessage"),
+            rm.GetString("StornoAlertConfirmationYesButton"),
+            rm.GetString("StornoAlertConfirmationNoButton"))!;
+
+        if (!result) return;
+
+        try
+        {
+            await _transactionFacade.CancelTransaction(Transaction);
+        }
+        catch (InsufficientMoneyException)
+        {
+            await Application.Current?.MainPage?.DisplayAlert(
+                rm.GetString("StornoAlertErrorTitle"),
+                rm.GetString("StornoAlertErrorMessageInsufficientMoney"),
+                rm.GetString("AlertCancelButton"))!;
+        }
+
+        Transaction.IsCanceled = true;
+        OnPropertyChanged(nameof(Transaction));
+
+        if (await _settingsFacade.ShouldSaveTransactionsAutomaticallyAsync())
+        {
+            try
+            {
+                await _printerService.SavePdf(Transaction);
+            }
+            catch (ArgumentNullException)
+            {
+            }
+        }
+
+        await Application.Current?.MainPage?.DisplayAlert(
+            rm.GetString("StornoAlertTitle"),
+            rm.GetString("StornoAlertMessage"),
+            rm.GetString("AlertCancelButton"))!;
     }
 
     [RelayCommand]
@@ -93,14 +137,14 @@ public partial class TransactionDetailViewModel : ViewModelBase
             await Application.Current?.MainPage?.DisplayAlert(
                 rm.GetString("PdfDownloadAlertTitle"),
                 rm.GetString("PdfDownloadAlertErrorMessage"),
-                rm.GetString("PdfDownloadAlertCancelButton"))!;
+                rm.GetString("AlertCancelButton"))!;
             return;
         }
         
         await Application.Current?.MainPage?.DisplayAlert(
             rm.GetString("PdfDownloadAlertTitle"), 
             rm.GetString("PdfDownloadAlertMessage"), 
-            rm.GetString("PdfDownloadAlertCancelButton"))!;
+            rm.GetString("AlertCancelButton"))!;
     }
 
     [RelayCommand]

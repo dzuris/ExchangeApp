@@ -358,7 +358,8 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 rm.GetString("DisplayAlertCancelButtonText"))!;
             return;
         }
-        
+
+        Transaction.CurrencyQuantityBefore = Transaction.Currency!.Quantity;
         Transaction.CurrencyCode = Transaction.Currency!.Code;
         Transaction.AverageCourseRate = Transaction.Currency!.AverageCourseRate;
 

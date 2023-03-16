@@ -42,7 +42,7 @@
                                 <Label Grid.Column="2" Text="{Binding Code}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="3" Text="{Binding BuyRate, TargetNullValue='-'}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="4" Text="{Binding SellRate, TargetNullValue='-'}" HorizontalOptions="Center"/>
-                                <Label Grid.Column="5" Text="{Binding AverageCourseRate}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="5" Text="{Binding AverageCourseRate, StringFormat='{0:N6}'}" HorizontalOptions="Center"/>
                             </Grid>
                         </Frame>
                     </Grid>

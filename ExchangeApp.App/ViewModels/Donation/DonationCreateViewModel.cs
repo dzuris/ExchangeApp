@@ -131,6 +131,7 @@ public partial class DonationCreateViewModel : ViewModelBase
             CourseRate = courseRate,
             AverageCourseRate = SelectedCurrency!.AverageCourseRate,
             Quantity = Quantity,
+            CurrencyQuantityBefore = SelectedCurrency!.Quantity,
             Type = DonationType ?? Common.Enums.DonationType.Deposit,
             Note = Note,
             CurrencyCode = SelectedCurrency!.Code,

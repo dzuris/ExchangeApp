@@ -12,7 +12,7 @@
         <StackLayout HorizontalOptions="Start" Spacing="40">
             <Image
                 HorizontalOptions="Start"
-                Source="{Binding Currency.PhotoUrl}"
+                Source="{Binding Currency.PhotoUrl, FallbackValue=''}"
                 WidthRequest="70"/>
             <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" RowSpacing="10" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
                 <Label Grid.Row="0" Text="{x:Static texts:CourseDetailPageResources.StateLabel}" Style="{StaticResource InfoBoldStyle}"/>
@@ -22,15 +22,15 @@
                 <Label Grid.Row="4" Text="{x:Static texts:CourseDetailPageResources.SellCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
                 <Label Grid.Row="5" Text="{x:Static texts:CourseDetailPageResources.AverageCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
 
-                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Currency.Code, Converter={StaticResource CurrencyCodeToStateConverter}}"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Currency.Code}"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Currency.Code, Converter={StaticResource CurrencyCodeToStateConverter}, FallbackValue=''}"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Currency.Code, FallbackValue=''}"/>
                 <HorizontalStackLayout Grid.Row="2" Grid.Column="1" Spacing="5">
-                    <Label Text="{Binding Currency.Quantity}"/>
-                    <Label Text="{Binding Currency.Code}"/>
+                    <Label Text="{Binding Currency.Quantity, FallbackValue=''}"/>
+                    <Label Text="{Binding Currency.Code, FallbackValue=''}"/>
                 </HorizontalStackLayout>
-                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Currency.BuyRate, TargetNullValue='-'}"/>
-                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Currency.SellRate, TargetNullValue='-'}"/>
-                <Label Grid.Row="5" Grid.Column="1" Text="{Binding Currency.AverageCourseRate}"/>
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Currency.BuyRate, TargetNullValue='-', FallbackValue=''}"/>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding Currency.SellRate, TargetNullValue='-', FallbackValue=''}"/>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding Currency.AverageCourseRate, StringFormat='{0:N6}', FallbackValue=''}"/>
             </Grid>
         </StackLayout>
         <StackLayout Grid.Column="1" Spacing="15">

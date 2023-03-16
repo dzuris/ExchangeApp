@@ -12,6 +12,14 @@
         RowDefinitions="*, Auto" 
         ColumnDefinitions="*, *"
         RowSpacing="80">
+        <Label
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Text="{x:Static texts:TransactionDetailPageResources.StornoLabel}"
+            FontAttributes="Bold"
+            FontSize="32"
+            IsVisible="{Binding Transaction.IsCanceled, FallbackValue=true}"/>
         <Grid 
             RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
             RowSpacing="5"
@@ -237,6 +245,7 @@
             Spacing="15">
             <Button
                 WidthRequest="150"
+                IsVisible="{Binding Transaction.IsCanceled, Converter={StaticResource InverseBooleanConverter}, FallbackValue=true}"
                 Text="{x:Static texts:TransactionDetailPageResources.StornoButtonText}"
                 Command="{Binding CancelCommand}"/>
             <ImageButton

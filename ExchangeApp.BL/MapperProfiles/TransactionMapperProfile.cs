@@ -8,6 +8,8 @@ public class TransactionMapperProfile : Profile
 {
     public TransactionMapperProfile()
     {
+        CreateMap<TransactionEntity, TransactionEntity>();
+        CreateMap<TransactionEntity, TransactionListModel>();
         CreateMap<TransactionEntity, TransactionDetailModel>()
             .ForMember(
                 dst => dst.Currency,
@@ -23,7 +25,5 @@ public class TransactionMapperProfile : Profile
             .ForMember(
                 dst => dst.Customer,
                 opt => opt.Ignore());
-
-        CreateMap<TransactionEntity, TransactionListModel>();
     }
 }

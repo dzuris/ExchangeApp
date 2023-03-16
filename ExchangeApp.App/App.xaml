@@ -30,6 +30,7 @@
             <converters:OperationFilterOptionToStringConverter x:Key="OperationFilterOptionToStringConverter"/>
             <converters:CustomerDetailModelToStringConverter x:Key="CustomerDetailModelToStringConverter"/>
             <converters:DonationSaveFormatToStringConverter x:Key="DonationSaveFormatToStringConverter"/>
+            <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
