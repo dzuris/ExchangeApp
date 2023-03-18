@@ -30,6 +30,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 		<UserSecretsId>6b2bd942-2320-4db7-937e-53961b92ae77</UserSecretsId>
 		<Nullable>enable</Nullable>
+		<AssemblyName>Exchange App</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>

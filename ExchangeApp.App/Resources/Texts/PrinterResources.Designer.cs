@@ -88,6 +88,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string CanceledHeaderTitle {
+            get {
+                return ResourceManager.GetString("CanceledHeaderTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Course rate.
         /// </summary>
         public static string CourseRateTableHeader {

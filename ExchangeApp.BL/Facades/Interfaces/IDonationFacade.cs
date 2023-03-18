@@ -6,4 +6,5 @@ public interface IDonationFacade : IFacade
 {
     Task<DonationDetailModel?> GetById(int id);
     Task<int> InsertAsync(DonationDetailModel model);
+    Task CancelDonation(DonationDetailModel model);
 }

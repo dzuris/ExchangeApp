@@ -61,6 +61,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string CanceledListItemLabel {
+            get {
+                return ResourceManager.GetString("CanceledListItemLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Donation.
         /// </summary>
         public static string DonationListItemTitle {

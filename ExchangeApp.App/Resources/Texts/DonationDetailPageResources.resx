@@ -133,7 +133,7 @@
   <data name="PdfDownloadAlertMessage" xml:space="preserve">
     <value>The data has been saved to your computer.</value>
   </data>
-  <data name="PdfDownloadAlertCancelButton" xml:space="preserve">
+  <data name="AlertCancelButton" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
@@ -141,5 +141,35 @@
   </data>
   <data name="CanceledLabel" xml:space="preserve">
     <value>CANCELED</value>
+  </data>
+  <data name="StornoAlertConfirmationTitle" xml:space="preserve">
+    <value>Cancellation confirmation</value>
+  </data>
+  <data name="StornoAlertConfirmationMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this donation? This event is irreversible.</value>
+  </data>
+  <data name="StornoAlertConfirmationYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="StornoAlertConfirmationNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="StornoAlertErrorTitle" xml:space="preserve">
+    <value>Cancellation failure</value>
+  </data>
+  <data name="StornoAlertErrorMessageInsufficientMoney" xml:space="preserve">
+    <value>The transaction cannot be canceled due to insufficient funds.</value>
+  </data>
+  <data name="StornoAlertTitle" xml:space="preserve">
+    <value>Donation cancel</value>
+  </data>
+  <data name="StornoAlertMessage" xml:space="preserve">
+    <value>Transaction successfully canceled.</value>
+  </data>
+  <data name="StornoAlertErrorMessageCurrencyMissingException" xml:space="preserve">
+    <value>Error in getting currencies.</value>
+  </data>
+  <data name="StornoLabel" xml:space="preserve">
+    <value>CANCELLED</value>
   </data>
 </root>

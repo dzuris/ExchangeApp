@@ -11,6 +11,13 @@
     <Grid
         RowDefinitions="*, Auto"
         RowSpacing="80">
+        <Label
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Text="{x:Static texts:DonationDetailPageResources.StornoLabel}"
+            FontAttributes="Bold"
+            FontSize="32"
+            IsVisible="{Binding Donation.IsCanceled, FallbackValue=true}"/>
         <Grid
             ColumnDefinitions="*, *">
             <Grid
@@ -90,6 +97,7 @@
             Spacing="20">
             <Button
                 WidthRequest="150"
+                IsVisible="{Binding Donation.IsCanceled, Converter={StaticResource InverseBooleanConverter}, FallbackValue=true}"
                 Text="{x:Static texts:DonationDetailPageResources.CancelButtonText}"
                 Command="{Binding CancelCommand}"/>
             <ImageButton

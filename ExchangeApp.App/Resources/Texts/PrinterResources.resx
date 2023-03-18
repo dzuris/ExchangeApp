@@ -148,4 +148,7 @@
   <data name="NoteLabel" xml:space="preserve">
     <value>Note:</value>
   </data>
+  <data name="CanceledHeaderTitle" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
 </root>

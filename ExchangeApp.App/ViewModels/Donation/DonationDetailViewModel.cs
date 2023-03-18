@@ -3,8 +3,10 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.Interfaces;
+using ExchangeApp.BL.Facades;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Donation;
+using ExchangeApp.Common.Exceptions;
 
 namespace ExchangeApp.App.ViewModels.Donation;
 
@@ -12,13 +14,15 @@ namespace ExchangeApp.App.ViewModels.Donation;
 [QueryProperty(nameof(Id), "id")]
 public partial class DonationDetailViewModel : ViewModelBase
 {
-    private readonly IPrinterService _printerService;
     private readonly IDonationFacade _donationFacade;
+    private readonly ISettingsFacade _settingsFacade;
+    private readonly IPrinterService _printerService;
 
-    public DonationDetailViewModel(IPrinterService printerService, IDonationFacade donationFacade)
+    public DonationDetailViewModel(IPrinterService printerService, IDonationFacade donationFacade, ISettingsFacade settingsFacade)
     {
         _printerService = printerService;
         _donationFacade = donationFacade;
+        _settingsFacade = settingsFacade;
     }
 
     protected override async Task LoadDataAsync()
@@ -51,7 +55,55 @@ public partial class DonationDetailViewModel : ViewModelBase
     [RelayCommand]
     private async Task CancelAsync()
     {
-        // TODO
+        if (Donation is null) return;
+
+        var rm = new ResourceManager(typeof(DonationDetailPageResources));
+
+        var result = await Application.Current?.MainPage?.DisplayAlert(
+            rm.GetString("StornoAlertConfirmationTitle"),
+            rm.GetString("StornoAlertConfirmationMessage"),
+            rm.GetString("StornoAlertConfirmationYes"),
+            rm.GetString("StornoAlertConfirmationNo"))!;
+
+        if (!result) return;
+
+        try
+        {
+            await _donationFacade.CancelDonation(Donation);
+        }
+        catch (InsufficientMoneyException)
+        {
+            await Application.Current.MainPage?.DisplayAlert(
+                rm.GetString("StornoAlertErrorTitle"),
+                rm.GetString("StornoAlertErrorMessageInsufficientMoney"),
+                rm.GetString("AlertCancelButton"))!;
+        }
+        catch (CurrencyMissingException)
+        {
+            await Application.Current.MainPage?.DisplayAlert(
+                rm.GetString("StornoAlertErrorTitle"),
+                rm.GetString("StornoAlertErrorMessageCurrencyMissingException"),
+                rm.GetString("AlertCancelButton"))!;
+        }
+
+        Donation.IsCanceled = true;
+        OnPropertyChanged(nameof(Donation));
+
+        if (await _settingsFacade.ShouldSaveTransactionsAutomaticallyAsync())
+        {
+            try
+            {
+                await _printerService.SavePdf(Donation);
+            }
+            catch (ArgumentNullException)
+            {
+            }
+        }
+
+        await Application.Current.MainPage?.DisplayAlert(
+            rm.GetString("StornoAlertTitle"),
+            rm.GetString("StornoAlertMessage"),
+            rm.GetString("AlertCancelButton"))!;
     }
 
     [RelayCommand]
@@ -60,6 +112,7 @@ public partial class DonationDetailViewModel : ViewModelBase
         if (Donation is null) return;
 
         var rm = new ResourceManager(typeof(DonationDetailPageResources));
+
         try
         {
             await _printerService.SavePdf(Donation);
@@ -69,14 +122,14 @@ public partial class DonationDetailViewModel : ViewModelBase
             await Application.Current?.MainPage?.DisplayAlert(
                 rm.GetString("PdfDownloadAlertTitle"),
                 rm.GetString("PdfDownloadAlertErrorMessage"),
-                rm.GetString("PdfDownloadAlertCancelButton"))!;
+                rm.GetString("AlertCancelButton"))!;
             return;
         }
 
         await Application.Current?.MainPage?.DisplayAlert(
             rm.GetString("PdfDownloadAlertTitle"),
             rm.GetString("PdfDownloadAlertMessage"),
-            rm.GetString("PdfDownloadAlertCancelButton"))!;
+            rm.GetString("AlertCancelButton"))!;
     }
 
     [RelayCommand]

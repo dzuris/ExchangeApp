@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ExchangeApp.DAL.Data;
-using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Repositories;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -27,7 +26,7 @@ public class UnitOfWork : IUnitOfWork
         => _currencyRepository ??= new CurrencyRepository(_dbContext, _mapper);
 
     public IDonationRepository DonationRepository
-        => _donationRepository ??= new DonationRepository(_dbContext);
+        => _donationRepository ??= new DonationRepository(_dbContext, _mapper);
 
     public ITransactionRepository TransactionRepository 
         => _transactionRepository ??= new TransactionRepository(_dbContext, _mapper);
@@ -36,7 +35,7 @@ public class UnitOfWork : IUnitOfWork
         => _customerRepository ??= new CustomerRepository(_dbContext);
 
     public IOperationRepository OperationRepository
-        => _operationRepository ??= new OperationRepository(_dbContext);
+        => _operationRepository ??= new OperationRepository(_dbContext, _mapper);
 
     public async Task CommitAsync() => await _dbContext.SaveChangesAsync();
 

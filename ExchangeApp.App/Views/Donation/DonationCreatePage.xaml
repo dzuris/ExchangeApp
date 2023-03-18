@@ -74,6 +74,7 @@
                     HorizontalOptions="Start" 
                     VerticalOptions="Center" 
                     Keyboard="Numeric"
+                    IsEnabled="{Binding SelectedCurrencyIsNotDomestic}"
                     Text="{Binding CourseRate}"/>
 
             <Label Grid.Row="2" Text="{x:Static texts:DonationPageResources.QuantityLabel}" HorizontalOptions="End" VerticalOptions="Center"/>

@@ -168,4 +168,7 @@
   <data name="NoteLabel" xml:space="preserve">
     <value>Poznámka:</value>
   </data>
+  <data name="CanceledHeaderTitle" xml:space="preserve">
+    <value>Storno</value>
+  </data>
 </root>

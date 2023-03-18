@@ -1,4 +1,5 @@
-﻿using ExchangeApp.Common.Enums;
+﻿using AutoMapper;
+using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -7,9 +8,12 @@ namespace ExchangeApp.DAL.Repositories;
 
 public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOperationRepository
 {
-    public OperationRepository(DbContext appDbContext)
+    private readonly IMapper _mapper;
+
+    public OperationRepository(DbContext appDbContext, IMapper mapper)
         : base(appDbContext)
     {
+        _mapper = mapper;
     }
 
     public async Task<IEnumerable<OperationEntityBase>> GetLastOperationsAsync(int pageSize, int pageNumber)
@@ -61,5 +65,41 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
         var count = await AppDbContext.Set<OperationEntityBase>()
             .CountAsync(o => o.Time >= today && o.Time < today.AddDays(1));
         return count;
+    }
+
+    public async Task<IEnumerable<OperationEntityBase>> GetOperationsForStornoUpdate(OperationEntityBase entity)
+    {
+        var list = await AppDbContext
+            .Set<OperationEntityBase>()
+            .Where(t => t.CurrencyCode == entity.CurrencyCode && t.Id > entity.Id)
+            .OrderBy(t => t.Time)
+            .ToListAsync();
+        return list;
+    }
+
+    public async Task UpdateAsync(OperationEntityBase entity)
+    {
+        var existingEntity = await GetByIdAsync(entity.Id);
+
+        if (existingEntity == null)
+        {
+            return;
+        }
+
+        _mapper.Map(entity, existingEntity);
+        AppDbContext
+            .Set<OperationEntityBase>()
+            .Update(existingEntity);
+    }
+
+    public async Task<decimal> GetAverageCourseOfOperationBefore(OperationEntityBase entity)
+    {
+        var result = await AppDbContext
+            .Set<OperationEntityBase>()
+            .Where(t => t.CurrencyCode == entity.CurrencyCode)
+            .OrderBy(o => o.Id)
+            .LastOrDefaultAsync(o => o.Id < entity.Id);
+
+        return result?.AverageCourseRate ?? 0;
     }
 }

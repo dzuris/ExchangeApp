@@ -8,11 +8,13 @@ using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Donation;
 using ExchangeApp.Common.Enums;
+using ExchangeApp.Common.Exceptions;
 
 namespace ExchangeApp.App.ViewModels.Donation;
 
 public partial class DonationCreateViewModel : ViewModelBase
 {
+    private const string DomesticCurrencyCode = "EUR";
     private readonly IDonationFacade _donationFacade;
     private readonly ICurrencyFacade _currencyFacade;
     private readonly ISettingsFacade _settingsFacade;
@@ -50,6 +52,14 @@ public partial class DonationCreateViewModel : ViewModelBase
             SetProperty(ref _selectedCurrency, value);
 
             OnPropertyChanged(nameof(NewQuantity));
+
+            if (value.Code == DomesticCurrencyCode)
+            {
+                CourseRate = "1";
+            }
+
+            SelectedCurrencyIsNotDomestic = value.Code != DomesticCurrencyCode;
+            OnPropertyChanged(nameof(SelectedCurrencyIsNotDomestic));
 
             CourseRate = "1";
             if (DonationType is null or not Common.Enums.DonationType.Withdraw || value is null) return;
@@ -90,6 +100,9 @@ public partial class DonationCreateViewModel : ViewModelBase
     [ObservableProperty] 
     [NotifyPropertyChangedFor(nameof(NewQuantity))]
     private decimal _quantity;
+
+    [ObservableProperty] 
+    private bool _selectedCurrencyIsNotDomestic;
 
     public decimal NewQuantity
     {
@@ -137,7 +150,7 @@ public partial class DonationCreateViewModel : ViewModelBase
             CurrencyCode = SelectedCurrency!.Code,
             Currency = SelectedCurrency
         };
-        
+
         try
         {
             var id = await _donationFacade.InsertAsync(donation);
@@ -153,6 +166,11 @@ public partial class DonationCreateViewModel : ViewModelBase
             catch (ArgumentNullException)
             {
             }
+        }
+        catch (InsufficientMoneyException e)
+        {
+            Console.WriteLine(e.Message);
+            return;
         }
         catch (Exception e)
         {
@@ -185,7 +203,7 @@ public partial class DonationCreateViewModel : ViewModelBase
             errorMessage += rm.GetString("ErrorMessage_QuantityNotValid") + "\n";
 
         var courseRateRes = Utilities.Utilities.StrToDecimal(CourseRate);
-        if (courseRateRes is null || courseRateRes <= 0)
+        if (courseRateRes is null or <= 0)
             errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
         
         return errorMessage;

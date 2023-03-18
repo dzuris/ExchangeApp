@@ -47,8 +47,8 @@ public class PrinterService : IPrinterService
             throw new ArgumentNullException();
         }
 
-        var fileName = Path.Combine(directory, $"{model.Id}.pdf");
-        
+        var fileName = Path.Combine(directory, model.IsCanceled ? $"{model.Id}_storno.pdf" : $"{model.Id}.pdf");
+
         // Create a new PDF document with default properties
         var pdf = new PdfDocument(new PdfWriter(fileName, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)));
         var document = new Document(pdf, PageSize);
@@ -69,6 +69,12 @@ public class PrinterService : IPrinterService
         var headerText = model.TransactionType == TransactionType.Buy
             ? rm.GetString("BuyTransactionHeader")
             : rm.GetString("SellTransactionHeader");
+
+        if (model.IsCanceled)
+        {
+            headerText = $"{rm.GetString("CanceledHeaderTitle")} - {headerText}";
+        }
+
         var headerTitle = new Paragraph(headerText)
             .SetTextAlignment(TextAlignment.CENTER)
             .SetFont(boldFont)
@@ -188,7 +194,7 @@ public class PrinterService : IPrinterService
             throw new ArgumentNullException();
         }
 
-        var fileName = Path.Combine(directory, $"{model.Id}.pdf");
+        var fileName = Path.Combine(directory, model.IsCanceled ? $"{model.Id}_storno.pdf" : $"{model.Id}.pdf");
 
         // Create a new PDF document with default properties
         var pdf = new PdfDocument(new PdfWriter(fileName, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)));
@@ -208,6 +214,12 @@ public class PrinterService : IPrinterService
         #region Header section
         var donationTypeConverter = new DonationTypeToStringConverter();
         var headerText = (string)donationTypeConverter.Convert(model.Type, typeof(DonationType), null, CultureInfo.CurrentCulture);
+
+        if (model.IsCanceled)
+        {
+            headerText = $"{rm.GetString("CanceledHeaderTitle")} - {headerText}";
+        }
+
         var headerTitle = new Paragraph(headerText)
             .SetTextAlignment(TextAlignment.CENTER)
             .SetFont(boldFont)

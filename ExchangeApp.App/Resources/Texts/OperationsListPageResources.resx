@@ -136,4 +136,7 @@
   <data name="PickerItemDonations" xml:space="preserve">
     <value>Donations</value>
   </data>
+  <data name="CanceledListItemLabel" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
 </root>

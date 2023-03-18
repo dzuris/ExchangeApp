@@ -25,7 +25,11 @@
                     <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
                         <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
                         <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.DonationListItemTitle}" VerticalOptions="Center"/>
-                        <Label Grid.Column="2" Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}" VerticalOptions="Center"/>
+                        <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="15">
+                            <Label Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}"/>
+                            <Label Text="-" IsVisible="{Binding IsCanceled}"/>
+                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}" FontAttributes="Italic" TextColor="{StaticResource Gray400}"/>
+                        </HorizontalStackLayout>
                         <HorizontalStackLayout Grid.Column="3" Spacing="5">
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
                             <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
@@ -47,7 +51,11 @@
                     <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
                         <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
                         <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.TransactionListItemTitle}" VerticalOptions="Center"/>
-                        <Label Grid.Column="2" Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}" VerticalOptions="Center"/>
+                        <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="15">
+                            <Label Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}"/>
+                            <Label Text="-" IsVisible="{Binding IsCanceled}"/>
+                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}"/>
+                        </HorizontalStackLayout>
                         <HorizontalStackLayout Grid.Column="3" Spacing="5">
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
                             <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>

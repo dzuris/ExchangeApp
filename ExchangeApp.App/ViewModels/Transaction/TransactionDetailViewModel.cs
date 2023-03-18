@@ -96,10 +96,15 @@ public partial class TransactionDetailViewModel : ViewModelBase
         }
         catch (InsufficientMoneyException)
         {
-            await Application.Current?.MainPage?.DisplayAlert(
+            await Application.Current.MainPage?.DisplayAlert(
                 rm.GetString("StornoAlertErrorTitle"),
                 rm.GetString("StornoAlertErrorMessageInsufficientMoney"),
                 rm.GetString("AlertCancelButton"))!;
+            return;
+        }
+        catch (ArgumentNullException)
+        {
+            return;
         }
 
         Transaction.IsCanceled = true;
@@ -116,7 +121,7 @@ public partial class TransactionDetailViewModel : ViewModelBase
             }
         }
 
-        await Application.Current?.MainPage?.DisplayAlert(
+        await Application.Current.MainPage?.DisplayAlert(
             rm.GetString("StornoAlertTitle"),
             rm.GetString("StornoAlertMessage"),
             rm.GetString("AlertCancelButton"))!;
@@ -128,6 +133,7 @@ public partial class TransactionDetailViewModel : ViewModelBase
         if (Transaction is null) return;
 
         var rm = new ResourceManager(typeof(TransactionDetailPageResources));
+
         try
         {
             await _printerService.SavePdf(Transaction);
