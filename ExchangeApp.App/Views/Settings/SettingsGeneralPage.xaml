@@ -4,8 +4,8 @@
              xmlns:views="clr-namespace:ExchangeApp.App.Views"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Settings"
-             x:Class="ExchangeApp.App.Views.Settings.SettingsAutomaticOperationsSavePage"
-             Title="{x:Static texts:SettingsAutomaticOperationSavePageResources.PageTitle}"
+             x:Class="ExchangeApp.App.Views.Settings.SettingsGeneralPage"
+             Title="{x:Static texts:SettingsGeneralPageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:SettingsAutomaticOperationsSaveViewModel">
     <Grid RowDefinitions="*, Auto" RowSpacing="15">
@@ -13,25 +13,25 @@
             <VerticalStackLayout Spacing="50">
                 <HorizontalStackLayout Spacing="25">
                     <VerticalStackLayout Spacing="15">
-                        <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.FolderForOperationsSavePathLabel}"/>
+                        <Label Text="{x:Static texts:SettingsGeneralPageResources.FolderForOperationsSavePathLabel}"/>
                         <Entry IsReadOnly="True" Text="{Binding SettingsData.FolderPath}"/>
                     </VerticalStackLayout>
                     <Button
                         HeightRequest="44"
                         VerticalOptions="End"
-                        Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.SelectFolderButtonText}"
+                        Text="{x:Static texts:SettingsGeneralPageResources.SelectFolderButtonText}"
                         Command="{Binding PickFolderCommand}"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <CheckBox IsChecked="{Binding SettingsData.AutomaticTransactionSaveOption}" VerticalOptions="Center"/>
-                    <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.CheckBoxTextAutomaticTransactions}" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticTransactions}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <CheckBox IsChecked="{Binding SettingsData.AutomaticDonationSaveOption}" VerticalOptions="Center"/>
-                    <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.CheckBoxTextAutomaticDonations}" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticDonations}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <VerticalStackLayout Spacing="15">
-                    <Label Text="{x:Static texts:SettingsAutomaticOperationSavePageResources.StorageFormatDonationsLabel}"/>
+                    <Label Text="{x:Static texts:SettingsGeneralPageResources.StorageFormatDonationsLabel}"/>
                     <Picker 
                         HorizontalOptions="Start" 
                         WidthRequest="200"

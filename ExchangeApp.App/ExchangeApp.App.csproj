@@ -208,10 +208,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>ProfitCalculatePageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\SettingsAutomaticOperationSavePageResources.Designer.cs">
+	  <Compile Update="Resources\Texts\SettingsGeneralPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>SettingsAutomaticOperationSavePageResources.resx</DependentUpon>
+	    <DependentUpon>SettingsGeneralPageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsAutomaticTotalBalancePageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -306,6 +306,9 @@
 	  <Compile Update="Views\Donation\DonationCreatePage.xaml.cs">
 	    <DependentUpon>DonationCreatePage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\Settings\SettingsGeneralPage.xaml.cs">
+	    <DependentUpon>SettingsGeneralPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Settings\SettingsCoursesManagerPage.xaml.cs">
 	    <DependentUpon>SettingsCoursesManagerPage.xaml</DependentUpon>
 	  </Compile>
@@ -355,9 +358,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ProfitCalculatePageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\SettingsAutomaticOperationSavePageResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\SettingsGeneralPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>SettingsAutomaticOperationSavePageResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>SettingsGeneralPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsAutomaticTotalBalancePageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -488,7 +491,7 @@
 	  <MauiXaml Update="Views\ProfitCalculate\ProfitCalculatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Settings\SettingsAutomaticOperationsSavePage.xaml">
+	  <MauiXaml Update="Views\Settings\SettingsGeneralPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsAutomaticTotalBalancePage.xaml">

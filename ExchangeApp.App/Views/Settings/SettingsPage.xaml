@@ -11,7 +11,7 @@
     <CollectionView>
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
-                <x:Static Member="texts:SettingsPageResources.OperationsAutomaticSaveListItem"/>
+                <x:Static Member="texts:SettingsPageResources.GeneralListItem"/>
                 <x:Static Member="texts:SettingsPageResources.CourseRatesListItem"/>
                 <x:Static Member="texts:SettingsPageResources.BranchInfoListItem"/>
                 <x:Static Member="texts:SettingsPageResources.CompanyInfoListItem"/>

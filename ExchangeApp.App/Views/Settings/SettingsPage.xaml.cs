@@ -13,7 +13,7 @@ public partial class SettingsPage
 
     private readonly string[] _options =
     {
-        SettingsPageResources.OperationsAutomaticSaveListItem,
+        SettingsPageResources.GeneralListItem,
         SettingsPageResources.CourseRatesListItem,
         SettingsPageResources.BranchInfoListItem,
         SettingsPageResources.CompanyInfoListItem,
@@ -29,7 +29,7 @@ public partial class SettingsPage
         switch (index)
         {
             case 0:
-                await Shell.Current.GoToAsync($"{nameof(SettingsAutomaticOperationsSavePage)}");
+                await Shell.Current.GoToAsync($"{nameof(SettingsGeneralPage)}");
                 break;
             case 1:
                 await Shell.Current.GoToAsync($"{nameof(SettingsCoursesManagerPage)}");

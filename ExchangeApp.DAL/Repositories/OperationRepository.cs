@@ -3,6 +3,7 @@ using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace ExchangeApp.DAL.Repositories;
 
@@ -101,5 +102,27 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
             .LastOrDefaultAsync(o => o.Id < entity.Id);
 
         return result?.AverageCourseRate ?? 0;
+    }
+
+    /// <summary>
+    /// Gets only sell transactions and not deposit donations, between two dates and not canceled
+    /// </summary>
+    /// <param name="from">Only operations after</param>
+    /// <param name="until">Only operations before</param>
+    /// <returns>List of OperationEntityBase</returns>
+    public async Task<IEnumerable<OperationEntityBase>> GetOperationsForProfitCalculationAsync(DateTime from, DateTime until)
+    {
+        var list = await AppDbContext
+            .Set<OperationEntityBase>()
+            .Include(o => o.Currency)
+            .Where(o => !o.IsCanceled)
+            .Where(o => o is TransactionEntity 
+                        && ((TransactionEntity)o).TransactionType == TransactionType.Sell
+                        || o is DonationEntity 
+                        && ((DonationEntity)o).Type != DonationType.Deposit)
+            .Where(o => o.Time >= from && o.Time <= until.AddDays(1))
+            .ToListAsync();
+
+        return list;
     }
 }

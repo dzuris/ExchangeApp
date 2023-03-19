@@ -2,7 +2,9 @@
 using AutoMapper;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models;
+using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.Common.Enums;
+using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using ExchangeApp.DAL.UnitOfWork;
 
@@ -39,5 +41,22 @@ public class OperationFacade : IOperationFacade
     {
         var count = await _repository.GetTodayOperationsCount();
         return count;
+    }
+
+    public async Task<List<CurrencyProfitModel>> GetProfitListAsync(DateTime from, DateTime until)
+    {
+        var operations = (await _repository.GetOperationsForProfitCalculationAsync(from, until)).ToList();
+
+        var result = operations
+            .GroupBy(o => o.CurrencyCode)
+            .Select(g => new CurrencyProfitModel
+            {
+                Code = g.Key,
+                PhotoUrl = g.First().Currency?.PhotoUrl ?? string.Empty,
+                Profit = g.Sum(o => o.Quantity / o.CourseRate - o.Quantity / o.AverageCourseRate)
+            })
+            .ToList();
+
+        return result;
     }
 }

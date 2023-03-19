@@ -100,4 +100,28 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Profit calculate</value>
   </data>
+  <data name="DateFromLabel" xml:space="preserve">
+    <value>From:</value>
+  </data>
+  <data name="DateUntilLabel" xml:space="preserve">
+    <value>Until:</value>
+  </data>
+  <data name="CalculateButtonText" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="ListHeaderItemFlag" xml:space="preserve">
+    <value>Flag</value>
+  </data>
+  <data name="ListHeaderItemState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="ListHeaderItemCurrencyCode" xml:space="preserve">
+    <value>Currency code</value>
+  </data>
+  <data name="ListHeaderItemProfit" xml:space="preserve">
+    <value>Profit</value>
+  </data>
+  <data name="TotalProfitLabel" xml:space="preserve">
+    <value>Total profit:</value>
+  </data>
 </root>

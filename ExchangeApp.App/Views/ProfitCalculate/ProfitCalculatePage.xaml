@@ -4,14 +4,73 @@
              xmlns:views="clr-namespace:ExchangeApp.App.Views"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.ProfitCalculate"
+             xmlns:profitModel="clr-namespace:ExchangeApp.BL.Models.Currency;assembly=ExchangeApp.BL"
              x:Class="ExchangeApp.App.Views.ProfitCalculate.ProfitCalculatePage"
              Title="{x:Static texts:ProfitCalculatePageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:ProfitCalculateViewModel">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="Auto, *, Auto, Auto" RowSpacing="20">
+        <StackLayout>
+            <Frame Style="{StaticResource FormFrame}">
+                <HorizontalStackLayout Spacing="15">
+                    <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                        <Label Text="{x:Static texts:ProfitCalculatePageResources.DateFromLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                        <DatePicker Date="{Binding FromDate}"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                        <Label Text="{x:Static texts:ProfitCalculatePageResources.DateUntilLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                        <DatePicker Date="{Binding UntilDate}"/>
+                    </VerticalStackLayout>
+                    <Button 
+                        Text="{x:Static texts:ProfitCalculatePageResources.CalculateButtonText}" 
+                        HeightRequest="44" 
+                        VerticalOptions="End"
+                        Command="{Binding CalculateCommand}"/>
+                </HorizontalStackLayout>
+            </Frame>
+        </StackLayout>
+
+        <CollectionView Grid.Row="1" SelectionMode="None" ItemsSource="{Binding ProfitList}">
+            <CollectionView.Header>
+                <Frame Style="{StaticResource ListHeaderFrame}">
+                    <Grid Padding="10, 0" ColumnDefinitions="80, 150, *, Auto">
+                        <Label Grid.Column="0" Text="{x:Static texts:ProfitCalculatePageResources.ListHeaderItemFlag}" TextColor="White"/>
+                        <Label Grid.Column="1" Text="{x:Static texts:ProfitCalculatePageResources.ListHeaderItemCurrencyCode}" TextColor="White"/>
+                        <Label Grid.Column="2" Text="{x:Static texts:ProfitCalculatePageResources.ListHeaderItemState}" TextColor="White"/>
+                        <Label Grid.Column="3" Text="{x:Static texts:ProfitCalculatePageResources.ListHeaderItemProfit}" TextColor="White"/>
+                    </Grid>
+                </Frame>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="profitModel:CurrencyProfitModel">
+                    <Grid Padding="10">
+                        <StackLayout>
+                            <Frame Style="{StaticResource ListItemFrame}">
+                                <Grid ColumnDefinitions="80, 150, *, Auto">
+                                    <Image HorizontalOptions="Start" Source="{Binding PhotoUrl}" WidthRequest="40"/>
+                                    <Label Grid.Column="1" Text="{Binding Code}" VerticalOptions="Center"/>
+                                    <Label Grid.Column="2" Text="{Binding Code, Converter={StaticResource CurrencyCodeToStateConverter}}" LineBreakMode="CharacterWrap" VerticalOptions="Center"/>
+                                    <Label Grid.Column="3" Text="{Binding Profit, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <HorizontalStackLayout Grid.Row="2" Spacing="20" HorizontalOptions="End">
+            <Label Text="{x:Static texts:ProfitCalculatePageResources.TotalProfitLabel}"/>
+            <HorizontalStackLayout Spacing="5">
+                <Label Text="{Binding TotalProfit, StringFormat='{0:# ##0.##}'}" FontAttributes="Bold"/>
+                <Label Text="{Binding DomesticCurrencyCode}" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <ImageButton
+            Grid.Row="3"
+            Source="print.png"
+            Style="{StaticResource IconStyle}"
+            HorizontalOptions="End"/>
+    </Grid>
 </views:ContentPageBase>

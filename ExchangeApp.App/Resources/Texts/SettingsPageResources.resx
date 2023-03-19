@@ -100,8 +100,8 @@
   <data name="PageTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="OperationsAutomaticSaveListItem" xml:space="preserve">
-    <value>Automatic operations saving</value>
+  <data name="GeneralListItem" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="CourseRatesListItem" xml:space="preserve">
     <value>Course rates</value>

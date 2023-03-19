@@ -13,7 +13,7 @@
         RowDefinitions="*, Auto, Auto" RowSpacing="20">
         <CollectionView SelectionMode="None" ItemsSource="{Binding Currencies}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame Style="{StaticResource ListHeaderFrame}">
                     <Grid Padding="10, 0" ColumnDefinitions="100, *, *, *, *, *">
                         <Label Grid.Column="0" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleFlag}" TextColor="White"/>
                         <Label Grid.Column="1" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleState}" TextColor="White"/>
@@ -27,7 +27,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="currency:CurrencyListModel">
                     <Grid Padding="10">
-                        <Frame BorderColor="{StaticResource Gray400}">
+                        <Frame Style="{StaticResource ListItemFrame}">
                             <Grid ColumnDefinitions="100, *, *, *, *, *">
                                 <Image HorizontalOptions="Start" Source="{Binding PhotoUrl}" WidthRequest="40"/>
                                 <Label Grid.Column="1" Text="{Binding Code, Converter={StaticResource CurrencyCodeToStateConverter}}" LineBreakMode="CharacterWrap"/>

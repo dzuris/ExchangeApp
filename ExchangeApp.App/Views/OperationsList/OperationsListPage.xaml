@@ -75,7 +75,7 @@
         <StackLayout>
             <Frame BackgroundColor="{StaticResource Tertiary}">
                 <Grid ColumnDefinitions="Auto, Auto, Auto, Auto" ColumnSpacing="15">
-                    <VerticalStackLayout Grid.Column="0" Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
+                    <VerticalStackLayout Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
                         <Label Text="{x:Static texts:OperationsListPageResources.FilterMenuPickerLabel}" Style="{StaticResource InfoBoldStyle}"/>
                         <Picker
                             HorizontalOptions="Start"
@@ -84,7 +84,7 @@
                             ItemDisplayBinding="{Binding Converter={StaticResource OperationFilterOptionToStringConverter}}"
                             SelectedItem="{Binding SelectedOperationFilterOption}"/>
                     </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
+                    <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
                         <Label Text="{x:Static texts:OperationsListPageResources.FilterMenuOperationIdLabel}" Style="{StaticResource InfoBoldStyle}"/>
                         <Entry
                             HorizontalOptions="Start"
