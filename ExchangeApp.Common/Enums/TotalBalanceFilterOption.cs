@@ -1,7 +1,8 @@
 ﻿namespace ExchangeApp.Common.Enums;
 
-public enum TotalBalanceType
+public enum TotalBalanceFilterOption
 {
+    All,
     Daily,
     Monthly,
     Annual

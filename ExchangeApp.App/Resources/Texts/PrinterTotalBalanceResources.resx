@@ -97,73 +97,106 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Total balance</value>
+  <data name="DailyTotalBalance" xml:space="preserve">
+    <value>Daily total balance</value>
+  </data>
+  <data name="MonthlyTotalBalance" xml:space="preserve">
+    <value>Monthly total balance</value>
+  </data>
+  <data name="AnnualTotalBalance" xml:space="preserve">
+    <value>Annual total balance</value>
+  </data>
+  <data name="SectionHeaderCashRegisterStatusInTotalBalanceTime" xml:space="preserve">
+    <value>Cash register status while creating total balance</value>
+  </data>
+  <data name="ICO_headerText" xml:space="preserve">
+    <value>ID:</value>
+  </data>
+  <data name="ListHeaderItemCurrencyCode" xml:space="preserve">
+    <value>Currency code</value>
+  </data>
+  <data name="ListHeaderItemCourseRate" xml:space="preserve">
+    <value>Course rate</value>
+  </data>
+  <data name="ListHeaderItemQuantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="ListHeaderItemExchangeRateValue" xml:space="preserve">
+    <value>Exchange rate value</value>
+  </data>
+  <data name="ListHeaderItemAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="AmountTotalSummary" xml:space="preserve">
+    <value>Amount total:</value>
+  </data>
+  <data name="SectionHeaderOtherOperations" xml:space="preserve">
+    <value>Other operations</value>
+  </data>
+  <data name="ListHeaderItemOperationId" xml:space="preserve">
+    <value>Operation id</value>
+  </data>
+  <data name="ListHeaderItemDateTime" xml:space="preserve">
+    <value>Date and time</value>
   </data>
   <data name="ListHeaderItemType" xml:space="preserve">
     <value>Type</value>
   </data>
-  <data name="ListHeaderItemDate" xml:space="preserve">
-    <value>Date</value>
+  <data name="SectionHeaderBuyTransactions" xml:space="preserve">
+    <value>Transactions - Buy</value>
   </data>
-  <data name="CreateTotalBalanceDaily" xml:space="preserve">
-    <value>Create daily total balance</value>
+  <data name="SectionHeaderSellTransactions" xml:space="preserve">
+    <value>Transactions - Sell</value>
   </data>
-  <data name="CreateTotalBalanceMonthly" xml:space="preserve">
-    <value>Create monthly total balance</value>
+  <data name="ListeHeaderItemCustomerName" xml:space="preserve">
+    <value>Customer name</value>
   </data>
-  <data name="CreateTotalBalanceAnnual" xml:space="preserve">
-    <value>Create annual total balance</value>
+  <data name="ListHeaderItemIdentificationCardNumber" xml:space="preserve">
+    <value>Identification card number</value>
   </data>
-  <data name="AlertButtonOk" xml:space="preserve">
-    <value>OK</value>
+  <data name="ListHeaderItemSum" xml:space="preserve">
+    <value>Sum</value>
   </data>
-  <data name="AlertButtonYes" xml:space="preserve">
-    <value>Yes</value>
+  <data name="SectionHeaderPurchaseReceiptComplete" xml:space="preserve">
+    <value>Purchase receipt - complete</value>
   </data>
-  <data name="AlertButtonNo" xml:space="preserve">
-    <value>No</value>
+  <data name="SectionHeaderSalesReceiptComplete" xml:space="preserve">
+    <value>Sales receipt - complete</value>
   </data>
-  <data name="AlertConfirmationTitle" xml:space="preserve">
-    <value>Total balance create confirmation</value>
+  <data name="ListHeaderItemAmountInDomesticCurrency" xml:space="preserve">
+    <value>Amount in dom. currency</value>
   </data>
-  <data name="AlertConfirmationDailyMessage" xml:space="preserve">
-    <value>Do you really want to create daily total balance for day: {0}?</value>
+  <data name="ListHeaderItemAmountForeignCurrency" xml:space="preserve">
+    <value>Amount foreign currency</value>
   </data>
-  <data name="AlertConfirmationMonthlyMessage" xml:space="preserve">
-    <value>Do you really want to create monthly total balance for month: {0}?</value>
+  <data name="SectionHeaderCurrencyAmountsInDomesticCurrency" xml:space="preserve">
+    <value>Currency amounts in domestic currency</value>
   </data>
-  <data name="AlertConfirmationAnnualMessage" xml:space="preserve">
-    <value>Do you really want to create annual total balance for year: {0}?</value>
+  <data name="ListHeaderItemBuy" xml:space="preserve">
+    <value>Buy</value>
   </data>
-  <data name="AlertTitleErrorCreation" xml:space="preserve">
-    <value>Total balance creation failure</value>
+  <data name="ListHeaderItemSell" xml:space="preserve">
+    <value>Sell</value>
   </data>
-  <data name="AlertMessageErrorAlreadyExists" xml:space="preserve">
-    <value>Same total balance already exists.</value>
+  <data name="ListHeaderItemDeposit" xml:space="preserve">
+    <value>Deposit</value>
   </data>
-  <data name="AlertTitleCreationDone" xml:space="preserve">
-    <value>Total balance was successfully created.</value>
+  <data name="ListHeaderItemLevy" xml:space="preserve">
+    <value>Levy</value>
   </data>
-  <data name="AlertMessageCreationDone" xml:space="preserve">
-    <value>Total balance created</value>
+  <data name="ListHeaderItemWithdraw" xml:space="preserve">
+    <value>Withdraw</value>
   </data>
-  <data name="FilterButtonText" xml:space="preserve">
-    <value>Filter</value>
+  <data name="DifferenceLabel" xml:space="preserve">
+    <value>Difference:</value>
   </data>
-  <data name="FilterPickerTitle" xml:space="preserve">
-    <value>Total balance type:</value>
+  <data name="SectionHeaderCurrenciesMovement" xml:space="preserve">
+    <value>Currencies movement</value>
   </data>
-  <data name="DatePickerHint" xml:space="preserve">
-    <value>If the background of the date picker is red, its value is not taken into account during filtering.</value>
+  <data name="ListHeaderItemOperationType" xml:space="preserve">
+    <value>Operation type</value>
   </data>
-  <data name="FilterDateFromLabel" xml:space="preserve">
-    <value>From:</value>
-  </data>
-  <data name="FilterDateUntilLabel" xml:space="preserve">
-    <value>Until:</value>
-  </data>
-  <data name="AlertMessageErrorCanNotCreateMonthlyBalance" xml:space="preserve">
-    <value>To create a monthly total balance, it is necessary to have closed all operations using daily closings.</value>
+  <data name="ListHeaderItemBalance" xml:space="preserve">
+    <value>Balance</value>
   </data>
 </root>

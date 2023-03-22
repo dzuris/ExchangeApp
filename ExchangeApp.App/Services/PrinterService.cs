@@ -6,9 +6,10 @@ using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Company;
 using ExchangeApp.BL.Models.Donation;
+using ExchangeApp.BL.Models.TotalBalance;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
-using iText.IO.Font;
+using iText.Kernel.Events;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
@@ -26,7 +27,7 @@ public class PrinterService : IPrinterService
     private readonly ISettingsFacade _settingsFacade;
 
     private const string DomesticCurrencyCode = "EUR";
-    private static readonly PageSize PageSize = PageSize.A5;
+    private static readonly PageSize OperationDocumentPageSize = PageSize.A5;
     private const string BoldFontFile = "Sono-SemiBold.ttf";
     private const string CommonFontFile = "Sono-Regular.ttf";
     private const int HeaderFontSize = 12;
@@ -40,7 +41,7 @@ public class PrinterService : IPrinterService
 
     public async Task SavePdf(TransactionDetailModel model)
     {
-        var directory = await GetTransactionDirectory();
+        var directory = await GetTransactionDirectory(model.Time);
 
         if (directory is null)
         {
@@ -51,7 +52,7 @@ public class PrinterService : IPrinterService
 
         // Create a new PDF document with default properties
         var pdf = new PdfDocument(new PdfWriter(fileName, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)));
-        var document = new Document(pdf, PageSize);
+        var document = new Document(pdf, OperationDocumentPageSize);
 
         // Setting fonts
         var boldFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, BoldFontFile));
@@ -187,7 +188,7 @@ public class PrinterService : IPrinterService
 
     public async Task SavePdf(DonationDetailModel model)
     {
-        var directory = await GetDonationDirectory();
+        var directory = await GetDonationDirectory(model.Time);
 
         if (directory is null)
         {
@@ -198,7 +199,7 @@ public class PrinterService : IPrinterService
 
         // Create a new PDF document with default properties
         var pdf = new PdfDocument(new PdfWriter(fileName, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)));
-        var document = new Document(pdf, PageSize);
+        var document = new Document(pdf, OperationDocumentPageSize);
 
         // Setting fonts
         var boldFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, BoldFontFile));
@@ -302,21 +303,66 @@ public class PrinterService : IPrinterService
         pdf.Close();
     }
 
+    public async Task SavePdf(TotalBalanceModel model)
+    {
+        var directory = await GetTotalBalanceDirectory(model.Created, model.Type == TotalBalanceType.Annual);
+
+        if (directory is null)
+        {
+            throw new ArgumentNullException();
+        }
+        
+        // File name setting
+        var fileName = model.Type switch
+        {
+            TotalBalanceType.Daily => Path.Combine(directory, $"{model.Id}_denna.pdf"),
+            TotalBalanceType.Monthly => Path.Combine(directory, $"{model.Id}_mesacna.pdf"),
+            TotalBalanceType.Annual => Path.Combine(directory, $"{model.Id}_rocna.pdf"),
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
+        // Create a new PDF document with default properties
+        var pdf = new PdfDocument(new PdfWriter(fileName, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)));
+        var document = new Document(pdf, PageSize.A4);
+
+        // Setting fonts
+        var boldFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, BoldFontFile));
+        var commonFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, CommonFontFile));
+
+        // Gets company info
+        var company = await _settingsFacade.GetCompanyDataAsync();
+
+        if (company is null)
+        {
+            return;
+        }
+
+        // Adding header
+        var headerHandler = new TotalBalanceHeaderEventHandler(commonFont, company.TradeNameOfTheOwner, company.Ico, model.Created, model.Id);
+        pdf.AddEventHandler(PdfDocumentEvent.END_PAGE, headerHandler);
+
+        var rm = new ResourceManager(typeof(PrinterResources));
+        var rmTotalBalance = new ResourceManager(typeof(PrinterTotalBalanceResources));
+
+        document.Close();
+        pdf.Close();
+    }
+
     public Task Print()
     {
         throw new NotImplementedException();
     }
 
-    private async Task<string?> GetTransactionDirectory()
+    private async Task<string?> GetTransactionDirectory(DateTime created)
     {
         var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
 
         if (saveFolderPath is null) return null;
 
-        var year = DateTime.Now.Year.ToString();
-        var month = DateTime.Now.Month.ToString();
+        var year = created.Year.ToString();
+        var month = created.Month.ToString();
 
-        var directory = Path.Combine(saveFolderPath, year, month, "Transactions");
+        var directory = Path.Combine(saveFolderPath, year, month, "Transakcie");
 
         if (!Directory.Exists(directory))
         {
@@ -326,16 +372,37 @@ public class PrinterService : IPrinterService
         return directory;
     }
 
-    private async Task<string?> GetDonationDirectory()
+    private async Task<string?> GetDonationDirectory(DateTime created)
     {
         var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
 
         if (saveFolderPath is null) return null;
 
-        var year = DateTime.Now.Year.ToString();
-        var month = DateTime.Now.Month.ToString();
+        var year = created.Year.ToString();
+        var month = created.Month.ToString();
 
-        var directory = Path.Combine(saveFolderPath, year, month, "Donations");
+        var directory = Path.Combine(saveFolderPath, year, month, "Dotácie");
+
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        return directory;
+    }
+
+    private async Task<string?> GetTotalBalanceDirectory(DateTime created, bool isAnnualTotalBalance)
+    {
+        var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
+
+        if (saveFolderPath is null) return null;
+
+        var year = created.Year.ToString();
+        var month = created.Month.ToString();
+
+        var directory = isAnnualTotalBalance 
+            ? Path.Combine(saveFolderPath, year) 
+            : Path.Combine(saveFolderPath, year, month, "Uzávierky");
 
         if (!Directory.Exists(directory))
         {

@@ -117,73 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Uzávierky</value>
+  <data name="Annual" xml:space="preserve">
+    <value>Ročná</value>
   </data>
-  <data name="CreateTotalBalanceAnnual" xml:space="preserve">
-    <value>Vytvoriť ročnú uzávierku</value>
+  <data name="Daily" xml:space="preserve">
+    <value>Denná</value>
   </data>
-  <data name="CreateTotalBalanceDaily" xml:space="preserve">
-    <value>Vytvoriť dennú uzávierku</value>
-  </data>
-  <data name="CreateTotalBalanceMonthly" xml:space="preserve">
-    <value>Vytvoriť mesačnú uzávierku</value>
-  </data>
-  <data name="ListHeaderItemDate" xml:space="preserve">
-    <value>Dátum</value>
-  </data>
-  <data name="ListHeaderItemType" xml:space="preserve">
-    <value>Typ</value>
-  </data>
-  <data name="AlertButtonOk" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="AlertButtonYes" xml:space="preserve">
-    <value>Áno</value>
-  </data>
-  <data name="AlertButtonNo" xml:space="preserve">
-    <value>Nie</value>
-  </data>
-  <data name="AlertConfirmationTitle" xml:space="preserve">
-    <value>Potvrdenie vytvorenia uzávierky</value>
-  </data>
-  <data name="AlertConfirmationDailyMessage" xml:space="preserve">
-    <value>Naozaj chcete vytvoriť dennú uzávierku za deň: {0}?</value>
-  </data>
-  <data name="AlertConfirmationAnnualMessage" xml:space="preserve">
-    <value>Naozaj chcete vytvoriť ročnú uzávierku za rok: {0}?</value>
-  </data>
-  <data name="AlertConfirmationMonthlyMessage" xml:space="preserve">
-    <value>Naozaj chcete vytvoriť mesačnú uzávierku za mesiac: {0}?</value>
-  </data>
-  <data name="AlertTitleErrorCreation" xml:space="preserve">
-    <value>Zlyhanie vytvorenia uzávierky</value>
-  </data>
-  <data name="AlertMessageErrorAlreadyExists" xml:space="preserve">
-    <value>Rovnaká uzávierka už existuje.</value>
-  </data>
-  <data name="AlertMessageCreationDone" xml:space="preserve">
-    <value>Vytvorenie uzávierky</value>
-  </data>
-  <data name="AlertTitleCreationDone" xml:space="preserve">
-    <value>Uzávierka bola úspešne vytvorená.</value>
-  </data>
-  <data name="FilterButtonText" xml:space="preserve">
-    <value>Filtrovať</value>
-  </data>
-  <data name="FilterPickerTitle" xml:space="preserve">
-    <value>Typ uzávierky:</value>
-  </data>
-  <data name="DatePickerHint" xml:space="preserve">
-    <value>Ak je pozadie date pickeru červené, jeho hodnota sa pri filtrácií nezohľadňuje.</value>
-  </data>
-  <data name="FilterDateFromLabel" xml:space="preserve">
-    <value>Od:</value>
-  </data>
-  <data name="FilterDateUntilLabel" xml:space="preserve">
-    <value>Do:</value>
-  </data>
-  <data name="AlertMessageErrorCanNotCreateMonthlyBalance" xml:space="preserve">
-    <value>Pre vytvorenie mesačnej uzávierky je nutné mať uzavreté všetky operácie pomocou denných uzávierok.</value>
+  <data name="Monthly" xml:space="preserve">
+    <value>Mesačná</value>
   </data>
 </root>

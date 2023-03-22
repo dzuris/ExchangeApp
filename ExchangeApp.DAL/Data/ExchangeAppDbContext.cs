@@ -44,9 +44,15 @@ public class ExchangeAppDbContext : DbContext
             .WithOne(i => i.Customer)
             .OnDelete(DeleteBehavior.Restrict);
 
+        // Auto-generated Id for operations
         modelBuilder.Entity<OperationEntityBase>()
             .Property(o => o.Id)
             .ValueGeneratedOnAdd();
+
+        // Unique total balance rows
+        modelBuilder.Entity<TotalBalanceEntity>()
+            .HasIndex(e => new { e.Type, e.Created })
+            .IsUnique();
 
         // Using table-per-type configuration see https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration
         modelBuilder.Entity<CustomerEntity>().UseTptMappingStrategy();

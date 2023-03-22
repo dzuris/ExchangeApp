@@ -24,6 +24,7 @@
     <Folder Include="Facades\Interfaces\" />
     <Folder Include="Installers\" />
     <Folder Include="Models\Company\" />
+    <Folder Include="Models\TotalBalance\" />
   </ItemGroup>
 
   <ItemGroup>

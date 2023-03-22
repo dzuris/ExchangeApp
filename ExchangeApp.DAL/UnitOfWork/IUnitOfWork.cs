@@ -9,6 +9,7 @@ public interface IUnitOfWork : IAsyncDisposable
     ITransactionRepository TransactionRepository { get; }
     ICustomerRepository CustomerRepository { get; }
     IOperationRepository OperationRepository { get; }
+    ITotalBalanceRepository TotalBalanceRepository { get; }
 
     Task CommitAsync();
 }

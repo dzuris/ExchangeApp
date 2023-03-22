@@ -17,7 +17,7 @@
         <!-- Donation template -->
         <DataTemplate x:Key="DonationTemplate" x:DataType="donation:DonationListModel">
             <Grid Padding="10">
-                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="#d6f8ff">
+                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="{StaticResource ListItemBlue}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type operationPage:OperationsListPage}}, Path=BindingContext.GoToDonationDetailCommand}"
                                               CommandParameter="{Binding Id}"/>

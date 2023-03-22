@@ -183,6 +183,16 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>EnumOperationFilterOptionsResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\EnumTotalBalanceFilterOption.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumTotalBalanceFilterOption.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\EnumTotalBalanceResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumTotalBalanceResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\EnumTransactionTypeResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -202,6 +212,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>PrinterResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\PrinterTotalBalanceResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PrinterTotalBalanceResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\ProfitCalculatePageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -338,6 +353,14 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumOperationFilterOptionsResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumTotalBalanceFilterOption.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumTotalBalanceFilterOption.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumTotalBalanceResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumTotalBalanceResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\EnumTransactionTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumTransactionTypeResources.Designer.cs</LastGenOutput>
@@ -353,6 +376,10 @@
 	  <EmbeddedResource Update="Resources\Texts\PrinterResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PrinterResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\PrinterTotalBalanceResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PrinterTotalBalanceResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\ProfitCalculatePageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

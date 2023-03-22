@@ -97,73 +97,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Total balance</value>
+  <data name="Daily" xml:space="preserve">
+    <value>Daily</value>
   </data>
-  <data name="ListHeaderItemType" xml:space="preserve">
-    <value>Type</value>
+  <data name="Monthly" xml:space="preserve">
+    <value>Monthly</value>
   </data>
-  <data name="ListHeaderItemDate" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="CreateTotalBalanceDaily" xml:space="preserve">
-    <value>Create daily total balance</value>
-  </data>
-  <data name="CreateTotalBalanceMonthly" xml:space="preserve">
-    <value>Create monthly total balance</value>
-  </data>
-  <data name="CreateTotalBalanceAnnual" xml:space="preserve">
-    <value>Create annual total balance</value>
-  </data>
-  <data name="AlertButtonOk" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="AlertButtonYes" xml:space="preserve">
-    <value>Yes</value>
-  </data>
-  <data name="AlertButtonNo" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="AlertConfirmationTitle" xml:space="preserve">
-    <value>Total balance create confirmation</value>
-  </data>
-  <data name="AlertConfirmationDailyMessage" xml:space="preserve">
-    <value>Do you really want to create daily total balance for day: {0}?</value>
-  </data>
-  <data name="AlertConfirmationMonthlyMessage" xml:space="preserve">
-    <value>Do you really want to create monthly total balance for month: {0}?</value>
-  </data>
-  <data name="AlertConfirmationAnnualMessage" xml:space="preserve">
-    <value>Do you really want to create annual total balance for year: {0}?</value>
-  </data>
-  <data name="AlertTitleErrorCreation" xml:space="preserve">
-    <value>Total balance creation failure</value>
-  </data>
-  <data name="AlertMessageErrorAlreadyExists" xml:space="preserve">
-    <value>Same total balance already exists.</value>
-  </data>
-  <data name="AlertTitleCreationDone" xml:space="preserve">
-    <value>Total balance was successfully created.</value>
-  </data>
-  <data name="AlertMessageCreationDone" xml:space="preserve">
-    <value>Total balance created</value>
-  </data>
-  <data name="FilterButtonText" xml:space="preserve">
-    <value>Filter</value>
-  </data>
-  <data name="FilterPickerTitle" xml:space="preserve">
-    <value>Total balance type:</value>
-  </data>
-  <data name="DatePickerHint" xml:space="preserve">
-    <value>If the background of the date picker is red, its value is not taken into account during filtering.</value>
-  </data>
-  <data name="FilterDateFromLabel" xml:space="preserve">
-    <value>From:</value>
-  </data>
-  <data name="FilterDateUntilLabel" xml:space="preserve">
-    <value>Until:</value>
-  </data>
-  <data name="AlertMessageErrorCanNotCreateMonthlyBalance" xml:space="preserve">
-    <value>To create a monthly total balance, it is necessary to have closed all operations using daily closings.</value>
+  <data name="Annual" xml:space="preserve">
+    <value>Annual</value>
   </data>
 </root>

@@ -117,73 +117,106 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Uzávierky</value>
+  <data name="SectionHeaderCashRegisterStatusInTotalBalanceTime" xml:space="preserve">
+    <value>Stav pokladnice v čase uzávierky</value>
   </data>
-  <data name="CreateTotalBalanceAnnual" xml:space="preserve">
-    <value>Vytvoriť ročnú uzávierku</value>
+  <data name="ICO_headerText" xml:space="preserve">
+    <value>IČO:</value>
   </data>
-  <data name="CreateTotalBalanceDaily" xml:space="preserve">
-    <value>Vytvoriť dennú uzávierku</value>
+  <data name="AnnualTotalBalance" xml:space="preserve">
+    <value>Ročná uzávierka</value>
   </data>
-  <data name="CreateTotalBalanceMonthly" xml:space="preserve">
-    <value>Vytvoriť mesačnú uzávierku</value>
+  <data name="DailyTotalBalance" xml:space="preserve">
+    <value>Denná uzávierka</value>
   </data>
-  <data name="ListHeaderItemDate" xml:space="preserve">
-    <value>Dátum</value>
+  <data name="MonthlyTotalBalance" xml:space="preserve">
+    <value>Mesačná uzávierka</value>
+  </data>
+  <data name="ListHeaderItemCurrencyCode" xml:space="preserve">
+    <value>Kód meny</value>
+  </data>
+  <data name="ListHeaderItemCourseRate" xml:space="preserve">
+    <value>Kurz</value>
+  </data>
+  <data name="ListHeaderItemExchangeRateValue" xml:space="preserve">
+    <value>Kurzová hodnota</value>
+  </data>
+  <data name="ListHeaderItemQuantity" xml:space="preserve">
+    <value>Množstvo</value>
+  </data>
+  <data name="ListHeaderItemAmount" xml:space="preserve">
+    <value>Suma</value>
+  </data>
+  <data name="AmountTotalSummary" xml:space="preserve">
+    <value>Suma celkom:</value>
+  </data>
+  <data name="SectionHeaderOtherOperations" xml:space="preserve">
+    <value>Ostatné operácie</value>
+  </data>
+  <data name="ListHeaderItemOperationId" xml:space="preserve">
+    <value>Číslo operácie</value>
+  </data>
+  <data name="ListHeaderItemDateTime" xml:space="preserve">
+    <value>Dátum a čas</value>
   </data>
   <data name="ListHeaderItemType" xml:space="preserve">
     <value>Typ</value>
   </data>
-  <data name="AlertButtonOk" xml:space="preserve">
-    <value>OK</value>
+  <data name="SectionHeaderBuyTransactions" xml:space="preserve">
+    <value>Transakcie - Nákup</value>
   </data>
-  <data name="AlertButtonYes" xml:space="preserve">
-    <value>Áno</value>
+  <data name="SectionHeaderSellTransactions" xml:space="preserve">
+    <value>Transakcie - Predaj</value>
   </data>
-  <data name="AlertButtonNo" xml:space="preserve">
-    <value>Nie</value>
+  <data name="ListeHeaderItemCustomerName" xml:space="preserve">
+    <value>Meno zákazníka</value>
   </data>
-  <data name="AlertConfirmationTitle" xml:space="preserve">
-    <value>Potvrdenie vytvorenia uzávierky</value>
+  <data name="ListHeaderItemIdentificationCardNumber" xml:space="preserve">
+    <value>Číslo dokladu</value>
   </data>
-  <data name="AlertConfirmationDailyMessage" xml:space="preserve">
-    <value>Naozaj chcete vytvoriť dennú uzávierku za deň: {0}?</value>
+  <data name="ListHeaderItemSum" xml:space="preserve">
+    <value>Celkom</value>
   </data>
-  <data name="AlertConfirmationAnnualMessage" xml:space="preserve">
-    <value>Naozaj chcete vytvoriť ročnú uzávierku za rok: {0}?</value>
+  <data name="SectionHeaderPurchaseReceiptComplete" xml:space="preserve">
+    <value>Zberný doklad nákupy - úplny</value>
   </data>
-  <data name="AlertConfirmationMonthlyMessage" xml:space="preserve">
-    <value>Naozaj chcete vytvoriť mesačnú uzávierku za mesiac: {0}?</value>
+  <data name="SectionHeaderSalesReceiptComplete" xml:space="preserve">
+    <value>Zberný doklad predaje - úplny</value>
   </data>
-  <data name="AlertTitleErrorCreation" xml:space="preserve">
-    <value>Zlyhanie vytvorenia uzávierky</value>
+  <data name="ListHeaderItemAmountInDomesticCurrency" xml:space="preserve">
+    <value>Suma v dom. mene</value>
   </data>
-  <data name="AlertMessageErrorAlreadyExists" xml:space="preserve">
-    <value>Rovnaká uzávierka už existuje.</value>
+  <data name="ListHeaderItemAmountForeignCurrency" xml:space="preserve">
+    <value>Suma valuty</value>
   </data>
-  <data name="AlertMessageCreationDone" xml:space="preserve">
-    <value>Vytvorenie uzávierky</value>
+  <data name="SectionHeaderCurrencyAmountsInDomesticCurrency" xml:space="preserve">
+    <value>Sumy valút v domácej mene</value>
   </data>
-  <data name="AlertTitleCreationDone" xml:space="preserve">
-    <value>Uzávierka bola úspešne vytvorená.</value>
+  <data name="ListHeaderItemBuy" xml:space="preserve">
+    <value>Nákup</value>
   </data>
-  <data name="FilterButtonText" xml:space="preserve">
-    <value>Filtrovať</value>
+  <data name="ListHeaderItemDeposit" xml:space="preserve">
+    <value>Vklad</value>
   </data>
-  <data name="FilterPickerTitle" xml:space="preserve">
-    <value>Typ uzávierky:</value>
+  <data name="ListHeaderItemLevy" xml:space="preserve">
+    <value>Odvod</value>
   </data>
-  <data name="DatePickerHint" xml:space="preserve">
-    <value>Ak je pozadie date pickeru červené, jeho hodnota sa pri filtrácií nezohľadňuje.</value>
+  <data name="ListHeaderItemSell" xml:space="preserve">
+    <value>Predaj</value>
   </data>
-  <data name="FilterDateFromLabel" xml:space="preserve">
-    <value>Od:</value>
+  <data name="ListHeaderItemWithdraw" xml:space="preserve">
+    <value>Výber</value>
   </data>
-  <data name="FilterDateUntilLabel" xml:space="preserve">
-    <value>Do:</value>
+  <data name="DifferenceLabel" xml:space="preserve">
+    <value>Rozdiel:</value>
   </data>
-  <data name="AlertMessageErrorCanNotCreateMonthlyBalance" xml:space="preserve">
-    <value>Pre vytvorenie mesačnej uzávierky je nutné mať uzavreté všetky operácie pomocou denných uzávierok.</value>
+  <data name="SectionHeaderCurrenciesMovement" xml:space="preserve">
+    <value>Pohyb valút</value>
+  </data>
+  <data name="ListHeaderItemOperationType" xml:space="preserve">
+    <value>Typ operácie</value>
+  </data>
+  <data name="ListHeaderItemBalance" xml:space="preserve">
+    <value>Zostatok</value>
   </data>
 </root>

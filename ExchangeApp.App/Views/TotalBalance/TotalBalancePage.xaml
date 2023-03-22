@@ -4,11 +4,133 @@
              xmlns:views="clr-namespace:ExchangeApp.App.Views"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.TotalBalance"
+             xmlns:totalBalance="clr-namespace:ExchangeApp.BL.Models.TotalBalance;assembly=ExchangeApp.BL"
+             xmlns:converters="clr-namespace:ExchangeApp.App.Converters"
              x:Class="ExchangeApp.App.Views.TotalBalance.TotalBalancePage"
              Title="{x:Static texts:TotalBalancePageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:TotalBalanceViewModel">
-    <Grid ColumnDefinitions="*, *">
+    <Grid ColumnDefinitions="*, 2*">
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="25">
+            <Button Text="{x:Static texts:TotalBalancePageResources.CreateTotalBalanceDaily}" Command="{Binding CreateDailyTotalBalanceCommand}"/>
+            <Button Text="{x:Static texts:TotalBalancePageResources.CreateTotalBalanceMonthly}" Command="{Binding CreateMonthlyTotalBalanceCommand}"/>
+            <Button Text="{x:Static texts:TotalBalancePageResources.CreateTotalBalanceAnnual}" Command="{Binding CreateAnnualTotalBalanceCommand}"/>
+        </VerticalStackLayout>
 
+        <Grid Grid.Column="1" RowDefinitions="Auto, *" RowSpacing="15">
+            <Frame Style="{StaticResource FormFrame}">
+                <Grid RowDefinitions="Auto, Auto" RowSpacing="10" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" ColumnSpacing="15">
+                    <Picker 
+                        Grid.Column="0" 
+                        VerticalOptions="End"
+                        WidthRequest="200"
+                        ItemsSource="{Binding FilterOptions}"
+                        ItemDisplayBinding="{Binding Converter={StaticResource TotalBalanceFilterOptionToStringConverter}}"
+                        SelectedItem="{Binding SelectedTotalBalanceFilterOption}"/>
+                    <VerticalStackLayout Grid.Column="1" Spacing="15">
+                        <Label Text="{x:Static texts:TotalBalancePageResources.FilterDateFromLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                        <DatePicker 
+                            WidthRequest="150"
+                            VerticalOptions="End" 
+                            Date="{Binding FilterDateFrom}">
+                            <DatePicker.BackgroundColor>
+                                <Binding Path="FilterDateFrom">
+                                    <Binding.Converter>
+                                        <converters:NullToColorConverter NotNullColor="{StaticResource White}"
+                                                                         NullColor="{StaticResource NullElementBackground}"/>
+                                    </Binding.Converter>
+                                </Binding>
+                            </DatePicker.BackgroundColor>
+                        </DatePicker>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="2" Spacing="15">
+                        <Label Text="{x:Static texts:TotalBalancePageResources.FilterDateUntilLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                        <DatePicker 
+                            WidthRequest="150"
+                            VerticalOptions="End" 
+                            Date="{Binding FilterDateUntil}">
+                            <DatePicker.BackgroundColor>
+                                <Binding Path="FilterDateUntil">
+                                    <Binding.Converter>
+                                        <converters:NullToColorConverter NotNullColor="{StaticResource White}"
+                                                                         NullColor="{StaticResource NullElementBackground}"/>
+                                    </Binding.Converter>
+                                </Binding>
+                            </DatePicker.BackgroundColor>
+                        </DatePicker>
+                    </VerticalStackLayout>
+                    <Button 
+                        Grid.Column="3" 
+                        HeightRequest="44" 
+                        VerticalOptions="End" 
+                        Text="{x:Static texts:TotalBalancePageResources.FilterButtonText}" 
+                        Command="{Binding FilterCommand}"/>
+                    <ImageButton
+                        Grid.Column="4"
+                        Source="refresh.png"
+                        Style="{StaticResource IconStyle}"
+                        Command="{Binding RefreshCommand}"/>
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.ColumnSpan="5"
+                        Text="{x:Static texts:TotalBalancePageResources.DatePickerHint}"
+                        Style="{StaticResource InfoLabelLight}"/>
+                </Grid>
+            </Frame>
+            <CollectionView Grid.Row="1" SelectionMode="None" HorizontalOptions="Center" ItemsSource="{Binding TotalBalanceList}">
+                <CollectionView.Header>
+                    <Frame Style="{StaticResource ListHeaderFrame}">
+                        <Grid Padding="10, 0" ColumnDefinitions="120, *">
+                            <Label Grid.Column="0" Text="{x:Static texts:TotalBalancePageResources.ListHeaderItemType}" TextColor="White"/>
+                            <Label Grid.Column="1" Text="{x:Static texts:TotalBalancePageResources.ListHeaderItemDate}" TextColor="White"/>
+                        </Grid>
+                    </Frame>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="totalBalance:TotalBalanceModel">
+                        <Grid Padding="10">
+                            <StackLayout>
+                                <Frame Style="{StaticResource ListItemFrame}">
+                                    <Frame.BackgroundColor>
+                                        <Binding Path="Type">
+                                            <Binding.Converter>
+                                                <converters:TotalBalanceToColorConverter DailyColor="{StaticResource ListItemWhite}"
+                                                                                         MonthlyColor="{StaticResource ListItemBlue}"
+                                                                                         AnnualColor="{StaticResource ListItemYellow}"/>
+                                            </Binding.Converter>
+                                        </Binding>
+                                    </Frame.BackgroundColor>
+                                    <Grid ColumnDefinitions="120, *, Auto, Auto" ColumnSpacing="10">
+                                        <Label Grid.Column="0" Text="{Binding Type, Converter={StaticResource TotalBalanceToStringConverter}}" VerticalOptions="Center"/>
+                                        <Label Grid.Column="1" Text="{Binding ., Converter={StaticResource TotalBalanceToDateConverter}}" VerticalOptions="Center"/>
+                                        <ImageButton
+                                            Grid.Column="2"
+                                            Source="download.png"
+                                            Style="{StaticResource IconStyle}"
+                                            MinimumWidthRequest="40"
+                                            MinimumHeightRequest="40"
+                                            WidthRequest="40"
+                                            HeightRequest="40"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TotalBalanceViewModel}}, Path=DownloadTotalBalanceCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                        <ImageButton
+                                            Grid.Column="3"
+                                            Source="print.png"
+                                            Style="{StaticResource IconStyle}"
+                                            MinimumWidthRequest="40"
+                                            MinimumHeightRequest="40"
+                                            WidthRequest="40"
+                                            HeightRequest="40"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TotalBalanceViewModel}}, Path=PrintTotalBalanceCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </Grid>
 </views:ContentPageBase>

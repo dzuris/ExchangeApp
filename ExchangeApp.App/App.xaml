@@ -31,6 +31,11 @@
             <converters:CustomerDetailModelToStringConverter x:Key="CustomerDetailModelToStringConverter"/>
             <converters:DonationSaveFormatToStringConverter x:Key="DonationSaveFormatToStringConverter"/>
             <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+            <converters:TotalBalanceToStringConverter x:Key="TotalBalanceToStringConverter"/>
+            <converters:TotalBalanceToColorConverter x:Key="TotalBalanceToColorConverter"/>
+            <converters:TotalBalanceToDateConverter x:Key="TotalBalanceToDateConverter"/>
+            <converters:TotalBalanceFilterOptionToStringConverter x:Key="TotalBalanceFilterOptionToStringConverter"/>
+            <converters:NullToColorConverter x:Key="NullToColorConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
