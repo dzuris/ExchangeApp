@@ -9,11 +9,14 @@ namespace ExchangeApp.App.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
+    public string DomesticCurrencySymbol => "€";
     private readonly IOperationFacade _operationFacade;
+    private readonly ICurrencyFacade _currencyFacade;
 
-    public MainViewModel(IOperationFacade operationFacade)
+    public MainViewModel(IOperationFacade operationFacade, ICurrencyFacade currencyFacade)
     {
         _operationFacade = operationFacade;
+        _currencyFacade = currencyFacade;
     }
 
     protected override async Task LoadDataAsync()
@@ -21,10 +24,17 @@ public partial class MainViewModel : ViewModelBase
         await base.LoadDataAsync();
 
         TodayOperationsCount = await _operationFacade.GetTodayOperationsCount();
+        var domesticCurrency = await _currencyFacade.GetById("EUR");
+
+        if (domesticCurrency is not null)
+        {
+            DomesticCurrencyQuantity = domesticCurrency.Quantity;
+        }
     }
 
-    [ObservableProperty]
-    private int _todayOperationsCount;
+    [ObservableProperty] private int _todayOperationsCount;
+
+    [ObservableProperty] private decimal _domesticCurrencyQuantity;
 
     [RelayCommand]
     private async Task GoToTransactionCreatePageAsync()

@@ -55,7 +55,7 @@
             </Frame>
         </HorizontalStackLayout>
 
-        <Grid Grid.Row="2" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+        <Grid Grid.Row="2" ColumnDefinitions="*, *, *" ColumnSpacing="10">
             <HorizontalStackLayout
                 Grid.Column="1"
                 Spacing="10"
@@ -65,6 +65,16 @@
                     Text="{x:Static texts:MainPageResources.OperationsInDayLabel}"/>
                 <Label
                     Text="{Binding TodayOperationsCount}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout
+                Grid.Column="2"
+                Spacing="5"
+                HorizontalOptions="End"
+                VerticalOptions="Center">
+                <Label
+                    Text="{Binding DomesticCurrencyQuantity}"/>
+                <Label
+                    Text="{Binding DomesticCurrencySymbol}" />
             </HorizontalStackLayout>
         </Grid>
     </Grid>
