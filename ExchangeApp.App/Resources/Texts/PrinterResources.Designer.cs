@@ -115,6 +115,51 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to buy.
+        /// </summary>
+        public static string FolderNameBuy {
+            get {
+                return ResourceManager.GetString("FolderNameBuy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to deposit.
+        /// </summary>
+        public static string FolderNameDeposit {
+            get {
+                return ResourceManager.GetString("FolderNameDeposit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to levy.
+        /// </summary>
+        public static string FolderNameLevy {
+            get {
+                return ResourceManager.GetString("FolderNameLevy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sell.
+        /// </summary>
+        public static string FolderNameSell {
+            get {
+                return ResourceManager.GetString("FolderNameSell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to withdraw.
+        /// </summary>
+        public static string FolderNameWithdraw {
+            get {
+                return ResourceManager.GetString("FolderNameWithdraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thanks for visiting!.
         /// </summary>
         public static string FooterNiceSentence {

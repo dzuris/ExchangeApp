@@ -13,6 +13,16 @@ public class TotalBalanceRepository : RepositoryBase<TotalBalanceEntity, Guid>, 
     {
     }
 
+    public override async Task<int> InsertAsync(TotalBalanceEntity entity)
+    {
+        await AppDbContext
+            .Set<TotalBalanceEntity>()
+            .AddAsync(entity);
+        await AppDbContext.SaveChangesAsync();
+
+        return entity.Id;
+    }
+
     public async Task<DateTime> GetLastTotalBalanceDate(TotalBalanceType type)
     {
         var result = await AppDbContext

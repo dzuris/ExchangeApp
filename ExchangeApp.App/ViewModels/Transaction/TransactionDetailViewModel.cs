@@ -156,6 +156,6 @@ public partial class TransactionDetailViewModel : ViewModelBase
     [RelayCommand]
     private async Task PrintAsync()
     {
-        // TODO
+        // TODO Create print for Transaction
     }
 }

@@ -11,10 +11,12 @@ public class TotalBalanceFooterEventHandler : IEventHandler
 {
     private const int SideMargins = 20;
     private readonly PdfFont _font;
+    private readonly int _fontSize;
 
-    public TotalBalanceFooterEventHandler(PdfFont font)
+    public TotalBalanceFooterEventHandler(PdfFont font, int fontSize)
     {
         _font = font;
+        _fontSize = fontSize;
     }
 
     public void HandleEvent(Event @event)
@@ -33,7 +35,7 @@ public class TotalBalanceFooterEventHandler : IEventHandler
 
         new Canvas(pdfCanvas, pageSize, true)
             .SetFont(_font)
-            .SetFontSize(8)
+            .SetFontSize(_fontSize)
             .ShowTextAligned(new Paragraph($"{pageNumber}"), x, y, TextAlignment.RIGHT);
 
         var lineY = pageSize.GetBottom() + 20;

@@ -135,6 +135,6 @@ public partial class DonationDetailViewModel : ViewModelBase
     [RelayCommand]
     private async Task PrintAsync()
     {
-        // TODO
+        // TODO Printing donation
     }
 }

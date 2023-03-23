@@ -48,7 +48,12 @@ public class PrinterService : IPrinterService
             throw new ArgumentNullException();
         }
 
-        var fileName = Path.Combine(directory, model.IsCanceled ? $"{model.Id}_storno.pdf" : $"{model.Id}.pdf");
+        var rm = new ResourceManager(typeof(PrinterResources));
+
+        var transactionTypeString = model.TransactionType == TransactionType.Buy
+            ? rm.GetString("FolderNameBuy")
+            : rm.GetString("FolderNameSell");
+        var fileName = Path.Combine(directory, model.IsCanceled ? $"{model.Id}_{transactionTypeString}_storno.pdf" : $"{model.Id}_{transactionTypeString}.pdf");
 
         // Create a new PDF document with default properties
         var pdf = new PdfDocument(new PdfWriter(fileName, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)));
@@ -61,8 +66,6 @@ public class PrinterService : IPrinterService
         // Gets company and branch information
         var company = await _settingsFacade.GetCompanyDataAsync();
         var branch = await _settingsFacade.GetBranchDataAsync();
-
-        var rm = new ResourceManager(typeof(PrinterResources));
 
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         #region Header section
@@ -339,8 +342,10 @@ public class PrinterService : IPrinterService
         }
 
         // Adding header
-        var headerHandler = new TotalBalanceHeaderEventHandler(commonFont, company.TradeNameOfTheOwner, company.Ico, model.Created, model.Id);
-        pdf.AddEventHandler(PdfDocumentEvent.END_PAGE, headerHandler);
+        var headerHandler = new TotalBalanceHeaderEventHandler(commonFont, SmallFontSize, company.TradeNameOfTheOwner, company.Ico, model.Created, model.Id);
+        var footerhandler = new TotalBalanceFooterEventHandler(commonFont, SmallFontSize);
+        pdf.AddEventHandler(PdfDocumentEvent.START_PAGE, headerHandler);
+        pdf.AddEventHandler(PdfDocumentEvent.END_PAGE, footerhandler);
 
         var rm = new ResourceManager(typeof(PrinterResources));
 

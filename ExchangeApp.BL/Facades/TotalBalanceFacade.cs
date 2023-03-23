@@ -36,12 +36,14 @@ public class TotalBalanceFacade : ITotalBalanceFacade
         return _mapper.Map<ObservableCollection<TotalBalanceModel>>(entities);
     }
 
-    public async Task InsertAsync(TotalBalanceModel model)
+    public async Task<int> InsertAsync(TotalBalanceModel model)
     {
+        model.LastTotalBalance = await _repository.GetLastTotalBalanceDate(model.Type);
         var entity = _mapper.Map<TotalBalanceEntity>(model);
-        entity.LastTotalBalance = await _repository.GetLastTotalBalanceDate(entity.Type);
-        await _repository.InsertAsync(entity);
+        var id = await _repository.InsertAsync(entity);
         await _unitOfWork.CommitAsync();
+
+        return id;
     }
 
     /// <summary>

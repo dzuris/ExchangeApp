@@ -43,6 +43,12 @@ public class SettingsFacade : ISettingsFacade
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         var result = data?.FolderPath;
+        
+        if (!Directory.Exists(result))
+        {
+            return null;
+        }
+
         return string.IsNullOrWhiteSpace(result) ? null : result;
     }
 

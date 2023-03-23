@@ -13,14 +13,16 @@ public class TotalBalanceHeaderEventHandler : IEventHandler
 {
     private const int SideMargins = 20;
     private readonly PdfFont _font;
+    private readonly int _fontSize;
     private readonly string _companyName;
     private readonly string _ico;
     private readonly DateTime _created;
     private readonly int _totalBalanceId;
 
-    public TotalBalanceHeaderEventHandler(PdfFont font, string companyName, string ico, DateTime created, int totalBalanceId)
+    public TotalBalanceHeaderEventHandler(PdfFont font, int fontSize, string companyName, string ico, DateTime created, int totalBalanceId)
     {
         _font = font;
+        _fontSize = fontSize;
         _companyName = companyName;
         _ico = ico;
         _created = created;

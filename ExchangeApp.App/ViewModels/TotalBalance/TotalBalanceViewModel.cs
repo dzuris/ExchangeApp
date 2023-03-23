@@ -9,6 +9,7 @@ using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.TotalBalance;
 using ExchangeApp.Common.Enums;
 using Microsoft.Maui.Devices.Sensors;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace ExchangeApp.App.ViewModels.TotalBalance;
 
@@ -89,7 +90,8 @@ public partial class TotalBalanceViewModel : ViewModelBase
 
         try
         {
-            await _totalBalanceFacade.InsertAsync(model);
+            var id = await _totalBalanceFacade.InsertAsync(model);
+            model.Id = id;
 
             try
             {
@@ -100,6 +102,7 @@ public partial class TotalBalanceViewModel : ViewModelBase
             }
             catch (ArgumentNullException)
             {
+                // TODO Select folder or error message
             }
         }
         catch
@@ -149,7 +152,20 @@ public partial class TotalBalanceViewModel : ViewModelBase
 
         try
         {
-            await _totalBalanceFacade.InsertAsync(model);
+            var id = await _totalBalanceFacade.InsertAsync(model);
+            model.Id = id;
+
+            try
+            {
+                if (await _settingsFacade.ShouldSaveTotalBalanceAutomaticallyAsync())
+                {
+                    await _printerService.SavePdf(model);
+                }
+            }
+            catch (ArgumentNullException)
+            {
+                // TODO Select folder or show error message
+            }
         }
         catch
         {
@@ -175,6 +191,9 @@ public partial class TotalBalanceViewModel : ViewModelBase
         {
             await _printerService.SavePdf(model);
         }
+        catch (ArgumentNullException)
+        {
+        }
         catch (Exception e)
         {
             Console.WriteLine(e);
@@ -192,6 +211,6 @@ public partial class TotalBalanceViewModel : ViewModelBase
     [RelayCommand]
     private async Task PrintTotalBalanceAsync(TotalBalanceModel model)
     {
-        var a = model;
+        // TODO Printing total balance
     }
 }

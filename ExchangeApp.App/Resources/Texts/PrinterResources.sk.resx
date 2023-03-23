@@ -171,4 +171,19 @@
   <data name="CanceledHeaderTitle" xml:space="preserve">
     <value>Storno</value>
   </data>
+  <data name="FolderNameBuy" xml:space="preserve">
+    <value>nákup</value>
+  </data>
+  <data name="FolderNameDeposit" xml:space="preserve">
+    <value>vklad</value>
+  </data>
+  <data name="FolderNameLevy" xml:space="preserve">
+    <value>odvod</value>
+  </data>
+  <data name="FolderNameSell" xml:space="preserve">
+    <value>predaj</value>
+  </data>
+  <data name="FolderNameWithdraw" xml:space="preserve">
+    <value>výber</value>
+  </data>
 </root>

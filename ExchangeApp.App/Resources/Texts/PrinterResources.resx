@@ -151,4 +151,19 @@
   <data name="CanceledHeaderTitle" xml:space="preserve">
     <value>Cancelled</value>
   </data>
+  <data name="FolderNameBuy" xml:space="preserve">
+    <value>buy</value>
+  </data>
+  <data name="FolderNameSell" xml:space="preserve">
+    <value>sell</value>
+  </data>
+  <data name="FolderNameDeposit" xml:space="preserve">
+    <value>deposit</value>
+  </data>
+  <data name="FolderNameWithdraw" xml:space="preserve">
+    <value>withdraw</value>
+  </data>
+  <data name="FolderNameLevy" xml:space="preserve">
+    <value>levy</value>
+  </data>
 </root>
