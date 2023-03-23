@@ -14,7 +14,7 @@ public class SettingsFacade : ISettingsFacade
     public SettingsFacade()
     {
         var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        _fileNameData = Path.Combine(baseDirectory, "data.json");
+        _fileNameData = Path.Combine(baseDirectory, "settings_data.json");
         _fileNameCompany = Path.Combine(baseDirectory, "company.json");
         _fileNameBranch = Path.Combine(baseDirectory, "branch.json");
     }
@@ -70,6 +70,19 @@ public class SettingsFacade : ISettingsFacade
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         return data?.AutomaticDonationSaveOption ?? false;
+    }
+
+    public async Task<bool> ShouldSaveTotalBalanceAutomaticallyAsync()
+    {
+        if (!File.Exists(_fileNameData))
+        {
+            return false;
+        }
+
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
+        var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
+
+        return data?.AutomaticTotalBalanceSaveOption ?? false;
     }
 
     public async Task<CompanyDetailModel?> GetCompanyDataAsync()

@@ -135,4 +135,7 @@
   <data name="SelectFolderButtonText" xml:space="preserve">
     <value>Vybrať priečinok</value>
   </data>
+  <data name="CheckBoxTextAutomaticTotalBalance" xml:space="preserve">
+    <value>Automaticky ukladať kópie uzávierok do priečinku</value>
+  </data>
 </root>

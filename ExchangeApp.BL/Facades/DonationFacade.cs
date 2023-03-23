@@ -55,7 +55,7 @@ public class DonationFacade : IDonationFacade
             {
                 currentValue = model.CurrencyQuantityBefore / model.AverageCourseRate;
             }
-            var depositedValue = Math.Round(model.Quantity / model.CourseRate, 2);
+            var depositedValue = model.Quantity / model.CourseRate;
             var newValue = currentValue + depositedValue;
             var newAverageCurrencyCourseRate = newCurrencyQuantity / newValue;
             model.AverageCourseRate = newAverageCurrencyCourseRate;

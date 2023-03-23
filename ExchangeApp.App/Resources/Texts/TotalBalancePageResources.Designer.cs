@@ -124,11 +124,20 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total balance created.
+        ///   Looks up a localized string similar to Total balance created..
         /// </summary>
         public static string AlertMessageCreationDone {
             get {
                 return ResourceManager.GetString("AlertMessageCreationDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total balance PDF downloaded to your computer..
+        /// </summary>
+        public static string AlertMessageDownloaded {
+            get {
+                return ResourceManager.GetString("AlertMessageDownloaded", resourceCulture);
             }
         }
         
@@ -156,6 +165,15 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string AlertTitleCreationDone {
             get {
                 return ResourceManager.GetString("AlertTitleCreationDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total balance download.
+        /// </summary>
+        public static string AlertTitleDownloaded {
+            get {
+                return ResourceManager.GetString("AlertTitleDownloaded", resourceCulture);
             }
         }
         

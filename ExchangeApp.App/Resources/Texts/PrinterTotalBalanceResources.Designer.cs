@@ -97,6 +97,24 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to daily.
+        /// </summary>
+        public static string FolderNameDaily {
+            get {
+                return ResourceManager.GetString("FolderNameDaily", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to monthly.
+        /// </summary>
+        public static string FolderNameMonthly {
+            get {
+                return ResourceManager.GetString("FolderNameMonthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ID:.
         /// </summary>
         public static string ICO_headerText {

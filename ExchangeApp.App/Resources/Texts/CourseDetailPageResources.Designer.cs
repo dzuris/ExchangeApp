@@ -61,6 +61,42 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string AlertButtonNo {
+            get {
+                return ResourceManager.GetString("AlertButtonNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string AlertButtonYes {
+            get {
+                return ResourceManager.GetString("AlertButtonYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have unsaved data, do you really want to go back?.
+        /// </summary>
+        public static string AlertMessageNotSavedData {
+            get {
+                return ResourceManager.GetString("AlertMessageNotSavedData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not saved data.
+        /// </summary>
+        public static string AlertTitleNotSavedData {
+            get {
+                return ResourceManager.GetString("AlertTitleNotSavedData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Average course rate:.
         /// </summary>
         public static string AverageCourseRateLabel {

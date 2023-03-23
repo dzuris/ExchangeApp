@@ -26,6 +26,11 @@
                         HeightRequest="44" 
                         VerticalOptions="End"
                         Command="{Binding CalculateCommand}"/>
+                    <ImageButton
+                        Source="refresh.png"
+                        Style="{StaticResource IconStyle}"
+                        VerticalOptions="End"
+                        Command="{Binding RefreshCommand}"/>
                 </HorizontalStackLayout>
             </Frame>
         </StackLayout>

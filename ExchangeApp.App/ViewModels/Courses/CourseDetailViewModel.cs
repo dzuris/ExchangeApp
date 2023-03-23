@@ -2,6 +2,8 @@
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
+using System.Resources;
+using ExchangeApp.App.Resources.Texts;
 
 namespace ExchangeApp.App.ViewModels.Courses;
 
@@ -34,20 +36,15 @@ public partial class CourseDetailViewModel : ViewModelBase
         }
     }
 
-    [ObservableProperty]
-    string _code = string.Empty;
+    [ObservableProperty] private string _code = string.Empty;
 
-    [ObservableProperty] 
-    private CurrencyDetailModel? _currency;
+    [ObservableProperty] private CurrencyDetailModel? _currency;
 
-    [ObservableProperty] 
-    private string _buyRate = string.Empty;
+    [ObservableProperty] private string _buyRate = string.Empty;
 
-    [ObservableProperty] 
-    private string _sellRate = string.Empty;
+    [ObservableProperty] private string _sellRate = string.Empty;
 
-    [ObservableProperty] 
-    private bool _isErrorMessageVisible;
+    [ObservableProperty] private bool _isErrorMessageVisible;
 
     [RelayCommand]
     private async Task SaveAsync()

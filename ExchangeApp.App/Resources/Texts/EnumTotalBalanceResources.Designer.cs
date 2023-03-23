@@ -61,15 +61,6 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Annual.
-        /// </summary>
-        public static string Annual {
-            get {
-                return ResourceManager.GetString("Annual", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Daily.
         /// </summary>
         public static string Daily {

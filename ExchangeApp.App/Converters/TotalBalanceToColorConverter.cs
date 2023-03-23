@@ -14,7 +14,6 @@ public class TotalBalanceToColorConverter : IValueConverter
         return value switch
         {
             TotalBalanceType.Monthly => MonthlyColor,
-            TotalBalanceType.Annual => AnnualColor,
             _ => DailyColor
         };
     }

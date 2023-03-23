@@ -7,6 +7,7 @@ public record SettingsDataModel : ModelBase
     public string FolderPath { get; set; } = string.Empty;
     public bool AutomaticTransactionSaveOption { get; set; }
     public bool AutomaticDonationSaveOption { get; set; }
+    public bool AutomaticTotalBalanceSaveOption { get; set; }
     public DonationSaveFormatEnum DonationSaveForm { get; set; }
 
     public static SettingsDataModel Empty => new()
@@ -14,6 +15,7 @@ public record SettingsDataModel : ModelBase
         FolderPath = string.Empty,
         AutomaticTransactionSaveOption = false,
         AutomaticDonationSaveOption = false,
+        AutomaticTotalBalanceSaveOption = false,
         DonationSaveForm = DonationSaveFormatEnum.OmegaTxt
     };
 }

@@ -521,9 +521,6 @@
 	  <MauiXaml Update="Views\Settings\SettingsGeneralPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Settings\SettingsAutomaticTotalBalancePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsCoursesManagerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

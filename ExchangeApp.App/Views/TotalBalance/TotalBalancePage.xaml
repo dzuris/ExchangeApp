@@ -10,11 +10,10 @@
              Title="{x:Static texts:TotalBalancePageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:TotalBalanceViewModel">
-    <Grid ColumnDefinitions="*, 2*">
+    <Grid ColumnDefinitions="Auto, *" ColumnSpacing="50">
         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="25">
             <Button Text="{x:Static texts:TotalBalancePageResources.CreateTotalBalanceDaily}" Command="{Binding CreateDailyTotalBalanceCommand}"/>
             <Button Text="{x:Static texts:TotalBalancePageResources.CreateTotalBalanceMonthly}" Command="{Binding CreateMonthlyTotalBalanceCommand}"/>
-            <Button Text="{x:Static texts:TotalBalancePageResources.CreateTotalBalanceAnnual}" Command="{Binding CreateAnnualTotalBalanceCommand}"/>
         </VerticalStackLayout>
 
         <Grid Grid.Column="1" RowDefinitions="Auto, *" RowSpacing="15">

@@ -163,7 +163,7 @@
     <value>Rovnaká uzávierka už existuje.</value>
   </data>
   <data name="AlertMessageCreationDone" xml:space="preserve">
-    <value>Vytvorenie uzávierky</value>
+    <value>Uzávierka vytvorená.</value>
   </data>
   <data name="AlertTitleCreationDone" xml:space="preserve">
     <value>Uzávierka bola úspešne vytvorená.</value>
@@ -185,5 +185,11 @@
   </data>
   <data name="AlertMessageErrorCanNotCreateMonthlyBalance" xml:space="preserve">
     <value>Pre vytvorenie mesačnej uzávierky je nutné mať uzavreté všetky operácie pomocou denných uzávierok.</value>
+  </data>
+  <data name="AlertTitleDownloaded" xml:space="preserve">
+    <value>Uloženie uzávierky</value>
+  </data>
+  <data name="AlertMessageDownloaded" xml:space="preserve">
+    <value>PDF uzávierky bolo uložené do počítača.</value>
   </data>
 </root>

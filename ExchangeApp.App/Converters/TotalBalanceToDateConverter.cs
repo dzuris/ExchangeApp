@@ -16,8 +16,8 @@ public class TotalBalanceToDateConverter : IValueConverter
         var model = (TotalBalanceModel)value;
         return value switch
         {
+            TotalBalanceModel { Type: TotalBalanceType.Daily } => model.Created,
             TotalBalanceModel { Type: TotalBalanceType.Monthly } => model.Created.ToString("MMMM yyyy"),
-            TotalBalanceModel { Type: TotalBalanceType.Annual } => model.Created.Year,
             _ => model.Created
         };
     }

@@ -4,6 +4,5 @@ public enum TotalBalanceFilterOption
 {
     All,
     Daily,
-    Monthly,
-    Annual
+    Monthly
 }

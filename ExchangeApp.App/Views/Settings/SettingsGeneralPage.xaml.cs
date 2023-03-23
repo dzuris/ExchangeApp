@@ -4,7 +4,7 @@ namespace ExchangeApp.App.Views.Settings;
 
 public partial class SettingsGeneralPage
 {
-	public SettingsGeneralPage(SettingsAutomaticOperationsSaveViewModel viewModel)
+	public SettingsGeneralPage(SettingsGeneralViewModel viewModel)
 		: base(viewModel)
 	{
 		InitializeComponent();

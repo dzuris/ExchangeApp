@@ -4,9 +4,11 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.Interfaces;
+using ExchangeApp.BL.Facades;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.TotalBalance;
 using ExchangeApp.Common.Enums;
+using Microsoft.Maui.Devices.Sensors;
 
 namespace ExchangeApp.App.ViewModels.TotalBalance;
 
@@ -14,11 +16,13 @@ public partial class TotalBalanceViewModel : ViewModelBase
 {
     private readonly ITotalBalanceFacade _totalBalanceFacade;
     private readonly IPrinterService _printerService;
+    private readonly ISettingsFacade _settingsFacade;
 
-    public TotalBalanceViewModel(ITotalBalanceFacade totalBalanceFacade, IPrinterService printerService)
+    public TotalBalanceViewModel(ITotalBalanceFacade totalBalanceFacade, IPrinterService printerService, ISettingsFacade settingsFacade)
     {
         _totalBalanceFacade = totalBalanceFacade;
         _printerService = printerService;
+        _settingsFacade = settingsFacade;
     }
 
     protected override async Task LoadDataAsync()
@@ -86,6 +90,17 @@ public partial class TotalBalanceViewModel : ViewModelBase
         try
         {
             await _totalBalanceFacade.InsertAsync(model);
+
+            try
+            {
+                if (await _settingsFacade.ShouldSaveTotalBalanceAutomaticallyAsync())
+                {
+                    await _printerService.SavePdf(model);
+                }
+            }
+            catch (ArgumentNullException)
+            {
+            }
         }
         catch
         {
@@ -154,46 +169,6 @@ public partial class TotalBalanceViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private async Task CreateAnnualTotalBalanceAsync()
-    {
-        var model = new TotalBalanceModel
-        {
-            Created = DateTime.Now,
-            Type = TotalBalanceType.Annual
-        };
-
-        var rm = new ResourceManager(typeof(TotalBalancePageResources));
-
-        var result = await Application.Current?.MainPage?.DisplayAlert(
-            rm.GetString("AlertConfirmationTitle"),
-            string.Format(rm.GetString("AlertConfirmationAnnualMessage")!, model.Created.Year),
-            rm.GetString("AlertButtonYes"),
-            rm.GetString("AlertButtonNo"))!;
-
-        if (!result) return;
-
-        try
-        {
-            await _totalBalanceFacade.InsertAsync(model);
-        }
-        catch
-        {
-            await Application.Current.MainPage?.DisplayAlert(
-                rm.GetString("AlertTitleErrorCreation"),
-                rm.GetString("AlertMessageErrorAlreadyExists"),
-                rm.GetString("AlertButtonOk"))!;
-            return;
-        }
-
-        TotalBalanceList.Add(model);
-
-        await Application.Current.MainPage?.DisplayAlert(
-            rm.GetString("AlertTitleCreationDone"),
-            rm.GetString("AlertMessageCreationDone"),
-            rm.GetString("AlertButtonOk"))!;
-    }
-
-    [RelayCommand]
     private async Task DownloadTotalBalanceAsync(TotalBalanceModel model)
     {
         try
@@ -206,10 +181,12 @@ public partial class TotalBalanceViewModel : ViewModelBase
             throw;
         }
 
+        var rm = new ResourceManager(typeof(TotalBalancePageResources));
+
         await Application.Current?.MainPage?.DisplayAlert(
-            "title",
-            "popici hotovo",
-            "OK")!;
+            rm.GetString("AlertTitleDownloaded"),
+            rm.GetString("AlertMessageDownloaded"),
+            rm.GetString("AlertButtonOk"))!;
     }
 
     [RelayCommand]

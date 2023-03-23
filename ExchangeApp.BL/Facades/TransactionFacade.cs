@@ -61,7 +61,6 @@ public class TransactionFacade : ITransactionFacade
             }
 
             var depositedValue = model.Quantity / model.CourseRate;
-            depositedValue = Math.Round(depositedValue, 2);
             var newValue = currentValue + depositedValue;
             var newAverageCourseRateForeignCurrency = newForeignCurrencyQuantity / newValue;
             model.AverageCourseRate = newAverageCourseRateForeignCurrency;

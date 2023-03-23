@@ -141,4 +141,16 @@
   <data name="CoursesErrorMessage" xml:space="preserve">
     <value>Nákupný kurz musí byť vyšší alebo rovný ako predajný kurz</value>
   </data>
+  <data name="AlertButtonNo" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="AlertButtonYes" xml:space="preserve">
+    <value>Áno</value>
+  </data>
+  <data name="AlertMessageNotSavedData" xml:space="preserve">
+    <value>Máte neuložené zmeny, naozaj chcete odísť zo stránky?</value>
+  </data>
+  <data name="AlertTitleNotSavedData" xml:space="preserve">
+    <value>Neuložené údaje</value>
+  </data>
 </root>

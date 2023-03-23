@@ -115,4 +115,7 @@
   <data name="StorageFormatDonationsLabel" xml:space="preserve">
     <value>Storage format of donations:</value>
   </data>
+  <data name="CheckBoxTextAutomaticTotalBalance" xml:space="preserve">
+    <value>Automatic saving of the total balance copies</value>
+  </data>
 </root>

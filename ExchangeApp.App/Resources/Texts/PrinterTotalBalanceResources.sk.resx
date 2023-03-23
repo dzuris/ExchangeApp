@@ -219,4 +219,10 @@
   <data name="ListHeaderItemBalance" xml:space="preserve">
     <value>Zostatok</value>
   </data>
+  <data name="FolderNameDaily" xml:space="preserve">
+    <value>denná</value>
+  </data>
+  <data name="FolderNameMonthly" xml:space="preserve">
+    <value>mesačná</value>
+  </data>
 </root>

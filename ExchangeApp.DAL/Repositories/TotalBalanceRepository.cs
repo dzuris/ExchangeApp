@@ -36,9 +36,6 @@ public class TotalBalanceRepository : RepositoryBase<TotalBalanceEntity, Guid>, 
             case TotalBalanceFilterOption.Monthly:
                 query = query.Where(e => e.Type == TotalBalanceType.Monthly);
                 break;
-            case TotalBalanceFilterOption.Annual:
-                query = query.Where(e => e.Type == TotalBalanceType.Annual);
-                break;
             case TotalBalanceFilterOption.All:
                 break;
             default:

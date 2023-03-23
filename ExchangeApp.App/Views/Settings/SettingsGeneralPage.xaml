@@ -7,7 +7,7 @@
              x:Class="ExchangeApp.App.Views.Settings.SettingsGeneralPage"
              Title="{x:Static texts:SettingsGeneralPageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
-             x:DataType="vm:SettingsAutomaticOperationsSaveViewModel">
+             x:DataType="vm:SettingsGeneralViewModel">
     <Grid RowDefinitions="*, Auto" RowSpacing="15">
         <ScrollView VerticalOptions="Center">
             <VerticalStackLayout Spacing="50">
@@ -29,6 +29,10 @@
                 <HorizontalStackLayout>
                     <CheckBox IsChecked="{Binding SettingsData.AutomaticDonationSaveOption}" VerticalOptions="Center"/>
                     <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticDonations}" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding SettingsData.AutomaticTotalBalanceSaveOption}" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticTotalBalance}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
                 <VerticalStackLayout Spacing="15">
                     <Label Text="{x:Static texts:SettingsGeneralPageResources.StorageFormatDonationsLabel}"/>

@@ -121,4 +121,16 @@
   <data name="CoursesErrorMessage" xml:space="preserve">
     <value>Buy course rate must be higher or equal than sell course rate</value>
   </data>
+  <data name="AlertTitleNotSavedData" xml:space="preserve">
+    <value>Not saved data</value>
+  </data>
+  <data name="AlertMessageNotSavedData" xml:space="preserve">
+    <value>You have unsaved data, do you really want to go back?</value>
+  </data>
+  <data name="AlertButtonYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="AlertButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
 </root>

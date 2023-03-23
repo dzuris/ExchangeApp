@@ -70,6 +70,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatic saving of the total balance copies.
+        /// </summary>
+        public static string CheckBoxTextAutomaticTotalBalance {
+            get {
+                return ResourceManager.GetString("CheckBoxTextAutomaticTotalBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automatic saving of the transactions copies.
         /// </summary>
         public static string CheckBoxTextAutomaticTransactions {

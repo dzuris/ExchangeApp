@@ -7,11 +7,11 @@ using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.App.ViewModels.Settings;
 
-public partial class SettingsAutomaticOperationsSaveViewModel : ViewModelBase
+public partial class SettingsGeneralViewModel : ViewModelBase
 {
     private readonly ISettingsFacade _settingsFacade;
 
-    public SettingsAutomaticOperationsSaveViewModel(ISettingsFacade settingsFacade)
+    public SettingsGeneralViewModel(ISettingsFacade settingsFacade)
     {
         _settingsFacade = settingsFacade;
     }

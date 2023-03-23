@@ -32,7 +32,7 @@ public partial class ProfitCalculateViewModel : ViewModelBase
     private DateTime _fromDate = new(DateTime.Now.Year, DateTime.Now.Month, 1);
 
     [ObservableProperty]
-    private DateTime _untilDate = DateTime.Now;
+    private DateTime _untilDate = DateTime.Today;
 
     [ObservableProperty]
     private List<CurrencyProfitModel> _profitList = new();
@@ -40,6 +40,16 @@ public partial class ProfitCalculateViewModel : ViewModelBase
     [RelayCommand]
     private async Task CalculateAsync()
     {
+        ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate);
+        TotalProfit = ProfitList.Sum(e => e.Profit);
+    }
+
+    [RelayCommand]
+    private async Task RefreshAsync()
+    {
+        FromDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+        UntilDate = DateTime.Today;
+
         ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate);
         TotalProfit = ProfitList.Sum(e => e.Profit);
     }

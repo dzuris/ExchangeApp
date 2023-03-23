@@ -10,6 +10,7 @@ public interface ISettingsFacade : IFacade
     Task<string?> GetSaveFolderPathAsync();
     Task<bool> ShouldSaveTransactionsAutomaticallyAsync();
     Task<bool> ShouldSaveDonationsAutomaticallyAsync();
+    Task<bool> ShouldSaveTotalBalanceAutomaticallyAsync();
     Task<CompanyDetailModel?> GetCompanyDataAsync();
     Task<BranchDetailModel?> GetBranchDataAsync();
     Task UpdateSettingsDataAsync(SettingsDataModel model);

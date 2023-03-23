@@ -305,19 +305,20 @@ public class PrinterService : IPrinterService
 
     public async Task SavePdf(TotalBalanceModel model)
     {
-        var directory = await GetTotalBalanceDirectory(model.Created, model.Type == TotalBalanceType.Annual);
+        var directory = await GetTotalBalanceDirectory(model.Created, model.Type);
 
         if (directory is null)
         {
             throw new ArgumentNullException();
         }
-        
+
+        var rmTotalBalance = new ResourceManager(typeof(PrinterTotalBalanceResources));
+
         // File name setting
         var fileName = model.Type switch
         {
-            TotalBalanceType.Daily => Path.Combine(directory, $"{model.Id}_denna.pdf"),
-            TotalBalanceType.Monthly => Path.Combine(directory, $"{model.Id}_mesacna.pdf"),
-            TotalBalanceType.Annual => Path.Combine(directory, $"{model.Id}_rocna.pdf"),
+            TotalBalanceType.Daily => Path.Combine(directory, $"{model.Id}_{rmTotalBalance.GetString("FolderNameDaily")}.pdf"),
+            TotalBalanceType.Monthly => Path.Combine(directory, $"{model.Id}_{rmTotalBalance.GetString("FolderNameMonthly")}.pdf"),
             _ => throw new ArgumentOutOfRangeException()
         };
 
@@ -342,7 +343,6 @@ public class PrinterService : IPrinterService
         pdf.AddEventHandler(PdfDocumentEvent.END_PAGE, headerHandler);
 
         var rm = new ResourceManager(typeof(PrinterResources));
-        var rmTotalBalance = new ResourceManager(typeof(PrinterTotalBalanceResources));
 
         document.Close();
         pdf.Close();
@@ -391,7 +391,7 @@ public class PrinterService : IPrinterService
         return directory;
     }
 
-    private async Task<string?> GetTotalBalanceDirectory(DateTime created, bool isAnnualTotalBalance)
+    private async Task<string?> GetTotalBalanceDirectory(DateTime created, TotalBalanceType type)
     {
         var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
 
@@ -400,9 +400,9 @@ public class PrinterService : IPrinterService
         var year = created.Year.ToString();
         var month = created.Month.ToString();
 
-        var directory = isAnnualTotalBalance 
-            ? Path.Combine(saveFolderPath, year) 
-            : Path.Combine(saveFolderPath, year, month, "Uzávierky");
+        var directory = type == TotalBalanceType.Monthly 
+            ? Path.Combine(saveFolderPath, year, month, "Uzávierky") 
+            : Path.Combine(saveFolderPath, year, month, "Uzávierky", "Denné");
 
         if (!Directory.Exists(directory))
         {

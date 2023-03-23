@@ -199,4 +199,10 @@
   <data name="ListHeaderItemBalance" xml:space="preserve">
     <value>Balance</value>
   </data>
+  <data name="FolderNameDaily" xml:space="preserve">
+    <value>daily</value>
+  </data>
+  <data name="FolderNameMonthly" xml:space="preserve">
+    <value>monthly</value>
+  </data>
 </root>

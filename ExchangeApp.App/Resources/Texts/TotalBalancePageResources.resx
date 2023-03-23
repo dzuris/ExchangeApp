@@ -146,7 +146,7 @@
     <value>Total balance was successfully created.</value>
   </data>
   <data name="AlertMessageCreationDone" xml:space="preserve">
-    <value>Total balance created</value>
+    <value>Total balance created.</value>
   </data>
   <data name="FilterButtonText" xml:space="preserve">
     <value>Filter</value>
@@ -165,5 +165,11 @@
   </data>
   <data name="AlertMessageErrorCanNotCreateMonthlyBalance" xml:space="preserve">
     <value>To create a monthly total balance, it is necessary to have closed all operations using daily closings.</value>
+  </data>
+  <data name="AlertTitleDownloaded" xml:space="preserve">
+    <value>Total balance download</value>
+  </data>
+  <data name="AlertMessageDownloaded" xml:space="preserve">
+    <value>Total balance PDF downloaded to your computer.</value>
   </data>
 </root>

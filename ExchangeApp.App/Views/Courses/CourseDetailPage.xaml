@@ -37,11 +37,11 @@
             <HorizontalStackLayout Spacing="70" HorizontalOptions="Center">
                 <VerticalStackLayout Spacing="20">
                     <Label Text="{x:Static texts:CourseDetailPageResources.BuyCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                    <Entry Text="{Binding BuyRate}"/>
+                    <Entry x:Name="BuyRateEntry" Text="{Binding BuyRate}" Focused="BuyRateEntry_OnFocused"/>
                 </VerticalStackLayout>
                 <VerticalStackLayout Spacing="20">
                     <Label Text="{x:Static texts:CourseDetailPageResources.SellCourseRateLabel}" Style="{StaticResource InfoBoldStyle}"/>
-                    <Entry Text="{Binding SellRate}"/>
+                    <Entry x:Name="SellRateEntry" Text="{Binding SellRate}" Focused="SellRateEntry_OnFocused"/>
                 </VerticalStackLayout>
             </HorizontalStackLayout>
             <Label TextColor="Red" HorizontalOptions="Center" IsVisible="{Binding IsErrorMessageVisible}" Text="{x:Static texts:CourseDetailPageResources.CoursesErrorMessage}"/>
