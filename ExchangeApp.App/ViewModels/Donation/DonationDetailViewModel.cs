@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.Interfaces;
-using ExchangeApp.BL.Facades;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Donation;
 using ExchangeApp.Common.Exceptions;

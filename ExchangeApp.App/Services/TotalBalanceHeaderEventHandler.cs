@@ -1,5 +1,6 @@
 ﻿using System.Resources;
 using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.Common.Enums;
 using iText.Kernel.Events;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf.Canvas;
@@ -18,9 +19,11 @@ public class TotalBalanceHeaderEventHandler : IEventHandler
     private readonly string _ico;
     private readonly DateTime _created;
     private readonly int _totalBalanceId;
+    private readonly TotalBalanceType _totalBalanceType;
 
-    public TotalBalanceHeaderEventHandler(PdfFont font, int fontSize, string companyName, string ico, DateTime created, int totalBalanceId)
+    public TotalBalanceHeaderEventHandler(TotalBalanceType totalBalanceType, PdfFont font, int fontSize, string companyName, string ico, DateTime created, int totalBalanceId)
     {
+        _totalBalanceType = totalBalanceType;
         _font = font;
         _fontSize = fontSize;
         _companyName = companyName;
@@ -42,14 +45,17 @@ public class TotalBalanceHeaderEventHandler : IEventHandler
 
         var rm = new ResourceManager(typeof(PrinterTotalBalanceResources));
 
+        var totalBalanceString = _totalBalanceType == TotalBalanceType.Daily
+            ? rm.GetString("DailyTotalBalance")
+            : rm.GetString("MonthlyTotalBalance");
         new Canvas(pdfCanvas, pageSize, true)
             .SetFont(_font)
-            .SetFontSize(8)
+            .SetFontSize(_fontSize)
             .ShowTextAligned(new Paragraph($"{_companyName}, {rm.GetString("ICO_headerText")} {_ico}"),
                 x + pageSize.GetWidth() / 2, y - 20, TextAlignment.CENTER)
             .ShowTextAligned(new Paragraph($"{_created}"), pageSize.GetRight() - SideMargins, y - 20,
                 TextAlignment.RIGHT)
-            .ShowTextAligned(new Paragraph($"{rm.GetString("DailyTotalBalance")} - {_totalBalanceId}"),
+            .ShowTextAligned(new Paragraph($"{totalBalanceString} - {_totalBalanceId}"),
                 x + pageSize.GetWidth() / 2, y - 40,
                 TextAlignment.CENTER);
 

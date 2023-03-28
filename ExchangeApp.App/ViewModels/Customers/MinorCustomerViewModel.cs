@@ -89,7 +89,8 @@ public partial class MinorCustomerViewModel : ViewModelBase
         {
             Id = Customer.Id,
             FirstName = Customer.FirstName,
-            LastName = Customer.LastName
+            LastName = Customer.LastName,
+            EvidenceNumber = Customer.EvidenceNumber
         };
 
         try

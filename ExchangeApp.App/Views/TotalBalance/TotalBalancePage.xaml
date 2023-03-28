@@ -80,9 +80,10 @@
             <CollectionView Grid.Row="1" SelectionMode="None" HorizontalOptions="Center" ItemsSource="{Binding TotalBalanceList}">
                 <CollectionView.Header>
                     <Frame Style="{StaticResource ListHeaderFrame}">
-                        <Grid Padding="10, 0" ColumnDefinitions="120, *">
-                            <Label Grid.Column="0" Text="{x:Static texts:TotalBalancePageResources.ListHeaderItemType}" TextColor="White"/>
-                            <Label Grid.Column="1" Text="{x:Static texts:TotalBalancePageResources.ListHeaderItemDate}" TextColor="White"/>
+                        <Grid Padding="10, 0" ColumnDefinitions="60, 120, *">
+                            <Label Grid.Column="0" Text="{x:Static texts:TotalBalancePageResources.ListHeaderItemId}" TextColor="White"/>
+                            <Label Grid.Column="1" Text="{x:Static texts:TotalBalancePageResources.ListHeaderItemType}" TextColor="White"/>
+                            <Label Grid.Column="2" Text="{x:Static texts:TotalBalancePageResources.ListHeaderItemDate}" TextColor="White"/>
                         </Grid>
                     </Frame>
                 </CollectionView.Header>
@@ -95,16 +96,16 @@
                                         <Binding Path="Type">
                                             <Binding.Converter>
                                                 <converters:TotalBalanceToColorConverter DailyColor="{StaticResource ListItemWhite}"
-                                                                                         MonthlyColor="{StaticResource ListItemBlue}"
-                                                                                         AnnualColor="{StaticResource ListItemYellow}"/>
+                                                                                         MonthlyColor="{StaticResource ListItemBlue}"/>
                                             </Binding.Converter>
                                         </Binding>
                                     </Frame.BackgroundColor>
-                                    <Grid ColumnDefinitions="120, *, Auto, Auto" ColumnSpacing="10">
-                                        <Label Grid.Column="0" Text="{Binding Type, Converter={StaticResource TotalBalanceToStringConverter}}" VerticalOptions="Center"/>
-                                        <Label Grid.Column="1" Text="{Binding ., Converter={StaticResource TotalBalanceToDateConverter}}" VerticalOptions="Center"/>
+                                    <Grid ColumnDefinitions="60, 120, *, Auto, Auto" ColumnSpacing="10">
+                                        <Label Grid.Column="0" Text="{Binding Id}" VerticalOptions="Center" Style="{StaticResource InfoBoldStyle}"/>
+                                        <Label Grid.Column="1" Text="{Binding Type, Converter={StaticResource TotalBalanceToStringConverter}}" VerticalOptions="Center"/>
+                                        <Label Grid.Column="2" Text="{Binding ., Converter={StaticResource TotalBalanceToDateConverter}}" VerticalOptions="Center"/>
                                         <ImageButton
-                                            Grid.Column="2"
+                                            Grid.Column="3"
                                             Source="download.png"
                                             Style="{StaticResource IconStyle}"
                                             MinimumWidthRequest="40"
@@ -114,7 +115,7 @@
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type vm:TotalBalanceViewModel}}, Path=DownloadTotalBalanceCommand}"
                                             CommandParameter="{Binding .}"/>
                                         <ImageButton
-                                            Grid.Column="3"
+                                            Grid.Column="4"
                                             Source="print.png"
                                             Style="{StaticResource IconStyle}"
                                             MinimumWidthRequest="40"

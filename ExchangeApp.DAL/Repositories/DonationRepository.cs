@@ -23,4 +23,13 @@ public class DonationRepository : RepositoryBase<DonationEntity, int>, IDonation
 
         return entity.Id;
     }
+
+    public async Task<IEnumerable<DonationEntity>> GetDonations(DateTime from, DateTime until)
+    {
+        var list = await AppDbContext
+            .Set<DonationEntity>()
+            .Where(o => o.Time >= from && o.Time <= until)
+            .ToListAsync();
+        return list;
+    }
 }

@@ -172,4 +172,7 @@
   <data name="AlertMessageDownloaded" xml:space="preserve">
     <value>Total balance PDF downloaded to your computer.</value>
   </data>
+  <data name="ListHeaderItemId" xml:space="preserve">
+    <value>Number</value>
+  </data>
 </root>

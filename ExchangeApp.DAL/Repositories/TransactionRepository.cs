@@ -34,4 +34,14 @@ public class TransactionRepository : RepositoryBase<TransactionEntity, int>, ITr
 
         return entity.Id;
     }
+
+    public async Task<IEnumerable<TransactionEntity>> GetTransactions(DateTime from, DateTime until)
+    {
+        var list = await AppDbContext
+            .Set<TransactionEntity>()
+            .Where(t => t.Time >= from && t.Time <= until)
+            .Include(t => t.Customer)
+            .ToListAsync();
+        return list;
+    }
 }

@@ -268,6 +268,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string ListHeaderItemId {
+            get {
+                return ResourceManager.GetString("ListHeaderItemId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Type.
         /// </summary>
         public static string ListHeaderItemType {

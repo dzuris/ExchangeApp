@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities;
+using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -43,6 +44,31 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
             .OrderBy(item => item.Code != DomesticCurrencyCode)
             .ToListAsync();
         return list;
+    }
+
+    public async Task<IEnumerable<CurrencyHistoryEntity>> GetCurrenciesHistory(DateTime dateTime)
+    {
+        var list = await AppDbContext
+            .Set<CurrencyHistoryEntity>()
+            .Where(e => e.TimeStamp == dateTime)
+            .ToListAsync();
+        return list;
+    }
+
+    public async Task InsertCurrencyBalance(CurrencyHistoryEntity entity)
+    {
+        await AppDbContext
+            .Set<CurrencyHistoryEntity>()
+            .AddAsync(entity);
+    }
+
+    public async Task<decimal> GetCurrencyBalance(string currencyCode, DateTime date)
+    {
+        var result = await AppDbContext
+            .Set<CurrencyHistoryEntity>()
+            .SingleOrDefaultAsync(e => e.Code == currencyCode && e.TimeStamp == date);
+
+        return result?.Quantity ?? 0;
     }
 
     public async Task UpdateQuantityAsync(string code, decimal newQuantity)

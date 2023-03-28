@@ -124,15 +124,6 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Customer name.
-        /// </summary>
-        public static string ListeHeaderItemCustomerName {
-            get {
-                return ResourceManager.GetString("ListeHeaderItemCustomerName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Amount.
         /// </summary>
         public static string ListHeaderItemAmount {
@@ -196,6 +187,24 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customer name.
+        /// </summary>
+        public static string ListHeaderItemCustomerName {
+            get {
+                return ResourceManager.GetString("ListHeaderItemCustomerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string ListHeaderItemDate {
+            get {
+                return ResourceManager.GetString("ListHeaderItemDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date and time.
         /// </summary>
         public static string ListHeaderItemDateTime {
@@ -223,11 +232,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Final state.
+        /// </summary>
+        public static string ListHeaderItemFinalState {
+            get {
+                return ResourceManager.GetString("ListHeaderItemFinalState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Identification card number.
         /// </summary>
         public static string ListHeaderItemIdentificationCardNumber {
             get {
                 return ResourceManager.GetString("ListHeaderItemIdentificationCardNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initial state.
+        /// </summary>
+        public static string ListHeaderItemInitialState {
+            get {
+                return ResourceManager.GetString("ListHeaderItemInitialState", resourceCulture);
             }
         }
         
@@ -241,7 +268,16 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Operation id.
+        ///   Looks up a localized string similar to Note.
+        /// </summary>
+        public static string ListHeaderItemNote {
+            get {
+                return ResourceManager.GetString("ListHeaderItemNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id.
         /// </summary>
         public static string ListHeaderItemOperationId {
             get {
@@ -259,11 +295,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profit.
+        /// </summary>
+        public static string ListHeaderItemProfit {
+            get {
+                return ResourceManager.GetString("ListHeaderItemProfit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity.
         /// </summary>
         public static string ListHeaderItemQuantity {
             get {
                 return ResourceManager.GetString("ListHeaderItemQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rounding.
+        /// </summary>
+        public static string ListHeaderItemRounding {
+            get {
+                return ResourceManager.GetString("ListHeaderItemRounding", resourceCulture);
             }
         }
         
@@ -277,11 +331,20 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sum.
+        ///   Looks up a localized string similar to State.
         /// </summary>
-        public static string ListHeaderItemSum {
+        public static string ListHeaderItemState {
             get {
-                return ResourceManager.GetString("ListHeaderItemSum", resourceCulture);
+                return ResourceManager.GetString("ListHeaderItemState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        public static string ListHeaderItemTotal {
+            get {
+                return ResourceManager.GetString("ListHeaderItemTotal", resourceCulture);
             }
         }
         
@@ -313,11 +376,20 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transactions - Buy.
+        ///   Looks up a localized string similar to Profit total:.
         /// </summary>
-        public static string SectionHeaderBuyTransactions {
+        public static string ProfitTotalLabel {
             get {
-                return ResourceManager.GetString("SectionHeaderBuyTransactions", resourceCulture);
+                return ResourceManager.GetString("ProfitTotalLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buy list - abbreviated.
+        /// </summary>
+        public static string SectionHeaderBuyTransactionsAbbreviated {
+            get {
+                return ResourceManager.GetString("SectionHeaderBuyTransactionsAbbreviated", resourceCulture);
             }
         }
         
@@ -349,11 +421,38 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Donations.
+        /// </summary>
+        public static string SectionHeaderDonationOperations {
+            get {
+                return ResourceManager.GetString("SectionHeaderDonationOperations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monthly report - overview.
+        /// </summary>
+        public static string SectionHeaderMonthlyTotalOperationsNumber {
+            get {
+                return ResourceManager.GetString("SectionHeaderMonthlyTotalOperationsNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Other operations.
         /// </summary>
         public static string SectionHeaderOtherOperations {
             get {
                 return ResourceManager.GetString("SectionHeaderOtherOperations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profit.
+        /// </summary>
+        public static string SectionHeaderProfit {
+            get {
+                return ResourceManager.GetString("SectionHeaderProfit", resourceCulture);
             }
         }
         
@@ -376,11 +475,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transactions - Sell.
+        ///   Looks up a localized string similar to Sell list - abbreviated.
         /// </summary>
-        public static string SectionHeaderSellTransactions {
+        public static string SectionHeaderSellTransactionsAbbreviated {
             get {
-                return ResourceManager.GetString("SectionHeaderSellTransactions", resourceCulture);
+                return ResourceManager.GetString("SectionHeaderSellTransactionsAbbreviated", resourceCulture);
             }
         }
     }

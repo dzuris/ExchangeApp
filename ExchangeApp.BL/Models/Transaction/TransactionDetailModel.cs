@@ -71,6 +71,6 @@ public record TransactionDetailModel : ModelBase
         var result = quantity / courseRate;
 
         // Rounds number to 2 decimal points
-        return Math.Round(result * 100) / 100;
+        return Math.Round(result, 2);
     }
 }

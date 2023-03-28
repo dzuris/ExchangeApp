@@ -166,4 +166,7 @@
   <data name="FolderNameLevy" xml:space="preserve">
     <value>levy</value>
   </data>
+  <data name="PageLabel" xml:space="preserve">
+    <value>Page</value>
+  </data>
 </root>

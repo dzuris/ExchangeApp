@@ -1,4 +1,6 @@
-﻿using iText.Kernel.Events;
+﻿using System.Resources;
+using ExchangeApp.App.Resources.Texts;
+using iText.Kernel.Events;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf.Canvas;
 using iText.Layout;
@@ -33,12 +35,18 @@ public class TotalBalanceFooterEventHandler : IEventHandler
         var x = pageSize.GetRight() - SideMargins;
         var y = pageSize.GetBottom() + 5;
 
+        var rm = new ResourceManager(typeof(PrinterResources));
+
         new Canvas(pdfCanvas, pageSize, true)
             .SetFont(_font)
             .SetFontSize(_fontSize)
-            .ShowTextAligned(new Paragraph($"{pageNumber}"), x, y, TextAlignment.RIGHT);
+            .ShowTextAligned(new Paragraph($"{rm.GetString("PageLabel")} {pageNumber}"), x, y, TextAlignment.RIGHT);
 
         var lineY = pageSize.GetBottom() + 20;
         pdfCanvas.MoveTo(pageSize.GetLeft() + SideMargins, lineY);
+        pdfCanvas.LineTo(pageSize.GetRight() - SideMargins, lineY);
+        pdfCanvas.Stroke();
+
+        pdfCanvas.Release();
     }
 }

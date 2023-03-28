@@ -154,7 +154,7 @@
     <value>Ostatné operácie</value>
   </data>
   <data name="ListHeaderItemOperationId" xml:space="preserve">
-    <value>Číslo operácie</value>
+    <value>Číslo</value>
   </data>
   <data name="ListHeaderItemDateTime" xml:space="preserve">
     <value>Dátum a čas</value>
@@ -162,19 +162,19 @@
   <data name="ListHeaderItemType" xml:space="preserve">
     <value>Typ</value>
   </data>
-  <data name="SectionHeaderBuyTransactions" xml:space="preserve">
-    <value>Transakcie - Nákup</value>
+  <data name="SectionHeaderBuyTransactionsAbbreviated" xml:space="preserve">
+    <value>Zoznam nákupov - skrátený</value>
   </data>
-  <data name="SectionHeaderSellTransactions" xml:space="preserve">
-    <value>Transakcie - Predaj</value>
+  <data name="SectionHeaderSellTransactionsAbbreviated" xml:space="preserve">
+    <value>Zoznam predajov - skrátený</value>
   </data>
-  <data name="ListeHeaderItemCustomerName" xml:space="preserve">
+  <data name="ListHeaderItemCustomerName" xml:space="preserve">
     <value>Meno zákazníka</value>
   </data>
   <data name="ListHeaderItemIdentificationCardNumber" xml:space="preserve">
     <value>Číslo dokladu</value>
   </data>
-  <data name="ListHeaderItemSum" xml:space="preserve">
+  <data name="ListHeaderItemTotal" xml:space="preserve">
     <value>Celkom</value>
   </data>
   <data name="SectionHeaderPurchaseReceiptComplete" xml:space="preserve">
@@ -224,5 +224,38 @@
   </data>
   <data name="FolderNameMonthly" xml:space="preserve">
     <value>mesačná</value>
+  </data>
+  <data name="SectionHeaderDonationOperations" xml:space="preserve">
+    <value>Dotácie</value>
+  </data>
+  <data name="ListHeaderItemState" xml:space="preserve">
+    <value>Názov krajiny</value>
+  </data>
+  <data name="ListHeaderItemNote" xml:space="preserve">
+    <value>Poznámka</value>
+  </data>
+  <data name="ListHeaderItemRounding" xml:space="preserve">
+    <value>Zaokrúhlenie</value>
+  </data>
+  <data name="SectionHeaderProfit" xml:space="preserve">
+    <value>Zisk</value>
+  </data>
+  <data name="ListHeaderItemProfit" xml:space="preserve">
+    <value>Zisk</value>
+  </data>
+  <data name="ProfitTotalLabel" xml:space="preserve">
+    <value>Zisk celkom:</value>
+  </data>
+  <data name="ListHeaderItemDate" xml:space="preserve">
+    <value>Dátum</value>
+  </data>
+  <data name="SectionHeaderMonthlyTotalOperationsNumber" xml:space="preserve">
+    <value>Mesačná zostava - prehľad</value>
+  </data>
+  <data name="ListHeaderItemFinalState" xml:space="preserve">
+    <value>Konečný stav</value>
+  </data>
+  <data name="ListHeaderItemInitialState" xml:space="preserve">
+    <value>Počiatočný stav</value>
   </data>
 </root>

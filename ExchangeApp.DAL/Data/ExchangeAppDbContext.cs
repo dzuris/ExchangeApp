@@ -9,6 +9,7 @@ namespace ExchangeApp.DAL.Data;
 public class ExchangeAppDbContext : DbContext
 {
     public DbSet<CurrencyEntity> Currencies => Set<CurrencyEntity>();
+    public DbSet<CurrencyHistoryEntity> CurrenciesHistory => Set<CurrencyHistoryEntity>();
     public DbSet<OperationEntityBase> Operations => Set<OperationEntityBase>();
     public DbSet<TransactionEntity> Transactions => Set<TransactionEntity>();
     public DbSet<DonationEntity> Donations => Set<DonationEntity>();

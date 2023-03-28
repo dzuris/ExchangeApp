@@ -13,6 +13,15 @@ public class TotalBalanceRepository : RepositoryBase<TotalBalanceEntity, Guid>, 
     {
     }
 
+    public async Task<IEnumerable<TotalBalanceEntity>> GetAllAsync(DateTime from, DateTime until)
+    {
+        var list = await AppDbContext
+            .Set<TotalBalanceEntity>()
+            .Where(e => e.Created > from && e.Created <= until)
+            .ToListAsync();
+        return list;
+    }
+
     public override async Task<int> InsertAsync(TotalBalanceEntity entity)
     {
         await AppDbContext
@@ -28,7 +37,7 @@ public class TotalBalanceRepository : RepositoryBase<TotalBalanceEntity, Guid>, 
         var result = await AppDbContext
             .Set<TotalBalanceEntity>()
             .Where(e => e.Type == type)
-            .OrderBy(e => e.Created)
+            .OrderByDescending(e => e.Created)
             .FirstOrDefaultAsync();
 
         return result?.Created ?? DateTime.MinValue;

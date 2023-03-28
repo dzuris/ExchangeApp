@@ -23,7 +23,7 @@
             <Grid
                 RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
                 RowSpacing="5"
-                ColumnDefinitions="Auto, Auto"
+                ColumnDefinitions="Auto, *"
                 ColumnSpacing="40">
                 <Label
                     Style="{StaticResource InfoLabelLight}"
@@ -77,7 +77,10 @@
                 <Label
                     Grid.Row="5"
                     Grid.Column="1"
-                    Text="{Binding Donation.Note, FallbackValue=''}"/>
+                    Text="{Binding Donation.Note, FallbackValue=''}"
+                    LineBreakMode="WordWrap"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="StartAndExpand"/>
             </Grid>
             <VerticalStackLayout
                 Grid.Column="1"

@@ -180,4 +180,10 @@ public class TransactionFacade : ITransactionFacade
 
         await _unitOfWork.CommitAsync();
     }
+
+    public async Task<IEnumerable<TransactionListModel>> GetTransactions(DateTime from, DateTime until)
+    {
+        var entities = await _repository.GetTransactions(from, until);
+        return _mapper.Map<IEnumerable<TransactionListModel>>(entities);
+    }
 }

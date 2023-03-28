@@ -3,6 +3,7 @@ using System;
 using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExchangeApp.DAL.Migrations
 {
     [DbContext(typeof(ExchangeAppDbContext))]
-    partial class ExchangeAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230327122522_CurrencyHistoricalData")]
+    partial class CurrencyHistoricalData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
@@ -296,7 +299,7 @@ namespace ExchangeApp.DAL.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyHistoryEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyHistory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -322,7 +325,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasIndex("CurrencyEntityCode");
 
-                    b.ToTable("CurrenciesHistory");
+                    b.ToTable("CurrencyHistory");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.CustomerEntity", b =>
@@ -503,7 +506,7 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasDiscriminator().HasValue("TransactionEntity");
                 });
 
-            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyHistoryEntity", b =>
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyHistory", b =>
                 {
                     b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", null)
                         .WithMany("History")

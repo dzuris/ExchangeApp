@@ -186,4 +186,7 @@
   <data name="FolderNameWithdraw" xml:space="preserve">
     <value>výber</value>
   </data>
+  <data name="PageLabel" xml:space="preserve">
+    <value>Strana</value>
+  </data>
 </root>

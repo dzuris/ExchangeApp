@@ -72,7 +72,7 @@
                 HorizontalOptions="End"
                 VerticalOptions="Center">
                 <Label
-                    Text="{Binding DomesticCurrencyQuantity}"/>
+                    Text="{Binding DomesticCurrencyQuantity, StringFormat='{0:### ### ### ##0.00}'}"/>
                 <Label
                     Text="{Binding DomesticCurrencySymbol}" />
             </HorizontalStackLayout>

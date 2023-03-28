@@ -13,4 +13,6 @@ public record CurrencyEntity : IEntity
     public decimal? BuyRate { get; set; }
     public decimal? SellRate { get; set; }
     public CurrencyState Status { get; set; } = CurrencyState.NotInUse;
+
+    public List<CurrencyHistoryEntity> History { get; set; } = new();
 }

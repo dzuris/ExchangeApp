@@ -8,7 +8,8 @@ public class CurrencyMapperProfile : Profile
 {
     public CurrencyMapperProfile()
     {
-        CreateMap<CurrencyEntity, CurrencyEntity>();
+        CreateMap<CurrencyEntity, CurrencyEntity>()
+            .ForMember(dst => dst.History, opt => opt.Ignore());
 
         CreateMap<CurrencyEntity, CurrencyListModel>();
         CreateMap<CurrencyEntity, CurrencyTransactionListModel>();
@@ -16,6 +17,9 @@ public class CurrencyMapperProfile : Profile
 
         CreateMap<CurrencyEntity, CurrencyDetailModel>();
 
-        CreateMap<CurrencyDetailModel, CurrencyEntity>();
+        CreateMap<CurrencyDetailModel, CurrencyEntity>()
+            .ForMember(dst => dst.History, opt => opt.Ignore());
+
+        CreateMap<CurrencyHistoryEntity, CurrencyHistoryModel>().ReverseMap();
     }
 }

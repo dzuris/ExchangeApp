@@ -7,7 +7,6 @@ public class TotalBalanceToColorConverter : IValueConverter
 {
     public Color DailyColor { get; set; }
     public Color MonthlyColor { get; set; }
-    public Color AnnualColor { get; set; }
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

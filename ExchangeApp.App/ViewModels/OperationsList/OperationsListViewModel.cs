@@ -27,6 +27,7 @@ public partial class OperationsListViewModel : ViewModelBase
         FilterUsed = false;
         IsLoadMoreButtonVisible = true;
 
+        _pageNumber = 1;
         Operations = await _operationFacade.GetOperationsAsync(PageSize, _pageNumber);
 
         if (Operations.Count < PageSize)
@@ -85,7 +86,7 @@ public partial class OperationsListViewModel : ViewModelBase
 
         try
         {
-            ObservableCollection<OperationListModelBase> newOperations = new();
+            ObservableCollection<OperationListModelBase> newOperations;
 
             if (FilterUsed)
             {

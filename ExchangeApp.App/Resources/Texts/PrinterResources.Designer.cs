@@ -196,6 +196,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Page.
+        /// </summary>
+        public static string PageLabel {
+            get {
+                return ResourceManager.GetString("PageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount paid:.
         /// </summary>
         public static string PaidAmountLabel {

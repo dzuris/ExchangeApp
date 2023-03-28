@@ -3,7 +3,6 @@ using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace ExchangeApp.DAL.Repositories;
 
@@ -25,6 +24,15 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
             .Take(pageSize)
             .ToListAsync();
 
+        return list;
+    }
+
+    public async Task<IEnumerable<OperationEntityBase>> GetOperationsASync(DateTime from, DateTime until)
+    {
+        var list = await AppDbContext
+            .Set<OperationEntityBase>()
+            .Where(o => o.Time > from && o.Time < until)
+            .ToListAsync();
         return list;
     }
 
@@ -120,7 +128,7 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
                         && ((TransactionEntity)o).TransactionType == TransactionType.Sell
                         || o is DonationEntity 
                         && ((DonationEntity)o).Type != DonationType.Deposit)
-            .Where(o => o.Time >= from && o.Time <= until.AddDays(1))
+            .Where(o => o.Time >= from && o.Time <= until)
             .ToListAsync();
 
         return list;

@@ -175,7 +175,7 @@
     <value>Typ uzávierky:</value>
   </data>
   <data name="DatePickerHint" xml:space="preserve">
-    <value>Ak je pozadie date pickeru červené, jeho hodnota sa pri filtrácií nezohľadňuje.</value>
+    <value>Ak je pozadie červené, hodnota dátumu sa pri filtrácii nezohľadňuje.</value>
   </data>
   <data name="FilterDateFromLabel" xml:space="preserve">
     <value>Od:</value>
@@ -191,5 +191,8 @@
   </data>
   <data name="AlertMessageDownloaded" xml:space="preserve">
     <value>PDF uzávierky bolo uložené do počítača.</value>
+  </data>
+  <data name="ListHeaderItemId" xml:space="preserve">
+    <value>Číslo</value>
   </data>
 </root>

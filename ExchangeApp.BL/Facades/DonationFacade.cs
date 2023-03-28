@@ -1,5 +1,4 @@
-﻿using System.Resources;
-using AutoMapper;
+﻿using AutoMapper;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Donation;
 using ExchangeApp.Common.Enums;
@@ -214,5 +213,11 @@ public class DonationFacade : IDonationFacade
             newForeignCurrencyQuantityInCashRegister);
 
         await _unitOfWork.CommitAsync();
+    }
+
+    public async Task<IEnumerable<DonationListModel>> GetDonations(DateTime from, DateTime until)
+    {
+        var entities = await _repository.GetDonations(from, until);
+        return _mapper.Map<IEnumerable<DonationListModel>>(entities);
     }
 }

@@ -18,7 +18,7 @@ public partial class ProfitCalculateViewModel : ViewModelBase
     {
         await base.LoadDataAsync();
 
-        ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate);
+        ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate.AddDays(1));
         TotalProfit = ProfitList.Sum(e => e.Profit);
     }
 
@@ -40,7 +40,7 @@ public partial class ProfitCalculateViewModel : ViewModelBase
     [RelayCommand]
     private async Task CalculateAsync()
     {
-        ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate);
+        ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate.AddDays(1));
         TotalProfit = ProfitList.Sum(e => e.Profit);
     }
 
@@ -50,7 +50,7 @@ public partial class ProfitCalculateViewModel : ViewModelBase
         FromDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
         UntilDate = DateTime.Today;
 
-        ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate);
+        ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate.AddDays(1));
         TotalProfit = ProfitList.Sum(e => e.Profit);
     }
 }
