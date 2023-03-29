@@ -43,7 +43,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasKey("Code");
 
-                    b.ToTable("Currencies");
+                    b.ToTable("Currencies", (string)null);
 
                     b.HasData(
                         new
@@ -322,7 +322,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasIndex("CurrencyEntityCode");
 
-                    b.ToTable("CurrenciesHistory");
+                    b.ToTable("CurrenciesHistory", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.CustomerEntity", b =>
@@ -361,7 +361,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
 
                     b.UseTptMappingStrategy();
                 });
@@ -402,7 +402,7 @@ namespace ExchangeApp.DAL.Migrations
 
                     b.HasIndex("CurrencyCode");
 
-                    b.ToTable("Operations");
+                    b.ToTable("Operations", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("OperationEntityBase");
 
@@ -429,7 +429,7 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasIndex("Type", "Created")
                         .IsUnique();
 
-                    b.ToTable("TotalBalances");
+                    b.ToTable("TotalBalances", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.BusinessCustomerEntity", b =>
@@ -452,7 +452,7 @@ namespace ExchangeApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.ToTable("BusinessCustomers");
+                    b.ToTable("BusinessCustomers", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.IndividualCustomerEntity", b =>
@@ -463,14 +463,14 @@ namespace ExchangeApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.ToTable("IndividualCustomers");
+                    b.ToTable("IndividualCustomers", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.MinorCustomerEntity", b =>
                 {
                     b.HasBaseType("ExchangeApp.DAL.Entities.Customers.CustomerEntity");
 
-                    b.ToTable("MinorCustomers");
+                    b.ToTable("MinorCustomers", (string)null);
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Operations.DonationEntity", b =>

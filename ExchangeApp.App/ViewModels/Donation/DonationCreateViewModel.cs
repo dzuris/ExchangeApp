@@ -1,4 +1,5 @@
-﻿using System.Resources;
+﻿using System.Globalization;
+using System.Resources;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
@@ -53,27 +54,16 @@ public partial class DonationCreateViewModel : ViewModelBase
 
             OnPropertyChanged(nameof(NewQuantity));
 
-            if (value.Code == DomesticCurrencyCode)
-            {
-                CourseRate = "1";
-            }
+            if (value is null) return;
 
-            SelectedCurrencyIsNotDomestic = value.Code != DomesticCurrencyCode;
-            OnPropertyChanged(nameof(SelectedCurrencyIsNotDomestic));
+            CourseRateEntryEnabled = value.Code != DomesticCurrencyCode;
 
             CourseRate = "1";
-            if (DonationType is null or not Common.Enums.DonationType.Withdraw || value is null) return;
-
-            var averageCourseRate = value.AverageCourseRate.ToString();
-            if (averageCourseRate != null)
-            {
-                CourseRate = averageCourseRate;
-            }
         }
     }
     
-    private DonationType? _donationType;
-    public DonationType? DonationType
+    private DonationType _donationType = DonationType.Deposit;
+    public DonationType DonationType
     {
         get => _donationType;
         set
@@ -81,15 +71,13 @@ public partial class DonationCreateViewModel : ViewModelBase
             SetProperty(ref _donationType, value);
 
             OnPropertyChanged(nameof(NewQuantity));
-
-            if (SelectedCurrency is null || value is not Common.Enums.DonationType.Withdraw) return;
-            var averageCourseRate = SelectedCurrency.AverageCourseRate.ToString();
-            if (averageCourseRate != null)
-            {
-                CourseRate = averageCourseRate;
-            }
+            OnPropertyChanged(nameof(CourseRateEntryEnabled));
         }
     }
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(CourseRateEntryEnabled))]
+    private bool _useAverageCourseRate = true;
 
     [ObservableProperty]
     private string _note = string.Empty;
@@ -100,9 +88,20 @@ public partial class DonationCreateViewModel : ViewModelBase
     [ObservableProperty] 
     [NotifyPropertyChangedFor(nameof(NewQuantity))]
     private decimal _quantity;
-
-    [ObservableProperty] 
-    private bool _selectedCurrencyIsNotDomestic;
+    
+    private bool _courseRateEntryEnabled;
+    public bool CourseRateEntryEnabled
+    {
+        get
+        {
+            if (DonationType == DonationType.Withdraw && UseAverageCourseRate)
+            {
+                return false;
+            }
+            return _courseRateEntryEnabled;
+        }
+        set => SetProperty(ref _courseRateEntryEnabled, value);
+    }
 
     public decimal NewQuantity
     {
@@ -115,8 +114,7 @@ public partial class DonationCreateViewModel : ViewModelBase
 
             return DonationType switch
             {
-                null => SelectedCurrency.Quantity + Quantity,
-                Common.Enums.DonationType.Deposit => SelectedCurrency.Quantity + Quantity,
+                DonationType.Deposit => SelectedCurrency.Quantity + Quantity,
                 _ => SelectedCurrency.Quantity - Quantity
             };
         }
@@ -137,6 +135,12 @@ public partial class DonationCreateViewModel : ViewModelBase
             return;
         }
 
+        if (DonationType == DonationType.Withdraw && UseAverageCourseRate)
+        {
+            var averageCourseRate = SelectedCurrency!.AverageCourseRate.ToString(CultureInfo.CurrentCulture);
+            CourseRate = averageCourseRate;
+        }
+
         var courseRate = Utilities.Utilities.StrToDecimal(CourseRate) ?? -1;
         var donation = new DonationDetailModel
         {
@@ -145,7 +149,7 @@ public partial class DonationCreateViewModel : ViewModelBase
             AverageCourseRate = SelectedCurrency!.AverageCourseRate,
             Quantity = Quantity,
             CurrencyQuantityBefore = SelectedCurrency!.Quantity,
-            Type = DonationType ?? Common.Enums.DonationType.Deposit,
+            Type = DonationType,
             Note = Note,
             CurrencyCode = SelectedCurrency!.Code,
             Currency = SelectedCurrency
@@ -193,8 +197,8 @@ public partial class DonationCreateViewModel : ViewModelBase
         var rm = new ResourceManager(typeof(DonationPageResources));
         var errorMessage = string.Empty;
 
-        if (DonationType is null)
-            errorMessage += rm.GetString("ErrorMessage_DonationTypeEmpty") + "\n";
+        //if (DonationType is null)
+        //    errorMessage += rm.GetString("ErrorMessage_DonationTypeEmpty") + "\n";
 
         if (SelectedCurrency is null)
             errorMessage += rm.GetString("ErrorMessage_SelectedCurrencyEmpty") + "\n";

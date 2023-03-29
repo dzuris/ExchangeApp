@@ -61,6 +61,69 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You don&apos;t have enough money to create this donation..
+        /// </summary>
+        public static string AlertErrorMessageInsufficientMoney {
+            get {
+                return ResourceManager.GetString("AlertErrorMessageInsufficientMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donation create failure.
+        /// </summary>
+        public static string AlertErrorTitleDonationCreate {
+            get {
+                return ResourceManager.GetString("AlertErrorTitleDonationCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use average course rate.
+        /// </summary>
+        public static string CheckBoxTextUseAverageCourseRate {
+            get {
+                return ResourceManager.GetString("CheckBoxTextUseAverageCourseRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposit course rate:.
+        /// </summary>
+        public static string CourseRateDepositLabel {
+            get {
+                return ResourceManager.GetString("CourseRateDepositLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Course rate:.
+        /// </summary>
+        public static string CourseRateLabel {
+            get {
+                return ResourceManager.GetString("CourseRateLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Levy course rate:.
+        /// </summary>
+        public static string CourseRateLevyLabel {
+            get {
+                return ResourceManager.GetString("CourseRateLevyLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Withdraw course rate:.
+        /// </summary>
+        public static string CourseRateWithdrawLabel {
+            get {
+                return ResourceManager.GetString("CourseRateWithdrawLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code.
         /// </summary>
         public static string CurrencyCodeListHeaderLabel {
@@ -75,15 +138,6 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string CurrentStateLabel {
             get {
                 return ResourceManager.GetString("CurrentStateLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Deposit course rate:.
-        /// </summary>
-        public static string DepositCourseRateLabel {
-            get {
-                return ResourceManager.GetString("DepositCourseRateLabel", resourceCulture);
             }
         }
         

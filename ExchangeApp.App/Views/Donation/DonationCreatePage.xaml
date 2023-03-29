@@ -59,14 +59,14 @@
                     Text="{Binding Note}"/>
         </HorizontalStackLayout>
 
-        <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="10" ColumnDefinitions="*, *" ColumnSpacing="25" VerticalOptions="Center">
+        <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="Auto, Auto, Auto, Auto, Auto" RowSpacing="10" ColumnDefinitions="*, *" ColumnSpacing="25" VerticalOptions="Center">
             <Label Text="{x:Static texts:DonationPageResources.CurrentStateLabel}" HorizontalOptions="End"/>
             <HorizontalStackLayout Grid.Column="1" Spacing="5">
                 <Label Text="{Binding SelectedCurrency.Quantity, TargetNullValue='0', FallbackValue='0'}"/>
                 <Label Text="{Binding SelectedCurrency.Code, TargetNullValue='', FallbackValue=''}"/>
             </HorizontalStackLayout>
 
-            <Label Grid.Row="1" Text="{x:Static texts:DonationPageResources.DepositCourseRateLabel}" HorizontalOptions="End" VerticalOptions="Center"/>
+            <Label Grid.Row="1" Text="{Binding DonationType, Converter={StaticResource DonationTypeToCourseRateStringConverter}}" HorizontalOptions="End" VerticalOptions="Center"/>
             <Entry 
                     Grid.Row="1" 
                     Grid.Column="1" 
@@ -74,12 +74,24 @@
                     HorizontalOptions="Start" 
                     VerticalOptions="Center" 
                     Keyboard="Numeric"
-                    IsEnabled="{Binding SelectedCurrencyIsNotDomestic}"
+                    IsEnabled="{Binding CourseRateEntryEnabled}"
                     Text="{Binding CourseRate}"/>
 
-            <Label Grid.Row="2" Text="{x:Static texts:DonationPageResources.QuantityLabel}" HorizontalOptions="End" VerticalOptions="Center"/>
+            <Label 
+                Grid.Row="2" 
+                Text="{x:Static texts:DonationPageResources.CheckBoxTextUseAverageCourseRate}" 
+                IsVisible="{Binding DonationType, Converter={StaticResource DonationTypeIsWithdrawToBooleanConverter}}" 
+                HorizontalOptions="End" 
+                VerticalOptions="Center"/>
+            <CheckBox 
+                Grid.Row="2" 
+                Grid.Column="1" 
+                IsChecked="{Binding UseAverageCourseRate}"
+                IsVisible="{Binding DonationType, Converter={StaticResource DonationTypeIsWithdrawToBooleanConverter}}"/>
+
+            <Label Grid.Row="3" Text="{x:Static texts:DonationPageResources.QuantityLabel}" HorizontalOptions="End" VerticalOptions="Center"/>
             <Entry 
-                    Grid.Row="2" 
+                    Grid.Row="3" 
                     Grid.Column="1" 
                     WidthRequest="100" 
                     HorizontalOptions="Start" 
@@ -87,8 +99,8 @@
                     Keyboard="Numeric"
                     Text="{Binding Quantity}"/>
 
-            <Label Grid.Row="3" Text="{x:Static texts:DonationPageResources.NewQuantityLabel}" HorizontalOptions="End" Style="{StaticResource InfoBoldStyle}"/>
-            <HorizontalStackLayout Grid.Row="3" Grid.Column="1" Spacing="5">
+            <Label Grid.Row="4" Text="{x:Static texts:DonationPageResources.NewQuantityLabel}" HorizontalOptions="End" Style="{StaticResource InfoBoldStyle}"/>
+            <HorizontalStackLayout Grid.Row="4" Grid.Column="1" Spacing="5">
                 <Label Text="{Binding NewQuantity}" Style="{StaticResource InfoBoldStyle}"/>
                 <Label Text="{Binding SelectedCurrency.Code, FallbackValue=''}" Style="{StaticResource InfoBoldStyle}"/>
             </HorizontalStackLayout>

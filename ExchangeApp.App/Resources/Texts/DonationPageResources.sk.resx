@@ -129,7 +129,7 @@
   <data name="CurrentStateLabel" xml:space="preserve">
     <value>Aktuálny stav:</value>
   </data>
-  <data name="DepositCourseRateLabel" xml:space="preserve">
+  <data name="CourseRateDepositLabel" xml:space="preserve">
     <value>Vkladový kurz:</value>
   </data>
   <data name="QuantityLabel" xml:space="preserve">
@@ -158,5 +158,23 @@
   </data>
   <data name="ErrorMessage_QuantityNotValid" xml:space="preserve">
     <value>Množstvo musí byť celé číslo väčšie ako 0, zároveň je nutné mať v pokladnici dostatočný obnos peňazí.</value>
+  </data>
+  <data name="CourseRateLevyLabel" xml:space="preserve">
+    <value>Odvodový kurz:</value>
+  </data>
+  <data name="CourseRateWithdrawLabel" xml:space="preserve">
+    <value>Výberový kurz:</value>
+  </data>
+  <data name="CourseRateLabel" xml:space="preserve">
+    <value>Kurz:</value>
+  </data>
+  <data name="AlertErrorTitleDonationCreate" xml:space="preserve">
+    <value>Zlyhanie vytvorenia dotácie</value>
+  </data>
+  <data name="AlertErrorMessageInsufficientMoney" xml:space="preserve">
+    <value>Nemáte dostatok prostriedkov na vytvorenie tejto dotácie.</value>
+  </data>
+  <data name="CheckBoxTextUseAverageCourseRate" xml:space="preserve">
+    <value>Použiť priemerný kurz</value>
   </data>
 </root>

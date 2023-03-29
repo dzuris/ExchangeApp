@@ -156,6 +156,8 @@ public partial class TransactionDetailViewModel : ViewModelBase
     [RelayCommand]
     private async Task PrintAsync()
     {
-        // TODO Create print for Transaction
+        var printContent = $"Model quantity: {Transaction?.Quantity}\nModel Course rate: {Transaction?.CourseRate}";
+        //var document = new print();
+        
     }
 }
