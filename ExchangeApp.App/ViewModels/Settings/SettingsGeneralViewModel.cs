@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models;
-using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.App.ViewModels.Settings;
 
@@ -22,9 +21,6 @@ public partial class SettingsGeneralViewModel : ViewModelBase
 
         SettingsData = await _settingsFacade.GetSettingsDataAsync() ?? SettingsDataModel.Empty;
     }
-
-    public List<DonationSaveFormatEnum> DonationSaveFormats =>
-        Enum.GetValues(typeof(DonationSaveFormatEnum)).Cast<DonationSaveFormatEnum>().ToList();
 
     [ObservableProperty]
     private SettingsDataModel _settingsData = null!;

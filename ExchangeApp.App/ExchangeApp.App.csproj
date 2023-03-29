@@ -53,70 +53,74 @@
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
-	  <None Remove="Resources\Images\Flags\aud.png" />
-	  <None Remove="Resources\Images\Flags\bgn.png" />
-	  <None Remove="Resources\Images\Flags\brl.png" />
-	  <None Remove="Resources\Images\Flags\cad.png" />
-	  <None Remove="Resources\Images\Flags\chf.png" />
-	  <None Remove="Resources\Images\Flags\cny.png" />
-	  <None Remove="Resources\Images\Flags\czk.png" />
-	  <None Remove="Resources\Images\Flags\dkk.png" />
-	  <None Remove="Resources\Images\Flags\eur.png" />
-	  <None Remove="Resources\Images\Flags\gbp.png" />
-	  <None Remove="Resources\Images\Flags\hkd.png" />
-	  <None Remove="Resources\Images\Flags\huf.png" />
-	  <None Remove="Resources\Images\Flags\idr.png" />
-	  <None Remove="Resources\Images\Flags\ils.png" />
-	  <None Remove="Resources\Images\Flags\inr.png" />
-	  <None Remove="Resources\Images\Flags\isk.png" />
-	  <None Remove="Resources\Images\Flags\jpn.png" />
-	  <None Remove="Resources\Images\Flags\krw.png" />
-	  <None Remove="Resources\Images\Flags\mxn.png" />
-	  <None Remove="Resources\Images\Flags\myr.png" />
-	  <None Remove="Resources\Images\Flags\nok.png" />
-	  <None Remove="Resources\Images\Flags\nzd.png" />
-	  <None Remove="Resources\Images\Flags\php.png" />
-	  <None Remove="Resources\Images\Flags\pln.png" />
-	  <None Remove="Resources\Images\Flags\ron.png" />
-	  <None Remove="Resources\Images\Flags\rub.png" />
-	  <None Remove="Resources\Images\Flags\sek.png" />
-	  <None Remove="Resources\Images\Flags\sgd.png" />
-	  <None Remove="Resources\Images\Flags\thb.png" />
-	  <None Remove="Resources\Images\Flags\try.png" />
-	  <None Remove="Resources\Images\Flags\usd.png" />
-	  <None Remove="Resources\Images\Flags\zar.png" />
+	  <None Remove="Resources\Images\Flags\aud_flag.png" />
+	  <None Remove="Resources\Images\Flags\bgn_flag.png" />
+	  <None Remove="Resources\Images\Flags\brl_flag.png" />
+	  <None Remove="Resources\Images\Flags\cad_flag.png" />
+	  <None Remove="Resources\Images\Flags\chf_flag.png" />
+	  <None Remove="Resources\Images\Flags\cny_flag.png" />
+	  <None Remove="Resources\Images\Flags\czk_flag.png" />
+	  <None Remove="Resources\Images\Flags\dkk_flag.png" />
+	  <None Remove="Resources\Images\Flags\eur_flag.png" />
+	  <None Remove="Resources\Images\Flags\gbp_flag.png" />
+	  <None Remove="Resources\Images\Flags\hkd_flag.png" />
+	  <None Remove="Resources\Images\Flags\huf_flag.png" />
+	  <None Remove="Resources\Images\Flags\idr_flag.png" />
+	  <None Remove="Resources\Images\Flags\ils_flag.png" />
+	  <None Remove="Resources\Images\Flags\inr_flag.png" />
+	  <None Remove="Resources\Images\Flags\isk_flag.png" />
+	  <None Remove="Resources\Images\Flags\jpn_flag.png" />
+	  <None Remove="Resources\Images\Flags\krw_flag.png" />
+	  <None Remove="Resources\Images\Flags\mxn_flag.png" />
+	  <None Remove="Resources\Images\Flags\myr_flag.png" />
+	  <None Remove="Resources\Images\Flags\nok_flag.png" />
+	  <None Remove="Resources\Images\Flags\nzd_flag.png" />
+	  <None Remove="Resources\Images\Flags\php_flag.png" />
+	  <None Remove="Resources\Images\Flags\pln_flag.png" />
+	  <None Remove="Resources\Images\Flags\ron_flag.png" />
+	  <None Remove="Resources\Images\Flags\rub_flag.png" />
+	  <None Remove="Resources\Images\Flags\sek_flag.png" />
+	  <None Remove="Resources\Images\Flags\sgd_flag.png" />
+	  <None Remove="Resources\Images\Flags\thb_flag.png" />
+	  <None Remove="Resources\Images\Flags\try_flag.png" />
+	  <None Remove="Resources\Images\Flags\usd_flag.png" />
+	  <None Remove="Resources\Images\Flags\zar_flag.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json" />
-	  <MauiImage Include="Resources\Images\Flags\aud.png" />
-	  <MauiImage Include="Resources\Images\Flags\bgn.png" />
-	  <MauiImage Include="Resources\Images\Flags\brl.png" />
-	  <MauiImage Include="Resources\Images\Flags\cad.png" />
-	  <MauiImage Include="Resources\Images\Flags\chf.png" />
-	  <MauiImage Include="Resources\Images\Flags\cny.png" />
-	  <MauiImage Include="Resources\Images\Flags\czk.png" />
-	  <MauiImage Include="Resources\Images\Flags\dkk.png" />
-	  <MauiImage Include="Resources\Images\Flags\gbp.png" />
-	  <MauiImage Include="Resources\Images\Flags\hkd.png" />
-	  <MauiImage Include="Resources\Images\Flags\huf.png" />
-	  <MauiImage Include="Resources\Images\Flags\idr.png" />
-	  <MauiImage Include="Resources\Images\Flags\ils.png" />
-	  <MauiImage Include="Resources\Images\Flags\inr.png" />
-	  <MauiImage Include="Resources\Images\Flags\isk.png" />
-	  <MauiImage Include="Resources\Images\Flags\krw.png" />
-	  <MauiImage Include="Resources\Images\Flags\mxn.png" />
-	  <MauiImage Include="Resources\Images\Flags\myr.png" />
-	  <MauiImage Include="Resources\Images\Flags\nok.png" />
-	  <MauiImage Include="Resources\Images\Flags\nzd.png" />
-	  <MauiImage Include="Resources\Images\Flags\php.png" />
-	  <MauiImage Include="Resources\Images\Flags\ron.png" />
-	  <MauiImage Include="Resources\Images\Flags\rub.png" />
-	  <MauiImage Include="Resources\Images\Flags\sek.png" />
-	  <MauiImage Include="Resources\Images\Flags\sgd.png" />
-	  <MauiImage Include="Resources\Images\Flags\thb.png" />
-	  <MauiImage Include="Resources\Images\Flags\try.png" />
-	  <MauiImage Include="Resources\Images\Flags\zar.png" />
+	  <MauiImage Include="Resources\Images\Flags\aud_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\bgn_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\brl_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\cad_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\chf_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\cny_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\czk_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\dkk_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\eur_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\gbp_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\hkd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\huf_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\idr_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\ils_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\inr_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\isk_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\jpn_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\krw_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\mxn_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\myr_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\nok_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\nzd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\php_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\pln_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\ron_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\rub_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\sek_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\sgd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\thb_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\try_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\usd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\zar_flag.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -142,13 +146,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Include="Resources\Images\Flags\eur.png" />
-	  <MauiImage Include="Resources\Images\Flags\jpn.png" />
-	  <MauiImage Include="Resources\Images\Flags\pln.png" />
-	  <MauiImage Include="Resources\Images\Flags\usd.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\ExchangeApp.BL\ExchangeApp.BL.csproj" />
 	  <ProjectReference Include="..\ExchangeApp.DAL\ExchangeApp.DAL.csproj" />
 	</ItemGroup>
@@ -171,11 +168,6 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>CourseDetailPageResources.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Resources\Texts\EnumDonationSaveFormatResources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>EnumDonationSaveFormatResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\EnumOperationFilterOptionsResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -343,10 +335,6 @@
 	  <EmbeddedResource Update="Resources\Texts\CourseDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>CourseDetailPageResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\EnumDonationSaveFormatResources.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>EnumDonationSaveFormatResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\EnumOperationFilterOptionsResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

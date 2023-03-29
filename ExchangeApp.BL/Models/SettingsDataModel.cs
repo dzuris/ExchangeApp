@@ -1,6 +1,4 @@
-﻿using ExchangeApp.Common.Enums;
-
-namespace ExchangeApp.BL.Models;
+﻿namespace ExchangeApp.BL.Models;
 
 public record SettingsDataModel : ModelBase
 {
@@ -8,14 +6,12 @@ public record SettingsDataModel : ModelBase
     public bool AutomaticTransactionSaveOption { get; set; }
     public bool AutomaticDonationSaveOption { get; set; }
     public bool AutomaticTotalBalanceSaveOption { get; set; }
-    public DonationSaveFormatEnum DonationSaveForm { get; set; }
 
     public static SettingsDataModel Empty => new()
     {
         FolderPath = string.Empty,
         AutomaticTransactionSaveOption = false,
         AutomaticDonationSaveOption = false,
-        AutomaticTotalBalanceSaveOption = false,
-        DonationSaveForm = DonationSaveFormatEnum.OmegaTxt
+        AutomaticTotalBalanceSaveOption = false
     };
 }

@@ -34,15 +34,6 @@
                     <CheckBox IsChecked="{Binding SettingsData.AutomaticTotalBalanceSaveOption}" VerticalOptions="Center"/>
                     <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticTotalBalance}" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
-                <VerticalStackLayout Spacing="15">
-                    <Label Text="{x:Static texts:SettingsGeneralPageResources.StorageFormatDonationsLabel}"/>
-                    <Picker 
-                        HorizontalOptions="Start" 
-                        WidthRequest="200"
-                        ItemsSource="{Binding DonationSaveFormats}"
-                        ItemDisplayBinding="{Binding Converter={StaticResource DonationSaveFormatToStringConverter}}"
-                        SelectedItem="{Binding SettingsData.DonationSaveForm}"/>
-                </VerticalStackLayout>
             </VerticalStackLayout>
         </ScrollView>
         <ImageButton

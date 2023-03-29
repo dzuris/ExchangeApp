@@ -21,8 +21,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ExchangeApp.Common.Tests\ExchangeApp.Common.Tests.csproj" />
-  </ItemGroup>
-
 </Project>
