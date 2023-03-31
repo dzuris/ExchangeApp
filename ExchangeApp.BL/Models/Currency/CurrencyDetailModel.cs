@@ -10,5 +10,5 @@ public record CurrencyDetailModel : ModelBase
     public required decimal AverageCourseRate { get; set; }
     public decimal? BuyRate { get; set; }
     public decimal? SellRate { get; set; }
-    public required CurrencyState Status { get; set; }
+    public required CurrencyStatus Status { get; set; }
 }

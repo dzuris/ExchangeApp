@@ -232,6 +232,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is created total balance for this operation so you can&apos;t cancel it anymore..
+        /// </summary>
+        public static string StornoAlertErrorMessageClosedDonation {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorMessageClosedDonation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error in getting currencies..
         /// </summary>
         public static string StornoAlertErrorMessageCurrencyMissingException {

@@ -1,5 +1,4 @@
-﻿using AutoMapper.Internal;
-using ExchangeApp.BL.Facades.Interfaces;
+﻿using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.DAL.UnitOfWork;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,11 +16,6 @@ public static class BLInstaller
             .AsMatchingInterface()
             .WithScopedLifetime()
         );
-        
-        //services.AddAutoMapper((serviceProvider, cfg) =>
-        //{
-        //    cfg.Internal().MethodMappingEnabled = false;
-        //}, typeof(BusinessLogic).Assembly);
 
         return services;
     }

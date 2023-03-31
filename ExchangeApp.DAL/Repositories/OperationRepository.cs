@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ExchangeApp.Common.Enums;
+using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -132,5 +133,21 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
             .ToListAsync();
 
         return list;
+    }
+
+    public async Task<bool> CanCancel(DateTime operationCreation)
+    {
+        var lastTotalBalance = await AppDbContext
+            .Set<TotalBalanceEntity>()
+            .Where(e => e.Type == TotalBalanceType.Daily)
+            .OrderByDescending(e => e.Created)
+            .FirstOrDefaultAsync();
+
+        if (lastTotalBalance is not null)
+        {
+            return lastTotalBalance.Created < operationCreation;
+        }
+
+        return false;
     }
 }

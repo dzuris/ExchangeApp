@@ -13,4 +13,5 @@ public interface IOperationRepository : IRepository<OperationEntityBase, int>
     Task UpdateAsync (OperationEntityBase entity);
     Task<decimal> GetAverageCourseOfOperationBefore(OperationEntityBase entity);
     Task<IEnumerable<OperationEntityBase>> GetOperationsForProfitCalculationAsync(DateTime from, DateTime until);
+    Task<bool> CanCancel(DateTime operationCreation);
 }

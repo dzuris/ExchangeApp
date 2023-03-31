@@ -172,4 +172,7 @@
   <data name="StornoLabel" xml:space="preserve">
     <value>CANCELLED</value>
   </data>
+  <data name="StornoAlertErrorMessageClosedDonation" xml:space="preserve">
+    <value>There is created total balance for this operation so you can't cancel it anymore.</value>
+  </data>
 </root>

@@ -207,4 +207,7 @@
   <data name="StornoAlertConfirmationYesButton" xml:space="preserve">
     <value>Áno</value>
   </data>
+  <data name="StornoAlertErrorMessageClosedTransaction" xml:space="preserve">
+    <value>Pre túto transakciu bola vytvorená uzávierka a teda už sa nedá stornovať.</value>
+  </data>
 </root>

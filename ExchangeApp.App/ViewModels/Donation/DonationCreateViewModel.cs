@@ -197,17 +197,14 @@ public partial class DonationCreateViewModel : ViewModelBase
         var rm = new ResourceManager(typeof(DonationPageResources));
         var errorMessage = string.Empty;
 
-        //if (DonationType is null)
-        //    errorMessage += rm.GetString("ErrorMessage_DonationTypeEmpty") + "\n";
-
         if (SelectedCurrency is null)
             errorMessage += rm.GetString("ErrorMessage_SelectedCurrencyEmpty") + "\n";
         
-        if (Quantity <= 0 || (DonationType != Common.Enums.DonationType.Deposit && SelectedCurrency?.Quantity < Quantity))
+        if (Quantity <= 0 || (DonationType != DonationType.Deposit && SelectedCurrency?.Quantity < Quantity))
             errorMessage += rm.GetString("ErrorMessage_QuantityNotValid") + "\n";
 
         var courseRateRes = Utilities.Utilities.StrToDecimal(CourseRate);
-        if (courseRateRes is null or <= 0)
+        if (courseRateRes is null or <= 0 && (DonationType is not DonationType.Withdraw || !UseAverageCourseRate))
             errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
         
         return errorMessage;

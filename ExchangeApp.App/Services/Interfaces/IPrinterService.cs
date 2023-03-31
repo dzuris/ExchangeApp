@@ -9,4 +9,5 @@ public interface IPrinterService
     Task SavePdf(TransactionDetailModel model);
     Task SavePdf(DonationDetailModel model);
     Task SavePdf(TotalBalanceModel model);
+    Task Print(TransactionDetailModel model);
 }

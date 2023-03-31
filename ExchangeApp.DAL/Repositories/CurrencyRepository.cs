@@ -30,7 +30,7 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
     {
         return await AppDbContext
             .Set<CurrencyEntity>()
-            .Where(e => e.Status == CurrencyState.NotInUse)
+            .Where(e => e.Status == CurrencyStatus.NotInUse)
             .OrderBy(item => item.Code != DomesticCurrencyCode)
             .ToListAsync();
     }
@@ -40,7 +40,7 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
         var list = await AppDbContext
             .Set<CurrencyEntity>()
             .AsNoTracking()
-            .Where(e => e.Status != CurrencyState.NotInUse)
+            .Where(e => e.Status != CurrencyStatus.NotInUse)
             .OrderBy(item => item.Code != DomesticCurrencyCode)
             .ToListAsync();
         return list;
@@ -101,7 +101,7 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
             .Update(entity);
     }
 
-    public async Task UpdateStatus(string code, CurrencyState status)
+    public async Task UpdateStatus(string code, CurrencyStatus status)
     {
         var entity = await GetByIdAsync(code);
 

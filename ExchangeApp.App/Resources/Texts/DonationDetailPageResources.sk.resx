@@ -192,4 +192,7 @@
   <data name="StornoLabel" xml:space="preserve">
     <value>STORNOVANÉ</value>
   </data>
+  <data name="StornoAlertErrorMessageClosedDonation" xml:space="preserve">
+    <value>Pre túto dotáciu bola vytvorená uzávierka a teda už sa nedá stornovať.</value>
+  </data>
 </root>

@@ -187,4 +187,7 @@
   <data name="StornoAlertConfirmationNoButton" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="StornoAlertErrorMessageClosedTransaction" xml:space="preserve">
+    <value>There is created total balance for this operation so you can't cancel it anymore.</value>
+  </data>
 </root>

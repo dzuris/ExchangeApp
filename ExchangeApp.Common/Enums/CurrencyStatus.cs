@@ -1,6 +1,6 @@
 ﻿namespace ExchangeApp.Common.Enums;
 
-public enum CurrencyState
+public enum CurrencyStatus
 {
     NotInUse,
     Own

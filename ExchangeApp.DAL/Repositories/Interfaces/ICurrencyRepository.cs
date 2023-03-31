@@ -13,5 +13,5 @@ public interface ICurrencyRepository : IRepository<CurrencyEntity, string>
     Task UpdateAsync(CurrencyEntity currency);
     Task UpdateQuantityAsync(string code, decimal newQuantity);
     Task UpdateAverageCourseAsync (string code, decimal newAverageCourse);
-    Task UpdateStatus(string code, CurrencyState status);
+    Task UpdateStatus(string code, CurrencyStatus status);
 }

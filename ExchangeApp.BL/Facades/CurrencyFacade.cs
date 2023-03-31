@@ -73,7 +73,7 @@ public class CurrencyFacade : ICurrencyFacade
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task UpdateStatus(string code, CurrencyState status)
+    public async Task UpdateStatus(string code, CurrencyStatus status)
     {
         await _repository.UpdateStatus(code, status);
         await _unitOfWork.CommitAsync();

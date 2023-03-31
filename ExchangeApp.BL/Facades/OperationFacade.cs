@@ -64,4 +64,10 @@ public class OperationFacade : IOperationFacade
 
         return result;
     }
+
+    public async Task<bool> CanCancel(DateTime operationCreation)
+    {
+        var result = await _repository.CanCancel(operationCreation);
+        return result;
+    }
 }
