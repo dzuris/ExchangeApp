@@ -1,36 +1,51 @@
-global using Xunit;
+﻿using AutoMapper;
+using ExchangeApp.BL.MapperProfiles;
 using ExchangeApp.Common.Tests;
 using ExchangeApp.Common.Tests.Factories;
 using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
-using Xunit.Abstractions;
+using Xunit;
 
 namespace ExchangeApp.DAL.Tests;
 
 public class DbContextTestsBase : IAsyncLifetime
 {
-    protected DbContextTestsBase(ITestOutputHelper output)
+    protected IDbContextFactory<ExchangeAppTestingDbContext> DbContextFactory { get; }
+    protected ExchangeAppTestingDbContext ExchangeAppDbContextSUT { get; }
+    protected IMapper Mapper { get; }
+
+    protected DbContextTestsBase()
     {
-        XUnitTestOutputConverter converter = new(output);
-        Console.SetOut(converter);
+        var mapperConfig = new MapperConfiguration(cfg =>
+        {
+            var profiles = typeof(CurrencyMapperProfile).Assembly
+                .GetTypes()
+                .Where(x => typeof(Profile).IsAssignableFrom(x))
+                .ToList();
 
-        DbContextFactory = new DbContextSqLiteTestingFactory(GetType().FullName!, seedTestingData: true);
+            profiles.ForEach(profile =>
+            {
+                if (Activator.CreateInstance(profile) is Profile instance)
+                {
+                    cfg.AddProfile(instance);
+                }
+            });
+        });
+        Mapper = mapperConfig.CreateMapper();
+        DbContextFactory = new DbContextTestingInMemoryFactory(GetType().Name, seedTestingData: true);
 
-        ExchangeAppDbContextSut = DbContextFactory.CreateDbContext();
+        ExchangeAppDbContextSUT = DbContextFactory.CreateDbContext();
     }
-
-    protected IDbContextFactory<ExchangeAppDbContext> DbContextFactory { get; }
-    protected ExchangeAppDbContext ExchangeAppDbContextSut { get; }
 
     public async Task InitializeAsync()
     {
-        await ExchangeAppDbContextSut.Database.EnsureDeletedAsync();
-        await ExchangeAppDbContextSut.Database.EnsureCreatedAsync();
+        await ExchangeAppDbContextSUT.Database.EnsureDeletedAsync();
+        await ExchangeAppDbContextSUT.Database.EnsureCreatedAsync();
     }
 
     public async Task DisposeAsync()
     {
-        await ExchangeAppDbContextSut.Database.EnsureDeletedAsync();
-        await ExchangeAppDbContextSut.DisposeAsync();
+        await ExchangeAppDbContextSUT.Database.EnsureDeletedAsync();
+        await ExchangeAppDbContextSUT.DisposeAsync();
     }
 }

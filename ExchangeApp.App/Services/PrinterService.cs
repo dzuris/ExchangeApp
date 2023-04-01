@@ -62,37 +62,37 @@ public partial class PrinterService : IPrinterService
 
         if (!File.Exists(fileName)) return;
 
-        var info = new ProcessStartInfo(fileName)
+        //var info = new ProcessStartInfo(fileName)
+        //{
+        //    Verb = "PrintTo",
+        //    CreateNoWindow = true,
+        //    WindowStyle = ProcessWindowStyle.Hidden
+        //};
+        //Process.Start(info);
+
+        try
         {
-            Verb = "PrintTo",
-            CreateNoWindow = true,
-            WindowStyle = ProcessWindowStyle.Hidden
-        };
-        Process.Start(info);
+            var info = new ProcessStartInfo(fileName)
+            {
+                UseShellExecute = true
+            };
 
-        //try
-        //{
-        //    var info = new ProcessStartInfo(fileName)
-        //    {
-        //        UseShellExecute = true
-        //    };
-
-        //    Process.Start(info);
-        //}
-        //catch (System.ComponentModel.Win32Exception ex)
-        //{
-        //    Debug.WriteLine(ex.Message);
-        //    await Application.Current?.MainPage?.DisplayAlert(
-        //        "Error", "An error occurred while printing the file.",
-        //        "OK")!;
-        //}
-        //catch (Exception ex)
-        //{
-        //    Debug.WriteLine(ex.Message);
-        //    await Application.Current?.MainPage?.DisplayAlert(
-        //        "Error", "An error 2 occurred while printing the file.",
-        //        "OK")!;
-        //}
+            Process.Start(info);
+        }
+        catch (System.ComponentModel.Win32Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error occurred while printing the file.",
+                "OK")!;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error 2 occurred while printing the file.",
+                "OK")!;
+        }
     }
     
     private async Task<string?> GetTransactionFileNameWithPath(TransactionDetailModel model)

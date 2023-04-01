@@ -55,7 +55,7 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
         return list;
     }
 
-    public async Task InsertCurrencyBalance(CurrencyHistoryEntity entity)
+    public async Task InsertCurrencyHistory(CurrencyHistoryEntity entity)
     {
         await AppDbContext
             .Set<CurrencyHistoryEntity>()

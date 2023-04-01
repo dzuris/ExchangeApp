@@ -59,7 +59,7 @@ public class TotalBalanceFacade : ITotalBalanceFacade
                      TimeStamp = model.Created
                  }))
         {
-            await _currencyRepository.InsertCurrencyBalance(currencyHistory);
+            await _currencyRepository.InsertCurrencyHistory(currencyHistory);
         }
 
         var id = await _repository.InsertAsync(entity);

@@ -21,4 +21,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExchangeApp.BL\ExchangeApp.BL.csproj" />
+    <ProjectReference Include="..\ExchangeApp.Common.Tests\ExchangeApp.Common.Tests.csproj" />
+    <ProjectReference Include="..\ExchangeApp.DAL\ExchangeApp.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

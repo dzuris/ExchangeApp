@@ -71,6 +71,10 @@ public class TotalBalanceRepository : RepositoryBase<TotalBalanceEntity, Guid>, 
         return list;
     }
 
+    /// <summary>
+    /// Checks if exist any unclosed operations
+    /// </summary>
+    /// <returns></returns>
     public async Task<bool> ExistsOperationAfterLastDailyTotalBalance()
     {
         var lastTotalBalanceDate = await GetLastTotalBalanceDate(TotalBalanceType.Daily);

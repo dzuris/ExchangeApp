@@ -28,7 +28,7 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
         return list;
     }
 
-    public async Task<IEnumerable<OperationEntityBase>> GetOperationsASync(DateTime from, DateTime until)
+    public async Task<IEnumerable<OperationEntityBase>> GetOperationsAsync(DateTime from, DateTime until)
     {
         var list = await AppDbContext
             .Set<OperationEntityBase>()
@@ -77,11 +77,16 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
         return count;
     }
 
+    /// <summary>
+    /// Returns list of operations which were created after given operation, the operations should have same currency code
+    /// </summary>
+    /// <param name="entity">Operation which we are cancelling</param>
+    /// <returns>List of operations with same currency code created after given operation</returns>
     public async Task<IEnumerable<OperationEntityBase>> GetOperationsForStornoUpdate(OperationEntityBase entity)
     {
         var list = await AppDbContext
             .Set<OperationEntityBase>()
-            .Where(t => t.CurrencyCode == entity.CurrencyCode && t.Id > entity.Id)
+            .Where(t => t.CurrencyCode == entity.CurrencyCode && t.Time > entity.Time)
             .OrderBy(t => t.Time)
             .ToListAsync();
         return list;
@@ -107,8 +112,8 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
         var result = await AppDbContext
             .Set<OperationEntityBase>()
             .Where(t => t.CurrencyCode == entity.CurrencyCode)
-            .OrderBy(o => o.Id)
-            .LastOrDefaultAsync(o => o.Id < entity.Id);
+            .OrderByDescending(o => o.Time)
+            .FirstOrDefaultAsync(o => o.Time < entity.Time);
 
         return result?.AverageCourseRate ?? 0;
     }

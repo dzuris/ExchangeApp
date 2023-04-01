@@ -32,7 +32,7 @@ public class OperationFacade : IOperationFacade
 
     public async Task<IEnumerable<OperationListModelBase>> GetOperationsAsync(DateTime from, DateTime until)
     {
-        var entities = await _repository.GetOperationsASync(from, until);
+        var entities = await _repository.GetOperationsAsync(from, until);
         return _mapper.Map<ObservableCollection<OperationListModelBase>>(entities);
     }
 
