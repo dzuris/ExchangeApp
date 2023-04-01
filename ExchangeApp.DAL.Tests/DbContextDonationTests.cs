@@ -2,7 +2,6 @@
 using ExchangeApp.Common.Tests.Seeds;
 using ExchangeApp.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
 namespace ExchangeApp.DAL.Tests;
 

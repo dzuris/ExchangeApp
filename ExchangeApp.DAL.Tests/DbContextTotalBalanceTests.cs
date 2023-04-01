@@ -1,10 +1,8 @@
 ﻿using ExchangeApp.Common.Enums;
 using ExchangeApp.Common.Tests;
 using ExchangeApp.Common.Tests.Seeds;
-using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
 namespace ExchangeApp.DAL.Tests;
 

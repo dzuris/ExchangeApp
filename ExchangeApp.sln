@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeApp.DAL.Tests", "Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeApp.Common.Tests", "ExchangeApp.Common.Tests\ExchangeApp.Common.Tests.csproj", "{2AC94292-6A44-4B51-9073-D7EBE90D4BD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeApp.BL.Tests", "ExchangeApp.BL.Tests\ExchangeApp.BL.Tests.csproj", "{5E052585-44B1-4430-9C50-854F76FC6B55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{2AC94292-6A44-4B51-9073-D7EBE90D4BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AC94292-6A44-4B51-9073-D7EBE90D4BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AC94292-6A44-4B51-9073-D7EBE90D4BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E052585-44B1-4430-9C50-854F76FC6B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E052585-44B1-4430-9C50-854F76FC6B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E052585-44B1-4430-9C50-854F76FC6B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E052585-44B1-4430-9C50-854F76FC6B55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{604445AA-F581-41E9-9331-50940E8BD749} = {2224A952-B4EB-46C7-B2C4-E13CD640DF6D}
 		{6E0B7A2B-3C61-450B-8670-3D0D9BA4E238} = {1F7F38A7-4A0D-4A0B-A3C4-043B2A2914D0}
 		{2AC94292-6A44-4B51-9073-D7EBE90D4BD0} = {1F7F38A7-4A0D-4A0B-A3C4-043B2A2914D0}
+		{5E052585-44B1-4430-9C50-854F76FC6B55} = {1F7F38A7-4A0D-4A0B-A3C4-043B2A2914D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F7FB11-1E47-470C-91E2-47F8143E1572}

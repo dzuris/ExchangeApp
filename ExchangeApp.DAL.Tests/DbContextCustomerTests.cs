@@ -3,7 +3,6 @@ using ExchangeApp.Common.Tests;
 using ExchangeApp.DAL.Entities.Customers;
 using ExchangeApp.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Xunit;
 
 namespace ExchangeApp.DAL.Tests;
 
