@@ -33,8 +33,8 @@ public static class CurrencySeeds
         Code = "CZK",
         PhotoUrl = "czk.png",
         AverageCourseRate = 24.5M,
-        BuyRate = 23.2M,
-        SellRate = 24.2M,
+        BuyRate = 24.2M,
+        SellRate = 23.2M,
         Quantity = 5000,
         Status = CurrencyStatus.Own
     };
@@ -43,9 +43,9 @@ public static class CurrencySeeds
     {
         Code = "GBP",
         PhotoUrl = "gbp.png",
-        AverageCourseRate = 0.88821M,
-        BuyRate = 0.8512M,
-        SellRate = 0.8851M,
+        AverageCourseRate = 0.8996448854M,
+        BuyRate = 0.8851M,
+        SellRate = 0.8512M,
         Quantity = 3500,
         Status = CurrencyStatus.Own
     };
@@ -63,8 +63,8 @@ public static class CurrencySeeds
         Code = "HUF",
         PhotoUrl = "huf.png",
         AverageCourseRate = 394,
-        BuyRate = 374,
-        SellRate = 389,
+        BuyRate = 389,
+        SellRate = 374,
         Quantity = 2000000,
         Status = CurrencyStatus.NotInUse
     };

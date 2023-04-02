@@ -69,11 +69,13 @@ public class TotalBalanceFacade : ITotalBalanceFacade
     }
 
     /// <summary>
-    /// Monthly total balance can be created only if there is no operation created after last daily total balance
+    /// Monthly total balance can be created only if there is no operation
+    /// created after last daily total balance
     /// </summary>
     /// <returns>Boolean value if you can create monthly total balance</returns>
     public async Task<bool> CanCreateMonthlyTotalBalance()
     {
-        return !await _repository.ExistsOperationAfterLastDailyTotalBalance();
+        var result = await _repository.ExistsOperationAfterLastDailyTotalBalance();
+        return !result;
     }
 }

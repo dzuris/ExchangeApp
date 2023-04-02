@@ -20,7 +20,7 @@ public class TransactionRepository : RepositoryBase<TransactionEntity, int>, ITr
             .Set<TransactionEntity>()
             .Include(t => t.Customer)
             .Include(t => t.Currency)
-            .FirstOrDefaultAsync(t => t.Id == id);
+            .SingleOrDefaultAsync(t => t.Id == id);
 
         return entity;
     }

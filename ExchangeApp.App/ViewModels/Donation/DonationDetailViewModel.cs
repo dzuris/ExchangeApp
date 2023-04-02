@@ -60,15 +60,6 @@ public partial class DonationDetailViewModel : ViewModelBase
 
         var rm = new ResourceManager(typeof(DonationDetailPageResources));
 
-        if (!await _operationFacade.CanCancel(Donation.Time))
-        {
-            await Application.Current?.MainPage?.DisplayAlert(
-                rm.GetString("StornoAlertErrorTitle"),
-                rm.GetString("StornoAlertErrorMessageClosedDonation"),
-                rm.GetString("AlertCancelButton"))!;
-            return;
-        }
-
         var result = await Application.Current?.MainPage?.DisplayAlert(
             rm.GetString("StornoAlertConfirmationTitle"),
             rm.GetString("StornoAlertConfirmationMessage"),
@@ -81,12 +72,21 @@ public partial class DonationDetailViewModel : ViewModelBase
         {
             await _donationFacade.CancelDonation(Donation);
         }
+        catch (OperationCanNotBeCanceledException)
+        {
+            await Application.Current.MainPage?.DisplayAlert(
+                rm.GetString("StornoAlertErrorTitle"),
+                rm.GetString("StornoAlertErrorMessageClosedDonation"),
+                rm.GetString("AlertCancelButton"))!;
+            return;
+        }
         catch (InsufficientMoneyException)
         {
             await Application.Current.MainPage?.DisplayAlert(
                 rm.GetString("StornoAlertErrorTitle"),
                 rm.GetString("StornoAlertErrorMessageInsufficientMoney"),
                 rm.GetString("AlertCancelButton"))!;
+            return;
         }
         catch (CurrencyMissingException)
         {
@@ -94,6 +94,7 @@ public partial class DonationDetailViewModel : ViewModelBase
                 rm.GetString("StornoAlertErrorTitle"),
                 rm.GetString("StornoAlertErrorMessageCurrencyMissingException"),
                 rm.GetString("AlertCancelButton"))!;
+            return;
         }
 
         Donation.IsCanceled = true;

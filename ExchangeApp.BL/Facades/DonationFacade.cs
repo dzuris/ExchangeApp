@@ -30,7 +30,6 @@ public class DonationFacade : IDonationFacade
     public async Task<DonationDetailModel?> GetById(int id)
     {
         var entity = await _repository.GetByIdAsync(id);
-
         return entity is null ? null : _mapper.Map<DonationDetailModel>(entity);
     }
 
@@ -93,6 +92,12 @@ public class DonationFacade : IDonationFacade
     /// <exception cref="InsufficientMoneyException">Can not cancel because you do not have enough money in cash register or some operation after cancel has before quantity below 0</exception>
     public async Task CancelDonation(DonationDetailModel model)
     {
+        var canCancel = await _operationRepository.CanCancel(model.Time);
+        if (!canCancel)
+        {
+            throw new OperationCanNotBeCanceledException();
+        }
+
         // Gets domestic and foreign currencies
         var currencyRepository = _unitOfWork.CurrencyRepository;
         var domesticCurrencyEntity = await currencyRepository.GetByIdAsync(DomesticCurrencyCode);
@@ -184,7 +189,11 @@ public class DonationFacade : IDonationFacade
             if (operation is TransactionEntity { TransactionType: TransactionType.Buy }
                 or DonationEntity { Type: DonationType.Deposit })
             {
-                var valueBefore = operation.CurrencyQuantityBefore / lastAverageCourseRate;
+                decimal valueBefore = 0;
+                if (lastAverageCourseRate > 0)
+                {
+                    valueBefore = operation.CurrencyQuantityBefore / lastAverageCourseRate;
+                }
                 var totalQuantity = operation.CurrencyQuantityBefore + operation.Quantity;
                 var operationAmount = Math.Round(operation.Quantity / operation.CourseRate, 2);
                 var newAverage = totalQuantity / (valueBefore + operationAmount);

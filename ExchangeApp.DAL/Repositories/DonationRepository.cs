@@ -14,6 +14,15 @@ public class DonationRepository : RepositoryBase<DonationEntity, int>, IDonation
         _mapper = mapper;
     }
 
+    public override async Task<DonationEntity?> GetByIdAsync(int id)
+    {
+        var entity = await AppDbContext
+            .Set<DonationEntity>()
+            .Include(e => e.Currency)
+            .SingleOrDefaultAsync(e => e.Id == id);
+        return entity;
+    }
+
     public override async Task<int> InsertAsync(DonationEntity entity)
     {
         await AppDbContext

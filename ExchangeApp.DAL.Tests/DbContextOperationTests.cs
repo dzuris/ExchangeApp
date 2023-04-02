@@ -107,6 +107,19 @@ public class DbContextOperationTests : DbContextTestsBase
     }
 
     [Fact]
+    public async Task GetAverageCourseRateFromOperationBefore_FirstOperation_ShouldBe_Zero()
+    {
+        // Arrange
+        var entity = DonationSeeds.DonationToCancel;
+
+        // Act
+        var result = await _operationRepository.GetAverageCourseOfOperationBefore(entity);
+
+        // Assert
+        Assert.Equal(0, result);
+    }
+
+    [Fact]
     public async Task GetOperationsForCancellation_ShouldReturn_ValidList()
     {
         // Arrange

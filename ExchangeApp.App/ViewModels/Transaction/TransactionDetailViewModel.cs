@@ -84,15 +84,6 @@ public partial class TransactionDetailViewModel : ViewModelBase
 
         var rm = new ResourceManager(typeof(TransactionDetailPageResources));
 
-        if (!await _operationFacade.CanCancel(Transaction.Time))
-        {
-            await Application.Current?.MainPage?.DisplayAlert(
-                rm.GetString("StornoAlertErrorTitle"),
-                rm.GetString("StornoAlertErrorMessageClosedTransaction"),
-                rm.GetString("AlertCancelButton"))!;
-            return;
-        }
-
         var result = await Application.Current?.MainPage?.DisplayAlert(
             rm.GetString("StornoAlertConfirmationTitle"),
             rm.GetString("StornoAlertConfirmationMessage"),
@@ -104,6 +95,14 @@ public partial class TransactionDetailViewModel : ViewModelBase
         try
         {
             await _transactionFacade.CancelTransaction(Transaction);
+        }
+        catch (OperationCanNotBeCanceledException)
+        {
+            await Application.Current.MainPage?.DisplayAlert(
+                rm.GetString("StornoAlertErrorTitle"),
+                rm.GetString("StornoAlertErrorMessageClosedTransaction"),
+                rm.GetString("AlertCancelButton"))!;
+            return;
         }
         catch (InsufficientMoneyException)
         {

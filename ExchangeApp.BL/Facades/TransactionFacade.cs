@@ -89,6 +89,12 @@ public class TransactionFacade : ITransactionFacade
 
     public async Task CancelTransaction(TransactionDetailModel model)
     {
+        var canCancel = await _operationRepository.CanCancel(model.Time);
+        if (!canCancel)
+        {
+            throw new OperationCanNotBeCanceledException();
+        }
+
         // Gets domestic and foreign currencies
         var currencyRepository = _unitOfWork.CurrencyRepository;
         var domesticCurrencyEntity = await currencyRepository.GetByIdAsync(DomesticCurrencyCode);

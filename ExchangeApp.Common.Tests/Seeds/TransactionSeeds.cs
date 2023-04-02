@@ -39,7 +39,7 @@ public static class TransactionSeeds
         Quantity = 500,
         CurrencyQuantityBefore = 4771,
         CourseRate = 1.0617M,
-        AverageCourseRate = 1.1092645546154M,
+        AverageCourseRate = 1.094512M,
         IsCanceled = false,
         CurrencyCode = CurrencySeeds.UsdCurrency.Code,
         TransactionType = TransactionType.Sell
@@ -52,7 +52,7 @@ public static class TransactionSeeds
         Quantity = 600,
         CurrencyQuantityBefore = 5371,
         CourseRate = 1.0624M,
-        AverageCourseRate = 1.1089543413245M,
+        AverageCourseRate = 1.094512M,
         IsCanceled = false,
         CurrencyCode = CurrencySeeds.UsdCurrency.Code,
         TransactionType = TransactionType.Sell
@@ -65,10 +65,23 @@ public static class TransactionSeeds
         Quantity = 70,
         CurrencyQuantityBefore = 4650,
         CourseRate = 0.9066M,
-        AverageCourseRate = 1.155426123M,
+        AverageCourseRate = 0.899541M,
         IsCanceled = false,
         CurrencyCode = CurrencySeeds.GbpCurrency.Code,
         TransactionType = TransactionType.Buy
+    };
+
+    public static readonly TransactionEntity ClosedTransaction = EmptyTransaction with
+    {
+        Id = 105,
+        Time = new DateTime(2005, 2, 19, 6, 8, 16),
+        Quantity = 50000,
+        CurrencyQuantityBefore = 1800000,
+        CourseRate = 374,
+        AverageCourseRate = 396.45634615532M,
+        IsCanceled = false,
+        CurrencyCode = CurrencySeeds.HufCurrency.Code,
+        TransactionType = TransactionType.Sell
     };
 
     public static void Seed(this ModelBuilder modelBuilder)
@@ -77,6 +90,7 @@ public static class TransactionSeeds
             TransactionBuy,
             TransactionSell,
             TransactionBeforeSell,
-            TransactionGbpThree);
+            TransactionGbpThree,
+            ClosedTransaction);
     }
 }

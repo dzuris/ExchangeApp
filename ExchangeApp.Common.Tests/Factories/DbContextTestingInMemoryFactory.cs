@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExchangeApp.Common.Tests.Factories;
 
-public class DbContextTestingInMemoryFactory : IDbContextFactory<ExchangeAppTestingDbContext>
+public class DbContextTestingInMemoryFactory : IDbContextFactory<ExchangeAppDbContext>
 {
     private readonly string _databaseName;
     private readonly bool _seedTestingData;
@@ -14,9 +14,9 @@ public class DbContextTestingInMemoryFactory : IDbContextFactory<ExchangeAppTest
         _seedTestingData = seedTestingData;
     }
 
-    public ExchangeAppTestingDbContext CreateDbContext()
+    public ExchangeAppDbContext CreateDbContext()
     {
-        DbContextOptionsBuilder<ExchangeAppTestingDbContext> contextOptionsBuilder = new();
+        DbContextOptionsBuilder<ExchangeAppDbContext> contextOptionsBuilder = new();
         contextOptionsBuilder.UseInMemoryDatabase(_databaseName);
 
         return new ExchangeAppTestingDbContext(contextOptionsBuilder.Options, _seedTestingData);

@@ -67,12 +67,6 @@ public class CurrencyFacade : ICurrencyFacade
         return result;
     }
 
-    public async Task UpdateQuantityAsync(string code, decimal newQuantity)
-    {
-        await _repository.UpdateQuantityAsync(code, newQuantity);
-        await _unitOfWork.CommitAsync();
-    }
-
     public async Task UpdateStatus(string code, CurrencyStatus status)
     {
         await _repository.UpdateStatus(code, status);
