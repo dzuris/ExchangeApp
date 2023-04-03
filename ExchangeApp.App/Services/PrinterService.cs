@@ -70,14 +70,23 @@ public partial class PrinterService : IPrinterService
         //};
         //Process.Start(info);
 
+        var info = new ProcessStartInfo
+        {
+            FileName = "cmd.exe",
+            Arguments = $"/C rundll32.exe mshtml.dll,PrintHTML \"{fileName}\"",
+            CreateNoWindow = true,
+            UseShellExecute = false
+        };
+        Process.Start(info);
+
         try
         {
-            var info = new ProcessStartInfo(fileName)
-            {
-                UseShellExecute = true
-            };
+            //var info = new ProcessStartInfo(fileName)
+            //{
+            //    UseShellExecute = true
+            //};
 
-            Process.Start(info);
+            //Process.Start(info);
         }
         catch (System.ComponentModel.Win32Exception ex)
         {

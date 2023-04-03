@@ -4,7 +4,7 @@ using ExchangeApp.DAL.Entities.Customers;
 using ExchangeApp.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExchangeApp.DAL.Tests;
+namespace ExchangeApp.DAL.Tests.RepositoryTests;
 
 public class DbContextCustomerTests : DbContextTestsBase
 {

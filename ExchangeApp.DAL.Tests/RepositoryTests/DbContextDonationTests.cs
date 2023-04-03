@@ -3,7 +3,7 @@ using ExchangeApp.Common.Tests.Seeds;
 using ExchangeApp.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExchangeApp.DAL.Tests;
+namespace ExchangeApp.DAL.Tests.RepositoryTests;
 
 public class DbContextDonationTests : DbContextTestsBase
 {

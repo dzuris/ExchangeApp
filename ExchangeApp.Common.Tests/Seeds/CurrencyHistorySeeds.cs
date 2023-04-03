@@ -36,6 +36,15 @@ public static class CurrencyHistorySeeds
         TimeStamp = DateOne
     };
 
+    public static readonly CurrencyHistoryEntity EntityToMap = new()
+    {
+        Id = 3,
+        Code = CurrencySeeds.CurrencyToMap.Code,
+        Quantity = CurrencySeeds.CurrencyToMap.Quantity,
+        AverageCourseRate = CurrencySeeds.CurrencyToMap.AverageCourseRate,
+        TimeStamp = DateOne
+    };
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CurrencyHistoryEntity>().HasData(

@@ -6,6 +6,14 @@ namespace ExchangeApp.Common.Tests.Seeds;
 
 public static class TotalBalanceSeeds
 {
+    public static readonly TotalBalanceEntity TotalBalanceToMap = new()
+    {
+        Id = 42,
+        Created = new DateTime(2109, 9, 5, 18, 42, 11),
+        LastTotalBalance = DateTime.MinValue,
+        Type = TotalBalanceType.Monthly
+    };
+
     public static readonly TotalBalanceEntity DailyOne = new()
     {
         Id = 1,

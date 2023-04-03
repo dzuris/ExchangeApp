@@ -4,7 +4,7 @@ using ExchangeApp.DAL.Entities;
 using ExchangeApp.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExchangeApp.DAL.Tests;
+namespace ExchangeApp.DAL.Tests.RepositoryTests;
 
 public class DbContextCurrencyTests : DbContextTestsBase
 {

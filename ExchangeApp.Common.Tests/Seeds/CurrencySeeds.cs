@@ -80,6 +80,28 @@ public static class CurrencySeeds
         Status = CurrencyStatus.Own
     };
 
+    public static readonly CurrencyEntity CurrencyToMap = new()
+    {
+        Code = "CODE",
+        PhotoUrl = "code.png",
+        AverageCourseRate = 1.055545716423154765M,
+        BuyRate = 1.5421M,
+        SellRate = 1.3314M,
+        Quantity = 8672,
+        Status = CurrencyStatus.NotInUse,
+        History = new List<CurrencyHistoryEntity>
+        {
+            new()
+            {
+                Id = 50,
+                Code = "CODE",
+                Quantity = 8672,
+                AverageCourseRate = 1.055545716423154765M,
+                TimeStamp = new DateTime(2020, 3, 15, 18, 12, 19)
+            }
+        }
+    };
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CurrencyEntity>().HasData(

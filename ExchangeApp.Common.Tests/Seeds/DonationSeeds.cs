@@ -20,6 +20,21 @@ public static class DonationSeeds
         Note = string.Empty
     };
 
+    public static readonly DonationEntity DonationToMap = new()
+    {
+        Id = 5,
+        Time = new DateTime(1975, 11, 30, 19, 0, 0),
+        Quantity = 54000,
+        CurrencyQuantityBefore = 754000,
+        CourseRate = 4.25M,
+        AverageCourseRate = 4.55365451124M,
+        IsCanceled = true,
+        Type = DonationType.Levy,
+        Note = "My note",
+        CurrencyCode = CurrencySeeds.CurrencyToMap.Code,
+        Currency = CurrencySeeds.CurrencyToMap
+    };
+
     public static readonly DonationEntity DonationDeposit = new()
     {
         Id = 1,

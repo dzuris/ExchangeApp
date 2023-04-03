@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.MapperProfiles;
-using ExchangeApp.Common.Tests;
 using ExchangeApp.Common.Tests.Factories;
 using ExchangeApp.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExchangeApp.DAL.Tests;
+namespace ExchangeApp.DAL.Tests.RepositoryTests;
 
 public class DbContextTestsBase : IAsyncLifetime
 {

@@ -26,4 +26,8 @@
     <ProjectReference Include="..\ExchangeApp.Common.Tests\ExchangeApp.Common.Tests.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="AutoMapperTests\" />
+  </ItemGroup>
+
 </Project>
