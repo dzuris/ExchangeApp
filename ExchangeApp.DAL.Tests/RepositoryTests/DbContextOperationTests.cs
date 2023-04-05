@@ -47,8 +47,8 @@ public class DbContextOperationTests : DbContextTestsBase
     {
         // Arrange
         var entity = DonationSeeds.DonationWithdraw;
-        var dateFrom = entity.Time.AddMicroseconds(-10);
-        var dateUntil = entity.Time.AddMicroseconds(10);
+        var dateFrom = entity.Created.AddMicroseconds(-10);
+        var dateUntil = entity.Created.AddMicroseconds(10);
 
         // Act
         var list = (await _operationRepository.GetOperationsAsync(dateFrom, dateUntil)).ToList();
@@ -141,7 +141,7 @@ public class DbContextOperationTests : DbContextTestsBase
         var entity = DonationSeeds.DonationToCancel;
 
         // Act
-        var result = await _operationRepository.CanCancel(entity.Time);
+        var result = await _operationRepository.CanCancel(entity.Created);
 
         // Assert
         Assert.False(result);

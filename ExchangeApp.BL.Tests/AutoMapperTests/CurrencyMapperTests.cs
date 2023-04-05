@@ -1,6 +1,5 @@
 ﻿using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.Common.Enums;
-using ExchangeApp.Common.Tests;
 using ExchangeApp.Common.Tests.Seeds;
 using ExchangeApp.DAL.Entities;
 
@@ -21,11 +20,11 @@ public class CurrencyMapperTests : MapperTestsBase
             BuyRate = null,
             SellRate = 1,
             Status = CurrencyStatus.Own,
-            History = new List<CurrencyHistoryEntity>()
+            History = new List<CurrencyHistoryEntity>
             {
                 new()
                 {
-                    Id = 1,
+                    Id = Guid.Parse("77D360E1-33A3-42A5-9CB6-FDD41900A6E9"),
                     Code = "EUR",
                     Quantity = 5002.12M,
                     AverageCourseRate = 1,

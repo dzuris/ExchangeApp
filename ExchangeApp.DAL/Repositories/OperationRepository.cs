@@ -20,7 +20,7 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
     public async Task<IEnumerable<OperationEntityBase>> GetLastOperationsAsync(int pageSize, int pageNumber)
     {
         var list = await AppDbContext.Set<OperationEntityBase>()
-            .OrderByDescending(o => o.Time)
+            .OrderByDescending(o => o.Created)
             .Skip(pageSize * (pageNumber - 1))
             .Take(pageSize)
             .ToListAsync();
@@ -32,7 +32,7 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
     {
         var list = await AppDbContext
             .Set<OperationEntityBase>()
-            .Where(o => o.Time > from && o.Time < until)
+            .Where(o => o.Created > from && o.Created < until)
             .ToListAsync();
         return list;
     }
@@ -58,11 +58,11 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
 
         if (from is not null && until is not null)
         {
-            query = query.Where(o => o.Time.Date >= from && o.Time.Date <= until);
+            query = query.Where(o => o.Created.Date >= from && o.Created.Date <= until);
         }
 
         var list = await query
-            .OrderByDescending(o => o.Time)
+            .OrderByDescending(o => o.Created)
             .Skip(pageSize * (pageNumber -1))
             .Take(pageSize)
             .ToListAsync();
@@ -73,7 +73,7 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
     {
         var today = DateTime.Today;
         var count = await AppDbContext.Set<OperationEntityBase>()
-            .CountAsync(o => o.Time >= today && o.Time < today.AddDays(1));
+            .CountAsync(o => o.Created >= today && o.Created < today.AddDays(1));
         return count;
     }
 
@@ -86,8 +86,8 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
     {
         var list = await AppDbContext
             .Set<OperationEntityBase>()
-            .Where(t => t.CurrencyCode == entity.CurrencyCode && t.Time > entity.Time)
-            .OrderBy(t => t.Time)
+            .Where(t => t.CurrencyCode == entity.CurrencyCode && t.Created > entity.Created)
+            .OrderBy(t => t.Created)
             .ToListAsync();
         return list;
     }
@@ -112,8 +112,8 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
         var result = await AppDbContext
             .Set<OperationEntityBase>()
             .Where(t => t.CurrencyCode == entity.CurrencyCode)
-            .OrderByDescending(o => o.Time)
-            .FirstOrDefaultAsync(o => o.Time < entity.Time);
+            .OrderByDescending(o => o.Created)
+            .FirstOrDefaultAsync(o => o.Created < entity.Created);
 
         return result?.AverageCourseRate ?? 0;
     }
@@ -134,7 +134,7 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
                         && ((TransactionEntity)o).TransactionType == TransactionType.Sell
                         || o is DonationEntity 
                         && ((DonationEntity)o).Type != DonationType.Deposit)
-            .Where(o => o.Time >= from && o.Time <= until)
+            .Where(o => o.Created >= from && o.Created <= until)
             .ToListAsync();
 
         return list;

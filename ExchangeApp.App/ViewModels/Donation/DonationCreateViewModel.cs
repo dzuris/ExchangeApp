@@ -144,7 +144,7 @@ public partial class DonationCreateViewModel : ViewModelBase
         var courseRate = Utilities.Utilities.StrToDecimal(CourseRate) ?? -1;
         var donation = new DonationDetailModel
         {
-            Time = DateTime.Now,
+            Created = DateTime.Now,
             CourseRate = courseRate,
             AverageCourseRate = SelectedCurrency!.AverageCourseRate,
             Quantity = Quantity,

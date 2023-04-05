@@ -41,7 +41,7 @@ public class DonationFacadeTests : FacadeTestsBase
         var expectedModel = new DonationDetailModel
         {
             Id = entity.Id,
-            Time = entity.Time,
+            Created = entity.Created,
             CourseRate = entity.CourseRate,
             AverageCourseRate = entity.AverageCourseRate,
             Quantity = entity.Quantity,
@@ -76,7 +76,7 @@ public class DonationFacadeTests : FacadeTestsBase
         var model = new DonationDetailModel
         {
             Id = 8,
-            Time = new DateTime(2021, 5, 6, 19, 21, 12),
+            Created = new DateTime(2021, 5, 6, 19, 21, 12),
             CourseRate = 24.35M,
             AverageCourseRate = currency.AverageCourseRate,
             Quantity = 5000,
@@ -106,7 +106,7 @@ public class DonationFacadeTests : FacadeTestsBase
         var model = new DonationDetailModel
         {
             Id = 9,
-            Time = new DateTime(2021, 6, 30, 12, 01, 2),
+            Created = new DateTime(2021, 6, 30, 12, 01, 2),
             CourseRate = 24.35M,
             AverageCourseRate = currency.AverageCourseRate,
             Quantity = 500000000000,
@@ -129,7 +129,7 @@ public class DonationFacadeTests : FacadeTestsBase
         var model = new DonationDetailModel
         {
             Id = 10,
-            Time = new DateTime(2021, 6, 30, 20, 01, 19),
+            Created = new DateTime(2021, 6, 30, 20, 01, 19),
             CourseRate = 0,
             AverageCourseRate = currency.AverageCourseRate,
             Quantity = 5000,

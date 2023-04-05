@@ -14,16 +14,14 @@ namespace ExchangeApp.App.ViewModels.Donation;
 public partial class DonationDetailViewModel : ViewModelBase
 {
     private readonly IDonationFacade _donationFacade;
-    private readonly IOperationFacade _operationFacade;
     private readonly ISettingsFacade _settingsFacade;
     private readonly IPrinterService _printerService;
 
-    public DonationDetailViewModel(IPrinterService printerService, IDonationFacade donationFacade, ISettingsFacade settingsFacade, IOperationFacade operationFacade)
+    public DonationDetailViewModel(IPrinterService printerService, IDonationFacade donationFacade, ISettingsFacade settingsFacade)
     {
         _printerService = printerService;
         _donationFacade = donationFacade;
         _settingsFacade = settingsFacade;
-        _operationFacade = operationFacade;
     }
 
     protected override async Task LoadDataAsync()
@@ -49,7 +47,7 @@ public partial class DonationDetailViewModel : ViewModelBase
                 return string.Empty;
             }
 
-            return Donation.Time.ToString("yyyyMMdd") + " / " + Donation.Id;
+            return Donation.Created.ToString("yyyyMMdd") + " / " + Donation.Id;
         }
     }
 
@@ -146,6 +144,7 @@ public partial class DonationDetailViewModel : ViewModelBase
     [RelayCommand]
     private async Task PrintAsync()
     {
-        // TODO Printing donation
+        if (Donation is null) return;
+        await _printerService.Print(Donation);
     }
 }

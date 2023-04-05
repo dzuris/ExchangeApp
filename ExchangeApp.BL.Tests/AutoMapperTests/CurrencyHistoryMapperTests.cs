@@ -31,7 +31,7 @@ public class CurrencyHistoryMapperTests : MapperTestsBase
         // Arrange
         var model = new CurrencyHistoryModel
         {
-            Id = 50,
+            Id = Guid.Parse("29D816EF-6DAF-4657-8FEB-779083ACBC97"),
             Code = "CHF",
             Quantity = 5300,
             AverageCourseRate = 1.1824456132M,

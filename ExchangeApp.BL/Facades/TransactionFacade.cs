@@ -89,7 +89,7 @@ public class TransactionFacade : ITransactionFacade
 
     public async Task CancelTransaction(TransactionDetailModel model)
     {
-        var canCancel = await _operationRepository.CanCancel(model.Time);
+        var canCancel = await _operationRepository.CanCancel(model.Created);
         if (!canCancel)
         {
             throw new OperationCanNotBeCanceledException();

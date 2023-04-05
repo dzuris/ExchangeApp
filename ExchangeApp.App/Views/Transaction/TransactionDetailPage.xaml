@@ -108,7 +108,7 @@
                 Text="{x:Static texts:TransactionDetailPageResources.DateAndTimeLabel}"
                 Style="{StaticResource InfoLabelLight}"
                 HorizontalOptions="End"/>
-            <Label Grid.Column="1" Text="{Binding Transaction.Time, FallbackValue=''}"/>
+            <Label Grid.Column="1" Text="{Binding Transaction.Created, FallbackValue=''}"/>
 
             <!-- First line -->
             <!-- Buy transaction -->

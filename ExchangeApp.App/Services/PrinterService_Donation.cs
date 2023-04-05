@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 using System.Resources;
 using ExchangeApp.App.Converters;
 using ExchangeApp.App.Resources.Texts;
@@ -18,9 +19,9 @@ namespace ExchangeApp.App.Services;
 
 public partial class PrinterService
 {
-    public async Task SavePdf(DonationDetailModel model)
+    public async Task SavePdf(DonationDetailModel model, string? fileName = null)
     {
-        var fileName = await GetDonationFileNameWithPath(model);
+        fileName ??= await GetDonationFileNameWithPath(model);
 
         if (fileName is null)
         {
@@ -40,6 +41,68 @@ public partial class PrinterService
 
         document.Close();
         pdf.Close();
+    }
+
+    public async Task Print(DonationDetailModel model)
+    {
+        var fileName = await GetDonationFileNameWithPath(model)
+                       ?? Path.Combine(GetTemporaryFolder(), GetDonationFileName(model));
+
+        if (!File.Exists(fileName))
+        {
+            await SavePdf(model, fileName);
+        }
+
+        try
+        {
+            var info = new ProcessStartInfo(fileName)
+            {
+                UseShellExecute = true
+            };
+
+            Process.Start(info);
+        }
+        catch (System.ComponentModel.Win32Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error occurred while printing the file.",
+                "OK")!;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error 2 occurred while printing the file.",
+                "OK")!;
+        }
+    }
+
+    private async Task<string?> GetDonationFileNameWithPath(DonationDetailModel model)
+    {
+        var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
+
+        if (saveFolderPath is null) return null;
+
+        var year = model.Created.Year.ToString();
+        var month = model.Created.Month.ToString();
+
+        var directory = Path.Combine(saveFolderPath, year, month, "Dotácie");
+
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var fileName = Path.Combine(directory, GetDonationFileName(model));
+
+        return fileName;
+    }
+
+    private static string GetDonationFileName(DonationDetailModel model)
+    {
+        var fileName = model.IsCanceled ? $"{model.Id}_storno.pdf" : $"{model.Id}.pdf";
+        return fileName;
     }
 
     private static Document GetDonationDocument(
@@ -95,7 +158,7 @@ public partial class PrinterService
         }
 
         var rightCellHeader = new Cell().SetBorder(Border.NO_BORDER);
-        rightCellHeader.Add(new Paragraph($"{model.Time}").SetFont(commonFont).SetFontSize(SmallFontSize).SetTextAlignment(TextAlignment.RIGHT));
+        rightCellHeader.Add(new Paragraph($"{model.Created}").SetFont(commonFont).SetFontSize(SmallFontSize).SetTextAlignment(TextAlignment.RIGHT));
         rightCellHeader.Add(new Paragraph($"{rm.GetString("IdentificationNumberLabelBeforeIdNumber")}").SetFont(commonFont).SetFontSize(SmallFontSize).SetTextAlignment(TextAlignment.RIGHT));
         rightCellHeader.Add(new Paragraph($"{model.Id}").SetFont(boldFont).SetFontSize(HeaderFontSize).SetTextAlignment(TextAlignment.RIGHT));
         headerTable.AddCell(rightCellHeader);

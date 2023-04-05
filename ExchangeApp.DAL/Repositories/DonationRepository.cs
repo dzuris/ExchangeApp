@@ -37,7 +37,7 @@ public class DonationRepository : RepositoryBase<DonationEntity, int>, IDonation
     {
         var list = await AppDbContext
             .Set<DonationEntity>()
-            .Where(o => o.Time >= from && o.Time <= until)
+            .Where(o => o.Created >= from && o.Created <= until)
             .ToListAsync();
         return list;
     }

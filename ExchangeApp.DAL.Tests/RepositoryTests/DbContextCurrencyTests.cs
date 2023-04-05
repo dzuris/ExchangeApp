@@ -95,7 +95,7 @@ public class DbContextCurrencyTests : DbContextTestsBase
         var dateTimeNow = DateTime.Now;
         var newCurrencyHistory = new CurrencyHistoryEntity
         {
-            Id = 3,
+            Id = Guid.Parse("06B24927-5D04-4EB1-98CF-50838B117244"),
             Code = CurrencySeeds.EurCurrency.Code,
             Quantity = 1346.15M,
             AverageCourseRate = 1M,

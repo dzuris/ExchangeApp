@@ -17,7 +17,7 @@ public class DonationMapperTests : MapperTestsBase
         var model = new DonationDetailModel
         {
             Id = 5,
-            Time = new DateTime(2022, 5, 1, 16, 18, 56),
+            Created = new DateTime(2022, 5, 1, 16, 18, 56),
             CourseRate = 5.254M,
             AverageCourseRate = 5.654M,
             Quantity = 50000,
@@ -41,7 +41,7 @@ public class DonationMapperTests : MapperTestsBase
 
         // Assert
         Assert.Equal(model.Id, mappedEntity.Id);
-        Assert.Equal(model.Time, mappedEntity.Time);
+        Assert.Equal(model.Created, mappedEntity.Created);
         Assert.Equal(model.CourseRate, mappedEntity.CourseRate);
         Assert.Equal(model.AverageCourseRate, mappedEntity.AverageCourseRate);
         Assert.Equal(model.Quantity, mappedEntity.Quantity);
@@ -73,7 +73,7 @@ public class DonationMapperTests : MapperTestsBase
             Status = currency.Status
         };
         Assert.Equal(entity.Id, mappedModel.Id);
-        Assert.Equal(entity.Time, mappedModel.Time);
+        Assert.Equal(entity.Created, mappedModel.Created);
         Assert.Equal(entity.CourseRate, mappedModel.CourseRate);
         Assert.Equal(entity.AverageCourseRate, mappedModel.AverageCourseRate);
         Assert.Equal(entity.Quantity, mappedModel.Quantity);

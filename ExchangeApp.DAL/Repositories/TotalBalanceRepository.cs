@@ -80,7 +80,7 @@ public class TotalBalanceRepository : RepositoryBase<TotalBalanceEntity, Guid>, 
         var lastTotalBalanceDate = await GetLastTotalBalanceDate(TotalBalanceType.Daily);
         var result = await AppDbContext
             .Set<OperationEntityBase>()
-            .Where(e => e.Time > lastTotalBalanceDate)
+            .Where(e => e.Created > lastTotalBalanceDate)
             .FirstOrDefaultAsync();
 
         return result is not null;

@@ -1,6 +1,5 @@
 ﻿using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Company;
-using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.BL.Facades.Interfaces;
 

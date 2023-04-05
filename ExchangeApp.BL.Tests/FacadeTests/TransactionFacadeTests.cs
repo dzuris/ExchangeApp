@@ -51,7 +51,7 @@ public class TransactionFacadeTests : FacadeTestsBase
         var newTransactionModel = new TransactionDetailModel
         {
             Id = 151,
-            Time = new DateTime(2024, 8, 7, 10, 02, 1),
+            Created = new DateTime(2024, 8, 7, 10, 02, 1),
             Quantity = 150,
             CurrencyQuantityBefore = 4720,
             CourseRate = 0.89451M,

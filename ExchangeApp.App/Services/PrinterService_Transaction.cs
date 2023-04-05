@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 using System.Resources;
 using ExchangeApp.App.Converters;
 using ExchangeApp.App.Resources.Texts;
@@ -19,9 +20,9 @@ namespace ExchangeApp.App.Services;
 
 public partial class PrinterService
 {
-    public async Task SavePdf(TransactionDetailModel model)
+    public async Task SavePdf(TransactionDetailModel model, string? fileName = null)
     {
-        var fileName = await GetTransactionFileNameWithPath(model);
+        fileName ??= await GetTransactionFileNameWithPath(model);
 
         if (fileName is null)
         {
@@ -48,6 +49,95 @@ public partial class PrinterService
 
         document.Close();
         pdf.Close();
+    }
+
+    public async Task Print(TransactionDetailModel model)
+    {
+        var fileName = await GetTransactionFileNameWithPath(model) 
+                       ?? Path.Combine(GetTemporaryFolder(), GetTransactionFileName(model));
+
+        if (!File.Exists(fileName))
+        {
+            await SavePdf(model, fileName);
+        }
+
+        //var info = new ProcessStartInfo(fileName)
+        //{
+        //    Verb = "PrintTo",
+        //    CreateNoWindow = true,
+        //    WindowStyle = ProcessWindowStyle.Hidden
+        //};
+        //Process.Start(info);
+
+        //var info = new ProcessStartInfo
+        //{
+        //    FileName = "cmd.exe",
+        //    Arguments = $"/C rundll32.exe mshtml.dll,PrintHTML \"{fileName}\"",
+        //    CreateNoWindow = true,
+        //    UseShellExecute = false
+        //};
+        //Process.Start(info);
+
+        try
+        {
+            var info = new ProcessStartInfo(fileName)
+            {
+                UseShellExecute = true
+            };
+
+            Process.Start(info);
+        }
+        catch (System.ComponentModel.Win32Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error occurred while printing the file.",
+                "OK")!;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error 2 occurred while printing the file.",
+                "OK")!;
+        }
+    }
+
+    private async Task<string?> GetTransactionFileNameWithPath(TransactionDetailModel model)
+    {
+        var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
+
+        if (saveFolderPath is null)
+        {
+            return null;
+        }
+
+        var year = model.Created.Year.ToString();
+        var month = model.Created.Month.ToString();
+
+        var directory = Path.Combine(saveFolderPath, year, month, "Transakcie");
+
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var fileName = GetTransactionFileName(model);
+
+        fileName = Path.Combine(directory, fileName);
+
+        return fileName;
+    }
+
+    private static string GetTransactionFileName(TransactionDetailModel model)
+    {
+        var transactionTypeString = model.TransactionType == TransactionType.Buy
+            ? "nákup"
+            : "predaj";
+        var fileName = model.IsCanceled
+            ? $"{transactionTypeString}_{model.Id}_storno.pdf"
+            : $"{transactionTypeString}_{model.Id}.pdf";
+        return fileName;
     }
 
     private static Document GetTransactionDocument(
@@ -106,7 +196,7 @@ public partial class PrinterService
         }
 
         var rightCellHeader = new Cell().SetBorder(Border.NO_BORDER);
-        rightCellHeader.Add(new Paragraph($"{model.Time}").SetFont(commonFont).SetFontSize(SmallFontSize).SetTextAlignment(TextAlignment.RIGHT));
+        rightCellHeader.Add(new Paragraph($"{model.Created}").SetFont(commonFont).SetFontSize(SmallFontSize).SetTextAlignment(TextAlignment.RIGHT));
         rightCellHeader.Add(new Paragraph($"{rm.GetString("IdentificationNumberLabelBeforeIdNumber")}").SetFont(commonFont).SetFontSize(SmallFontSize).SetTextAlignment(TextAlignment.RIGHT));
         rightCellHeader.Add(new Paragraph($"{model.Id}").SetFont(boldFont).SetFontSize(HeaderFontSize).SetTextAlignment(TextAlignment.RIGHT));
         headerTable.AddCell(rightCellHeader);

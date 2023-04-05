@@ -62,6 +62,7 @@
             Grid.Row="2"
             HorizontalOptions="End"
             Source="print.png"
-            Style="{StaticResource IconStyle}"/>
+            Style="{StaticResource IconStyle}"
+            Command="{Binding PrintCommand}"/>
     </Grid>
 </views:ContentPageBase>

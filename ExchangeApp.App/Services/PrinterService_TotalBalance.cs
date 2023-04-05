@@ -1,7 +1,9 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 using System.Resources;
 using ExchangeApp.App.Converters;
 using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.App.Services.HeaderAndFooters;
 using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Donation;
@@ -24,9 +26,9 @@ namespace ExchangeApp.App.Services;
 
 public partial class PrinterService
 {
-    public async Task SavePdf(TotalBalanceModel model)
+    public async Task SavePdf(TotalBalanceModel model, string? fileName = null)
     {
-        var fileName = await GetTotalBalanceFileNameWithPath(model);
+        fileName ??= await GetTotalBalanceFileNameWithPath(model);
 
         if (fileName is null)
         {
@@ -135,7 +137,7 @@ public partial class PrinterService
         var operations = (await _operationFacade.GetOperationsAsync(model.LastTotalBalance, model.Created))
             .OrderBy(e => e.CurrencyCode == DomesticCurrencyCode)
             .ThenBy(e => e.CurrencyCode)
-            .ThenBy(e => e.Time)
+            .ThenBy(e => e.Created)
             .ToList();
         var totalBalances = (await _totalBalanceFacade.GetAllAsync(model.LastTotalBalance, model.Created))
             .OrderBy(e => e.Created)
@@ -147,6 +149,76 @@ public partial class PrinterService
 
         document.Close();
         pdf.Close();
+    }
+
+    public async Task Print(TotalBalanceModel model)
+    {
+        var fileName = await GetTotalBalanceFileNameWithPath(model)
+                       ?? Path.Combine(GetTemporaryFolder(), GetTotalBalanceFileName(model));
+
+        if (!File.Exists(fileName))
+        {
+            await SavePdf(model, fileName);
+        }
+
+        try
+        {
+            var info = new ProcessStartInfo(fileName)
+            {
+                UseShellExecute = true
+            };
+             
+            Process.Start(info);
+        }
+        catch (System.ComponentModel.Win32Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error occurred while printing the file.",
+                "OK")!;
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            await Application.Current?.MainPage?.DisplayAlert(
+                "Error", "An error 2 occurred while printing the file.",
+                "OK")!;
+        }
+    }
+
+    private async Task<string?> GetTotalBalanceFileNameWithPath(TotalBalanceModel model)
+    {
+        var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
+
+        if (saveFolderPath is null) return null;
+
+        var year = model.Created.Year.ToString();
+        var month = model.Created.Month.ToString();
+
+        var directory = model.Type == TotalBalanceType.Monthly
+            ? Path.Combine(saveFolderPath, year, month, "Uzávierky")
+            : Path.Combine(saveFolderPath, year, month, "Uzávierky", "Denné");
+
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var fileNameWithPath = Path.Combine(directory, GetTotalBalanceFileName(model));
+
+        return fileNameWithPath;
+    }
+
+    private static string GetTotalBalanceFileName(TotalBalanceModel model)
+    {
+        var fileName = model.Type switch
+        {
+            TotalBalanceType.Daily => $"{model.Id}_{model.Created.ToString("yyMMdd")}_denná.pdf",
+            TotalBalanceType.Monthly => $"{model.Id}_mesačná.pdf",
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
+        return fileName;
     }
 
     private async Task<Document> AddMonthlyReportOverview(Document document, TotalBalanceModel model, PdfFont boldFont, PdfFont commonFont)
@@ -479,7 +551,7 @@ public partial class PrinterService
 
             // Time
             var timeCell = new Cell();
-            timeCell.Add(new Paragraph($"{donation.Time}"));
+            timeCell.Add(new Paragraph($"{donation.Created}"));
             contentTable.AddCell(timeCell);
 
             // Donation type
@@ -585,7 +657,7 @@ public partial class PrinterService
             contentTable.AddCell($"{transaction.Id}");
 
             // Time
-            contentTable.AddCell($"{transaction.Time}");
+            contentTable.AddCell($"{transaction.Created}");
 
             // Currency code
             contentTable.AddCell($"{transaction.CurrencyCode}");
@@ -724,7 +796,7 @@ public partial class PrinterService
             contentTable.AddCell($"{transaction.Id}");
 
             // Time
-            contentTable.AddCell($"{transaction.Time}");
+            contentTable.AddCell($"{transaction.Created}");
 
             // Currency code
             contentTable.AddCell($"{transaction.CurrencyCode}");
@@ -1188,7 +1260,7 @@ public partial class PrinterService
         operations.Add(new OperationListModelBase
         {
             Id = 0,
-            Time = DateTime.Now,
+            Created = DateTime.Now,
             CourseRate = 0,
             CurrencyCode = string.Empty,
             IsCanceled = false,
@@ -1198,7 +1270,7 @@ public partial class PrinterService
         foreach (var item in operations)
         {
             var totalBalancesToPrint = totalBalances
-                .Where(e => e.Created > lastPrintedDate && e.Created < item.Time || lastPrintedDate != DateTime.MinValue &&
+                .Where(e => e.Created > lastPrintedDate && e.Created < item.Created || lastPrintedDate != DateTime.MinValue &&
                             e.Created > lastPrintedDate && item.CurrencyCode != lastPrintedCode)
                 .ToList();
             foreach (var totalBalance in totalBalancesToPrint)
@@ -1283,7 +1355,7 @@ public partial class PrinterService
 
             // Date
             var dateCell = new Cell().SetBorder(null);
-            dateCell.Add(new Paragraph(item.Time.ToShortDateString()));
+            dateCell.Add(new Paragraph(item.Created.ToShortDateString()));
             contentTable.AddCell(dateCell);
 
             // Operation Id
@@ -1358,7 +1430,7 @@ public partial class PrinterService
                     break;
             }
 
-            lastPrintedDate = item.Time;
+            lastPrintedDate = item.Created;
         }
 
         #region Borders

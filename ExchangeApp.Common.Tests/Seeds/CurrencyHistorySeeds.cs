@@ -11,7 +11,7 @@ public static class CurrencyHistorySeeds
 
     public static readonly CurrencyHistoryEntity EmptyHistoryEntity = new()
     {
-        Id = 0,
+        Id = Guid.Empty,
         Code = CurrencySeeds.EmptyCurrency.Code,
         Quantity = 0,
         AverageCourseRate = 0,
@@ -20,7 +20,7 @@ public static class CurrencyHistorySeeds
 
     public static readonly CurrencyHistoryEntity EurCurrencyHistoryDateOne = new()
     {
-        Id = 1,
+        Id = Guid.Parse("6EE44961-A1B2-4E93-9150-32B68DE34822"),
         Code = CurrencySeeds.EurCurrency.Code,
         Quantity = 4212,
         AverageCourseRate = 1,
@@ -29,7 +29,7 @@ public static class CurrencyHistorySeeds
 
     public static readonly CurrencyHistoryEntity CzkCurrencyHistoryDateOne = new()
     {
-        Id = 2,
+        Id = Guid.Parse("E49F9BAE-7241-4AB9-9115-728B1BA312C3"),
         Code = CurrencySeeds.CzkCurrency.Code,
         Quantity = 241126,
         AverageCourseRate = 24.1234561342M,
@@ -38,7 +38,7 @@ public static class CurrencyHistorySeeds
 
     public static readonly CurrencyHistoryEntity EntityToMap = new()
     {
-        Id = 3,
+        Id = Guid.Parse("18F267A9-6C7B-4B9C-B706-0E6766D307D5"),
         Code = CurrencySeeds.CurrencyToMap.Code,
         Quantity = CurrencySeeds.CurrencyToMap.Quantity,
         AverageCourseRate = CurrencySeeds.CurrencyToMap.AverageCourseRate,

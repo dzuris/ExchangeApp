@@ -6,7 +6,7 @@ namespace ExchangeApp.BL.Models.Donation;
 public record DonationDetailModel : ModelBase
 {
     public int Id { get; set; }
-    public required DateTime Time { get; set; }
+    public required DateTime Created { get; set; }
     public required decimal CourseRate { get; set; }
     public decimal AverageCourseRate { get; set; }
     public required decimal Quantity { get; set; }
@@ -20,7 +20,7 @@ public record DonationDetailModel : ModelBase
 
     public static DonationDetailModel Empty => new()
     {
-        Time = DateTime.Now,
+        Created = DateTime.Now,
         CourseRate = 0,
         Quantity = 0,
         CurrencyQuantityBefore = 0,

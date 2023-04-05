@@ -1,4 +1,5 @@
-﻿using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.BL.Models.Transaction;
+using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities.Operations;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +10,7 @@ public static class TransactionSeeds
     public static readonly TransactionEntity EmptyTransaction = new()
     {
         Id = 0,
-        Time = default,
+        Created = default,
         Quantity = default,
         CurrencyQuantityBefore = default,
         CourseRate = default,
@@ -22,7 +23,7 @@ public static class TransactionSeeds
     public static readonly TransactionEntity TransactionBuy = new()
     {
         Id = 101,
-        Time = new DateTime(2022, 3, 30, 13, 30, 0),
+        Created = new DateTime(2022, 3, 30, 13, 30, 0),
         Quantity = 6000,
         CurrencyQuantityBefore = 212200,
         CourseRate = 24.19M,
@@ -35,7 +36,7 @@ public static class TransactionSeeds
     public static readonly TransactionEntity TransactionSell = new()
     {
         Id = 102,
-        Time = new DateTime(2022, 3, 28, 17, 57, 36),
+        Created = new DateTime(2022, 3, 28, 17, 57, 36),
         Quantity = 500,
         CurrencyQuantityBefore = 4771,
         CourseRate = 1.0617M,
@@ -48,7 +49,7 @@ public static class TransactionSeeds
     public static readonly TransactionEntity TransactionBeforeSell = new()
     {
         Id = 103,
-        Time = new DateTime(2022, 3, 28, 17, 57, 35),
+        Created = new DateTime(2022, 3, 28, 17, 57, 35),
         Quantity = 600,
         CurrencyQuantityBefore = 5371,
         CourseRate = 1.0624M,
@@ -61,7 +62,7 @@ public static class TransactionSeeds
     public static readonly TransactionEntity TransactionGbpThree = new()
     {
         Id = 104,
-        Time = new DateTime(2022, 8, 7, 10, 02, 1),
+        Created = new DateTime(2022, 8, 7, 10, 02, 1),
         Quantity = 70,
         CurrencyQuantityBefore = 4650,
         CourseRate = 0.9066M,
@@ -74,7 +75,7 @@ public static class TransactionSeeds
     public static readonly TransactionEntity ClosedTransaction = EmptyTransaction with
     {
         Id = 105,
-        Time = new DateTime(2005, 2, 19, 6, 8, 16),
+        Created = new DateTime(2005, 2, 19, 6, 8, 16),
         Quantity = 50000,
         CurrencyQuantityBefore = 1800000,
         CourseRate = 374,
@@ -82,6 +83,19 @@ public static class TransactionSeeds
         IsCanceled = false,
         CurrencyCode = CurrencySeeds.HufCurrency.Code,
         TransactionType = TransactionType.Sell
+    };
+
+    public static readonly TransactionDetailModel TransactionDetailModel = new()
+    {
+        Id = 15,
+        Created = new DateTime(2026, 2, 28, 16, 15, 12),
+        CourseRate = 4.81M,
+        AverageCourseRate = 4.8664662534512M,
+        Quantity = 1600,
+        CurrencyQuantityBefore = 142480,
+        TransactionType = TransactionType.Buy,
+        IsCanceled = false,
+        CurrencyCode = CurrencySeeds.PlnCurrency.Code
     };
 
     public static void Seed(this ModelBuilder modelBuilder)

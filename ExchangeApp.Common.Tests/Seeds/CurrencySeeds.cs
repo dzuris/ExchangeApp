@@ -80,6 +80,17 @@ public static class CurrencySeeds
         Status = CurrencyStatus.Own
     };
 
+    public static readonly CurrencyEntity PlnCurrency = new()
+    {
+        Code = "PLN",
+        PhotoUrl = "pln.png",
+        AverageCourseRate = 4.824516542M,
+        BuyRate = 4.81M,
+        SellRate = 4.61M,
+        Quantity = 142510,
+        Status = CurrencyStatus.Own
+    };
+
     public static readonly CurrencyEntity CurrencyToMap = new()
     {
         Code = "CODE",
@@ -93,7 +104,7 @@ public static class CurrencySeeds
         {
             new()
             {
-                Id = 50,
+                Id = Guid.Parse("5B9558C4-B060-4EB8-971C-5E280E19A069"),
                 Code = "CODE",
                 Quantity = 8672,
                 AverageCourseRate = 1.055545716423154765M,

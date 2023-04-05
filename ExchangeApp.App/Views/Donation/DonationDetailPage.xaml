@@ -90,7 +90,7 @@
                         Text="{x:Static texts:DonationDetailPageResources.DateAndTimeLabel}"
                         Style="{StaticResource InfoLabelLight}"/>
                     <Label
-                        Text="{Binding Donation.Time, FallbackValue=''}"/>
+                        Text="{Binding Donation.Created, FallbackValue=''}"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Grid>

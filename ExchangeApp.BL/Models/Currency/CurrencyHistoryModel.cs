@@ -2,7 +2,7 @@
 
 public record CurrencyHistoryModel : ModelBase
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public required string Code { get; set; }
     public required decimal Quantity { get; set; }
     public required decimal AverageCourseRate { get; set; }

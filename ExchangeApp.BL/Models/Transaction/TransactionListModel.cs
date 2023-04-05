@@ -37,19 +37,4 @@ public record TransactionListModel : OperationListModelBase
             }
         }
     }
-
-    /// <summary>
-    /// Calculates amount of the transaction and round it to two decimals
-    /// </summary>
-    /// <param name="quantity">How much money is user changing</param>
-    /// <param name="courseRate">Course rate of the transaction</param>
-    /// <returns>Rounded amount of the transaction to 2 decimal points</returns>
-    private static decimal GetAmount(decimal quantity, decimal courseRate)
-    {
-        if (courseRate == 0) return -1;
-        var result = quantity / courseRate;
-
-        // Rounds number to 2 decimal points
-        return Math.Round(result, 2);
-    }
 }

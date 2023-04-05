@@ -39,7 +39,7 @@ public class TransactionRepository : RepositoryBase<TransactionEntity, int>, ITr
     {
         var list = await AppDbContext
             .Set<TransactionEntity>()
-            .Where(t => t.Time >= from && t.Time <= until)
+            .Where(t => t.Created >= from && t.Created <= until)
             .Include(t => t.Customer)
             .ToListAsync();
         return list;

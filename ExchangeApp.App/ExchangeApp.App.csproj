@@ -35,10 +35,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\icon1.svg" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#6EAFBC" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -198,6 +198,16 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>EnumEvidenceTypeResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\PrinterCashRegisterResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PrinterCashRegisterResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\PrinterCoursesResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PrinterCoursesResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\PrinterResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -359,6 +369,14 @@
 	  <EmbeddedResource Update="Resources\Texts\EnumEvidenceTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumEvidenceTypeResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\PrinterCashRegisterResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PrinterCashRegisterResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\PrinterCoursesResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PrinterCoursesResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\PrinterResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>

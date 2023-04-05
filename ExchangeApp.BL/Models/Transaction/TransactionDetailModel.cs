@@ -7,7 +7,7 @@ namespace ExchangeApp.BL.Models.Transaction;
 public record TransactionDetailModel : ModelBase
 {
     public int Id { get; set; }
-    public required DateTime Time { get; set; }
+    public required DateTime Created { get; set; }
     public required decimal CourseRate { get; set; }
     public decimal AverageCourseRate { get; set; }
     public required decimal Quantity { get; set; }
@@ -26,7 +26,7 @@ public record TransactionDetailModel : ModelBase
 
     public static TransactionDetailModel Empty => new()
     {
-        Time = DateTime.Now,
+        Created = DateTime.Now,
         CourseRate = 1,
         Quantity = 0,
         CurrencyQuantityBefore = 0,

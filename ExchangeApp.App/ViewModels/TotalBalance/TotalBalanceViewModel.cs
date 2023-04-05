@@ -211,6 +211,6 @@ public partial class TotalBalanceViewModel : ViewModelBase
     [RelayCommand]
     private async Task PrintTotalBalanceAsync(TotalBalanceModel model)
     {
-        // TODO Printing total balance
+        await _printerService.Print(model);
     }
 }

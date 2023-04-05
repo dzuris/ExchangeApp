@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ExchangeApp.BL\ExchangeApp.BL.csproj" />
     <ProjectReference Include="..\ExchangeApp.DAL\ExchangeApp.DAL.csproj" />
   </ItemGroup>
 

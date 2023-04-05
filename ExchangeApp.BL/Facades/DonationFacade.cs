@@ -92,7 +92,7 @@ public class DonationFacade : IDonationFacade
     /// <exception cref="InsufficientMoneyException">Can not cancel because you do not have enough money in cash register or some operation after cancel has before quantity below 0</exception>
     public async Task CancelDonation(DonationDetailModel model)
     {
-        var canCancel = await _operationRepository.CanCancel(model.Time);
+        var canCancel = await _operationRepository.CanCancel(model.Created);
         if (!canCancel)
         {
             throw new OperationCanNotBeCanceledException();

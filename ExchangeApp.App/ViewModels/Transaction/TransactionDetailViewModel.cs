@@ -16,16 +16,14 @@ namespace ExchangeApp.App.ViewModels.Transaction;
 public partial class TransactionDetailViewModel : ViewModelBase
 {
     private readonly ITransactionFacade _transactionFacade;
-    private readonly IOperationFacade _operationFacade;
     private readonly ISettingsFacade _settingsFacade;
     private readonly IPrinterService _printerService;
 
-    public TransactionDetailViewModel(IPrinterService printerService, ITransactionFacade transactionFacade, ISettingsFacade settingsFacade, IOperationFacade operationFacade)
+    public TransactionDetailViewModel(IPrinterService printerService, ITransactionFacade transactionFacade, ISettingsFacade settingsFacade)
     {
         _printerService = printerService;
         _transactionFacade = transactionFacade;
         _settingsFacade = settingsFacade;
-        _operationFacade = operationFacade;
     }
 
     protected override async Task LoadDataAsync()
@@ -54,7 +52,7 @@ public partial class TransactionDetailViewModel : ViewModelBase
                 return string.Empty;
             }
 
-            return Transaction.Time.ToString("yyyyMMdd") + " / " + Transaction.Id;
+            return Transaction.Created.ToString("yyyyMMdd") + " / " + Transaction.Id;
         }
     }
 
@@ -166,73 +164,7 @@ public partial class TransactionDetailViewModel : ViewModelBase
     [RelayCommand]
     private async Task PrintAsync()
     {
-        // TODO Print transaction detail
-
-        //var printer = 
-
         if (Transaction is null) return;
-
         await _printerService.Print(Transaction);
-
-        //var printContent = $"Model quantity: {Transaction?.Quantity}\nModel Course rate: {Transaction?.CourseRate}";
-        ////var document = new print();
-        //await _printerService.Print("C:\\Users\\adamd\\OneDrive\\Počítač\\exchangeAppFolder\\2023\\3\\Transakcie\\62_nákup.pdf");
-        //var filePath = "C:\\Users\\adamd\\OneDrive\\Počítač\\exchangeAppFolder\\2023\\3\\Transakcie\\62_nákup.pdf";
-
-        //try
-        //{
-        //    //var info = new ProcessStartInfo
-        //    //{
-        //    //    FileName = "cmd.exe",
-        //    //    Arguments = $"/C rundll32.exe mshtml.dll,PrintHTML \"{filePath}\"",
-        //    //    CreateNoWindow = true,
-        //    //    UseShellExecute = false
-        //    //};
-
-        //    //var info = new ProcessStartInfo
-        //    //{
-        //    //    Verb = "print",
-        //    //    FileName = filePath,
-        //    //    CreateNoWindow = true,
-        //    //    WindowStyle = ProcessWindowStyle.Hidden
-        //    //};
-
-        //    var info = new ProcessStartInfo(filePath)
-        //    {
-        //        UseShellExecute = true
-        //    };
-
-        //    //var info = new ProcessStartInfo
-        //    //{
-        //    //    FileName = "cmd.exe",
-        //    //    Arguments = $"/C echo {content} | more",
-        //    //    CreateNoWindow = true,
-        //    //    UseShellExecute = false
-        //    //};
-
-        //    Process.Start(info);
-        //    //var process = Process.Start(info);
-
-        //    //await Task.Run(() => process?.WaitForExit());
-        //}
-        //catch (System.ComponentModel.Win32Exception ex)
-        //{
-        //    Debug.WriteLine(ex.Message);
-        //    await Application.Current?.MainPage?.DisplayAlert(
-        //        "Error", "An error occurred while printing the file.",
-        //        "OK")!;
-        //}
-        //catch (Exception ex)
-        //{
-        //    Debug.WriteLine(ex.Message);
-        //    await Application.Current?.MainPage?.DisplayAlert(
-        //        "Error", "An error 2 occurred while printing the file.",
-        //        "OK")!;
-        //}
     }
-
-    //private async Task<IPrinter?> GetPrinterAsync()
-    //{
-
-    //}
 }

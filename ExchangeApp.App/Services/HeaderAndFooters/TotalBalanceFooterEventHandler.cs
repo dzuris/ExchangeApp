@@ -7,7 +7,7 @@ using iText.Layout;
 using iText.Layout.Element;
 using TextAlignment = iText.Layout.Properties.TextAlignment;
 
-namespace ExchangeApp.App.Services;
+namespace ExchangeApp.App.Services.HeaderAndFooters;
 
 public class TotalBalanceFooterEventHandler : IEventHandler
 {

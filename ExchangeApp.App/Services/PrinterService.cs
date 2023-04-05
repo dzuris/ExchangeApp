@@ -26,6 +26,7 @@ public partial class PrinterService : IPrinterService
     private readonly ITotalBalanceFacade _totalBalanceFacade;
     private readonly ICustomerFacade _customerFacade;
 
+    private const string TemporaryFolderName = "ExchangeAppFolder";
     private const string DomesticCurrencyCode = "EUR";
     private const string DecimalFormatTwoDecimals = "### ### ### ##0.00;-# ##0.00";
     private const string AverageCourseFormat = "0.000000";
@@ -54,133 +55,18 @@ public partial class PrinterService : IPrinterService
         _customerFacade = customerFacade;
     }
 
-    public async Task Print(TransactionDetailModel model)
+    private static string GetTemporaryFolder()
     {
-        var fileName = await GetTransactionFileNameWithPath(model);
+        var tempDir = Path.Combine(Path.GetTempPath(), TemporaryFolderName);
 
-        if (fileName is null) return;
-
-        if (!File.Exists(fileName)) return;
-
-        //var info = new ProcessStartInfo(fileName)
-        //{
-        //    Verb = "PrintTo",
-        //    CreateNoWindow = true,
-        //    WindowStyle = ProcessWindowStyle.Hidden
-        //};
-        //Process.Start(info);
-
-        var info = new ProcessStartInfo
+        if (!Directory.Exists(tempDir))
         {
-            FileName = "cmd.exe",
-            Arguments = $"/C rundll32.exe mshtml.dll,PrintHTML \"{fileName}\"",
-            CreateNoWindow = true,
-            UseShellExecute = false
-        };
-        Process.Start(info);
-
-        try
-        {
-            //var info = new ProcessStartInfo(fileName)
-            //{
-            //    UseShellExecute = true
-            //};
-
-            //Process.Start(info);
-        }
-        catch (System.ComponentModel.Win32Exception ex)
-        {
-            Debug.WriteLine(ex.Message);
-            await Application.Current?.MainPage?.DisplayAlert(
-                "Error", "An error occurred while printing the file.",
-                "OK")!;
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine(ex.Message);
-            await Application.Current?.MainPage?.DisplayAlert(
-                "Error", "An error 2 occurred while printing the file.",
-                "OK")!;
-        }
-    }
-    
-    private async Task<string?> GetTransactionFileNameWithPath(TransactionDetailModel model)
-    {
-        var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
-
-        if (saveFolderPath is null) return null;
-
-        var year = model.Time.Year.ToString();
-        var month = model.Time.Month.ToString();
-
-        var directory = Path.Combine(saveFolderPath, year, month, "Transakcie");
-
-        if (!Directory.Exists(directory))
-        {
-            Directory.CreateDirectory(directory);
+            Directory.CreateDirectory(tempDir);
         }
 
-        var transactionTypeString = model.TransactionType == TransactionType.Buy
-            ? "nákup"
-            : "predaj";
-        var fileName = Path.Combine(directory,
-            model.IsCanceled
-                ? $"{model.Id}_{transactionTypeString}_storno.pdf"
-                : $"{model.Id}_{transactionTypeString}.pdf");
-
-        return fileName;
+        return tempDir;
     }
 
-    private async Task<string?> GetDonationFileNameWithPath(DonationDetailModel model)
-    {
-        var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
-
-        if (saveFolderPath is null) return null;
-
-        var year = model.Time.Year.ToString();
-        var month = model.Time.Month.ToString();
-
-        var directory = Path.Combine(saveFolderPath, year, month, "Dotácie");
-
-        if (!Directory.Exists(directory))
-        {
-            Directory.CreateDirectory(directory);
-        }
-
-        var fileName = Path.Combine(directory, model.IsCanceled ? $"{model.Id}_storno.pdf" : $"{model.Id}.pdf");
-
-        return fileName;
-    }
-
-    private async Task<string?> GetTotalBalanceFileNameWithPath(TotalBalanceModel model)
-    {
-        var saveFolderPath = await _settingsFacade.GetSaveFolderPathAsync();
-
-        if (saveFolderPath is null) return null;
-
-        var year = model.Created.Year.ToString();
-        var month = model.Created.Month.ToString();
-
-        var directory = model.Type == TotalBalanceType.Monthly
-            ? Path.Combine(saveFolderPath, year, month, "Uzávierky")
-            : Path.Combine(saveFolderPath, year, month, "Uzávierky", "Denné");
-
-        if (!Directory.Exists(directory))
-        {
-            Directory.CreateDirectory(directory);
-        }
-
-        var fileName = model.Type switch
-        {
-            TotalBalanceType.Daily => Path.Combine(directory,
-                $"{model.Id}_{model.Created.ToString("yyMMdd")}_denná.pdf"),
-            TotalBalanceType.Monthly => Path.Combine(directory, $"{model.Id}_mesačná.pdf"),
-            _ => null
-        };
-
-        return fileName;
-    }
-    
     private static string AddressToString(AddressModel address) 
         => $"{address.Street} {address.StreetNumber},  {address.PostalCode} {address.City}";
 }

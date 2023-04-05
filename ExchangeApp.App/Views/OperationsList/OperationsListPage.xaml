@@ -34,7 +34,7 @@
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
                             <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
                         </HorizontalStackLayout>
-                        <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{Binding Created}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>
             </Grid>
@@ -60,7 +60,7 @@
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
                             <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
                         </HorizontalStackLayout>
-                        <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{Binding Created}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>
             </Grid>
