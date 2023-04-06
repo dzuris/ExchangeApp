@@ -4,10 +4,10 @@ namespace ExchangeApp.App.Converters;
 
 public class NullToColorConverter : IValueConverter
 {
-    public Color NotNullColor { get; set; }
-    public Color NullColor { get; set; }
+    public Color NotNullColor { get; set; } = null!;
+    public Color NullColor { get; set; } = null!;
 
-    public object Convert(object? value, Type targetType, object parameter, CultureInfo culture)
+    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         return value is null ? NullColor : NotNullColor;
     }

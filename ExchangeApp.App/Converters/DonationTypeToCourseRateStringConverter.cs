@@ -9,7 +9,7 @@ public class DonationTypeToCourseRateStringConverter : IValueConverter
 {
     private const string ErrorString = "Error in getting course rate label";
 
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object Convert(object value, Type targetType, object? parameter, CultureInfo culture)
     {
         var rm = new ResourceManager(typeof(DonationPageResources));
 

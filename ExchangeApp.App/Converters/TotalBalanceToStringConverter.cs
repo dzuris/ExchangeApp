@@ -7,7 +7,7 @@ namespace ExchangeApp.App.Converters;
 
 public class TotalBalanceToStringConverter : IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object Convert(object value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not TotalBalanceType)
         {

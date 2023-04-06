@@ -7,7 +7,7 @@ namespace ExchangeApp.App.Converters;
 
 public class OperationFilterOptionToStringConverter : IValueConverter
 {
-    object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    object IValueConverter.Convert(object value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not OperationFilterOption)
         {
