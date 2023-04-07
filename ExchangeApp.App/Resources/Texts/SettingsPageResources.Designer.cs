@@ -106,20 +106,20 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string GeneralListItem {
+            get {
+                return ResourceManager.GetString("GeneralListItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to License.
         /// </summary>
         public static string LicenseInfoListItem {
             get {
                 return ResourceManager.GetString("LicenseInfoListItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Automatic operations saving.
-        /// </summary>
-        public static string OperationsAutomaticSaveListItem {
-            get {
-                return ResourceManager.GetString("OperationsAutomaticSaveListItem", resourceCulture);
             }
         }
         

@@ -13,7 +13,7 @@
         <CollectionView 
             ItemsSource="{Binding ActiveCurrencies}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
                     <Label Text="{x:Static texts:SettingsCoursesManagerPageResources.ActiveCurrenciesListHeader}" TextColor="White" FontAttributes="Bold"/>
                 </Frame>
             </CollectionView.Header>
@@ -28,7 +28,7 @@
                                 <ImageButton
                                     Grid.Column="3" 
                                     VerticalOptions="Center"
-                                    Source="delete.png"
+                                    Source="{AppThemeBinding Light=delete.png, Dark=delete_white.png}"
                                     Style="{StaticResource IconStyle}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SettingsCoursesManagerViewModel}}, Path=CurrencyToNonActiveCommand}"
                                     CommandParameter="{Binding .}"/>
@@ -45,7 +45,7 @@
             Grid.Column="2"
             ItemsSource="{Binding NonActiveCurrencies}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
                     <Label Text="{x:Static texts:SettingsCoursesManagerPageResources.NonActiveCurrenciesListHeader}" TextColor="White" FontAttributes="Bold"/>
                 </Frame>
             </CollectionView.Header>
@@ -60,7 +60,7 @@
                                 <ImageButton
                                     Grid.Column="3" 
                                     VerticalOptions="Center"
-                                    Source="add_circle.png"
+                                    Source="{AppThemeBinding Light=add_circle.png, Dark=add_circle_white.png}"
                                     Style="{StaticResource IconStyle}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SettingsCoursesManagerViewModel}}, Path=CurrencyToActiveCommand}"
                                     CommandParameter="{Binding .}"/>

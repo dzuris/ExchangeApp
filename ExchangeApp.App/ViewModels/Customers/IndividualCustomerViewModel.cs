@@ -2,10 +2,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.App.Views.Customers;
 using ExchangeApp.App.Views.Transaction;
 using ExchangeApp.BL.Facades.Interfaces;
-using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Customer;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
@@ -17,13 +17,15 @@ public partial class IndividualCustomerViewModel : ViewModelBase
 {
     private readonly ICustomerFacade _customerFacade;
     private readonly ITransactionFacade _transactionFacade;
-    private readonly ICurrencyFacade _currencyFacade;
+    private readonly ISettingsFacade _settingsFacade;
+    private readonly IPrinterService _printerService;
 
-    public IndividualCustomerViewModel(ICustomerFacade customerFacade, ITransactionFacade transactionFacade, ICurrencyFacade currencyFacade)
+    public IndividualCustomerViewModel(ICustomerFacade customerFacade, ITransactionFacade transactionFacade, ISettingsFacade settingsFacade, IPrinterService printerService)
     {
         _customerFacade = customerFacade;
         _transactionFacade = transactionFacade;
-        _currencyFacade = currencyFacade;
+        _settingsFacade = settingsFacade;
+        _printerService = printerService;
     }
 
     protected override async Task LoadDataAsync()
@@ -84,7 +86,8 @@ public partial class IndividualCustomerViewModel : ViewModelBase
 
         if (string.IsNullOrWhiteSpace(Customer.Nationality))
         {
-            Customer.Nationality = "Slovenská";
+            var rm = new ResourceManager(typeof(CustomerResources));
+            Customer.Nationality = rm.GetString("DefaultNationalityPlaceholder") ?? string.Empty;
         }
 
         Transaction.CustomerId = Customer.Id;
@@ -92,7 +95,8 @@ public partial class IndividualCustomerViewModel : ViewModelBase
         {
             Id = Customer.Id,
             FirstName = Customer.FirstName,
-            LastName = Customer.LastName
+            LastName = Customer.LastName,
+            EvidenceNumber = Customer.EvidenceNumber
         };
 
         try
@@ -101,6 +105,18 @@ public partial class IndividualCustomerViewModel : ViewModelBase
 
             var id = await _transactionFacade.InsertAsync(Transaction);
             Transaction.Id = id;
+
+            try
+            {
+                if (await _settingsFacade.ShouldSaveTransactionsAutomaticallyAsync())
+                {
+                    // Save pdf to computer
+                    await _printerService.SavePdf(Transaction);
+                }
+            }
+            catch (ArgumentNullException)
+            {
+            }
         }
         catch (Exception e)
         {

@@ -1,10 +1,13 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Resources;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.App.Views.Customers;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
+using ExchangeApp.Common.Exceptions;
 
 namespace ExchangeApp.App.ViewModels.Transaction;
 
@@ -12,13 +15,15 @@ namespace ExchangeApp.App.ViewModels.Transaction;
 [QueryProperty(nameof(Id), "id")]
 public partial class TransactionDetailViewModel : ViewModelBase
 {
-    private readonly IPrinterService _printerService;
     private readonly ITransactionFacade _transactionFacade;
+    private readonly ISettingsFacade _settingsFacade;
+    private readonly IPrinterService _printerService;
 
-    public TransactionDetailViewModel(IPrinterService printerService, ITransactionFacade transactionFacade)
+    public TransactionDetailViewModel(IPrinterService printerService, ITransactionFacade transactionFacade, ISettingsFacade settingsFacade)
     {
         _printerService = printerService;
         _transactionFacade = transactionFacade;
+        _settingsFacade = settingsFacade;
     }
 
     protected override async Task LoadDataAsync()
@@ -47,7 +52,7 @@ public partial class TransactionDetailViewModel : ViewModelBase
                 return string.Empty;
             }
 
-            return Transaction.Time.ToString("yyyyMMdd") + " / " + Transaction.Id;
+            return Transaction.Created.ToString("yyyyMMdd") + " / " + Transaction.Id;
         }
     }
 
@@ -68,5 +73,98 @@ public partial class TransactionDetailViewModel : ViewModelBase
 
         var customerId = Transaction.CustomerId ?? Guid.Empty;
         await Shell.Current.GoToAsync($"{nameof(CustomerDetailPage)}?id={customerId}");
+    }
+
+    [RelayCommand]
+    private async Task CancelAsync()
+    {
+        if (Transaction is null) return;
+
+        var rm = new ResourceManager(typeof(TransactionDetailPageResources));
+
+        var result = await Application.Current?.MainPage?.DisplayAlert(
+            rm.GetString("StornoAlertConfirmationTitle"),
+            rm.GetString("StornoAlertConfirmationMessage"),
+            rm.GetString("StornoAlertConfirmationYesButton"),
+            rm.GetString("StornoAlertConfirmationNoButton"))!;
+
+        if (!result) return;
+
+        try
+        {
+            await _transactionFacade.CancelTransaction(Transaction);
+        }
+        catch (OperationCanNotBeCanceledException)
+        {
+            await Application.Current.MainPage?.DisplayAlert(
+                rm.GetString("StornoAlertErrorTitle"),
+                rm.GetString("StornoAlertErrorMessageClosedTransaction"),
+                rm.GetString("AlertCancelButton"))!;
+            return;
+        }
+        catch (InsufficientMoneyException)
+        {
+            await Application.Current.MainPage?.DisplayAlert(
+                rm.GetString("StornoAlertErrorTitle"),
+                rm.GetString("StornoAlertErrorMessageInsufficientMoney"),
+                rm.GetString("AlertCancelButton"))!;
+            return;
+        }
+        catch (ArgumentNullException)
+        {
+            return;
+        }
+
+        Transaction.IsCanceled = true;
+        OnPropertyChanged(nameof(Transaction));
+
+        if (await _settingsFacade.ShouldSaveTransactionsAutomaticallyAsync())
+        {
+            try
+            {
+                await _printerService.SavePdf(Transaction);
+            }
+            catch (ArgumentNullException)
+            {
+            }
+        }
+
+        await Application.Current.MainPage?.DisplayAlert(
+            rm.GetString("StornoAlertTitle"),
+            rm.GetString("StornoAlertMessage"),
+            rm.GetString("AlertCancelButton"))!;
+    }
+
+    [RelayCommand]
+    private async Task SaveTransactionToFolderAsync()
+    {
+        if (Transaction is null) return;
+
+        var rm = new ResourceManager(typeof(TransactionDetailPageResources));
+
+        try
+        {
+            await _printerService.SavePdf(Transaction);
+        }
+        catch (ArgumentNullException)
+        {
+            await Application.Current?.MainPage?.DisplayAlert(
+                rm.GetString("PdfDownloadAlertTitle"),
+                rm.GetString("PdfDownloadAlertErrorMessage"),
+                rm.GetString("AlertCancelButton"))!;
+            return;
+        }
+        
+        await Application.Current?.MainPage?.DisplayAlert(
+            rm.GetString("PdfDownloadAlertTitle"), 
+            rm.GetString("PdfDownloadAlertMessage"), 
+            rm.GetString("AlertCancelButton"))!;
+    }
+
+    [RelayCommand]
+    private async Task PrintAsync()
+    {
+        if (Transaction is null) return;
+        await _printerService.Print(Transaction);
     }
 }

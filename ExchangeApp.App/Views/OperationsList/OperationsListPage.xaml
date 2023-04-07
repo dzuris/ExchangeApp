@@ -17,7 +17,7 @@
         <!-- Donation template -->
         <DataTemplate x:Key="DonationTemplate" x:DataType="donation:DonationListModel">
             <Grid Padding="10">
-                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="#d6f8ff">
+                <Frame BorderColor="{StaticResource Gray400}" BackgroundColor="{AppThemeBinding Light={StaticResource ListItemMonthly}, Dark={StaticResource ListItemMonthlyDark}}">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type operationPage:OperationsListPage}}, Path=BindingContext.GoToDonationDetailCommand}"
                                               CommandParameter="{Binding Id}"/>
@@ -25,12 +25,16 @@
                     <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
                         <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
                         <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.DonationListItemTitle}" VerticalOptions="Center"/>
-                        <Label Grid.Column="2" Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}" VerticalOptions="Center"/>
+                        <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="15">
+                            <Label Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}"/>
+                            <Label Text="-" IsVisible="{Binding IsCanceled}"/>
+                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}" FontAttributes="Italic" TextColor="{StaticResource Gray400}"/>
+                        </HorizontalStackLayout>
                         <HorizontalStackLayout Grid.Column="3" Spacing="5">
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
                             <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
                         </HorizontalStackLayout>
-                        <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{Binding Created}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>
             </Grid>
@@ -47,12 +51,16 @@
                     <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="80, *, *, *, *" ColumnSpacing="20">
                         <Label Text="{Binding Id}" FontAttributes="Bold" FontSize="20" VerticalOptions="Center"/>
                         <Label Grid.Column="1" Text="{x:Static texts:OperationsListPageResources.TransactionListItemTitle}" VerticalOptions="Center"/>
-                        <Label Grid.Column="2" Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}" VerticalOptions="Center"/>
+                        <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="15">
+                            <Label Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}"/>
+                            <Label Text="-" IsVisible="{Binding IsCanceled}"/>
+                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}"/>
+                        </HorizontalStackLayout>
                         <HorizontalStackLayout Grid.Column="3" Spacing="5">
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
                             <Label Text="{Binding CurrencyCode}" VerticalOptions="Center"/>
                         </HorizontalStackLayout>
-                        <Label Grid.Column="4" Text="{Binding Time}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
+                        <Label Grid.Column="4" Text="{Binding Created}" Style="{StaticResource InfoLabelLight}" VerticalOptions="Center"/>
                     </Grid>
                 </Frame>
             </Grid>
@@ -65,9 +73,9 @@
 
     <Grid RowDefinitions="Auto, *" RowSpacing="20">
         <StackLayout>
-            <Frame BackgroundColor="{StaticResource Tertiary}">
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}">
                 <Grid ColumnDefinitions="Auto, Auto, Auto, Auto" ColumnSpacing="15">
-                    <VerticalStackLayout Grid.Column="0" Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
+                    <VerticalStackLayout Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
                         <Label Text="{x:Static texts:OperationsListPageResources.FilterMenuPickerLabel}" Style="{StaticResource InfoBoldStyle}"/>
                         <Picker
                             HorizontalOptions="Start"
@@ -76,7 +84,7 @@
                             ItemDisplayBinding="{Binding Converter={StaticResource OperationFilterOptionToStringConverter}}"
                             SelectedItem="{Binding SelectedOperationFilterOption}"/>
                     </VerticalStackLayout>
-                    <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalSpaceLayoutCustomerPage}">
+                    <VerticalStackLayout Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
                         <Label Text="{x:Static texts:OperationsListPageResources.FilterMenuOperationIdLabel}" Style="{StaticResource InfoBoldStyle}"/>
                         <Entry
                             HorizontalOptions="Start"
@@ -92,7 +100,7 @@
                         Command="{Binding FilterCommand}"/>
                     <ImageButton
                         Grid.Column="3"
-                        Source="refresh.png"
+                        Source="{AppThemeBinding Light=refresh.png, Dark=refresh_white.png}"
                         Style="{StaticResource IconStyle}"
                         Command="{Binding ClearFilterCommand}"/>
                 </Grid>
@@ -106,7 +114,7 @@
                     RemainingItemsThreshold="4"
                     RemainingItemsThresholdReachedCommand="{Binding LoadMoreOperationsCommand}">
                     <CollectionView.Header>
-                        <Frame BackgroundColor="{StaticResource Primary}">
+                        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
                             <Label Text="{x:Static texts:OperationsListPageResources.OperationsListHeaderTitle}" TextColor="White" FontAttributes="Bold"/>
                         </Frame>
                     </CollectionView.Header>

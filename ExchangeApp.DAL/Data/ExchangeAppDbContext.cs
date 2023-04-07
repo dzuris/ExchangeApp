@@ -8,7 +8,10 @@ namespace ExchangeApp.DAL.Data;
 
 public class ExchangeAppDbContext : DbContext
 {
+    private readonly bool _seedCurrencyData;
+
     public DbSet<CurrencyEntity> Currencies => Set<CurrencyEntity>();
+    public DbSet<CurrencyHistoryEntity> CurrenciesHistory => Set<CurrencyHistoryEntity>();
     public DbSet<OperationEntityBase> Operations => Set<OperationEntityBase>();
     public DbSet<TransactionEntity> Transactions => Set<TransactionEntity>();
     public DbSet<DonationEntity> Donations => Set<DonationEntity>();
@@ -18,8 +21,9 @@ public class ExchangeAppDbContext : DbContext
     public DbSet<BusinessCustomerEntity> BusinessCustomers => Set<BusinessCustomerEntity>();
     public DbSet<MinorCustomerEntity> MinorCustomers => Set<MinorCustomerEntity>();
 
-    public ExchangeAppDbContext(DbContextOptions<ExchangeAppDbContext> options) : base(options)
+    public ExchangeAppDbContext(DbContextOptions options, bool seedCurrencyData = true) : base(options)
     {
+        _seedCurrencyData = seedCurrencyData;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -44,13 +48,22 @@ public class ExchangeAppDbContext : DbContext
             .WithOne(i => i.Customer)
             .OnDelete(DeleteBehavior.Restrict);
 
+        // Auto-generated Id for operations
         modelBuilder.Entity<OperationEntityBase>()
             .Property(o => o.Id)
             .ValueGeneratedOnAdd();
 
+        // Unique total balance rows
+        modelBuilder.Entity<TotalBalanceEntity>()
+            .HasIndex(e => new { e.Type, e.Created })
+            .IsUnique();
+
         // Using table-per-type configuration see https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration
         modelBuilder.Entity<CustomerEntity>().UseTptMappingStrategy();
 
-        CurrencySeeds.Seed(modelBuilder);
+        if (_seedCurrencyData)
+        {
+            CurrencySeeds.Seed(modelBuilder);
+        }
     }
 }

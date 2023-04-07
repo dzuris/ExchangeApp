@@ -5,10 +5,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Color x:Key="Background">#EEFCFF</Color>
+    <Color x:Key="BackgroundDark">#232e30</Color>
     <Color x:Key="Primary">#6EAFBC</Color>
+    <Color x:Key="PrimaryDark">#3b5d63</Color>
     <Color x:Key="Secondary">#00A8CF</Color>
+    <Color x:Key="SecondaryDark">#00728c</Color>
     <Color x:Key="Tertiary">#E6F4F1</Color>
+    <Color x:Key="TertiaryDark">#282e2d</Color>
+    <Color x:Key="ListItemDaily">White</Color>
+    <Color x:Key="ListItemMonthly">#d6f8ff</Color>
+    <Color x:Key="ListItemDailyDark">Black</Color>
+    <Color x:Key="ListItemMonthlyDark">#556366</Color>
     <Color x:Key="FlyoutBackground">#c1ecf5</Color>
+    <Color x:Key="FlyoutBackgroundDark">#181b1c</Color>
+    <Color x:Key="ListItemYellow">#fcffc9</Color>
+    <Color x:Key="NullElementBackground">#ffa4a1</Color>
+    <Color x:Key="NullElementBackgroundDark">#751815</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Gray100">#E1E1E1</Color>

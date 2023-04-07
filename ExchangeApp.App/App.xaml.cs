@@ -1,11 +1,16 @@
-﻿namespace ExchangeApp.App;
+﻿using System.Globalization;
+
+namespace ExchangeApp.App;
 
 public partial class App : Application
 {
 	public App()
-	{
+    {
 		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        // Set the culture to Slovak
+        Thread.CurrentThread.CurrentUICulture = new CultureInfo("sk-SK");
+
+        MainPage = new AppShell();
+    }
 }

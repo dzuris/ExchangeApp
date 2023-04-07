@@ -61,11 +61,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string AlertCancelButton {
+            get {
+                return ResourceManager.GetString("AlertCancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string CancelButtonText {
             get {
                 return ResourceManager.GetString("CancelButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANCELED.
+        /// </summary>
+        public static string CanceledLabel {
+            get {
+                return ResourceManager.GetString("CanceledLabel", resourceCulture);
             }
         }
         
@@ -142,11 +160,137 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The folder path for saving the files is missing. This folder can be set in the settings..
+        /// </summary>
+        public static string PdfDownloadAlertErrorMessage {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The data has been saved to your computer..
+        /// </summary>
+        public static string PdfDownloadAlertMessage {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF save.
+        /// </summary>
+        public static string PdfDownloadAlertTitle {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity:.
         /// </summary>
         public static string QuantityLabel {
             get {
                 return ResourceManager.GetString("QuantityLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this donation? This event is irreversible..
+        /// </summary>
+        public static string StornoAlertConfirmationMessage {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string StornoAlertConfirmationNo {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancellation confirmation.
+        /// </summary>
+        public static string StornoAlertConfirmationTitle {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string StornoAlertConfirmationYes {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is created total balance for this operation so you can&apos;t cancel it anymore..
+        /// </summary>
+        public static string StornoAlertErrorMessageClosedDonation {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorMessageClosedDonation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error in getting currencies..
+        /// </summary>
+        public static string StornoAlertErrorMessageCurrencyMissingException {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorMessageCurrencyMissingException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The transaction cannot be canceled due to insufficient funds..
+        /// </summary>
+        public static string StornoAlertErrorMessageInsufficientMoney {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorMessageInsufficientMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancellation failure.
+        /// </summary>
+        public static string StornoAlertErrorTitle {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction successfully canceled..
+        /// </summary>
+        public static string StornoAlertMessage {
+            get {
+                return ResourceManager.GetString("StornoAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Donation cancel.
+        /// </summary>
+        public static string StornoAlertTitle {
+            get {
+                return ResourceManager.GetString("StornoAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANCELLED.
+        /// </summary>
+        public static string StornoLabel {
+            get {
+                return ResourceManager.GetString("StornoLabel", resourceCulture);
             }
         }
     }

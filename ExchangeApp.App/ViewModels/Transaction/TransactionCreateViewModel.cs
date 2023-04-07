@@ -3,6 +3,7 @@ using System.Resources;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.App.Views.Customers;
 using ExchangeApp.App.Views.Transaction;
 using ExchangeApp.BL.Facades.Interfaces;
@@ -16,13 +17,17 @@ public partial class TransactionCreateViewModel : ViewModelBase
 {
     private readonly ITransactionFacade _transactionFacade;
     private readonly ICurrencyFacade _currencyFacade;
+    private readonly ISettingsFacade _settingsFacade;
+    private readonly IPrinterService _printerService;
 
     public TransactionCreateViewModel(
         ITransactionFacade transactionFacade, 
-        ICurrencyFacade currencyFacade)
+        ICurrencyFacade currencyFacade, IPrinterService printerService, ISettingsFacade settingsFacade)
     {
         _transactionFacade = transactionFacade;
         _currencyFacade = currencyFacade;
+        _printerService = printerService;
+        _settingsFacade = settingsFacade;
     }
 
     private bool _isFirstAppear = true;
@@ -353,19 +358,17 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 rm.GetString("DisplayAlertCancelButtonText"))!;
             return;
         }
-        
+
+        Transaction.CurrencyQuantityBefore = Transaction.Currency!.Quantity;
         Transaction.CurrencyCode = Transaction.Currency!.Code;
         Transaction.AverageCourseRate = Transaction.Currency!.AverageCourseRate;
-
 
         if (Transaction.TotalAmountDomesticCurrency > 1000)
         {
             // Needs to go to the customer create page
             await Shell.Current.GoToAsync($"{nameof(NewCustomerIndividualPage)}", true, new Dictionary<string, object>
             {
-                {"Transaction", Transaction},
-                {"CurrencyFrom", CurrencyFrom!},
-                {"CurrencyTo", CurrencyTo!}
+                {"Transaction", Transaction}
             });
         }
         else
@@ -375,6 +378,18 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 // Create transaction because it is not over 1000 euros
                 var id = await _transactionFacade.InsertAsync(Transaction);
                 Transaction.Id = id;
+
+                try
+                {
+                    if (await _settingsFacade.ShouldSaveTransactionsAutomaticallyAsync())
+                    {
+                        // Save pdf to computer
+                        await _printerService.SavePdf(Transaction);
+                    }
+                }
+                catch (ArgumentNullException)
+                {
+                }
             }
             catch (Exception e)
             {

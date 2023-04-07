@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
-using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.Common.Enums;
-using ExchangeApp.DAL.Entities;
 
 namespace ExchangeApp.BL.Facades.Interfaces;
 
@@ -13,7 +11,8 @@ public interface ICurrencyFacade : IFacade
     Task<ObservableCollection<CurrencyListModel>> GetActiveCurrenciesAsync();
     Task<List<CurrencyTransactionListModel>> GetActiveCurrenciesForTransactionAsync();
     Task<List<CurrencyCoursesListModel>> GetActiveCurrenciesForCoursesAsync();
+    Task<List<CurrencyHistoryModel>> GetCurrenciesHistory(DateTime dateTime);
+    Task<decimal> GetCurrencyBalance(string currencyCode, DateTime date);
     Task UpdateAsync(CurrencyDetailModel model);
-    Task UpdateQuantityAsync(string code, decimal newQuantity);
-    Task UpdateStatus(string code, CurrencyState status);
+    Task UpdateStatus(string code, CurrencyStatus status);
 }

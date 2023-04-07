@@ -138,8 +138,8 @@
   <data name="LicenseInfoListItem" xml:space="preserve">
     <value>Licencia</value>
   </data>
-  <data name="OperationsAutomaticSaveListItem" xml:space="preserve">
-    <value>Automatické ukladanie operácií</value>
+  <data name="GeneralListItem" xml:space="preserve">
+    <value>Všeobecné</value>
   </data>
   <data name="TotalBalanceListItem" xml:space="preserve">
     <value>Uzávierky</value>

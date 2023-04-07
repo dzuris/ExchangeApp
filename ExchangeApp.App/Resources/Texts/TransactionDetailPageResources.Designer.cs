@@ -61,6 +61,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string AlertCancelButton {
+            get {
+                return ResourceManager.GetString("AlertCancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Amount:.
         /// </summary>
         public static string AmountLabel {
@@ -133,6 +142,33 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The folder path for saving the files is missing. This folder can be set in the settings..
+        /// </summary>
+        public static string PdfDownloadAlertErrorMessage {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The data has been saved to your computer..
+        /// </summary>
+        public static string PdfDownloadAlertMessage {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF save.
+        /// </summary>
+        public static string PdfDownloadAlertTitle {
+            get {
+                return ResourceManager.GetString("PdfDownloadAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity:.
         /// </summary>
         public static string QuantityLabel {
@@ -160,11 +196,101 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Storno.
+        ///   Looks up a localized string similar to Are you sure you want to delete this transaction? This event is irreversible..
+        /// </summary>
+        public static string StornoAlertConfirmationMessage {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string StornoAlertConfirmationNoButton {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationNoButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancellation confirmation.
+        /// </summary>
+        public static string StornoAlertConfirmationTitle {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string StornoAlertConfirmationYesButton {
+            get {
+                return ResourceManager.GetString("StornoAlertConfirmationYesButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is created total balance for this operation so you can&apos;t cancel it anymore..
+        /// </summary>
+        public static string StornoAlertErrorMessageClosedTransaction {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorMessageClosedTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The transaction cannot be canceled due to insufficient funds..
+        /// </summary>
+        public static string StornoAlertErrorMessageInsufficientMoney {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorMessageInsufficientMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel failure.
+        /// </summary>
+        public static string StornoAlertErrorTitle {
+            get {
+                return ResourceManager.GetString("StornoAlertErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction successfully canceled..
+        /// </summary>
+        public static string StornoAlertMessage {
+            get {
+                return ResourceManager.GetString("StornoAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction cancel.
+        /// </summary>
+        public static string StornoAlertTitle {
+            get {
+                return ResourceManager.GetString("StornoAlertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string StornoButtonText {
             get {
                 return ResourceManager.GetString("StornoButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CANCELED.
+        /// </summary>
+        public static string StornoLabel {
+            get {
+                return ResourceManager.GetString("StornoLabel", resourceCulture);
             }
         }
         

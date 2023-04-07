@@ -13,7 +13,7 @@
         RowDefinitions="*, Auto, Auto" RowSpacing="20">
         <CollectionView SelectionMode="None" ItemsSource="{Binding Currencies}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame Style="{StaticResource ListHeaderFrame}">
                     <Grid Padding="10, 0" ColumnDefinitions="100, *, *, *, *, *">
                         <Label Grid.Column="0" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleFlag}" TextColor="White"/>
                         <Label Grid.Column="1" Text="{x:Static texts:CashRegisterStatusPageResources.ListItemTitleState}" TextColor="White"/>
@@ -27,13 +27,13 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="currency:CurrencyListModel">
                     <Grid Padding="10">
-                        <Frame BorderColor="{StaticResource Gray400}">
+                        <Frame Style="{StaticResource ListItemFrame}">
                             <Grid ColumnDefinitions="100, *, *, *, *, *">
                                 <Image HorizontalOptions="Start" Source="{Binding PhotoUrl}" WidthRequest="40"/>
                                 <Label Grid.Column="1" Text="{Binding Code, Converter={StaticResource CurrencyCodeToStateConverter}}" LineBreakMode="CharacterWrap"/>
                                 <Label Grid.Column="2" Text="{Binding Code}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="3" Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" HorizontalOptions="Center"/>
-                                <Label Grid.Column="4" Text="{Binding AverageCourseRate, FallbackValue='0'}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="4" Text="{Binding AverageCourseRate, StringFormat='{0:N6}', FallbackValue='0'}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="5" Text="{Binding ExchangeRateValue, StringFormat='{0:# ##0.##}'}" HorizontalOptions="Center"/>
                             </Grid>
                         </Frame>
@@ -61,7 +61,8 @@
         <ImageButton
             Grid.Row="2"
             HorizontalOptions="End"
-            Source="print.png"
-            Style="{StaticResource IconStyle}"/>
+            Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
+            Style="{StaticResource IconStyle}"
+            Command="{Binding PrintCommand}"/>
     </Grid>
 </views:ContentPageBase>

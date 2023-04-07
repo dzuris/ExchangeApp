@@ -146,6 +146,48 @@
     <value>Given amount:</value>
   </data>
   <data name="StornoButtonText" xml:space="preserve">
-    <value>Storno</value>
+    <value>Cancel</value>
+  </data>
+  <data name="PdfDownloadAlertTitle" xml:space="preserve">
+    <value>PDF save</value>
+  </data>
+  <data name="PdfDownloadAlertMessage" xml:space="preserve">
+    <value>The data has been saved to your computer.</value>
+  </data>
+  <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
+    <value>The folder path for saving the files is missing. This folder can be set in the settings.</value>
+  </data>
+  <data name="StornoAlertTitle" xml:space="preserve">
+    <value>Transaction cancel</value>
+  </data>
+  <data name="StornoAlertMessage" xml:space="preserve">
+    <value>Transaction successfully canceled.</value>
+  </data>
+  <data name="AlertCancelButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="StornoLabel" xml:space="preserve">
+    <value>CANCELED</value>
+  </data>
+  <data name="StornoAlertErrorTitle" xml:space="preserve">
+    <value>Cancel failure</value>
+  </data>
+  <data name="StornoAlertErrorMessageInsufficientMoney" xml:space="preserve">
+    <value>The transaction cannot be canceled due to insufficient funds.</value>
+  </data>
+  <data name="StornoAlertConfirmationTitle" xml:space="preserve">
+    <value>Cancellation confirmation</value>
+  </data>
+  <data name="StornoAlertConfirmationMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this transaction? This event is irreversible.</value>
+  </data>
+  <data name="StornoAlertConfirmationYesButton" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="StornoAlertConfirmationNoButton" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="StornoAlertErrorMessageClosedTransaction" xml:space="preserve">
+    <value>There is created total balance for this operation so you can't cancel it anymore.</value>
   </data>
 </root>

@@ -16,7 +16,7 @@
             SelectionMode="None"
             ItemsSource="{Binding Currencies}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
                     <Grid ColumnDefinitions="*, *, *, *, *, *">
                         <Label Grid.Column="0" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelFlag}" TextColor="White"/>
                         <Label Grid.Column="1" Text="{x:Static texts:CoursesPageResources.ListHeaderLabelState}" TextColor="White"/>
@@ -42,7 +42,7 @@
                                 <Label Grid.Column="2" Text="{Binding Code}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="3" Text="{Binding BuyRate, TargetNullValue='-'}" HorizontalOptions="Center"/>
                                 <Label Grid.Column="4" Text="{Binding SellRate, TargetNullValue='-'}" HorizontalOptions="Center"/>
-                                <Label Grid.Column="5" Text="{Binding AverageCourseRate}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="5" Text="{Binding AverageCourseRate, StringFormat='{0:N6}'}" HorizontalOptions="Center"/>
                             </Grid>
                         </Frame>
                     </Grid>
@@ -53,7 +53,8 @@
         <ImageButton
             Grid.Row="1"
             HorizontalOptions="End"
-            Source="print.png"
-            Style="{StaticResource IconStyle}"/>
+            Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
+            Style="{StaticResource IconStyle}"
+            Command="{Binding PrintCommand}"/>
     </Grid>
 </views:ContentPageBase>

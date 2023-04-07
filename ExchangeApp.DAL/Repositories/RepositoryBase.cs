@@ -24,7 +24,13 @@ public class RepositoryBase<TEntity, TId> : IRepository<TEntity, TId>
 
     public virtual async Task<TEntity?> GetByIdAsync(TId id)
     {
-        return await _dbSet.FindAsync(id);
+        var entity = await _dbSet.FindAsync(id);
+        if (entity != null)
+        {
+            AppDbContext.Entry(entity).State = EntityState.Detached;
+        }
+
+        return entity;
     }
 
     public virtual async Task InsertAsync(TEntity entity)

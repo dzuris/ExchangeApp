@@ -11,15 +11,23 @@
     <Grid
         RowDefinitions="*, Auto"
         RowSpacing="80">
+        <Label
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Text="{x:Static texts:DonationDetailPageResources.StornoLabel}"
+            FontAttributes="Bold"
+            FontSize="32"
+            IsVisible="{Binding Donation.IsCanceled, FallbackValue=true}"/>
         <Grid
             ColumnDefinitions="*, *">
             <Grid
-                RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, *"
+                RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
                 RowSpacing="5"
-                ColumnDefinitions="Auto, Auto"
+                ColumnDefinitions="Auto, *"
                 ColumnSpacing="40">
                 <Label
                     Style="{StaticResource InfoLabelLight}"
+                    Margin="0, 0, 0, 40"
                     Text="{x:Static texts:DonationDetailPageResources.DonationNumberLabel}"/>
                 <Label
                     Grid.Column="1"
@@ -69,7 +77,10 @@
                 <Label
                     Grid.Row="5"
                     Grid.Column="1"
-                    Text="{Binding Donation.Note, FallbackValue=''}"/>
+                    Text="{Binding Donation.Note, FallbackValue=''}"
+                    LineBreakMode="WordWrap"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="StartAndExpand"/>
             </Grid>
             <VerticalStackLayout
                 Grid.Column="1"
@@ -79,7 +90,7 @@
                         Text="{x:Static texts:DonationDetailPageResources.DateAndTimeLabel}"
                         Style="{StaticResource InfoLabelLight}"/>
                     <Label
-                        Text="{Binding Donation.Time, FallbackValue=''}"/>
+                        Text="{Binding Donation.Created, FallbackValue=''}"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Grid>
@@ -88,11 +99,18 @@
             HorizontalOptions="End"
             Spacing="20">
             <Button
-                Text="{x:Static texts:DonationDetailPageResources.CancelButtonText}"/>
+                WidthRequest="150"
+                IsVisible="{Binding Donation.IsCanceled, Converter={StaticResource InverseBooleanConverter}, FallbackValue=true}"
+                Text="{x:Static texts:DonationDetailPageResources.CancelButtonText}"
+                Command="{Binding CancelCommand}"/>
             <ImageButton
-                Source="print.png"
-                HorizontalOptions="Start"
-                Style="{StaticResource IconStyle}"/>
+                Source="{AppThemeBinding Light=download.png, Dark=download_white.png}"
+                Style="{StaticResource IconStyle}"
+                Command="{Binding SaveDonationToFolderCommand}"/>
+            <ImageButton
+                Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
+                Style="{StaticResource IconStyle}"
+                Command="{Binding PrintCommand}"/>
 
         </HorizontalStackLayout>
     </Grid>

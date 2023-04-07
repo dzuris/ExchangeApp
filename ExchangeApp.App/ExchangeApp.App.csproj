@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>ExchangeApp.App</ApplicationTitle>
+		<ApplicationTitle>Zmenárenka</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.exchangeapp.app</ApplicationId>
@@ -30,99 +30,145 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 		<UserSecretsId>6b2bd942-2320-4db7-937e-53961b92ae77</UserSecretsId>
 		<Nullable>enable</Nullable>
+		<AssemblyName>ExchangeApp.App</AssemblyName>
+		<GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+		<PackageCertificateThumbprint>9F98226DD3BFB0A66D23A51995B8F70FAE2C3B3E</PackageCertificateThumbprint>
+		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+		<GenerateTestArtifacts>True</GenerateTestArtifacts>
+		<AppInstallerUri>C:\Users\adamd\Downloads</AppInstallerUri>
+		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-maccatalyst|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-maccatalyst|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-windows10.0.19041.0|AnyCPU'">
+	  <ApplicationTitle>Zmenárka</ApplicationTitle>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\icon1.svg" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#6EAFBC" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Include="Resources\Images\Icons\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="appsettings.json" />
-	  <None Remove="Resources\Images\Flags\aud.png" />
-	  <None Remove="Resources\Images\Flags\bgn.png" />
-	  <None Remove="Resources\Images\Flags\brl.png" />
-	  <None Remove="Resources\Images\Flags\cad.png" />
-	  <None Remove="Resources\Images\Flags\chf.png" />
-	  <None Remove="Resources\Images\Flags\cny.png" />
-	  <None Remove="Resources\Images\Flags\czk.png" />
-	  <None Remove="Resources\Images\Flags\dkk.png" />
-	  <None Remove="Resources\Images\Flags\eur.png" />
-	  <None Remove="Resources\Images\Flags\gbp.png" />
-	  <None Remove="Resources\Images\Flags\hkd.png" />
-	  <None Remove="Resources\Images\Flags\huf.png" />
-	  <None Remove="Resources\Images\Flags\idr.png" />
-	  <None Remove="Resources\Images\Flags\ils.png" />
-	  <None Remove="Resources\Images\Flags\inr.png" />
-	  <None Remove="Resources\Images\Flags\isk.png" />
-	  <None Remove="Resources\Images\Flags\jpn.png" />
-	  <None Remove="Resources\Images\Flags\krw.png" />
-	  <None Remove="Resources\Images\Flags\mxn.png" />
-	  <None Remove="Resources\Images\Flags\myr.png" />
-	  <None Remove="Resources\Images\Flags\nok.png" />
-	  <None Remove="Resources\Images\Flags\nzd.png" />
-	  <None Remove="Resources\Images\Flags\php.png" />
-	  <None Remove="Resources\Images\Flags\pln.png" />
-	  <None Remove="Resources\Images\Flags\ron.png" />
-	  <None Remove="Resources\Images\Flags\rub.png" />
-	  <None Remove="Resources\Images\Flags\sek.png" />
-	  <None Remove="Resources\Images\Flags\sgd.png" />
-	  <None Remove="Resources\Images\Flags\thb.png" />
-	  <None Remove="Resources\Images\Flags\try.png" />
-	  <None Remove="Resources\Images\Flags\usd.png" />
-	  <None Remove="Resources\Images\Flags\zar.png" />
+	  <None Remove="Resources\Images\Flags\aud_flag.png" />
+	  <None Remove="Resources\Images\Flags\bgn_flag.png" />
+	  <None Remove="Resources\Images\Flags\brl_flag.png" />
+	  <None Remove="Resources\Images\Flags\cad_flag.png" />
+	  <None Remove="Resources\Images\Flags\chf_flag.png" />
+	  <None Remove="Resources\Images\Flags\cny_flag.png" />
+	  <None Remove="Resources\Images\Flags\czk_flag.png" />
+	  <None Remove="Resources\Images\Flags\dkk_flag.png" />
+	  <None Remove="Resources\Images\Flags\eur_flag.png" />
+	  <None Remove="Resources\Images\Flags\gbp_flag.png" />
+	  <None Remove="Resources\Images\Flags\hkd_flag.png" />
+	  <None Remove="Resources\Images\Flags\huf_flag.png" />
+	  <None Remove="Resources\Images\Flags\idr_flag.png" />
+	  <None Remove="Resources\Images\Flags\ils_flag.png" />
+	  <None Remove="Resources\Images\Flags\inr_flag.png" />
+	  <None Remove="Resources\Images\Flags\isk_flag.png" />
+	  <None Remove="Resources\Images\Flags\jpn_flag.png" />
+	  <None Remove="Resources\Images\Flags\krw_flag.png" />
+	  <None Remove="Resources\Images\Flags\mxn_flag.png" />
+	  <None Remove="Resources\Images\Flags\myr_flag.png" />
+	  <None Remove="Resources\Images\Flags\nok_flag.png" />
+	  <None Remove="Resources\Images\Flags\nzd_flag.png" />
+	  <None Remove="Resources\Images\Flags\php_flag.png" />
+	  <None Remove="Resources\Images\Flags\pln_flag.png" />
+	  <None Remove="Resources\Images\Flags\ron_flag.png" />
+	  <None Remove="Resources\Images\Flags\rub_flag.png" />
+	  <None Remove="Resources\Images\Flags\sek_flag.png" />
+	  <None Remove="Resources\Images\Flags\sgd_flag.png" />
+	  <None Remove="Resources\Images\Flags\thb_flag.png" />
+	  <None Remove="Resources\Images\Flags\try_flag.png" />
+	  <None Remove="Resources\Images\Flags\usd_flag.png" />
+	  <None Remove="Resources\Images\Flags\zar_flag.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json" />
-	  <MauiImage Include="Resources\Images\Flags\aud.png" />
-	  <MauiImage Include="Resources\Images\Flags\bgn.png" />
-	  <MauiImage Include="Resources\Images\Flags\brl.png" />
-	  <MauiImage Include="Resources\Images\Flags\cad.png" />
-	  <MauiImage Include="Resources\Images\Flags\chf.png" />
-	  <MauiImage Include="Resources\Images\Flags\cny.png" />
-	  <MauiImage Include="Resources\Images\Flags\czk.png" />
-	  <MauiImage Include="Resources\Images\Flags\dkk.png" />
-	  <MauiImage Include="Resources\Images\Flags\gbp.png" />
-	  <MauiImage Include="Resources\Images\Flags\hkd.png" />
-	  <MauiImage Include="Resources\Images\Flags\huf.png" />
-	  <MauiImage Include="Resources\Images\Flags\idr.png" />
-	  <MauiImage Include="Resources\Images\Flags\ils.png" />
-	  <MauiImage Include="Resources\Images\Flags\inr.png" />
-	  <MauiImage Include="Resources\Images\Flags\isk.png" />
-	  <MauiImage Include="Resources\Images\Flags\krw.png" />
-	  <MauiImage Include="Resources\Images\Flags\mxn.png" />
-	  <MauiImage Include="Resources\Images\Flags\myr.png" />
-	  <MauiImage Include="Resources\Images\Flags\nok.png" />
-	  <MauiImage Include="Resources\Images\Flags\nzd.png" />
-	  <MauiImage Include="Resources\Images\Flags\php.png" />
-	  <MauiImage Include="Resources\Images\Flags\ron.png" />
-	  <MauiImage Include="Resources\Images\Flags\rub.png" />
-	  <MauiImage Include="Resources\Images\Flags\sek.png" />
-	  <MauiImage Include="Resources\Images\Flags\sgd.png" />
-	  <MauiImage Include="Resources\Images\Flags\thb.png" />
-	  <MauiImage Include="Resources\Images\Flags\try.png" />
-	  <MauiImage Include="Resources\Images\Flags\zar.png" />
+	  <MauiImage Include="Resources\Images\Flags\aud_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\bgn_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\brl_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\cad_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\chf_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\cny_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\czk_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\dkk_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\eur_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\gbp_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\hkd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\huf_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\idr_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\ils_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\inr_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\isk_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\jpn_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\krw_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\mxn_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\myr_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\nok_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\nzd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\php_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\pln_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\ron_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\rub_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\sek_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\sgd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\thb_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\try_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\usd_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\zar_flag.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="12.0.1" />
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+		<PackageReference Include="itext7" Version="7.2.5" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
@@ -137,13 +183,6 @@
 	  <Folder Include="ViewModels\Customers\" />
 	  <Folder Include="ViewModels\CashRegister\" />
 	  <Folder Include="ViewModels\ProfitCalculate\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Include="Resources\Images\Flags\eur.png" />
-	  <MauiImage Include="Resources\Images\Flags\jpn.png" />
-	  <MauiImage Include="Resources\Images\Flags\pln.png" />
-	  <MauiImage Include="Resources\Images\Flags\usd.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -175,6 +214,16 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>EnumOperationFilterOptionsResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\EnumTotalBalanceFilterOption.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumTotalBalanceFilterOption.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\EnumTotalBalanceResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>EnumTotalBalanceResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\EnumTransactionTypeResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -190,10 +239,40 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>EnumEvidenceTypeResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\PrinterCashRegisterResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PrinterCashRegisterResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\PrinterCoursesResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PrinterCoursesResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\PrinterResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PrinterResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\PrinterTotalBalanceResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PrinterTotalBalanceResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\ProfitCalculatePageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>ProfitCalculatePageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsGeneralPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsGeneralPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsAutomaticTotalBalancePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsAutomaticTotalBalancePageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsCoursesManagerPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -245,10 +324,30 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>OperationsListPageResources.resx</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsInfoBranchPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsInfoBranchPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsInfoCompanyPageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsInfoCompanyPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\SettingsLicencePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>SettingsLicencePageResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>SettingsPageResources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\Texts\TotalBalancePageResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>TotalBalancePageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\TransactionDetailPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -260,13 +359,11 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>TransactionPageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\TransactionTypeResources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>TransactionTypeResources.resx</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\Donation\DonationCreatePage.xaml.cs">
 	    <DependentUpon>DonationCreatePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Settings\SettingsGeneralPage.xaml.cs">
+	    <DependentUpon>SettingsGeneralPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Settings\SettingsCoursesManagerPage.xaml.cs">
 	    <DependentUpon>SettingsCoursesManagerPage.xaml</DependentUpon>
@@ -293,6 +390,14 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumOperationFilterOptionsResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumTotalBalanceFilterOption.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumTotalBalanceFilterOption.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\EnumTotalBalanceResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>EnumTotalBalanceResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\EnumTransactionTypeResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumTransactionTypeResources.Designer.cs</LastGenOutput>
@@ -305,9 +410,33 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>EnumEvidenceTypeResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\PrinterCashRegisterResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PrinterCashRegisterResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\PrinterCoursesResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PrinterCoursesResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\PrinterResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PrinterResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\PrinterTotalBalanceResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PrinterTotalBalanceResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\ProfitCalculatePageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>ProfitCalculatePageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsGeneralPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsGeneralPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsAutomaticTotalBalancePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsAutomaticTotalBalancePageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsCoursesManagerPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -349,9 +478,25 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>OperationsListPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsInfoBranchPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsInfoBranchPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsInfoCompanyPageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsInfoCompanyPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\SettingsLicencePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>SettingsLicencePageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>SettingsPageResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\Texts\TotalBalancePageResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>TotalBalancePageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\TransactionDetailPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -361,10 +506,15 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>TransactionPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\TransactionTypeResources.resx">
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>TransactionTypeResources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiFont Update="Resources\Fonts\Sono-Regular.ttf">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiFont>
+	  <MauiFont Update="Resources\Fonts\Sono-SemiBold.ttf">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiFont>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -413,6 +563,9 @@
 	  <MauiXaml Update="Views\ProfitCalculate\ProfitCalculatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsGeneralPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsCoursesManagerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -440,7 +593,19 @@
 	  <MauiXaml Update="Views\OperationsList\OperationsListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsInfoBranchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsInfoCompanyPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Settings\SettingsLicencePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TotalBalance\TotalBalancePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Transaction\TransactionDetailPage.xaml">

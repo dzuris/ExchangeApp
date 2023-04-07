@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Settings"
+             x:Class="ExchangeApp.App.Views.Settings.SettingsLicencePage"
+             Title="{x:Static texts:SettingsLicencePageResources.PageTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:SettingsLicenceViewModel">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+            <HorizontalStackLayout Spacing="20">
+                <Label Text="{x:Static texts:SettingsLicencePageResources.LicenseLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                <Label Text="MIT"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</views:ContentPageBase>

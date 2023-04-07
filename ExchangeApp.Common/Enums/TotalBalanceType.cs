@@ -3,6 +3,5 @@
 public enum TotalBalanceType
 {
     Daily,
-    Monthly,
-    Yearly
+    Monthly
 }

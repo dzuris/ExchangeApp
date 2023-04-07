@@ -61,11 +61,83 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calculate.
+        /// </summary>
+        public static string CalculateButtonText {
+            get {
+                return ResourceManager.GetString("CalculateButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From:.
+        /// </summary>
+        public static string DateFromLabel {
+            get {
+                return ResourceManager.GetString("DateFromLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Until:.
+        /// </summary>
+        public static string DateUntilLabel {
+            get {
+                return ResourceManager.GetString("DateUntilLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency code.
+        /// </summary>
+        public static string ListHeaderItemCurrencyCode {
+            get {
+                return ResourceManager.GetString("ListHeaderItemCurrencyCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flag.
+        /// </summary>
+        public static string ListHeaderItemFlag {
+            get {
+                return ResourceManager.GetString("ListHeaderItemFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profit.
+        /// </summary>
+        public static string ListHeaderItemProfit {
+            get {
+                return ResourceManager.GetString("ListHeaderItemProfit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        public static string ListHeaderItemState {
+            get {
+                return ResourceManager.GetString("ListHeaderItemState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profit calculate.
         /// </summary>
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total profit:.
+        /// </summary>
+        public static string TotalProfitLabel {
+            get {
+                return ResourceManager.GetString("TotalProfitLabel", resourceCulture);
             }
         }
     }

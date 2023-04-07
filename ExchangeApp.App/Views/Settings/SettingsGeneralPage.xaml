@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Settings"
+             x:Class="ExchangeApp.App.Views.Settings.SettingsGeneralPage"
+             Title="{x:Static texts:SettingsGeneralPageResources.PageTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:SettingsGeneralViewModel">
+    <Grid RowDefinitions="*, Auto" RowSpacing="15">
+        <ScrollView VerticalOptions="Center">
+            <VerticalStackLayout Spacing="50">
+                <HorizontalStackLayout Spacing="25">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="{x:Static texts:SettingsGeneralPageResources.FolderForOperationsSavePathLabel}"/>
+                        <Entry IsReadOnly="True" Text="{Binding SettingsData.FolderPath}"/>
+                    </VerticalStackLayout>
+                    <Button
+                        HeightRequest="44"
+                        VerticalOptions="End"
+                        Text="{x:Static texts:SettingsGeneralPageResources.SelectFolderButtonText}"
+                        Command="{Binding PickFolderCommand}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding SettingsData.AutomaticTransactionSaveOption}" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticTransactions}" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding SettingsData.AutomaticDonationSaveOption}" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticDonations}" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox IsChecked="{Binding SettingsData.AutomaticTotalBalanceSaveOption}" VerticalOptions="Center"/>
+                    <Label Text="{x:Static texts:SettingsGeneralPageResources.CheckBoxTextAutomaticTotalBalance}" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ImageButton
+            Grid.Row="1"
+            HorizontalOptions="End"
+            Source="{AppThemeBinding Light=save.png, Dark=save_white.png}"
+            Style="{StaticResource IconStyle}"
+            Command="{Binding SaveCommand}"/>
+    </Grid>
+</views:ContentPageBase>

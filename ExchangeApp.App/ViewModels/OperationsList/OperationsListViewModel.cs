@@ -12,7 +12,7 @@ namespace ExchangeApp.App.ViewModels.OperationsList;
 public partial class OperationsListViewModel : ViewModelBase
 {
     private int _pageNumber = 1;
-    private const int PageSize = 10;
+    private const int PageSize = 20;
     private readonly IOperationFacade _operationFacade;
 
     public OperationsListViewModel(IOperationFacade operationFacade)
@@ -27,7 +27,13 @@ public partial class OperationsListViewModel : ViewModelBase
         FilterUsed = false;
         IsLoadMoreButtonVisible = true;
 
+        _pageNumber = 1;
         Operations = await _operationFacade.GetOperationsAsync(PageSize, _pageNumber);
+
+        if (Operations.Count < PageSize)
+        {
+            IsLoadMoreButtonVisible = false;
+        }
     }
 
     public List<OperationFilterOption> FilterOptions
@@ -80,7 +86,7 @@ public partial class OperationsListViewModel : ViewModelBase
 
         try
         {
-            ObservableCollection<OperationListModelBase> newOperations = new();
+            ObservableCollection<OperationListModelBase> newOperations;
 
             if (FilterUsed)
             {
@@ -153,5 +159,10 @@ public partial class OperationsListViewModel : ViewModelBase
 
         _pageNumber = 1;
         Operations = await _operationFacade.GetOperationsAsync(PageSize, _pageNumber);
+
+        if (Operations.Count < PageSize)
+        {
+            IsLoadMoreButtonVisible = false;
+        }
     }
 }

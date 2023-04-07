@@ -50,7 +50,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "EUR",
                             AverageCourseRate = 1m,
-                            PhotoUrl = "eur.png",
+                            PhotoUrl = "eur_flag.png",
                             Quantity = 0m,
                             Status = 1
                         },
@@ -58,7 +58,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "CZK",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "czk.png",
+                            PhotoUrl = "czk_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -66,7 +66,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "USD",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "usd.png",
+                            PhotoUrl = "usd_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -74,7 +74,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "PLN",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "pln.png",
+                            PhotoUrl = "pln_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -82,7 +82,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "JPY",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "jpn.png",
+                            PhotoUrl = "jpn_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -90,7 +90,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "GBP",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "gbp.png",
+                            PhotoUrl = "gbp_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -98,7 +98,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "CHF",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "chf.png",
+                            PhotoUrl = "chf_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -106,7 +106,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "HUF",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "huf.png",
+                            PhotoUrl = "huf_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -114,7 +114,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "CAD",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "cad.png",
+                            PhotoUrl = "cad_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -122,7 +122,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "NOK",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "nok.png",
+                            PhotoUrl = "nok_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -130,7 +130,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "BGN",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "bgn.png",
+                            PhotoUrl = "bgn_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -138,7 +138,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "RUB",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "rub.png",
+                            PhotoUrl = "rub_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -146,7 +146,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "DKK",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "dkk.png",
+                            PhotoUrl = "dkk_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -154,7 +154,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "RON",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "ron.png",
+                            PhotoUrl = "ron_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -162,7 +162,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "SEK",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "sek.png",
+                            PhotoUrl = "sek_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -170,7 +170,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "TRY",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "try.png",
+                            PhotoUrl = "try_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -178,7 +178,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "AUD",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "aud.png",
+                            PhotoUrl = "aud_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -186,7 +186,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "BRL",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "brl.png",
+                            PhotoUrl = "brl_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -194,7 +194,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "CNY",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "cny.png",
+                            PhotoUrl = "cny_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -202,7 +202,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "HKD",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "hkd.png",
+                            PhotoUrl = "hkd_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -210,7 +210,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "IDR",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "idr.png",
+                            PhotoUrl = "idr_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -218,7 +218,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "ILS",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "ils.png",
+                            PhotoUrl = "ils_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -226,7 +226,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "INR",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "inr.png",
+                            PhotoUrl = "inr_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -234,7 +234,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "KRW",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "krw.png",
+                            PhotoUrl = "krw_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -242,7 +242,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "MXN",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "mxn.png",
+                            PhotoUrl = "mxn_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -250,7 +250,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "MYR",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "myr.png",
+                            PhotoUrl = "myr_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -258,7 +258,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "NZD",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "nzd.png",
+                            PhotoUrl = "nzd_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -266,7 +266,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "PHP",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "php.png",
+                            PhotoUrl = "php_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -274,7 +274,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "SGD",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "sgd.png",
+                            PhotoUrl = "sgd_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -282,7 +282,7 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "THB",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "thb.png",
+                            PhotoUrl = "thb_flag.png",
                             Quantity = 0m,
                             Status = 0
                         },
@@ -290,10 +290,39 @@ namespace ExchangeApp.DAL.Migrations
                         {
                             Code = "ZAR",
                             AverageCourseRate = 0m,
-                            PhotoUrl = "zar.png",
+                            PhotoUrl = "zar_flag.png",
                             Quantity = 0m,
                             Status = 0
                         });
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyHistoryEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("AverageCourseRate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CurrencyEntityCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Quantity")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("TimeStamp")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CurrencyEntityCode");
+
+                    b.ToTable("CurrenciesHistory");
                 });
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Customers.CustomerEntity", b =>
@@ -343,14 +372,20 @@ namespace ExchangeApp.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal?>("AverageCourseRate")
+                    b.Property<decimal>("AverageCourseRate")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("CourseRate")
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CurrencyCode")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("CurrencyQuantityBefore")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Discriminator")
@@ -361,9 +396,6 @@ namespace ExchangeApp.DAL.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Quantity")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Time")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -379,20 +411,23 @@ namespace ExchangeApp.DAL.Migrations
 
             modelBuilder.Entity("ExchangeApp.DAL.Entities.TotalBalanceEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("EmployeeId")
+                    b.Property<DateTime>("LastTotalBalance")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Type")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Type", "Created")
+                        .IsUnique();
 
                     b.ToTable("TotalBalances");
                 });
@@ -468,6 +503,13 @@ namespace ExchangeApp.DAL.Migrations
                     b.HasDiscriminator().HasValue("TransactionEntity");
                 });
 
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyHistoryEntity", b =>
+                {
+                    b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", null)
+                        .WithMany("History")
+                        .HasForeignKey("CurrencyEntityCode");
+                });
+
             modelBuilder.Entity("ExchangeApp.DAL.Entities.Operations.OperationEntityBase", b =>
                 {
                     b.HasOne("ExchangeApp.DAL.Entities.CurrencyEntity", "Currency")
@@ -514,6 +556,11 @@ namespace ExchangeApp.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("ExchangeApp.DAL.Entities.CurrencyEntity", b =>
+                {
+                    b.Navigation("History");
                 });
 #pragma warning restore 612, 618
         }

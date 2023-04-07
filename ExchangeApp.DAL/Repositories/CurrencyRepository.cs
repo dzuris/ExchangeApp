@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Entities;
+using ExchangeApp.DAL.Entities.Operations;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,7 +30,7 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
     {
         return await AppDbContext
             .Set<CurrencyEntity>()
-            .Where(e => e.Status == CurrencyState.NotInUse)
+            .Where(e => e.Status == CurrencyStatus.NotInUse)
             .OrderBy(item => item.Code != DomesticCurrencyCode)
             .ToListAsync();
     }
@@ -39,10 +40,35 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
         var list = await AppDbContext
             .Set<CurrencyEntity>()
             .AsNoTracking()
-            .Where(e => e.Status != CurrencyState.NotInUse)
+            .Where(e => e.Status != CurrencyStatus.NotInUse)
             .OrderBy(item => item.Code != DomesticCurrencyCode)
             .ToListAsync();
         return list;
+    }
+
+    public async Task<IEnumerable<CurrencyHistoryEntity>> GetCurrenciesHistory(DateTime dateTime)
+    {
+        var list = await AppDbContext
+            .Set<CurrencyHistoryEntity>()
+            .Where(e => e.TimeStamp == dateTime)
+            .ToListAsync();
+        return list;
+    }
+
+    public async Task InsertCurrencyHistory(CurrencyHistoryEntity entity)
+    {
+        await AppDbContext
+            .Set<CurrencyHistoryEntity>()
+            .AddAsync(entity);
+    }
+
+    public async Task<decimal> GetCurrencyBalance(string currencyCode, DateTime date)
+    {
+        var result = await AppDbContext
+            .Set<CurrencyHistoryEntity>()
+            .SingleOrDefaultAsync(e => e.Code == currencyCode && e.TimeStamp == date);
+
+        return result?.Quantity ?? 0;
     }
 
     public async Task UpdateQuantityAsync(string code, decimal newQuantity)
@@ -75,7 +101,7 @@ public class CurrencyRepository : RepositoryBase<CurrencyEntity, string>, ICurre
             .Update(entity);
     }
 
-    public async Task UpdateStatus(string code, CurrencyState status)
+    public async Task UpdateStatus(string code, CurrencyStatus status)
     {
         var entity = await GetByIdAsync(code);
 

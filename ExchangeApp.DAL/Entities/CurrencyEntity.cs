@@ -12,5 +12,7 @@ public record CurrencyEntity : IEntity
     public decimal AverageCourseRate { get; set; } = 0;
     public decimal? BuyRate { get; set; }
     public decimal? SellRate { get; set; }
-    public CurrencyState Status { get; set; } = CurrencyState.NotInUse;
+    public CurrencyStatus Status { get; set; } = CurrencyStatus.NotInUse;
+
+    public List<CurrencyHistoryEntity> History { get; set; } = new();
 }

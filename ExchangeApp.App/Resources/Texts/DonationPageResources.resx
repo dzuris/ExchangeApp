@@ -109,7 +109,7 @@
   <data name="CurrentStateLabel" xml:space="preserve">
     <value>Current state:</value>
   </data>
-  <data name="DepositCourseRateLabel" xml:space="preserve">
+  <data name="CourseRateDepositLabel" xml:space="preserve">
     <value>Deposit course rate:</value>
   </data>
   <data name="QuantityLabel" xml:space="preserve">
@@ -138,5 +138,23 @@
   </data>
   <data name="ErrorMessage_QuantityNotValid" xml:space="preserve">
     <value>Quantity must be number higher than 0, also you need to have enough money in the cash register.</value>
+  </data>
+  <data name="CourseRateWithdrawLabel" xml:space="preserve">
+    <value>Withdraw course rate:</value>
+  </data>
+  <data name="CourseRateLevyLabel" xml:space="preserve">
+    <value>Levy course rate:</value>
+  </data>
+  <data name="CourseRateLabel" xml:space="preserve">
+    <value>Course rate:</value>
+  </data>
+  <data name="AlertErrorTitleDonationCreate" xml:space="preserve">
+    <value>Donation create failure</value>
+  </data>
+  <data name="AlertErrorMessageInsufficientMoney" xml:space="preserve">
+    <value>You don't have enough money to create this donation.</value>
+  </data>
+  <data name="CheckBoxTextUseAverageCourseRate" xml:space="preserve">
+    <value>Use average course rate</value>
   </data>
 </root>

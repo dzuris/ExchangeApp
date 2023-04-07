@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
+             xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Settings"
+             x:Class="ExchangeApp.App.Views.Settings.SettingsInfoCompanyPage"
+             Title="{x:Static texts:SettingsInfoCompanyPageResources.PageTitle}"
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:SettingsInfoCompanyViewModel">
+    <Grid RowDefinitions="*, Auto" RowSpacing="15">
+        <ScrollView>
+            <StackLayout>
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}">
+                    <Grid RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="25" ColumnDefinitions="*, *" ColumnSpacing="25">
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormCompanyNameLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.TradeNameOfTheOwner}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormCompanyPhoneNumberLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.PhoneNumber}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormTINLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.Tin}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormICOLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.Ico}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormAddressStreetLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.Address.Street}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormAddressAreaCodeLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.Address.StreetNumber}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="3" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormAddressPostalCodeLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.Address.PostalCode}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="3" Grid.Column="1" Style="{StaticResource VerticalStackLayoutWithSpacing}">
+                            <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormAddressCityLabel}" Style="{StaticResource InfoBoldStyle}"/>
+                            <Entry Text="{Binding CompanyModel.Address.City}"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+        <ImageButton
+            Grid.Row="1"
+            Source="{AppThemeBinding Light=save.png, Dark=save_white.png}"
+            HorizontalOptions="End"
+            Style="{StaticResource IconStyle}"
+            Command="{Binding SaveCommand}"/>
+    </Grid>
+</views:ContentPageBase>

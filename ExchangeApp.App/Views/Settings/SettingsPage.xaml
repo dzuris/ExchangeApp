@@ -11,9 +11,8 @@
     <CollectionView>
         <CollectionView.ItemsSource>
             <x:Array Type="{x:Type x:String}">
-                <x:Static Member="texts:SettingsPageResources.OperationsAutomaticSaveListItem"/>
+                <x:Static Member="texts:SettingsPageResources.GeneralListItem"/>
                 <x:Static Member="texts:SettingsPageResources.CourseRatesListItem"/>
-                <x:Static Member="texts:SettingsPageResources.TotalBalanceListItem"/>
                 <x:Static Member="texts:SettingsPageResources.BranchInfoListItem"/>
                 <x:Static Member="texts:SettingsPageResources.CompanyInfoListItem"/>
                 <x:Static Member="texts:SettingsPageResources.LicenseInfoListItem"/>
@@ -26,8 +25,12 @@
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
                         </Frame.GestureRecognizers>
-                        <Grid>
-                            <Label Text="{Binding .}"/>
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="{Binding .}" VerticalOptions="Center"/>
+                            <Image Source="{AppThemeBinding Light=arrow_right.png, Dark=arrow_right_white.png}"
+                                   HeightRequest="20" 
+                                   HorizontalOptions="End" 
+                                   VerticalOptions="Center"/>
                         </Grid>
                     </Frame>
                 </Grid>

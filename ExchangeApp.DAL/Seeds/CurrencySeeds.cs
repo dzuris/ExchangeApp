@@ -9,189 +9,189 @@ public static class CurrencySeeds
     public static readonly CurrencyEntity Eur = new()
     {
         Code = "EUR".ToUpper(),
-        PhotoUrl = "eur.png",
-        Status = CurrencyState.Own,
+        PhotoUrl = "eur_flag.png",
+        Status = CurrencyStatus.Own,
         AverageCourseRate = 1
     };
 
     public static readonly CurrencyEntity Czk = new()
     {
         Code = "CZK".ToUpper(),
-        PhotoUrl = "czk.png"
+        PhotoUrl = "czk_flag.png"
     };
 
     public static readonly CurrencyEntity Usd = new()
     {
         Code = "USD".ToUpper(),
-        PhotoUrl = "usd.png"
+        PhotoUrl = "usd_flag.png"
     };
 
     public static readonly CurrencyEntity Pln = new()
     {
         Code = "PLN".ToUpper(),
-        PhotoUrl = "pln.png"
+        PhotoUrl = "pln_flag.png"
     };
 
     public static readonly CurrencyEntity Jpy = new()
     {
         Code = "JPY".ToUpper(),
-        PhotoUrl = "jpn.png"
+        PhotoUrl = "jpn_flag.png"
     };
 
     public static readonly CurrencyEntity Gbp = new()
     {
         Code = "GBP".ToUpper(),
-        PhotoUrl = "gbp.png"
+        PhotoUrl = "gbp_flag.png"
     };
 
     public static readonly CurrencyEntity Chf = new()
     {
         Code = "CHF".ToUpper(),
-        PhotoUrl = "chf.png"
+        PhotoUrl = "chf_flag.png"
     };
 
     public static readonly CurrencyEntity Huf = new()
     {
         Code = "HUF".ToUpper(),
-        PhotoUrl = "huf.png"
+        PhotoUrl = "huf_flag.png"
     };
 
     public static readonly CurrencyEntity Cad = new()
     {
         Code = "CAD".ToUpper(),
-        PhotoUrl = "cad.png"
+        PhotoUrl = "cad_flag.png"
     };
 
     public static readonly CurrencyEntity Nok = new()
     {
         Code = "NOK".ToUpper(),
-        PhotoUrl = "nok.png"
+        PhotoUrl = "nok_flag.png"
     };
 
     public static readonly CurrencyEntity Bgn = new()
     {
         Code = "BGN".ToUpper(),
-        PhotoUrl = "bgn.png"
+        PhotoUrl = "bgn_flag.png"
     };
 
     public static readonly CurrencyEntity Rub = new()
     {
         Code = "RUB".ToUpper(),
-        PhotoUrl = "rub.png"
+        PhotoUrl = "rub_flag.png"
     };
 
     public static readonly CurrencyEntity Dkk = new()
     {
         Code = "DKK".ToUpper(),
-        PhotoUrl = "dkk.png"
+        PhotoUrl = "dkk_flag.png"
     };
 
     public static readonly CurrencyEntity Ron = new()
     {
         Code = "RON".ToUpper(),
-        PhotoUrl = "ron.png"
+        PhotoUrl = "ron_flag.png"
     };
 
     public static readonly CurrencyEntity Sek = new()
     {
         Code = "SEK".ToUpper(),
-        PhotoUrl = "sek.png"
+        PhotoUrl = "sek_flag.png"
     };
 
     public static readonly CurrencyEntity Try = new()
     {
         Code = "TRY".ToUpper(),
-        PhotoUrl = "try.png"
+        PhotoUrl = "try_flag.png"
     };
 
     public static readonly CurrencyEntity Aud = new()
     {
         Code = "AUD".ToUpper(),
-        PhotoUrl = "aud.png"
+        PhotoUrl = "aud_flag.png"
     };
 
     public static readonly CurrencyEntity Brl = new()
     {
         Code = "BRL".ToUpper(),
-        PhotoUrl = "brl.png"
+        PhotoUrl = "brl_flag.png"
     };
 
     public static readonly CurrencyEntity Cny = new()
     {
         Code = "CNY".ToUpper(),
-        PhotoUrl = "cny.png"
+        PhotoUrl = "cny_flag.png"
     };
 
     public static readonly CurrencyEntity Hkd = new()
     {
         Code = "HKD".ToUpper(),
-        PhotoUrl = "hkd.png"
+        PhotoUrl = "hkd_flag.png"
     };
 
     public static readonly CurrencyEntity Idr = new()
     {
         Code = "IDR".ToUpper(),
-        PhotoUrl = "idr.png"
+        PhotoUrl = "idr_flag.png"
     };
 
     public static readonly CurrencyEntity Ils = new()
     {
         Code = "ILS".ToUpper(),
-        PhotoUrl = "ils.png"
+        PhotoUrl = "ils_flag.png"
     };
 
     public static readonly CurrencyEntity Inr = new()
     {
         Code = "INR".ToUpper(),
-        PhotoUrl = "inr.png"
+        PhotoUrl = "inr_flag.png"
     };
 
     public static readonly CurrencyEntity Krw = new()
     {
         Code = "KRW".ToUpper(),
-        PhotoUrl = "krw.png"
+        PhotoUrl = "krw_flag.png"
     };
 
     public static readonly CurrencyEntity Mxn = new()
     {
         Code = "MXN".ToUpper(),
-        PhotoUrl = "mxn.png"
+        PhotoUrl = "mxn_flag.png"
     };
 
     public static readonly CurrencyEntity Myr = new()
     {
         Code = "MYR".ToUpper(),
-        PhotoUrl = "myr.png"
+        PhotoUrl = "myr_flag.png"
     };
 
     public static readonly CurrencyEntity Nzd = new()
     {
         Code = "NZD".ToUpper(),
-        PhotoUrl = "nzd.png"
+        PhotoUrl = "nzd_flag.png"
     };
 
     public static readonly CurrencyEntity Php = new()
     {
         Code = "PHP".ToUpper(),
-        PhotoUrl = "php.png"
+        PhotoUrl = "php_flag.png"
     };
 
     public static readonly CurrencyEntity Sgd = new()
     {
         Code = "SGD".ToUpper(),
-        PhotoUrl = "sgd.png"
+        PhotoUrl = "sgd_flag.png"
     };
 
     public static readonly CurrencyEntity Thb = new()
     {
         Code = "THB".ToUpper(),
-        PhotoUrl = "thb.png"
+        PhotoUrl = "thb_flag.png"
     };
 
     public static readonly CurrencyEntity Zar = new()
     {
         Code = "ZAR".ToUpper(),
-        PhotoUrl = "zar.png"
+        PhotoUrl = "zar_flag.png"
     };
 
     public static void Seed(this ModelBuilder modelBuilder)

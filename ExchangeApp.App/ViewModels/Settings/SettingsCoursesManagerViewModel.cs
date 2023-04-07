@@ -36,7 +36,7 @@ public partial class SettingsCoursesManagerViewModel : ViewModelBase
         ActiveCurrencies.Remove(currency);
         NonActiveCurrencies.Add(currency);
 
-        await _currencyFacade.UpdateStatus(currency.Code, CurrencyState.NotInUse);
+        await _currencyFacade.UpdateStatus(currency.Code, CurrencyStatus.NotInUse);
     }
 
     [RelayCommand]
@@ -45,6 +45,6 @@ public partial class SettingsCoursesManagerViewModel : ViewModelBase
         NonActiveCurrencies.Remove(currency);
         ActiveCurrencies.Add(currency);
 
-        await _currencyFacade.UpdateStatus(currency.Code, CurrencyState.Own);
+        await _currencyFacade.UpdateStatus(currency.Code, CurrencyStatus.Own);
     }
 }

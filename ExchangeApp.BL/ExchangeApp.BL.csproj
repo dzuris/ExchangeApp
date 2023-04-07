@@ -7,8 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="branch.json" />
+    <None Remove="company.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="branch.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="company.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Facades\Interfaces\" />
     <Folder Include="Installers\" />
+    <Folder Include="Models\Company\" />
+    <Folder Include="Models\TotalBalance\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -156,4 +156,7 @@
   <data name="PickerItemTransactions" xml:space="preserve">
     <value>Transakcie</value>
   </data>
+  <data name="CanceledListItemLabel" xml:space="preserve">
+    <value>Stornované</value>
+  </data>
 </root>

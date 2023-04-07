@@ -55,13 +55,19 @@ public class CurrencyFacade : ICurrencyFacade
         return _mapper.Map<List<CurrencyCoursesListModel>>(entities);
     }
 
-    public async Task UpdateQuantityAsync(string code, decimal newQuantity)
+    public async Task<List<CurrencyHistoryModel>> GetCurrenciesHistory(DateTime dateTime)
     {
-        await _repository.UpdateQuantityAsync(code, newQuantity);
-        await _unitOfWork.CommitAsync();
+        var entities = await _repository.GetCurrenciesHistory(dateTime);
+        return _mapper.Map<List<CurrencyHistoryModel>>(entities);
     }
 
-    public async Task UpdateStatus(string code, CurrencyState status)
+    public async Task<decimal> GetCurrencyBalance(string currencyCode, DateTime date)
+    {
+        var result = await _repository.GetCurrencyBalance(currencyCode, date);
+        return result;
+    }
+
+    public async Task UpdateStatus(string code, CurrencyStatus status)
     {
         await _repository.UpdateStatus(code, status);
         await _unitOfWork.CommitAsync();

@@ -147,4 +147,52 @@
   <data name="CancelButtonText" xml:space="preserve">
     <value>Storno</value>
   </data>
+  <data name="AlertCancelButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PdfDownloadAlertMessage" xml:space="preserve">
+    <value>Dáta boli uložené do vášho počítača.</value>
+  </data>
+  <data name="PdfDownloadAlertTitle" xml:space="preserve">
+    <value>PDF uloženie</value>
+  </data>
+  <data name="PdfDownloadAlertErrorMessage" xml:space="preserve">
+    <value>Chýba cesta priečinku pre ukladanie súborov. Tento priečinok je možné nastaviť v nastaveniach.</value>
+  </data>
+  <data name="CanceledLabel" xml:space="preserve">
+    <value>STORNOVANÉ</value>
+  </data>
+  <data name="StornoAlertConfirmationTitle" xml:space="preserve">
+    <value>Potvrdenie storna</value>
+  </data>
+  <data name="StornoAlertConfirmationMessage" xml:space="preserve">
+    <value>Naozaj chcete danú dotáciu odstrániť? Táto udalosť je nenávratná.</value>
+  </data>
+  <data name="StornoAlertConfirmationNo" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="StornoAlertConfirmationYes" xml:space="preserve">
+    <value>Áno</value>
+  </data>
+  <data name="StornoAlertErrorMessageInsufficientMoney" xml:space="preserve">
+    <value>Transakciu nemožno stornovať kvôli nedostatku prostriedkov.</value>
+  </data>
+  <data name="StornoAlertErrorTitle" xml:space="preserve">
+    <value>Zlyhanie storna</value>
+  </data>
+  <data name="StornoAlertMessage" xml:space="preserve">
+    <value>Transakcia úspešne stornovaná.</value>
+  </data>
+  <data name="StornoAlertTitle" xml:space="preserve">
+    <value>Storno dotácie</value>
+  </data>
+  <data name="StornoAlertErrorMessageCurrencyMissingException" xml:space="preserve">
+    <value>Chyba pri načítaní kurzových mien.</value>
+  </data>
+  <data name="StornoLabel" xml:space="preserve">
+    <value>STORNOVANÉ</value>
+  </data>
+  <data name="StornoAlertErrorMessageClosedDonation" xml:space="preserve">
+    <value>Pre túto dotáciu bola vytvorená uzávierka a teda už sa nedá stornovať.</value>
+  </data>
 </root>

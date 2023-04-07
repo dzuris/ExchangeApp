@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExchangeApp.App.Views.MainPage"
+             xmlns:views="clr-namespace:ExchangeApp.App.Views"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
+             xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels"
+             x:Class="ExchangeApp.App.Views.MainPage"
              Title="{x:Static texts:MainPageResources.HomeTitle}"
-             Style="{StaticResource ContentPageStyle}">
+             Style="{StaticResource ContentPageStyle}"
+             x:DataType="vm:MainViewModel">
 
     <Grid RowDefinitions="*, Auto" RowSpacing="20">
         <HorizontalStackLayout
@@ -13,7 +16,7 @@
             Spacing="50">
             <Frame Style="{StaticResource MainPageFrame}">
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnCreateTransactionPageTapped"/>
+                    <TapGestureRecognizer Command="{Binding GoToTransactionCreatePageCommand}"/>
                 </Frame.GestureRecognizers>
                 <StackLayout Margin="10" Spacing="10">
                     <Image
@@ -26,7 +29,7 @@
             </Frame>
             <Frame Style="{StaticResource MainPageFrame}">
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnCreateDonationPageTapped"/>
+                    <TapGestureRecognizer Command="{Binding GoToDonationCreatePageCommand}"/>
                 </Frame.GestureRecognizers>
                 <StackLayout Margin="10" Spacing="10">
                     <Image
@@ -39,7 +42,7 @@
             </Frame>
             <Frame Style="{StaticResource MainPageFrame}">
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnOperationsListPageTapped"/>
+                    <TapGestureRecognizer Command="{Binding GoToOperationsListPageCommand}"/>
                 </Frame.GestureRecognizers>
                 <StackLayout Margin="10" Spacing="10">
                     <Image
@@ -52,8 +55,7 @@
             </Frame>
         </HorizontalStackLayout>
 
-
-        <Grid Grid.Row="2" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+        <Grid Grid.Row="2" ColumnDefinitions="*, *, *" ColumnSpacing="10">
             <HorizontalStackLayout
                 Grid.Column="1"
                 Spacing="10"
@@ -62,9 +64,19 @@
                 <Label
                     Text="{x:Static texts:MainPageResources.OperationsInDayLabel}"/>
                 <Label
-                    Text="126" />
+                    Text="{Binding TodayOperationsCount}" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout
+                Grid.Column="2"
+                Spacing="5"
+                HorizontalOptions="End"
+                VerticalOptions="Center">
+                <Label
+                    Text="{Binding DomesticCurrencyQuantity, StringFormat='{0:### ### ### ##0.00}'}"/>
+                <Label
+                    Text="{Binding DomesticCurrencySymbol}" />
             </HorizontalStackLayout>
         </Grid>
     </Grid>
 
-</ContentPage>
+</views:ContentPageBase>

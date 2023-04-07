@@ -20,7 +20,7 @@ public class DbContextSqLiteFactory : IDbContextFactory<ExchangeAppDbContext>
         }
 
         var optionsBuilder = new DbContextOptionsBuilder<ExchangeAppDbContext>();
-        optionsBuilder.UseSqlite($"Data Source={_databaseNameWithPath};Cache=Shared");
+        optionsBuilder.UseSqlite($"Data Source={_databaseNameWithPath}");
 
         //optionsBuilder.LogTo(Console.WriteLine);
         //optionsBuilder.EnableSensitiveDataLogging();

@@ -12,8 +12,16 @@
         RowDefinitions="*, Auto" 
         ColumnDefinitions="*, *"
         RowSpacing="80">
+        <Label
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Text="{x:Static texts:TransactionDetailPageResources.StornoLabel}"
+            FontAttributes="Bold"
+            FontSize="32"
+            IsVisible="{Binding Transaction.IsCanceled, FallbackValue=true}"/>
         <Grid 
-            RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, *, Auto"
+            RowDefinitions="*, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
             RowSpacing="5"
             ColumnDefinitions="Auto, Auto"
             ColumnSpacing="40">
@@ -73,7 +81,7 @@
                 Grid.Row="6"
                 VerticalOptions="End"
                 IsVisible="{Binding HasTransactionCustomer}"
-                Text="{x:Static texts:TransactionDetailPageResources.CustomerNameLabel}"/>
+                Text="{x:Static texts:TransactionDetailPageResources.CustomerNameLabel}" Style="{StaticResource InputLabelStyle}"/>
             <Label
                 Grid.Row="6"
                 Grid.Column="1"
@@ -83,6 +91,7 @@
             <Button
                 Grid.Row="7"
                 Grid.ColumnSpan="2"
+                Margin="0, 20, 0, 0"
                 IsVisible="{Binding HasTransactionCustomer}"
                 Text="{x:Static texts:TransactionDetailPageResources.CustomerDetailButtonText}"
                 Command="{Binding GoToCustomerDetailCommand}"/>
@@ -94,12 +103,12 @@
             RowSpacing="15"
             ColumnDefinitions="Auto, Auto"
             ColumnSpacing="40"
-            HorizontalOptions="Center">
+            HorizontalOptions="End">
             <Label
                 Text="{x:Static texts:TransactionDetailPageResources.DateAndTimeLabel}"
                 Style="{StaticResource InfoLabelLight}"
                 HorizontalOptions="End"/>
-            <Label Grid.Column="1" Text="{Binding Transaction.Time, FallbackValue=''}"/>
+            <Label Grid.Column="1" Text="{Binding Transaction.Created, FallbackValue=''}"/>
 
             <!-- First line -->
             <!-- Buy transaction -->
@@ -236,10 +245,17 @@
             Spacing="15">
             <Button
                 WidthRequest="150"
-                Text="{x:Static texts:TransactionDetailPageResources.StornoButtonText}"/>
+                IsVisible="{Binding Transaction.IsCanceled, Converter={StaticResource InverseBooleanConverter}, FallbackValue=true}"
+                Text="{x:Static texts:TransactionDetailPageResources.StornoButtonText}"
+                Command="{Binding CancelCommand}"/>
             <ImageButton
-                Source="print.png"
-                Style="{StaticResource IconStyle}"/>
+                Source="{AppThemeBinding Light=download.png, Dark=download_white.png}"
+                Style="{StaticResource IconStyle}"
+                Command="{Binding SaveTransactionToFolderCommand}"/>
+            <ImageButton
+                Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
+                Style="{StaticResource IconStyle}"
+                Command="{Binding PrintCommand}"/>
         </HorizontalStackLayout>
     </Grid>
 </views:ContentPageBase>

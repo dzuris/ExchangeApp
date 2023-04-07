@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DailyTotalBalance" xml:space="preserve">
+    <value>Daily total balance</value>
+  </data>
+  <data name="MonthlyTotalBalance" xml:space="preserve">
+    <value>Monthly total balance</value>
+  </data>
+  <data name="AnnualTotalBalance" xml:space="preserve">
+    <value>Annual total balance</value>
+  </data>
+  <data name="SectionHeaderCashRegisterStatusInTotalBalanceTime" xml:space="preserve">
+    <value>Cash register status while creating total balance</value>
+  </data>
+  <data name="ICO_headerText" xml:space="preserve">
+    <value>ID:</value>
+  </data>
+  <data name="ListHeaderItemCurrencyCode" xml:space="preserve">
+    <value>Currency code</value>
+  </data>
+  <data name="ListHeaderItemCourseRate" xml:space="preserve">
+    <value>Course rate</value>
+  </data>
+  <data name="ListHeaderItemQuantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="ListHeaderItemExchangeRateValue" xml:space="preserve">
+    <value>Exchange rate value</value>
+  </data>
+  <data name="ListHeaderItemAmount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="AmountTotalSummary" xml:space="preserve">
+    <value>Amount total:</value>
+  </data>
+  <data name="SectionHeaderOtherOperations" xml:space="preserve">
+    <value>Other operations</value>
+  </data>
+  <data name="ListHeaderItemOperationId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="ListHeaderItemDateTime" xml:space="preserve">
+    <value>Date and time</value>
+  </data>
+  <data name="ListHeaderItemType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="SectionHeaderBuyTransactionsAbbreviated" xml:space="preserve">
+    <value>Buy list - abbreviated</value>
+  </data>
+  <data name="SectionHeaderSellTransactionsAbbreviated" xml:space="preserve">
+    <value>Sell list - abbreviated</value>
+  </data>
+  <data name="ListHeaderItemCustomerName" xml:space="preserve">
+    <value>Customer name</value>
+  </data>
+  <data name="ListHeaderItemIdentificationCardNumber" xml:space="preserve">
+    <value>Identification card number</value>
+  </data>
+  <data name="ListHeaderItemTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="SectionHeaderPurchaseReceiptComplete" xml:space="preserve">
+    <value>Purchase receipt - complete</value>
+  </data>
+  <data name="SectionHeaderSalesReceiptComplete" xml:space="preserve">
+    <value>Sales receipt - complete</value>
+  </data>
+  <data name="ListHeaderItemAmountInDomesticCurrency" xml:space="preserve">
+    <value>Amount in dom. currency</value>
+  </data>
+  <data name="ListHeaderItemAmountForeignCurrency" xml:space="preserve">
+    <value>Amount foreign currency</value>
+  </data>
+  <data name="SectionHeaderCurrencyAmountsInDomesticCurrency" xml:space="preserve">
+    <value>Currency amounts in domestic currency</value>
+  </data>
+  <data name="ListHeaderItemBuy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="ListHeaderItemSell" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="ListHeaderItemDeposit" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="ListHeaderItemLevy" xml:space="preserve">
+    <value>Levy</value>
+  </data>
+  <data name="ListHeaderItemWithdraw" xml:space="preserve">
+    <value>Withdraw</value>
+  </data>
+  <data name="DifferenceLabel" xml:space="preserve">
+    <value>Difference:</value>
+  </data>
+  <data name="SectionHeaderCurrenciesMovement" xml:space="preserve">
+    <value>Currencies movement</value>
+  </data>
+  <data name="ListHeaderItemOperationType" xml:space="preserve">
+    <value>Operation type</value>
+  </data>
+  <data name="ListHeaderItemBalance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="FolderNameDaily" xml:space="preserve">
+    <value>daily</value>
+  </data>
+  <data name="FolderNameMonthly" xml:space="preserve">
+    <value>monthly</value>
+  </data>
+  <data name="SectionHeaderDonationOperations" xml:space="preserve">
+    <value>Donations</value>
+  </data>
+  <data name="ListHeaderItemState" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="ListHeaderItemNote" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="ListHeaderItemRounding" xml:space="preserve">
+    <value>Rounding</value>
+  </data>
+  <data name="SectionHeaderProfit" xml:space="preserve">
+    <value>Profit</value>
+  </data>
+  <data name="ListHeaderItemProfit" xml:space="preserve">
+    <value>Profit</value>
+  </data>
+  <data name="ProfitTotalLabel" xml:space="preserve">
+    <value>Profit total:</value>
+  </data>
+  <data name="ListHeaderItemDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="SectionHeaderMonthlyTotalOperationsNumber" xml:space="preserve">
+    <value>Monthly report - overview</value>
+  </data>
+  <data name="ListHeaderItemInitialState" xml:space="preserve">
+    <value>Initial state</value>
+  </data>
+  <data name="ListHeaderItemFinalState" xml:space="preserve">
+    <value>Final state</value>
+  </data>
+</root>
