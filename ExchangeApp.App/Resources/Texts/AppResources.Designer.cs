@@ -61,7 +61,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXCHANGE APP.
+        ///   Looks up a localized string similar to ZMENÁRKA.
         /// </summary>
         public static string AppName {
             get {

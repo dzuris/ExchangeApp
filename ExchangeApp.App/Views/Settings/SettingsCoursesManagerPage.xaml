@@ -13,7 +13,7 @@
         <CollectionView 
             ItemsSource="{Binding ActiveCurrencies}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
                     <Label Text="{x:Static texts:SettingsCoursesManagerPageResources.ActiveCurrenciesListHeader}" TextColor="White" FontAttributes="Bold"/>
                 </Frame>
             </CollectionView.Header>
@@ -45,7 +45,7 @@
             Grid.Column="2"
             ItemsSource="{Binding NonActiveCurrencies}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
                     <Label Text="{x:Static texts:SettingsCoursesManagerPageResources.NonActiveCurrenciesListHeader}" TextColor="White" FontAttributes="Bold"/>
                 </Frame>
             </CollectionView.Header>
