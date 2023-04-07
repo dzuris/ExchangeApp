@@ -39,7 +39,7 @@
         <ImageButton
             Grid.Row="1"
             HorizontalOptions="End"
-            Source="save.png"
+            Source="{AppThemeBinding Light=save.png, Dark=save_white.png}"
             Style="{StaticResource IconStyle}"
             Command="{Binding SaveCommand}"/>
     </Grid>

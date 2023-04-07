@@ -10,6 +10,7 @@
              Title="{x:Static texts:TotalBalancePageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
              x:DataType="vm:TotalBalanceViewModel">
+
     <Grid ColumnDefinitions="Auto, *" ColumnSpacing="50">
         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="25">
             <Button Text="{x:Static texts:TotalBalancePageResources.CreateTotalBalanceDaily}" Command="{Binding CreateDailyTotalBalanceCommand}"/>
@@ -36,7 +37,9 @@
                                 <Binding Path="FilterDateFrom">
                                     <Binding.Converter>
                                         <converters:NullToColorConverter NotNullColor="{StaticResource White}"
-                                                                         NullColor="{StaticResource NullElementBackground}"/>
+                                                                         NotNullColorDark="{StaticResource Black}"
+                                                                         NullColor="{StaticResource NullElementBackground}"
+                                                                         NullColorDark="{StaticResource NullElementBackgroundDark}"/>
                                     </Binding.Converter>
                                 </Binding>
                             </DatePicker.BackgroundColor>
@@ -52,7 +55,9 @@
                                 <Binding Path="FilterDateUntil">
                                     <Binding.Converter>
                                         <converters:NullToColorConverter NotNullColor="{StaticResource White}"
-                                                                         NullColor="{StaticResource NullElementBackground}"/>
+                                                                         NotNullColorDark="{StaticResource Black}"
+                                                                         NullColor="{StaticResource NullElementBackground}"
+                                                                         NullColorDark="{StaticResource NullElementBackgroundDark}"/>
                                     </Binding.Converter>
                                 </Binding>
                             </DatePicker.BackgroundColor>
@@ -66,7 +71,7 @@
                         Command="{Binding FilterCommand}"/>
                     <ImageButton
                         Grid.Column="4"
-                        Source="refresh.png"
+                        Source="{AppThemeBinding Light=refresh.png, Dark=refresh_white.png}"
                         Style="{StaticResource IconStyle}"
                         Command="{Binding RefreshCommand}"/>
 
@@ -95,8 +100,11 @@
                                     <Frame.BackgroundColor>
                                         <Binding Path="Type">
                                             <Binding.Converter>
-                                                <converters:TotalBalanceToColorConverter DailyColor="{StaticResource ListItemWhite}"
-                                                                                         MonthlyColor="{StaticResource ListItemBlue}"/>
+                                                <converters:TotalBalanceToColorConverter DailyColor="{StaticResource ListItemDaily}"
+                                                                                         DailyColorDark="{StaticResource ListItemDailyDark}"
+                                                                                         MonthlyColor="{StaticResource ListItemMonthly}"
+                                                                                         MonthlyColorDark="{StaticResource ListItemMonthlyDark}"
+                                                                                         />
                                             </Binding.Converter>
                                         </Binding>
                                     </Frame.BackgroundColor>
@@ -106,7 +114,7 @@
                                         <Label Grid.Column="2" Text="{Binding ., Converter={StaticResource TotalBalanceToDateConverter}}" VerticalOptions="Center"/>
                                         <ImageButton
                                             Grid.Column="3"
-                                            Source="download.png"
+                                            Source="{AppThemeBinding Light=download.png, Dark=download_white.png}"
                                             Style="{StaticResource IconStyle}"
                                             MinimumWidthRequest="40"
                                             MinimumHeightRequest="40"
@@ -116,7 +124,7 @@
                                             CommandParameter="{Binding .}"/>
                                         <ImageButton
                                             Grid.Column="4"
-                                            Source="print.png"
+                                            Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
                                             Style="{StaticResource IconStyle}"
                                             MinimumWidthRequest="40"
                                             MinimumHeightRequest="40"

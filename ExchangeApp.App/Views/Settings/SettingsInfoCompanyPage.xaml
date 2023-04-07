@@ -11,7 +11,7 @@
     <Grid RowDefinitions="*, Auto" RowSpacing="15">
         <ScrollView>
             <StackLayout>
-                <Frame BackgroundColor="{StaticResource Tertiary}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Tertiary}, Dark={StaticResource TertiaryDark}}">
                     <Grid RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="25" ColumnDefinitions="*, *" ColumnSpacing="25">
                         <VerticalStackLayout Grid.Row="0" Grid.Column="0" Style="{StaticResource VerticalStackLayoutWithSpacing}">
                             <Label Text="{x:Static texts:SettingsInfoCompanyPageResources.FormCompanyNameLabel}" Style="{StaticResource InfoBoldStyle}"/>
@@ -51,7 +51,7 @@
         </ScrollView>
         <ImageButton
             Grid.Row="1"
-            Source="save.png"
+            Source="{AppThemeBinding Light=save.png, Dark=save_white.png}"
             HorizontalOptions="End"
             Style="{StaticResource IconStyle}"
             Command="{Binding SaveCommand}"/>

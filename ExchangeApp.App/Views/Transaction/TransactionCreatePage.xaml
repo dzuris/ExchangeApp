@@ -206,7 +206,7 @@
             WidthRequest="40"
             HeightRequest="40"
             Style="{StaticResource IconStyle}"
-            Source="check_circle.png"
+            Source="{AppThemeBinding Light=check_circle.png, Dark=check_circle_white.png}"
             Command="{Binding SaveCommand}"/>
     </Grid>
 </views:ContentPageBase>

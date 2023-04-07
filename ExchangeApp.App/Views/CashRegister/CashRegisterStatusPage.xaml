@@ -61,7 +61,7 @@
         <ImageButton
             Grid.Row="2"
             HorizontalOptions="End"
-            Source="print.png"
+            Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
             Style="{StaticResource IconStyle}"
             Command="{Binding PrintCommand}"/>
     </Grid>

@@ -5,6 +5,6 @@
 
     <Style x:Key="ContentPageStyle" TargetType="ContentPage">
         <Setter Property="Padding" Value="80, 30"/>
-        <Setter Property="BackgroundColor" Value="{StaticResource Background}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Background}, Dark={StaticResource BackgroundDark}}"/>
     </Style>
 </ResourceDictionary>

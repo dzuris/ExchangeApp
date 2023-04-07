@@ -105,7 +105,7 @@
         <ImageButton
             Grid.Row="1"
             HorizontalOptions="End"
-            Source="print.png"
+            Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
             Style="{StaticResource IconStyle}"/>
     </Grid>
 </views:ContentPageBase>

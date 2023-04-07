@@ -28,9 +28,9 @@
                 SelectionMode="Single"
                 ItemsSource="{Binding Currencies}"
                 SelectedItem="{Binding SelectedCurrency}"
-                BackgroundColor="White">
+                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
             <CollectionView.Header>
-                <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}">
                     <Grid ColumnDefinitions="80, *" ColumnSpacing="40">
                         <Label Grid.Column="0" Text="{x:Static texts:DonationPageResources.CurrencyCodeListHeaderLabel}" TextColor="White"/>
                         <Label Grid.Column="1" Text="{x:Static texts:DonationPageResources.StateListHeaderLabel}" TextColor="White"/>
@@ -110,7 +110,7 @@
             Grid.Row="3"
             Grid.Column="2"
             HorizontalOptions="End"
-            Source="check_circle.png"
+            Source="{AppThemeBinding Light=check_circle.png, Dark=check_circle_white.png}"
             Style="{StaticResource IconStyle}"
             Command="{Binding SaveCommand}"/>
     </Grid>

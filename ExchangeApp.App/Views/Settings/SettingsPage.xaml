@@ -27,7 +27,10 @@
                         </Frame.GestureRecognizers>
                         <Grid ColumnDefinitions="*, Auto">
                             <Label Text="{Binding .}" VerticalOptions="Center"/>
-                            <Image Source="arrow_right.png" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Center" />
+                            <Image Source="{AppThemeBinding Light=arrow_right.png, Dark=arrow_right_white.png}"
+                                   HeightRequest="20" 
+                                   HorizontalOptions="End" 
+                                   VerticalOptions="Center"/>
                         </Grid>
                     </Frame>
                 </Grid>

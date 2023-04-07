@@ -28,7 +28,7 @@
                                 <ImageButton
                                     Grid.Column="3" 
                                     VerticalOptions="Center"
-                                    Source="delete.png"
+                                    Source="{AppThemeBinding Light=delete.png, Dark=delete_white.png}"
                                     Style="{StaticResource IconStyle}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SettingsCoursesManagerViewModel}}, Path=CurrencyToNonActiveCommand}"
                                     CommandParameter="{Binding .}"/>
@@ -60,7 +60,7 @@
                                 <ImageButton
                                     Grid.Column="3" 
                                     VerticalOptions="Center"
-                                    Source="add_circle.png"
+                                    Source="{AppThemeBinding Light=add_circle.png, Dark=add_circle_white.png}"
                                     Style="{StaticResource IconStyle}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SettingsCoursesManagerViewModel}}, Path=CurrencyToActiveCommand}"
                                     CommandParameter="{Binding .}"/>
