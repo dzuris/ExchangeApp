@@ -1,7 +1,5 @@
-﻿using System.Threading.Tasks.Dataflow;
-using ExchangeApp.DAL.Data;
+﻿using ExchangeApp.DAL.Data;
 using ExchangeApp.DAL.Factories;
-using ExchangeApp.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -11,7 +9,7 @@ public static class DALInstaller
 {
     public static IServiceCollection AddDALServices(this IServiceCollection services, IConfiguration configuration)
     {
-        var databaseName = configuration["ExchangeApp:DAL:Sqlite:DatabaseName"];
+        var databaseName = configuration["ExchangeApp:DAL:SqLite:DatabaseName"];
 
         if (databaseName is null)
         {
@@ -20,7 +18,7 @@ public static class DALInstaller
         
         services.AddSingleton<IDbContextFactory<ExchangeAppDbContext>>(provider =>
             new DbContextSqLiteFactory(databaseName));
-        services.AddSingleton<IDbMigrator, SqliteDbMigrator>();
+        services.AddSingleton<IDbMigrator, SqLiteDbMigrator>();
 
         return services;
     }

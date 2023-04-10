@@ -5,22 +5,26 @@ namespace ExchangeApp.DAL.Factories;
 
 public class DbContextSqLiteFactory : IDbContextFactory<ExchangeAppDbContext>
 {
-    private readonly string _databaseNameWithPath;
+    private readonly string _databaseName;
 
-    public DbContextSqLiteFactory(string databaseNameWithPath)
+    public DbContextSqLiteFactory(string databaseName)
     {
-        _databaseNameWithPath = databaseNameWithPath;
+        _databaseName = databaseName;
     }
 
     public ExchangeAppDbContext CreateDbContext()
     {
-        if (!File.Exists(_databaseNameWithPath))
+        var folder = Environment.SpecialFolder.LocalApplicationData;
+        var path = Environment.GetFolderPath(folder);
+        var dbPath = Path.Join(path, _databaseName);
+
+        if (!File.Exists(dbPath))
         {
-            throw new FileNotFoundException("Database file not found.", _databaseNameWithPath);
+            throw new FileNotFoundException("Database file not found.", dbPath);
         }
 
         var optionsBuilder = new DbContextOptionsBuilder<ExchangeAppDbContext>();
-        optionsBuilder.UseSqlite($"Data Source={_databaseNameWithPath}");
+        optionsBuilder.UseSqlite($"Data Source={dbPath}");
 
         //optionsBuilder.LogTo(Console.WriteLine);
         //optionsBuilder.EnableSensitiveDataLogging();

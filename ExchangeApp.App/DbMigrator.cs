@@ -3,17 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExchangeApp.App;
 
-interface IDbMigrator
+internal interface IDbMigrator
 {
     public void Migrate();
     public Task MigrateAsync(CancellationToken cancellationToken);
 }
 
-public class SqliteDbMigrator : IDbMigrator
+public class SqLiteDbMigrator : IDbMigrator
 {
     private readonly IDbContextFactory<ExchangeAppDbContext> _dbContextFactory;
 
-    public SqliteDbMigrator(IDbContextFactory<ExchangeAppDbContext> dbContextFactory)
+    public SqLiteDbMigrator(IDbContextFactory<ExchangeAppDbContext> dbContextFactory)
     {
         _dbContextFactory = dbContextFactory;
     }
