@@ -7,64 +7,57 @@ namespace ExchangeApp.BL.Facades;
 
 public class SettingsFacade : ISettingsFacade
 {
-    private const string FileNameData = "settings_data.json";
-    private const string FileNameCompany = "company.json";
-    private const string FileNameBranch = "branch.json";
+    private readonly string _fileNameData;
+    private readonly string _fileNameCompany;
+    private readonly string _fileNameBranch;
 
-    //public SettingsFacade()
-    //{
-    //    var folder = Environment.SpecialFolder.LocalApplicationData;
-    //    var baseDirectory = Environment.GetFolderPath(folder);
-    //    baseDirectory = Path.Combine(baseDirectory, "exchangeApp");
-
-    //    if (!Directory.Exists(baseDirectory))
-    //    {
-    //        Directory.CreateDirectory(baseDirectory);
-    //    }
-
-    //    _fileNameData = Path.Combine(baseDirectory, "settings_data.json");
-    //    _fileNameCompany = Path.Combine(baseDirectory, "company.json");
-    //    _fileNameBranch = Path.Combine(baseDirectory, "branch.json");
-    //}
-
-    private static string GetSettingsDataFileName()
+    public SettingsFacade()
     {
-        if (!File.Exists(FileNameData))
-        {
-            File.Create(FileNameData);
-        }
+        var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-        return FileNameData;
+        _fileNameData = Path.Combine(baseDirectory, "settings_data.json");
+        _fileNameCompany = Path.Combine(baseDirectory, "company.json");
+        _fileNameBranch = Path.Combine(baseDirectory, "branch.json");
     }
 
-    private static string GetCompanyFileName()
+    private string GetSettingsDataFileName()
     {
-        if (!File.Exists(FileNameCompany))
+        if (!File.Exists(_fileNameData))
         {
-            File.Create(FileNameCompany);
+            File.Create(_fileNameData);
         }
 
-        return FileNameCompany;
+        return _fileNameData;
     }
 
-    private static string GetBranchFileName()
+    private string GetCompanyFileName()
     {
-        if (!File.Exists(FileNameBranch))
+        if (!File.Exists(_fileNameCompany))
         {
-            File.Create(FileNameBranch);
+            File.Create(_fileNameCompany);
         }
 
-        return FileNameBranch;
+        return _fileNameCompany;
+    }
+
+    private string GetBranchFileName()
+    {
+        if (!File.Exists(_fileNameBranch))
+        {
+            File.Create(_fileNameBranch);
+        }
+
+        return _fileNameBranch;
     }
 
     public async Task<SettingsDataModel?> GetSettingsDataAsync()
     {
-        if (!File.Exists(FileNameData))
+        if (!File.Exists(_fileNameData))
         {
             return null;
         }
 
-        var jsonString = await File.ReadAllTextAsync(FileNameData);
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         return data;
@@ -72,12 +65,12 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task<string?> GetSaveFolderPathAsync()
     {
-        if (!File.Exists(FileNameData))
+        if (!File.Exists(_fileNameData))
         {
             return null;
         }
 
-        var jsonString = await File.ReadAllTextAsync(FileNameData);
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         var result = data?.FolderPath;
@@ -92,12 +85,12 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task<bool> ShouldSaveTransactionsAutomaticallyAsync()
     {
-        if (!File.Exists(FileNameData))
+        if (!File.Exists(_fileNameData))
         {
             return false;
         }
 
-        var jsonString = await File.ReadAllTextAsync(FileNameData);
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         return data?.AutomaticTransactionSaveOption ?? false;
@@ -105,12 +98,12 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task<bool> ShouldSaveDonationsAutomaticallyAsync()
     {
-        if (!File.Exists(FileNameData))
+        if (!File.Exists(_fileNameData))
         {
             return false;
         }
 
-        var jsonString = await File.ReadAllTextAsync(FileNameData);
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         return data?.AutomaticDonationSaveOption ?? false;
@@ -118,12 +111,12 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task<bool> ShouldSaveTotalBalanceAutomaticallyAsync()
     {
-        if (!File.Exists(FileNameData))
+        if (!File.Exists(_fileNameData))
         {
             return false;
         }
 
-        var jsonString = await File.ReadAllTextAsync(FileNameData);
+        var jsonString = await File.ReadAllTextAsync(_fileNameData);
         var data = JsonSerializer.Deserialize<SettingsDataModel>(jsonString);
 
         return data?.AutomaticTotalBalanceSaveOption ?? false;
@@ -131,12 +124,12 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task<CompanyDetailModel?> GetCompanyDataAsync()
     {
-        if (!File.Exists(FileNameCompany))
+        if (!File.Exists(_fileNameCompany))
         {
             return null;
         }
 
-        var jsonString = await File.ReadAllTextAsync(FileNameCompany);
+        var jsonString = await File.ReadAllTextAsync(_fileNameCompany);
         var data = JsonSerializer.Deserialize<CompanyDetailModel>(jsonString);
 
         return data;
@@ -144,12 +137,12 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task<BranchDetailModel?> GetBranchDataAsync()
     {
-        if (!File.Exists(FileNameBranch))
+        if (!File.Exists(_fileNameBranch))
         {
             return null;
         }
 
-        var jsonString = await File.ReadAllTextAsync(FileNameBranch);
+        var jsonString = await File.ReadAllTextAsync(_fileNameBranch);
         var data = JsonSerializer.Deserialize<BranchDetailModel>(jsonString);
 
         return data;
