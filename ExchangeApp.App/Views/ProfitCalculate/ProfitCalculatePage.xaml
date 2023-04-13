@@ -76,6 +76,7 @@
             Grid.Row="3"
             Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
             Style="{StaticResource IconStyle}"
-            HorizontalOptions="End"/>
+            HorizontalOptions="End"
+            Command="{Binding PrintCommand}"/>
     </Grid>
 </views:ContentPageBase>

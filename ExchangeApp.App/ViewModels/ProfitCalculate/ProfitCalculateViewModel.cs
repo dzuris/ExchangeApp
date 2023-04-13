@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
 
@@ -8,10 +9,12 @@ namespace ExchangeApp.App.ViewModels.ProfitCalculate;
 public partial class ProfitCalculateViewModel : ViewModelBase
 {
     private readonly IOperationFacade _operationFacade;
+    private readonly IPrinterService _printerService;
 
-    public ProfitCalculateViewModel(IOperationFacade operationFacade)
+    public ProfitCalculateViewModel(IOperationFacade operationFacade, IPrinterService printerService)
     {
         _operationFacade = operationFacade;
+        _printerService = printerService;
     }
 
     protected override async Task LoadDataAsync()
@@ -52,5 +55,11 @@ public partial class ProfitCalculateViewModel : ViewModelBase
 
         ProfitList = await _operationFacade.GetProfitListAsync(FromDate, UntilDate.AddDays(1));
         TotalProfit = ProfitList.Sum(e => e.Profit);
+    }
+
+    [RelayCommand]
+    public async Task PrintAsync()
+    {
+        await _printerService.Print(ProfitList, FromDate, UntilDate);
     }
 }
