@@ -1,0 +1,12 @@
+{
+  "Branch": {
+    "name": "",
+    "address": {
+      "street": "",
+      "streetNumber": "",
+      "PSC": "",
+      "city": ""
+    },
+    "phoneNumber": ""
+  }
+}

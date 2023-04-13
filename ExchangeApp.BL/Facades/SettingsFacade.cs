@@ -20,36 +20,6 @@ public class SettingsFacade : ISettingsFacade
         _fileNameBranch = Path.Combine(baseDirectory, "branch.json");
     }
 
-    private string GetSettingsDataFileName()
-    {
-        if (!File.Exists(_fileNameData))
-        {
-            File.Create(_fileNameData);
-        }
-
-        return _fileNameData;
-    }
-
-    private string GetCompanyFileName()
-    {
-        if (!File.Exists(_fileNameCompany))
-        {
-            File.Create(_fileNameCompany);
-        }
-
-        return _fileNameCompany;
-    }
-
-    private string GetBranchFileName()
-    {
-        if (!File.Exists(_fileNameBranch))
-        {
-            File.Create(_fileNameBranch);
-        }
-
-        return _fileNameBranch;
-    }
-
     public async Task<SettingsDataModel?> GetSettingsDataAsync()
     {
         if (!File.Exists(_fileNameData))
@@ -150,19 +120,34 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task UpdateSettingsDataAsync(SettingsDataModel model)
     {
+        if (!File.Exists(_fileNameData))
+        {
+            File.Create(_fileNameData);
+        }
+
         var json = JsonSerializer.Serialize(model);
-        await File.WriteAllTextAsync(GetSettingsDataFileName(), json);
+        await File.WriteAllTextAsync(_fileNameData, json);
     }
 
     public async Task UpdateSettingsDataAsync(CompanyDetailModel model)
     {
+        if (!File.Exists(_fileNameCompany))
+        {
+            File.Create(_fileNameCompany);
+        }
+
         var json = JsonSerializer.Serialize(model);
-        await File.WriteAllTextAsync(GetCompanyFileName(), json);
+        await File.WriteAllTextAsync(_fileNameCompany, json);
     }
 
     public async Task UpdateSettingsDataAsync(BranchDetailModel model)
     {
+        if (!File.Exists(_fileNameBranch))
+        {
+            File.Create(_fileNameBranch);
+        }
+
         var json = JsonSerializer.Serialize(model);
-        await File.WriteAllTextAsync(GetBranchFileName(), json);
+        await File.WriteAllTextAsync(_fileNameBranch, json);
     }
 }
