@@ -1,14 +1,14 @@
 {
   "Company": {
-    "tradeNameOfTheOwner": "Trade name",
-    "ICO": "4564651564",
-    "DIC": "45615642",
+    "tradeNameOfTheOwner": "",
+    "ICO": "",
+    "DIC": "",
     "ownerAddress": {
-      "street": "xyz",
-      "streetNumber": "4561",
-      "PSC": "11111",
-      "city": "City"
+      "street": "",
+      "streetNumber": "",
+      "PSC": "",
+      "city": ""
     },
-    "phoneNumber": "+4124516541"
+    "phoneNumber": ""
   }
 }

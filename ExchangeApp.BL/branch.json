@@ -1,12 +1,12 @@
 {
   "Branch": {
-    "name": "branch name",
+    "name": "",
     "address": {
-      "street": "xyz",
-      "streetNumber": "4561",
-      "PSC": "11111",
-      "city": "City"
+      "street": "",
+      "streetNumber": "",
+      "PSC": "",
+      "city": ""
     },
-    "phoneNumber": "+456165461"
+    "phoneNumber": ""
   }
 }
