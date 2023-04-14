@@ -2,6 +2,7 @@
 
 public record SettingsDataModel : ModelBase
 {
+    public string Version { get; set; } = "0.0.0.0";
     public string FolderPath { get; set; } = string.Empty;
     public bool AutomaticTransactionSaveOption { get; set; }
     public bool AutomaticDonationSaveOption { get; set; }

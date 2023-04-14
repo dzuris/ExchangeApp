@@ -103,4 +103,10 @@
   <data name="LicenseLabel" xml:space="preserve">
     <value>License:</value>
   </data>
+  <data name="AuthorNameLabel" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="AuthorContactLabel" xml:space="preserve">
+    <value>Contact:</value>
+  </data>
 </root>

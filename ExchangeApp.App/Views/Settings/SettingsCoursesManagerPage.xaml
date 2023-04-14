@@ -30,6 +30,7 @@
                                     VerticalOptions="Center"
                                     Source="{AppThemeBinding Light=delete.png, Dark=delete_white.png}"
                                     Style="{StaticResource IconStyle}"
+                                    IsVisible="{Binding Code, Converter={StaticResource IsNotDomesticCurrencyCode}}"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SettingsCoursesManagerViewModel}}, Path=CurrencyToNonActiveCommand}"
                                     CommandParameter="{Binding .}"/>
                             </Grid>

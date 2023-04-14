@@ -4,7 +4,7 @@ namespace ExchangeApp.App.Views.Settings;
 
 public partial class SettingsLicencePage
 {
-	public SettingsLicencePage(SettingsLicenceViewModel viewModel)
+	public SettingsLicencePage(SettingsLicenseViewModel viewModel)
 		: base(viewModel)
 	{
 		InitializeComponent();

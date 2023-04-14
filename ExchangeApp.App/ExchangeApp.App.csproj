@@ -339,10 +339,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>SettingsInfoCompanyPageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\SettingsLicencePageResources.Designer.cs">
+	  <Compile Update="Resources\Texts\SettingsLicensePageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>SettingsLicencePageResources.resx</DependentUpon>
+	    <DependentUpon>SettingsLicensePageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -491,9 +491,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>SettingsInfoCompanyPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\SettingsLicencePageResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\SettingsLicensePageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>SettingsLicencePageResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>SettingsLicensePageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -539,6 +539,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\GridStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\HorizontalStackLayout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ImageButtonStyle.xaml">

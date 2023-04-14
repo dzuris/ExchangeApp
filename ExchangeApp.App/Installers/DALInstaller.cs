@@ -15,9 +15,10 @@ public static class DALInstaller
         {
             throw new InvalidOperationException("Database name is not set");
         }
-        
+
+        string databaseFilePath = Path.Combine(FileSystem.AppDataDirectory, databaseName);
         services.AddSingleton<IDbContextFactory<ExchangeAppDbContext>>(provider =>
-            new DbContextSqLiteFactory(databaseName));
+            new DbContextSqLiteFactory(databaseFilePath));
         services.AddSingleton<IDbMigrator, SqLiteDbMigrator>();
 
         return services;
