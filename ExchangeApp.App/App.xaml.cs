@@ -2,14 +2,14 @@
 
 namespace ExchangeApp.App;
 
-public partial class App : Application
+public partial class App
 {
 	public App()
     {
 		InitializeComponent();
 
-        // Set the culture to Slovak
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("sk-SK");
+        // Set the culture to Slovak constantly
+        //Thread.CurrentThread.CurrentUICulture = new CultureInfo("sk-SK");
 
         MainPage = new AppShell();
     }
