@@ -130,7 +130,6 @@
 	  <None Remove="Resources\Images\Flags\try_flag.png" />
 	  <None Remove="Resources\Images\Flags\usd_flag.png" />
 	  <None Remove="Resources\Images\Flags\zar_flag.png" />
-	  <None Remove="Resources\Raw\branch.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -189,10 +188,6 @@
 	  <Folder Include="ViewModels\Customers\" />
 	  <Folder Include="ViewModels\CashRegister\" />
 	  <Folder Include="ViewModels\ProfitCalculate\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiAsset Include="Resources\Raw\branch.json" />
 	</ItemGroup>
 
 	<ItemGroup>

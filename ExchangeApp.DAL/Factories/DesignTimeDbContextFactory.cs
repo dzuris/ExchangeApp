@@ -11,7 +11,14 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ExchangeAp
         DbContextOptionsBuilder<ExchangeAppDbContext> builder = new();
         var folder = Environment.SpecialFolder.LocalApplicationData;
         var path = Environment.GetFolderPath(folder);
-        var dbPath = Path.Join(path, "exchangeApp.db");
+        path = Path.Combine(path, "ExchangeApp");
+
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+
+        var dbPath = Path.Combine(path, "exchangeApp.db");
         builder.UseSqlite($"Data Source={dbPath}");
 
         return new ExchangeAppDbContext(builder.Options);

@@ -16,7 +16,7 @@ public class DbContextSqLiteFactory : IDbContextFactory<ExchangeAppDbContext>
     {
         var folder = Environment.SpecialFolder.LocalApplicationData;
         var path = Environment.GetFolderPath(folder);
-        var dbPath = Path.Join(path, _databaseName);
+        var dbPath = Path.Combine(path, "ExchangeApp", _databaseName);
 
         if (!File.Exists(dbPath))
         {
