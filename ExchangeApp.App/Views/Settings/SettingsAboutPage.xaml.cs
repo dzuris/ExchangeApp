@@ -2,9 +2,9 @@ using ExchangeApp.App.ViewModels.Settings;
 
 namespace ExchangeApp.App.Views.Settings;
 
-public partial class SettingsLicencePage
+public partial class SettingsAboutPage
 {
-	public SettingsLicencePage(SettingsLicenseViewModel viewModel)
+	public SettingsAboutPage(SettingsAboutViewModel viewModel)
 		: base(viewModel)
 	{
 		InitializeComponent();

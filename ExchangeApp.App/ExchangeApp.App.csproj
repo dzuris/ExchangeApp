@@ -339,10 +339,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>SettingsInfoCompanyPageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\SettingsLicensePageResources.Designer.cs">
+	  <Compile Update="Resources\Texts\SettingsAboutPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>SettingsLicensePageResources.resx</DependentUpon>
+	    <DependentUpon>SettingsAboutPageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -372,6 +372,9 @@
 	  </Compile>
 	  <Compile Update="Views\Settings\SettingsCoursesManagerPage.xaml.cs">
 	    <DependentUpon>SettingsCoursesManagerPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Settings\SettingsAboutPage.xaml.cs">
+	    <DependentUpon>SettingsAboutPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Transaction\TransactionCreatePage.xaml.cs">
 	    <DependentUpon>TransactionCreatePage.xaml</DependentUpon>
@@ -491,9 +494,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>SettingsInfoCompanyPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\SettingsLicensePageResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\SettingsAboutPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>SettingsLicensePageResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>SettingsAboutPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -607,7 +610,7 @@
 	  <MauiXaml Update="Views\Settings\SettingsInfoCompanyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Settings\SettingsLicencePage.xaml">
+	  <MauiXaml Update="Views\Settings\SettingsAboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsPage.xaml">

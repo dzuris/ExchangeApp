@@ -41,7 +41,7 @@ public partial class SettingsPage
                 await Shell.Current.GoToAsync($"{nameof(SettingsInfoCompanyPage)}");
                 break;
             case 4:
-                await Shell.Current.GoToAsync($"{nameof(SettingsLicencePage)}");
+                await Shell.Current.GoToAsync($"{nameof(SettingsAboutPage)}");
                 break;
         }
     }

@@ -4,17 +4,17 @@
              xmlns:views="clr-namespace:ExchangeApp.App.Views"
              xmlns:texts="clr-namespace:ExchangeApp.App.Resources.Texts"
              xmlns:vm="clr-namespace:ExchangeApp.App.ViewModels.Settings"
-             x:Class="ExchangeApp.App.Views.Settings.SettingsLicencePage"
-             Title="{x:Static texts:SettingsLicensePageResources.PageTitle}"
+             x:Class="ExchangeApp.App.Views.Settings.SettingsAboutPage"
+             Title="{x:Static texts:SettingsAboutPageResources.PageTitle}"
              Style="{StaticResource ContentPageStyle}"
-             x:DataType="vm:SettingsLicenseViewModel">
+             x:DataType="vm:SettingsAboutViewModel">
     <ScrollView>
         <Grid RowDefinitions="Auto, Auto, Auto" RowSpacing="15" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
-            <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:SettingsLicensePageResources.LicenseLabel}" Style="{StaticResource InfoBoldStyle}"/>
+            <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:SettingsAboutPageResources.LicenseLabel}" Style="{StaticResource InfoBoldStyle}"/>
             <Label Grid.Row="0" Grid.Column="1" Text="MIT"/>
-            <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:SettingsLicensePageResources.AuthorNameLabel}" Style="{StaticResource InfoBoldStyle}"/>
+            <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:SettingsAboutPageResources.AuthorNameLabel}" Style="{StaticResource InfoBoldStyle}"/>
             <Label Grid.Row="1" Grid.Column="1" Text="Adam Dzurilla"/>
-            <Label Grid.Row="2" Grid.Column="0" Text="{x:Static texts:SettingsLicensePageResources.AuthorContactLabel}" Style="{StaticResource InfoBoldStyle}"/>
+            <Label Grid.Row="2" Grid.Column="0" Text="{x:Static texts:SettingsAboutPageResources.AuthorContactLabel}" Style="{StaticResource InfoBoldStyle}"/>
             <Label Grid.Row="2" Grid.Column="1" Text="adamdzurilla19@gmail.com"/>
         </Grid>
     </ScrollView>

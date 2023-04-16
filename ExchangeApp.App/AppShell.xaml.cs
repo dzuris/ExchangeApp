@@ -38,6 +38,6 @@ public partial class AppShell
 		Routing.RegisterRoute(nameof(SettingsGeneralPage), typeof(SettingsGeneralPage));
 		Routing.RegisterRoute(nameof(SettingsInfoBranchPage), typeof(SettingsInfoBranchPage));
 		Routing.RegisterRoute(nameof(SettingsInfoCompanyPage), typeof(SettingsInfoCompanyPage));
-		Routing.RegisterRoute(nameof(SettingsLicencePage), typeof(SettingsLicencePage));
+		Routing.RegisterRoute(nameof(SettingsAboutPage), typeof(SettingsAboutPage));
 	}
 }
