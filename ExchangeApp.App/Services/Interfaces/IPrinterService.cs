@@ -15,4 +15,5 @@ public interface IPrinterService
     Task Print(TotalBalanceModel model);
     Task Print(List<CurrencyCoursesListModel> currencies);
     Task Print(List<CurrencyListModel> currencies);
+    Task Print(List<CurrencyProfitModel> currencies, DateTime from, DateTime until);
 }

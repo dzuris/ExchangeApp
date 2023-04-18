@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Resources/Styles/EntryStyle.xaml" />
                 <ResourceDictionary Source="Resources/Styles/FrameStyle.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/GridStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/HorizontalStackLayout.xaml" />
                 <ResourceDictionary Source="Resources/Styles/ImageButtonStyle.xaml" />
                 <ResourceDictionary Source="Resources/Styles/ImageStyle.xaml" />
                 <ResourceDictionary Source="Resources/Styles/LabelStyle.xaml" />
@@ -37,6 +38,7 @@
             <converters:TotalBalanceToDateConverter x:Key="TotalBalanceToDateConverter"/>
             <converters:TotalBalanceFilterOptionToStringConverter x:Key="TotalBalanceFilterOptionToStringConverter"/>
             <converters:NullToColorConverter x:Key="NullToColorConverter"/>
+            <converters:IsNotDomesticCurrencyCode x:Key="IsNotDomesticCurrencyCode"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

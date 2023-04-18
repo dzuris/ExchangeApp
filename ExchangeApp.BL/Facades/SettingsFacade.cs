@@ -7,16 +7,17 @@ namespace ExchangeApp.BL.Facades;
 
 public class SettingsFacade : ISettingsFacade
 {
-    private readonly string _fileNameData;
-    private readonly string _fileNameCompany;
-    private readonly string _fileNameBranch;
+    private readonly string _fileNameData = "settings_data.json";
+    private readonly string _fileNameCompany = "company.json";
+    private readonly string _fileNameBranch = "branch.json";
 
     public SettingsFacade()
     {
-        var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        _fileNameData = Path.Combine(baseDirectory, "settings_data.json");
-        _fileNameCompany = Path.Combine(baseDirectory, "company.json");
-        _fileNameBranch = Path.Combine(baseDirectory, "branch.json");
+        var baseDirectory = FileSystem.AppDataDirectory;
+
+        _fileNameData = Path.Combine(baseDirectory, _fileNameData);
+        _fileNameCompany = Path.Combine(baseDirectory, _fileNameCompany);
+        _fileNameBranch = Path.Combine(baseDirectory, _fileNameBranch);
     }
 
     public async Task<SettingsDataModel?> GetSettingsDataAsync()
@@ -119,18 +120,33 @@ public class SettingsFacade : ISettingsFacade
 
     public async Task UpdateSettingsDataAsync(SettingsDataModel model)
     {
+        if (!File.Exists(_fileNameData))
+        {
+            await using (File.Create(_fileNameData)) { }
+        }
+
         var json = JsonSerializer.Serialize(model);
         await File.WriteAllTextAsync(_fileNameData, json);
     }
 
     public async Task UpdateSettingsDataAsync(CompanyDetailModel model)
     {
+        if (!File.Exists(_fileNameCompany))
+        {
+            await using (File.Create(_fileNameCompany)) { }
+        }
+
         var json = JsonSerializer.Serialize(model);
         await File.WriteAllTextAsync(_fileNameCompany, json);
     }
 
     public async Task UpdateSettingsDataAsync(BranchDetailModel model)
     {
+        if (!File.Exists(_fileNameBranch))
+        {
+            await using (File.Create(_fileNameBranch)) { }
+        }
+
         var json = JsonSerializer.Serialize(model);
         await File.WriteAllTextAsync(_fileNameBranch, json);
     }

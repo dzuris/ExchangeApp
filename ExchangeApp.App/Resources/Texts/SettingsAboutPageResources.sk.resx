@@ -118,30 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="PageTitle" xml:space="preserve">
-    <value>Nastavenia</value>
+    <value>O program</value>
   </data>
-  <data name="BranchInfoListItem" xml:space="preserve">
-    <value>Nastavenia údajov pobočky</value>
+  <data name="LicenseLabel" xml:space="preserve">
+    <value>Licencia:</value>
   </data>
-  <data name="CompanyInfoListItem" xml:space="preserve">
-    <value>Nastavenia firemných údajov</value>
+  <data name="AuthorNameLabel" xml:space="preserve">
+    <value>Autor:</value>
   </data>
-  <data name="CourseRatesListItem" xml:space="preserve">
-    <value>Kurzové meny</value>
-  </data>
-  <data name="CourseRatesSalesListItem" xml:space="preserve">
-    <value>Kurzové zľavy</value>
-  </data>
-  <data name="EmployeeListItem" xml:space="preserve">
-    <value>Nastavenia zamestnancov</value>
-  </data>
-  <data name="AboutInfoListItem" xml:space="preserve">
-    <value>O programe</value>
-  </data>
-  <data name="GeneralListItem" xml:space="preserve">
-    <value>Všeobecné</value>
-  </data>
-  <data name="TotalBalanceListItem" xml:space="preserve">
-    <value>Uzávierky</value>
+  <data name="AuthorContactLabel" xml:space="preserve">
+    <value>Kontakt:</value>
   </data>
 </root>

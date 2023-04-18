@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using System.Reflection;
-using AutoMapper.Internal;
 using CommunityToolkit.Maui;
 using ExchangeApp.App.Installers;
 using ExchangeApp.BL.Installers;
 using ExchangeApp.BL.MapperProfiles;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 

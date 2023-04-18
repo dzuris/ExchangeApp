@@ -97,31 +97,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Settings</value>
+  <data name="HeaderText" xml:space="preserve">
+    <value>Profit calculation</value>
   </data>
-  <data name="GeneralListItem" xml:space="preserve">
-    <value>General</value>
+  <data name="ListHeaderItemCurrencyCode" xml:space="preserve">
+    <value>Currency code</value>
   </data>
-  <data name="CourseRatesListItem" xml:space="preserve">
-    <value>Course rates</value>
+  <data name="ListHeaderItemState" xml:space="preserve">
+    <value>State</value>
   </data>
-  <data name="CourseRatesSalesListItem" xml:space="preserve">
-    <value>Course rates sales</value>
+  <data name="ListHeaderItemProfit" xml:space="preserve">
+    <value>Profit</value>
   </data>
-  <data name="TotalBalanceListItem" xml:space="preserve">
-    <value>Total balances settings</value>
-  </data>
-  <data name="EmployeeListItem" xml:space="preserve">
-    <value>Employee settings</value>
-  </data>
-  <data name="CompanyInfoListItem" xml:space="preserve">
-    <value>Setting company info</value>
-  </data>
-  <data name="BranchInfoListItem" xml:space="preserve">
-    <value>Setting branch info</value>
-  </data>
-  <data name="AboutInfoListItem" xml:space="preserve">
-    <value>About</value>
+  <data name="ProfitTotalSumLabel" xml:space="preserve">
+    <value>Profit total:</value>
   </data>
 </root>

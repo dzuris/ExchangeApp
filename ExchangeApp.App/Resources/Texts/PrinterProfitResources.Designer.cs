@@ -22,14 +22,14 @@ namespace ExchangeApp.App.Resources.Texts {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class SettingsPageResources {
+    public class PrinterProfitResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SettingsPageResources() {
+        internal PrinterProfitResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ExchangeApp.App.Resources.Texts {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.SettingsPageResources", typeof(SettingsPageResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExchangeApp.App.Resources.Texts.PrinterProfitResources", typeof(PrinterProfitResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,47 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to Profit calculation.
         /// </summary>
-        public static string AboutInfoListItem {
+        public static string HeaderText {
             get {
-                return ResourceManager.GetString("AboutInfoListItem", resourceCulture);
+                return ResourceManager.GetString("HeaderText", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Setting branch info.
+        ///   Looks up a localized string similar to Currency code.
         /// </summary>
-        public static string BranchInfoListItem {
+        public static string ListHeaderItemCurrencyCode {
             get {
-                return ResourceManager.GetString("BranchInfoListItem", resourceCulture);
+                return ResourceManager.GetString("ListHeaderItemCurrencyCode", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Setting company info.
+        ///   Looks up a localized string similar to Profit.
         /// </summary>
-        public static string CompanyInfoListItem {
+        public static string ListHeaderItemProfit {
             get {
-                return ResourceManager.GetString("CompanyInfoListItem", resourceCulture);
+                return ResourceManager.GetString("ListHeaderItemProfit", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Course rates.
+        ///   Looks up a localized string similar to State.
         /// </summary>
-        public static string CourseRatesListItem {
+        public static string ListHeaderItemState {
             get {
-                return ResourceManager.GetString("CourseRatesListItem", resourceCulture);
+                return ResourceManager.GetString("ListHeaderItemState", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Course rates sales.
+        ///   Looks up a localized string similar to Profit total:.
         /// </summary>
-        public static string CourseRatesSalesListItem {
+        public static string ProfitTotalSumLabel {
             get {
-                return ResourceManager.GetString("CourseRatesSalesListItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Employee settings.
-        /// </summary>
-        public static string EmployeeListItem {
-            get {
-                return ResourceManager.GetString("EmployeeListItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to General.
-        /// </summary>
-        public static string GeneralListItem {
-            get {
-                return ResourceManager.GetString("GeneralListItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Settings.
-        /// </summary>
-        public static string PageTitle {
-            get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total balances settings.
-        /// </summary>
-        public static string TotalBalanceListItem {
-            get {
-                return ResourceManager.GetString("TotalBalanceListItem", resourceCulture);
+                return ResourceManager.GetString("ProfitTotalSumLabel", resourceCulture);
             }
         }
     }

@@ -117,31 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PageTitle" xml:space="preserve">
-    <value>Nastavenia</value>
+  <data name="HeaderText" xml:space="preserve">
+    <value>Výpočet zisku</value>
   </data>
-  <data name="BranchInfoListItem" xml:space="preserve">
-    <value>Nastavenia údajov pobočky</value>
+  <data name="ListHeaderItemCurrencyCode" xml:space="preserve">
+    <value>Kód meny</value>
   </data>
-  <data name="CompanyInfoListItem" xml:space="preserve">
-    <value>Nastavenia firemných údajov</value>
+  <data name="ListHeaderItemProfit" xml:space="preserve">
+    <value>Zisk</value>
   </data>
-  <data name="CourseRatesListItem" xml:space="preserve">
-    <value>Kurzové meny</value>
+  <data name="ListHeaderItemState" xml:space="preserve">
+    <value>Štát</value>
   </data>
-  <data name="CourseRatesSalesListItem" xml:space="preserve">
-    <value>Kurzové zľavy</value>
-  </data>
-  <data name="EmployeeListItem" xml:space="preserve">
-    <value>Nastavenia zamestnancov</value>
-  </data>
-  <data name="AboutInfoListItem" xml:space="preserve">
-    <value>O programe</value>
-  </data>
-  <data name="GeneralListItem" xml:space="preserve">
-    <value>Všeobecné</value>
-  </data>
-  <data name="TotalBalanceListItem" xml:space="preserve">
-    <value>Uzávierky</value>
+  <data name="ProfitTotalSumLabel" xml:space="preserve">
+    <value>Zisk celkom:</value>
   </data>
 </root>

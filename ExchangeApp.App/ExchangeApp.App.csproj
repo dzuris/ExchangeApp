@@ -6,13 +6,14 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
+		<StartWorkingDirectory>$(MSBuildProjectDirectory)</StartWorkingDirectory>
 		<RootNamespace>ExchangeApp.App</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Zmenárenka</ApplicationTitle>
+		<ApplicationTitle>Zmenárka</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.exchangeapp.app</ApplicationId>
@@ -21,6 +22,10 @@
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- Only for no msix output
+		<WinowsPackagedType Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'"
+		                    >None</WinowsPackagedType> -->
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -38,7 +43,7 @@
 		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
 		<AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>
-		<AppInstallerUri>C:\Users\adamd\Downloads</AppInstallerUri>
+		<AppInstallerUri>C:\Users\adamd\Documents\PublishAppTests\ExchangeApp</AppInstallerUri>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 	</PropertyGroup>
 
@@ -334,10 +339,10 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>SettingsInfoCompanyPageResources.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Resources\Texts\SettingsLicencePageResources.Designer.cs">
+	  <Compile Update="Resources\Texts\SettingsAboutPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>SettingsLicencePageResources.resx</DependentUpon>
+	    <DependentUpon>SettingsAboutPageResources.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\Texts\SettingsPageResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -367,6 +372,9 @@
 	  </Compile>
 	  <Compile Update="Views\Settings\SettingsCoursesManagerPage.xaml.cs">
 	    <DependentUpon>SettingsCoursesManagerPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Settings\SettingsAboutPage.xaml.cs">
+	    <DependentUpon>SettingsAboutPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Transaction\TransactionCreatePage.xaml.cs">
 	    <DependentUpon>TransactionCreatePage.xaml</DependentUpon>
@@ -486,9 +494,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>SettingsInfoCompanyPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Resources\Texts\SettingsLicencePageResources.resx">
+	  <EmbeddedResource Update="Resources\Texts\SettingsAboutPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>SettingsLicencePageResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>SettingsAboutPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\Texts\SettingsPageResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
@@ -534,6 +542,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\GridStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\HorizontalStackLayout.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ImageButtonStyle.xaml">
@@ -599,7 +610,7 @@
 	  <MauiXaml Update="Views\Settings\SettingsInfoCompanyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Settings\SettingsLicencePage.xaml">
+	  <MauiXaml Update="Views\Settings\SettingsAboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Settings\SettingsPage.xaml">
@@ -615,5 +626,13 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(Configuration)' == 'Release'">
+		<AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
+		<PackageCertificateThumbprint>C8BA4E64DFD1AC5255382803744FD38A034B6C95</PackageCertificateThumbprint>
+	</PropertyGroup>
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
+		<RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+	</PropertyGroup>
 
 </Project>

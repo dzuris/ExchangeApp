@@ -17,7 +17,7 @@ public partial class SettingsPage
         SettingsPageResources.CourseRatesListItem,
         SettingsPageResources.BranchInfoListItem,
         SettingsPageResources.CompanyInfoListItem,
-        SettingsPageResources.LicenseInfoListItem
+        SettingsPageResources.AboutInfoListItem
     };
 
     private async void TapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
@@ -41,7 +41,7 @@ public partial class SettingsPage
                 await Shell.Current.GoToAsync($"{nameof(SettingsInfoCompanyPage)}");
                 break;
             case 4:
-                await Shell.Current.GoToAsync($"{nameof(SettingsLicencePage)}");
+                await Shell.Current.GoToAsync($"{nameof(SettingsAboutPage)}");
                 break;
         }
     }
