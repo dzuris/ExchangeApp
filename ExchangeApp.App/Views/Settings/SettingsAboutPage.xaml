@@ -11,11 +11,11 @@
     <ScrollView>
         <Grid RowDefinitions="Auto, Auto, Auto" RowSpacing="15" ColumnDefinitions="Auto, Auto" ColumnSpacing="20">
             <Label Grid.Row="0" Grid.Column="0" Text="{x:Static texts:SettingsAboutPageResources.LicenseLabel}" Style="{StaticResource InfoBoldStyle}"/>
-            <Label Grid.Row="0" Grid.Column="1" Text="MIT"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding License}"/>
             <Label Grid.Row="1" Grid.Column="0" Text="{x:Static texts:SettingsAboutPageResources.AuthorNameLabel}" Style="{StaticResource InfoBoldStyle}"/>
-            <Label Grid.Row="1" Grid.Column="1" Text="Adam Dzurilla"/>
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding AuthorName}"/>
             <Label Grid.Row="2" Grid.Column="0" Text="{x:Static texts:SettingsAboutPageResources.AuthorContactLabel}" Style="{StaticResource InfoBoldStyle}"/>
-            <Label Grid.Row="2" Grid.Column="1" Text="adamdzurilla19@gmail.com"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding AuthorContact}"/>
         </Grid>
     </ScrollView>
 </views:ContentPageBase>
