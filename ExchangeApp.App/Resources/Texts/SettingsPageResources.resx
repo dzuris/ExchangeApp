@@ -121,7 +121,7 @@
   <data name="BranchInfoListItem" xml:space="preserve">
     <value>Setting branch info</value>
   </data>
-  <data name="LicenseInfoListItem" xml:space="preserve">
-    <value>License</value>
+  <data name="AboutInfoListItem" xml:space="preserve">
+    <value>About</value>
   </data>
 </root>

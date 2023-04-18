@@ -15,7 +15,7 @@
                 <x:Static Member="texts:SettingsPageResources.CourseRatesListItem"/>
                 <x:Static Member="texts:SettingsPageResources.BranchInfoListItem"/>
                 <x:Static Member="texts:SettingsPageResources.CompanyInfoListItem"/>
-                <x:Static Member="texts:SettingsPageResources.LicenseInfoListItem"/>
+                <x:Static Member="texts:SettingsPageResources.AboutInfoListItem"/>
             </x:Array>
         </CollectionView.ItemsSource>
         <CollectionView.ItemTemplate>

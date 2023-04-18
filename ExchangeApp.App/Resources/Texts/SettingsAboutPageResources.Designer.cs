@@ -88,7 +88,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to License.
+        ///   Looks up a localized string similar to About.
         /// </summary>
         public static string PageTitle {
             get {

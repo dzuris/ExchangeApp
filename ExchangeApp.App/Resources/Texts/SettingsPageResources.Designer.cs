@@ -61,6 +61,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string AboutInfoListItem {
+            get {
+                return ResourceManager.GetString("AboutInfoListItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Setting branch info.
         /// </summary>
         public static string BranchInfoListItem {
@@ -111,15 +120,6 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string GeneralListItem {
             get {
                 return ResourceManager.GetString("GeneralListItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to License.
-        /// </summary>
-        public static string LicenseInfoListItem {
-            get {
-                return ResourceManager.GetString("LicenseInfoListItem", resourceCulture);
             }
         }
         

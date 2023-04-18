@@ -17,7 +17,7 @@ public partial class SettingsPage
         SettingsPageResources.CourseRatesListItem,
         SettingsPageResources.BranchInfoListItem,
         SettingsPageResources.CompanyInfoListItem,
-        SettingsPageResources.LicenseInfoListItem
+        SettingsPageResources.AboutInfoListItem
     };
 
     private async void TapGestureRecognizer_OnTapped(object? sender, TappedEventArgs e)
