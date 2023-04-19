@@ -132,7 +132,6 @@
 	  <None Remove="Resources\Images\Flags\usd_flag.png" />
 	  <None Remove="Resources\Images\Flags\zar_flag.png" />
 	  <None Remove="Resources\Raw\about.json" />
-	  <None Remove="Resources\Raw\license-en.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
