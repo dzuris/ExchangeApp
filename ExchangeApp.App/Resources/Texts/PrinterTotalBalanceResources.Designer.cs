@@ -448,11 +448,20 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profit.
+        ///   Looks up a localized string similar to Profit - abbreviated.
         /// </summary>
-        public static string SectionHeaderProfit {
+        public static string SectionHeaderProfitAbbreviated {
             get {
-                return ResourceManager.GetString("SectionHeaderProfit", resourceCulture);
+                return ResourceManager.GetString("SectionHeaderProfitAbbreviated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profit - complete.
+        /// </summary>
+        public static string SectionHeaderProfitComplete {
+            get {
+                return ResourceManager.GetString("SectionHeaderProfitComplete", resourceCulture);
             }
         }
         

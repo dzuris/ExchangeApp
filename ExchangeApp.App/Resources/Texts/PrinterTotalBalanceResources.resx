@@ -217,8 +217,8 @@
   <data name="ListHeaderItemRounding" xml:space="preserve">
     <value>Rounding</value>
   </data>
-  <data name="SectionHeaderProfit" xml:space="preserve">
-    <value>Profit</value>
+  <data name="SectionHeaderProfitComplete" xml:space="preserve">
+    <value>Profit - complete</value>
   </data>
   <data name="ListHeaderItemProfit" xml:space="preserve">
     <value>Profit</value>
@@ -237,5 +237,8 @@
   </data>
   <data name="ListHeaderItemFinalState" xml:space="preserve">
     <value>Final state</value>
+  </data>
+  <data name="SectionHeaderProfitAbbreviated" xml:space="preserve">
+    <value>Profit - abbreviated</value>
   </data>
 </root>

@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using AutoMapper;
 using ExchangeApp.BL.Facades.Interfaces;
-using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Currency;
+using ExchangeApp.BL.Models.Operations;
 using ExchangeApp.Common.Enums;
 using ExchangeApp.DAL.Repositories.Interfaces;
 using ExchangeApp.DAL.UnitOfWork;
@@ -61,6 +61,22 @@ public class OperationFacade : IOperationFacade
                 Profit = g.Sum(o => o.Quantity / o.CourseRate - o.Quantity / o.AverageCourseRate)
             })
             .ToList();
+
+        return result;
+    }
+
+    public async Task<List<OperationProfitModel>> GetOperationsProfitAsync(DateTime from, DateTime until)
+    {
+        var operations = (await _repository.GetOperationsForProfitCalculationAsync(from, until)).ToList();
+
+        var result = new List<OperationProfitModel>();
+        foreach (var operation in operations)
+        {
+            var model = _mapper.Map<OperationProfitModel>(operation);
+            model.Profit = Math.Round(operation.Quantity / operation.CourseRate, 2) -
+                           Math.Round(operation.Quantity / operation.AverageCourseRate, 2);
+            result.Add(model);
+        }
 
         return result;
     }

@@ -1,4 +1,4 @@
-﻿namespace ExchangeApp.BL.Models;
+﻿namespace ExchangeApp.BL.Models.Operations;
 
 public record OperationListModelBase : ModelBase
 {

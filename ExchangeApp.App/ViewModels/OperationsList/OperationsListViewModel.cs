@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.App.Views.Donation;
 using ExchangeApp.App.Views.Transaction;
 using ExchangeApp.BL.Facades.Interfaces;
-using ExchangeApp.BL.Models;
+using ExchangeApp.BL.Models.Operations;
 using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.App.ViewModels.OperationsList;

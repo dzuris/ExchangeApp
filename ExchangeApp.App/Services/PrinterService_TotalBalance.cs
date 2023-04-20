@@ -5,11 +5,14 @@ using ExchangeApp.App.Converters;
 using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.HeaderAndFooters;
 using ExchangeApp.BL.Models;
+using ExchangeApp.BL.Models.Company;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Donation;
+using ExchangeApp.BL.Models.Operations;
 using ExchangeApp.BL.Models.TotalBalance;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
+using iText.IO.Font;
 using iText.Kernel.Events;
 using iText.Kernel.Font;
 using iText.Kernel.Geom;
@@ -44,12 +47,7 @@ public partial class PrinterService
         var commonFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, CommonFontFile));
 
         // Gets company info
-        var company = await _settingsFacade.GetCompanyDataAsync();
-
-        if (company is null)
-        {
-            return;
-        }
+        var company = await _settingsFacade.GetCompanyDataAsync() ?? CompanyDetailModel.Empty;
 
         // Adding header and footer
         var headerHandler = new TotalBalanceHeaderEventHandler(model.Type, commonFont, SmallFontSize, company.TradeNameOfTheOwner, company.Ico, model.Created, model.Id);
@@ -123,10 +121,23 @@ public partial class PrinterService
 
         document.Add(new AreaBreak());
 
-        #region Profit list
+        #region Profit abbreviated list
 
         var profitList = await _operationFacade.GetProfitListAsync(model.LastTotalBalance, model.Created);
-        document = AddProfitListData(document, profitList, boldFont, commonFont);
+        document = AddProfitAbbreviatedListData(document, profitList, boldFont, commonFont);
+
+        #endregion
+
+        document.Add(new AreaBreak());
+
+        #region Profit complete list
+
+        var operationsProfitList =
+            await _operationFacade.GetOperationsProfitAsync(model.LastTotalBalance, model.Created);
+        document = AddProfitCompleteListData(document,
+            operationsProfitList,
+            boldFont,
+            commonFont);
 
         #endregion
 
@@ -1131,12 +1142,12 @@ public partial class PrinterService
         return document;
     }
 
-    private static Document AddProfitListData(Document document, List<CurrencyProfitModel> profitList, PdfFont boldFont,
+    private static Document AddProfitAbbreviatedListData(Document document, List<CurrencyProfitModel> profitList, PdfFont boldFont,
         PdfFont commonFont)
     {
         var rm = new ResourceManager(typeof(PrinterTotalBalanceResources));
 
-        var header = new Paragraph(rm.GetString("SectionHeaderProfit"))
+        var header = new Paragraph(rm.GetString("SectionHeaderProfitAbbreviated"))
             .SetTextAlignment(TextAlignment.CENTER)
             .SetFont(boldFont)
             .SetFontSize(HeaderFontSize);
@@ -1209,6 +1220,90 @@ public partial class PrinterService
             var cell = (Cell)element;
             cell.SetBorder(null);
             cell.SetBorderTop(new SolidBorder(1));
+        }
+
+        #endregion
+
+        document.Add(contentTable);
+
+        return document;
+    }
+
+    private static Document AddProfitCompleteListData(Document document, List<OperationProfitModel> profits,
+        PdfFont boldFont, PdfFont commonFont)
+    {
+        var rm = new ResourceManager(typeof(PrinterTotalBalanceResources));
+
+        var header = new Paragraph(rm.GetString("SectionHeaderProfitComplete"))
+            .SetTextAlignment(TextAlignment.CENTER)
+            .SetFont(boldFont)
+            .SetFontSize(HeaderFontSize);
+        document.Add(header);
+        document.Add(new LineSeparator(new SolidLine()));
+
+        var contentTable = new Table(5)
+            .UseAllAvailableWidth()
+            .SetFont(commonFont)
+            .SetFontSize(CommonFontSize)
+            .SetMarginTop(20);
+
+        #region Header
+
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemOperationId"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemCurrencyCode"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemQuantity"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemCourseRate"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemProfit"));
+
+        #endregion
+
+        foreach (var operation in profits)
+        {
+            // Operation id
+            contentTable.AddCell($"{operation.Id}");
+
+            // Currency code
+            contentTable.AddCell(operation.CurrencyCode);
+
+            // Quantity cell
+            var quantityCell = new Cell();
+            quantityCell.Add(new Paragraph(operation.Quantity.ToString(DecimalFormatTwoDecimals))
+                .SetTextAlignment(TextAlignment.RIGHT));
+            contentTable.AddCell(quantityCell);
+
+            // Course rate cell
+            var courseCell = new Cell();
+            courseCell.Add(
+                new Paragraph(operation.CourseRate.ToString(AverageCourseFormat))
+                    .SetTextAlignment(TextAlignment.RIGHT));
+            contentTable.AddCell(courseCell);
+
+            // Profit cell
+            var profitCell = new Cell();
+            profitCell.Add(new Paragraph(operation.Profit.ToString(DecimalFormatTwoDecimals))
+                .SetTextAlignment(TextAlignment.RIGHT));
+            contentTable.AddCell(profitCell);
+        }
+
+        #region Setting borders and text aligns
+
+        for (var i = 2; i < contentTable.GetHeader().GetChildren().Count; i++)
+        {
+            var cell = (Cell)contentTable.GetHeader().GetChildren().ElementAt(i);
+            cell.SetTextAlignment(TextAlignment.RIGHT);
+        }
+
+        foreach (var element in contentTable.GetHeader().GetChildren())
+        {
+            var cell = (Cell)element;
+            cell.SetBorder(null);
+            cell.SetBorderBottom(new SolidBorder(1));
+        }
+
+        foreach (var element in contentTable.GetChildren())
+        {
+            var cell = (Cell)element;
+            cell.SetBorder(null);
         }
 
         #endregion

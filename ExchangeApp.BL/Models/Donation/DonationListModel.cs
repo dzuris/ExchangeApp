@@ -1,4 +1,5 @@
-﻿using ExchangeApp.Common.Enums;
+﻿using ExchangeApp.BL.Models.Operations;
+using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.BL.Models.Donation;
 

@@ -1,4 +1,5 @@
 ﻿using ExchangeApp.BL.Models.Customer;
+using ExchangeApp.BL.Models.Operations;
 using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.BL.Models.Transaction;
