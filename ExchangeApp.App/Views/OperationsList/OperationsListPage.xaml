@@ -28,7 +28,7 @@
                         <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="15">
                             <Label Text="{Binding Type, Converter={StaticResource DonationTypeToStringConverter}}"/>
                             <Label Text="-" IsVisible="{Binding IsCanceled}"/>
-                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}" FontAttributes="Italic" TextColor="{StaticResource Gray400}"/>
+                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}" FontAttributes="Italic" TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray200}}"/>
                         </HorizontalStackLayout>
                         <HorizontalStackLayout Grid.Column="3" Spacing="5">
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
@@ -54,7 +54,7 @@
                         <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="15">
                             <Label Text="{Binding TransactionType, Converter={StaticResource TransactionTypeToStringConverter}}"/>
                             <Label Text="-" IsVisible="{Binding IsCanceled}"/>
-                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}"/>
+                            <Label Text="{x:Static texts:OperationsListPageResources.CanceledListItemLabel}" IsVisible="{Binding IsCanceled}" FontAttributes="Italic" TextColor="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray200}}"/>
                         </HorizontalStackLayout>
                         <HorizontalStackLayout Grid.Column="3" Spacing="5">
                             <Label Text="{Binding Quantity, StringFormat='{0:# ##0.##}'}" VerticalOptions="Center"/>
