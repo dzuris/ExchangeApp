@@ -37,24 +37,10 @@ public partial class TransactionDetailViewModel : ViewModelBase
     private int _id;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(TransactionNumber))]
     [NotifyPropertyChangedFor(nameof(HasTransactionCustomer))]
     [NotifyPropertyChangedFor(nameof(IsTransactionBuy))]
     [NotifyPropertyChangedFor(nameof(IsTransactionSell))]
     private TransactionDetailModel? _transaction;
-
-    public string TransactionNumber
-    {
-        get
-        {
-            if (Transaction is null)
-            {
-                return string.Empty;
-            }
-
-            return Transaction.Created.ToString("yyyyMMdd") + " / " + Transaction.Id;
-        }
-    }
 
     public bool IsTransactionBuy => Transaction is { TransactionType: TransactionType.Buy };
     public bool IsTransactionSell => !IsTransactionBuy;
