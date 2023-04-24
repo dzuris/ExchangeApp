@@ -1,18 +1,8 @@
-﻿using System.Diagnostics;
-using ExchangeApp.App.Services.Interfaces;
+﻿using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Company;
-using ExchangeApp.BL.Models.Donation;
-using ExchangeApp.BL.Models.TotalBalance;
-using ExchangeApp.BL.Models.Transaction;
-using ExchangeApp.Common.Enums;
 using iText.Kernel.Geom;
 using Path = System.IO.Path;
-
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using System.IO;
 
 namespace ExchangeApp.App.Services;
 
@@ -33,9 +23,9 @@ public partial class PrinterService : IPrinterService
     private static readonly PageSize OperationDocumentPageSize = PageSize.A5;
     private const string BoldFontFile = "Sono-SemiBold.ttf";
     private const string CommonFontFile = "Sono-Regular.ttf";
-    private const int HeaderFontSize = 10;
-    private const int CommonFontSize = 8;
-    private const int SmallFontSize = 6;
+    private const int HeaderFontSize = 9;
+    private const int CommonFontSize = 7;
+    private const int SmallFontSize = 5;
 
     public PrinterService(
         ISettingsFacade settingsFacade, 

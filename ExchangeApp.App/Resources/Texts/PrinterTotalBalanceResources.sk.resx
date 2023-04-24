@@ -261,4 +261,7 @@
   <data name="SectionHeaderProfitAbbreviated" xml:space="preserve">
     <value>Zisk - skráteny</value>
   </data>
+  <data name="CanceledTextAfter" xml:space="preserve">
+    <value>Stornované</value>
+  </data>
 </root>

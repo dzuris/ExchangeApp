@@ -241,4 +241,7 @@
   <data name="SectionHeaderProfitAbbreviated" xml:space="preserve">
     <value>Profit - abbreviated</value>
   </data>
+  <data name="CanceledTextAfter" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
 </root>

@@ -79,6 +79,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Canceled.
+        /// </summary>
+        public static string CanceledTextAfter {
+            get {
+                return ResourceManager.GetString("CanceledTextAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daily total balance.
         /// </summary>
         public static string DailyTotalBalance {
