@@ -4,9 +4,10 @@ using System.Resources;
 using ExchangeApp.App.Converters;
 using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.HeaderAndFooters;
-using ExchangeApp.BL.Models;
+using ExchangeApp.BL.Models.Company;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Donation;
+using ExchangeApp.BL.Models.Operations;
 using ExchangeApp.BL.Models.TotalBalance;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.Common.Enums;
@@ -44,12 +45,7 @@ public partial class PrinterService
         var commonFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, CommonFontFile));
 
         // Gets company info
-        var company = await _settingsFacade.GetCompanyDataAsync();
-
-        if (company is null)
-        {
-            return;
-        }
+        var company = await _settingsFacade.GetCompanyDataAsync() ?? CompanyDetailModel.Empty;
 
         // Adding header and footer
         var headerHandler = new TotalBalanceHeaderEventHandler(model.Type, commonFont, SmallFontSize, company.TradeNameOfTheOwner, company.Ico, model.Created, model.Id);
@@ -123,10 +119,23 @@ public partial class PrinterService
 
         document.Add(new AreaBreak());
 
-        #region Profit list
+        #region Profit abbreviated list
 
         var profitList = await _operationFacade.GetProfitListAsync(model.LastTotalBalance, model.Created);
-        document = AddProfitListData(document, profitList, boldFont, commonFont);
+        document = AddProfitAbbreviatedListData(document, profitList, boldFont, commonFont);
+
+        #endregion
+
+        document.Add(new AreaBreak());
+
+        #region Profit complete list
+
+        var operationsProfitList =
+            await _operationFacade.GetOperationsProfitAsync(model.LastTotalBalance, model.Created);
+        document = AddProfitCompleteListData(document,
+            operationsProfitList,
+            boldFont,
+            commonFont);
 
         #endregion
 
@@ -558,7 +567,10 @@ public partial class PrinterService
             var donationTypeConverter = new DonationTypeToStringConverter();
             var donationType = (string)donationTypeConverter.Convert(donation.Type, typeof(DonationType), null, CultureInfo.CurrentCulture);
             var typeCell = new Cell();
-            typeCell.Add(new Paragraph($"{donationType}").SetTextAlignment(TextAlignment.RIGHT));
+            var donationText = donation.IsCanceled
+                ? $"{donationType} - {rm.GetString("CanceledTextAfter")}"
+                : $"{donationType}";
+            typeCell.Add(new Paragraph($"{donationText}").SetTextAlignment(TextAlignment.RIGHT));
             contentTable.AddCell(typeCell);
 
             // Quantity
@@ -1131,12 +1143,12 @@ public partial class PrinterService
         return document;
     }
 
-    private static Document AddProfitListData(Document document, List<CurrencyProfitModel> profitList, PdfFont boldFont,
+    private static Document AddProfitAbbreviatedListData(Document document, List<CurrencyProfitModel> profitList, PdfFont boldFont,
         PdfFont commonFont)
     {
         var rm = new ResourceManager(typeof(PrinterTotalBalanceResources));
 
-        var header = new Paragraph(rm.GetString("SectionHeaderProfit"))
+        var header = new Paragraph(rm.GetString("SectionHeaderProfitAbbreviated"))
             .SetTextAlignment(TextAlignment.CENTER)
             .SetFont(boldFont)
             .SetFontSize(HeaderFontSize);
@@ -1209,6 +1221,98 @@ public partial class PrinterService
             var cell = (Cell)element;
             cell.SetBorder(null);
             cell.SetBorderTop(new SolidBorder(1));
+        }
+
+        #endregion
+
+        document.Add(contentTable);
+
+        return document;
+    }
+
+    private static Document AddProfitCompleteListData(Document document, List<OperationProfitModel> profits,
+        PdfFont boldFont, PdfFont commonFont)
+    {
+        var rm = new ResourceManager(typeof(PrinterTotalBalanceResources));
+
+        var header = new Paragraph(rm.GetString("SectionHeaderProfitComplete"))
+            .SetTextAlignment(TextAlignment.CENTER)
+            .SetFont(boldFont)
+            .SetFontSize(HeaderFontSize);
+        document.Add(header);
+        document.Add(new LineSeparator(new SolidLine()));
+
+        var contentTable = new Table(6)
+            .UseAllAvailableWidth()
+            .SetFont(commonFont)
+            .SetFontSize(CommonFontSize)
+            .SetMarginTop(20);
+
+        #region Header
+
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemOperationId"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemCurrencyCode"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemQuantity"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemCourseRate"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemExchangeRateValue"));
+        contentTable.AddHeaderCell(rm.GetString("ListHeaderItemProfit"));
+
+        #endregion
+
+        foreach (var operation in profits)
+        {
+            // Operation id
+            contentTable.AddCell($"{operation.Id}");
+
+            // Currency code
+            contentTable.AddCell(operation.CurrencyCode);
+
+            // Quantity cell
+            var quantityCell = new Cell();
+            quantityCell.Add(new Paragraph(operation.Quantity.ToString(DecimalFormatTwoDecimals))
+                .SetTextAlignment(TextAlignment.RIGHT));
+            contentTable.AddCell(quantityCell);
+
+            // Course rate cell
+            var courseCell = new Cell();
+            courseCell.Add(
+                new Paragraph(operation.CourseRate.ToString(AverageCourseFormat))
+                    .SetTextAlignment(TextAlignment.RIGHT));
+            contentTable.AddCell(courseCell);
+
+            // Exchange rate cell
+            var exchangeCell = new Cell();
+            exchangeCell.Add(
+                new Paragraph(operation.ExchangeRateValue.ToString(DecimalFormatTwoDecimals))
+                    .SetTextAlignment(TextAlignment.RIGHT));
+            contentTable.AddCell(exchangeCell);
+
+            // Profit cell
+            var profitCell = new Cell();
+            profitCell.Add(new Paragraph(operation.Profit.ToString(DecimalFormatTwoDecimals))
+                .SetTextAlignment(TextAlignment.RIGHT));
+            contentTable.AddCell(profitCell);
+        }
+
+        #region Setting borders and text aligns
+
+        for (var i = 2; i < contentTable.GetHeader().GetChildren().Count; i++)
+        {
+            var cell = (Cell)contentTable.GetHeader().GetChildren().ElementAt(i);
+            cell.SetTextAlignment(TextAlignment.RIGHT);
+        }
+
+        foreach (var element in contentTable.GetHeader().GetChildren())
+        {
+            var cell = (Cell)element;
+            cell.SetBorder(null);
+            cell.SetBorderBottom(new SolidBorder(1));
+        }
+
+        foreach (var element in contentTable.GetChildren())
+        {
+            var cell = (Cell)element;
+            cell.SetBorder(null);
         }
 
         #endregion
@@ -1383,51 +1487,63 @@ public partial class PrinterService
                         break;
                     }
             }
+
+            if (item.IsCanceled)
+            {
+                type += $" - {rm.GetString("CanceledTextAfter")}";
+            }
             typeCell.Add(new Paragraph(type));
             contentTable.AddCell(typeCell);
 
             // Quantity
-            switch (item)
+            if (!item.IsCanceled)
             {
-                case TransactionListModel { TransactionType: TransactionType.Buy }:
-                    var buyCell = new Cell().SetBorder(null);
-                    buyCell.Add(
-                        new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
-                            .RIGHT));
-                    contentTable.AddCell(buyCell);
-                    contentTable.AddCell(new Cell(1, 4).SetBorder(null));
-                    buySum += item.Quantity;
-                    break;
-                case TransactionListModel { TransactionType: TransactionType.Sell }:
-                    contentTable.AddCell(new Cell().SetBorder(null));
-                    var sellCell = new Cell().SetBorder(null);
-                    sellCell.Add(
-                        new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
-                            .RIGHT));
-                    contentTable.AddCell(sellCell);
-                    contentTable.AddCell(new Cell(1, 3).SetBorder(null));
-                    sellSum -= item.Quantity;
-                    break;
-                case DonationListModel { Type: DonationType.Deposit }:
-                    contentTable.AddCell(new Cell(1, 2).SetBorder(null));
-                    var depositCell = new Cell().SetBorder(null);
-                    depositCell.Add(
-                        new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
-                            .RIGHT));
-                    contentTable.AddCell(depositCell);
-                    contentTable.AddCell(new Cell(1, 2).SetBorder(null));
-                    depositSum += item.Quantity;
-                    break;
-                case DonationListModel { Type: DonationType.Withdraw or DonationType.Levy }:
-                    contentTable.AddCell(new Cell(1, 3).SetBorder(null));
-                    var withdrawCell = new Cell().SetBorder(null);
-                    withdrawCell.Add(
-                        new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
-                            .RIGHT));
-                    contentTable.AddCell(withdrawCell);
-                    contentTable.AddCell(new Cell().SetBorder(null));
-                    withdrawSum -= item.Quantity;
-                    break;
+                switch (item)
+                {
+                    case TransactionListModel { TransactionType: TransactionType.Buy }:
+                        var buyCell = new Cell().SetBorder(null);
+                        buyCell.Add(
+                            new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
+                                .RIGHT));
+                        contentTable.AddCell(buyCell);
+                        contentTable.AddCell(new Cell(1, 4).SetBorder(null));
+                        buySum += item.Quantity;
+                        break;
+                    case TransactionListModel { TransactionType: TransactionType.Sell }:
+                        contentTable.AddCell(new Cell().SetBorder(null));
+                        var sellCell = new Cell().SetBorder(null);
+                        sellCell.Add(
+                            new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
+                                .RIGHT));
+                        contentTable.AddCell(sellCell);
+                        contentTable.AddCell(new Cell(1, 3).SetBorder(null));
+                        sellSum -= item.Quantity;
+                        break;
+                    case DonationListModel { Type: DonationType.Deposit }:
+                        contentTable.AddCell(new Cell(1, 2).SetBorder(null));
+                        var depositCell = new Cell().SetBorder(null);
+                        depositCell.Add(
+                            new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
+                                .RIGHT));
+                        contentTable.AddCell(depositCell);
+                        contentTable.AddCell(new Cell(1, 2).SetBorder(null));
+                        depositSum += item.Quantity;
+                        break;
+                    case DonationListModel { Type: DonationType.Withdraw or DonationType.Levy }:
+                        contentTable.AddCell(new Cell(1, 3).SetBorder(null));
+                        var withdrawCell = new Cell().SetBorder(null);
+                        withdrawCell.Add(
+                            new Paragraph(item.Quantity.ToString(DecimalFormatTwoDecimals)).SetTextAlignment(TextAlignment
+                                .RIGHT));
+                        contentTable.AddCell(withdrawCell);
+                        contentTable.AddCell(new Cell().SetBorder(null));
+                        withdrawSum -= item.Quantity;
+                        break;
+                }
+            }
+            else
+            {
+                contentTable.AddCell(new Cell(1, 5).SetBorder(null));
             }
 
             lastPrintedDate = item.Created;

@@ -132,7 +132,6 @@
 	  <None Remove="Resources\Images\Flags\usd_flag.png" />
 	  <None Remove="Resources\Images\Flags\zar_flag.png" />
 	  <None Remove="Resources\Raw\about.json" />
-	  <None Remove="Resources\Raw\license-en.txt" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -521,15 +520,6 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>TransactionPageResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiFont Update="Resources\Fonts\Sono-Regular.ttf">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiFont>
-	  <MauiFont Update="Resources\Fonts\Sono-SemiBold.ttf">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiFont>
 	</ItemGroup>
 
 	<ItemGroup>

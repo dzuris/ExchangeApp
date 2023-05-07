@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ExchangeApp.BL.Models;
 using ExchangeApp.BL.Models.Donation;
+using ExchangeApp.BL.Models.Operations;
 using ExchangeApp.BL.Models.Transaction;
 using ExchangeApp.DAL.Entities.Operations;
 
@@ -17,5 +18,8 @@ public class OperationMapperProfile : Profile
         CreateMap<OperationEntityBase, OperationListModelBase>()
             .Include<TransactionEntity, TransactionListModel>()
             .Include<DonationEntity, DonationListModel>();
+
+        CreateMap<OperationEntityBase, OperationProfitModel>()
+            .ForMember(dst => dst.Profit, opt => opt.Ignore());
     }
 }

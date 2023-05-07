@@ -237,8 +237,8 @@
   <data name="ListHeaderItemRounding" xml:space="preserve">
     <value>Zaokrúhlenie</value>
   </data>
-  <data name="SectionHeaderProfit" xml:space="preserve">
-    <value>Zisk</value>
+  <data name="SectionHeaderProfitComplete" xml:space="preserve">
+    <value>Zisk - úplny</value>
   </data>
   <data name="ListHeaderItemProfit" xml:space="preserve">
     <value>Zisk</value>
@@ -257,5 +257,11 @@
   </data>
   <data name="ListHeaderItemInitialState" xml:space="preserve">
     <value>Počiatočný stav</value>
+  </data>
+  <data name="SectionHeaderProfitAbbreviated" xml:space="preserve">
+    <value>Zisk - skráteny</value>
+  </data>
+  <data name="CanceledTextAfter" xml:space="preserve">
+    <value>Stornované</value>
   </data>
 </root>

@@ -4,7 +4,7 @@
              x:Class="ExchangeApp.App.Resources.Styles.LabelStyle">
 
     <Style x:Key="InfoLabelLight" TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray400}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray200}}" />
         <Setter Property="FontSize" Value="12" />
     </Style>
 

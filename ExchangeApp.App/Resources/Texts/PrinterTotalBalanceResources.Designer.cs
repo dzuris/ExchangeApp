@@ -79,6 +79,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Canceled.
+        /// </summary>
+        public static string CanceledTextAfter {
+            get {
+                return ResourceManager.GetString("CanceledTextAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daily total balance.
         /// </summary>
         public static string DailyTotalBalance {
@@ -448,11 +457,20 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profit.
+        ///   Looks up a localized string similar to Profit - abbreviated.
         /// </summary>
-        public static string SectionHeaderProfit {
+        public static string SectionHeaderProfitAbbreviated {
             get {
-                return ResourceManager.GetString("SectionHeaderProfit", resourceCulture);
+                return ResourceManager.GetString("SectionHeaderProfitAbbreviated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profit - complete.
+        /// </summary>
+        public static string SectionHeaderProfitComplete {
+            get {
+                return ResourceManager.GetString("SectionHeaderProfitComplete", resourceCulture);
             }
         }
         

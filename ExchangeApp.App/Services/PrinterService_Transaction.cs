@@ -61,23 +61,6 @@ public partial class PrinterService
             await SavePdf(model, fileName);
         }
 
-        //var info = new ProcessStartInfo(fileName)
-        //{
-        //    Verb = "PrintTo",
-        //    CreateNoWindow = true,
-        //    WindowStyle = ProcessWindowStyle.Hidden
-        //};
-        //Process.Start(info);
-
-        //var info = new ProcessStartInfo
-        //{
-        //    FileName = "cmd.exe",
-        //    Arguments = $"/C rundll32.exe mshtml.dll,PrintHTML \"{fileName}\"",
-        //    CreateNoWindow = true,
-        //    UseShellExecute = false
-        //};
-        //Process.Start(info);
-
         try
         {
             var info = new ProcessStartInfo(fileName)

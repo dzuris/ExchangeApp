@@ -121,16 +121,16 @@
     <value>Transakcia</value>
   </data>
   <data name="CurrencyFromLabel" xml:space="preserve">
-    <value>Mena z:</value>
+    <value>Mena od zákazníka:</value>
   </data>
   <data name="CurrencyToLabel" xml:space="preserve">
-    <value>Mena do:</value>
+    <value>Mena vydávaná zákazníkovi:</value>
   </data>
   <data name="AmountFromLabel" xml:space="preserve">
-    <value>Množstvo z:</value>
+    <value>Množstvo od zákazníka:</value>
   </data>
   <data name="AmountToLabel" xml:space="preserve">
-    <value>Množstvo do:</value>
+    <value>Množstvo vydávaná zákazníkovi:</value>
   </data>
   <data name="CourseRateLabel" xml:space="preserve">
     <value>Kurz:</value>

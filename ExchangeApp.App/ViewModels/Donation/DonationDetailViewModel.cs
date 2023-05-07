@@ -35,21 +35,7 @@ public partial class DonationDetailViewModel : ViewModelBase
     private int _id;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(DonationNumber))]
     private DonationDetailModel? _donation;
-
-    public string DonationNumber
-    {
-        get
-        {
-            if (Donation is null)
-            {
-                return string.Empty;
-            }
-
-            return Donation.Created.ToString("yyyyMMdd") + " / " + Donation.Id;
-        }
-    }
 
     [RelayCommand]
     private async Task CancelAsync()

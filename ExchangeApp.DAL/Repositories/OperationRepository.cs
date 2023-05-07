@@ -153,6 +153,6 @@ public class OperationRepository : RepositoryBase<OperationEntityBase, int>, IOp
             return lastTotalBalance.Created < operationCreation;
         }
 
-        return false;
+        return true;
     }
 }
