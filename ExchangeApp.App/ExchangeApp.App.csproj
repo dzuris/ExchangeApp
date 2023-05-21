@@ -129,6 +129,7 @@
 	  <None Remove="Resources\Images\Flags\sgd_flag.png" />
 	  <None Remove="Resources\Images\Flags\thb_flag.png" />
 	  <None Remove="Resources\Images\Flags\try_flag.png" />
+	  <None Remove="Resources\Images\Flags\uah_flag.png" />
 	  <None Remove="Resources\Images\Flags\usd_flag.png" />
 	  <None Remove="Resources\Images\Flags\zar_flag.png" />
 	  <None Remove="Resources\Raw\about.json" />
@@ -166,6 +167,7 @@
 	  <MauiImage Include="Resources\Images\Flags\sgd_flag.png" />
 	  <MauiImage Include="Resources\Images\Flags\thb_flag.png" />
 	  <MauiImage Include="Resources\Images\Flags\try_flag.png" />
+	  <MauiImage Include="Resources\Images\Flags\uah_flag.png" />
 	  <MauiImage Include="Resources\Images\Flags\usd_flag.png" />
 	  <MauiImage Include="Resources\Images\Flags\zar_flag.png" />
 	</ItemGroup>

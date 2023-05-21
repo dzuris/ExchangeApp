@@ -194,6 +194,12 @@ public static class CurrencySeeds
         PhotoUrl = "zar_flag.png"
     };
 
+    public static readonly CurrencyEntity Uah = new()
+    {
+        Code = "UAH".ToUpper(),
+        PhotoUrl = "uah_flag.png"
+    };
+
     public static void Seed(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CurrencyEntity>().HasData(
@@ -227,7 +233,8 @@ public static class CurrencySeeds
             Php,
             Sgd,
             Thb,
-            Zar
+            Zar,
+            Uah
         );
     }
 }

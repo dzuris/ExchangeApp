@@ -216,4 +216,7 @@
   <data name="ZAR" xml:space="preserve">
     <value>Južná Afrika</value>
   </data>
+  <data name="UAH" xml:space="preserve">
+    <value>Ukrajina</value>
+  </data>
 </root>

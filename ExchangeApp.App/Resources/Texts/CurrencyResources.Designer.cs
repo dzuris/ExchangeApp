@@ -340,6 +340,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ukraine.
+        /// </summary>
+        public static string UAH {
+            get {
+                return ResourceManager.GetString("UAH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to United states of America.
         /// </summary>
         public static string USD {

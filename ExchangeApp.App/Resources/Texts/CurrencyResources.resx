@@ -196,4 +196,7 @@
   <data name="ZAR" xml:space="preserve">
     <value>South Africa</value>
   </data>
+  <data name="UAH" xml:space="preserve">
+    <value>Ukraine</value>
+  </data>
 </root>
