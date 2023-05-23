@@ -79,11 +79,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to License:.
+        ///   Looks up a localized string similar to © 2023 Adam Dzurilla. All rights reserved..
         /// </summary>
-        public static string LicenseLabel {
+        public static string CopyrightSentence {
             get {
-                return ResourceManager.GetString("LicenseLabel", resourceCulture);
+                return ResourceManager.GetString("CopyrightSentence", resourceCulture);
             }
         }
         
@@ -93,6 +93,15 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product name:.
+        /// </summary>
+        public static string ProductNameLabel {
+            get {
+                return ResourceManager.GetString("ProductNameLabel", resourceCulture);
             }
         }
     }

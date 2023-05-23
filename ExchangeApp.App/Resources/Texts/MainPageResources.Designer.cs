@@ -88,7 +88,7 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of todays operations:.
+        ///   Looks up a localized string similar to Number of today&apos;s operations:.
         /// </summary>
         public static string OperationsInDayLabel {
             get {

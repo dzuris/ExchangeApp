@@ -15,6 +15,10 @@ namespace ExchangeApp.App.ViewModels.Transaction;
 
 public partial class TransactionCreateViewModel : ViewModelBase
 {
+    public string DomesticCurrencyCode => "EUR";
+    public List<TransactionType> TransactionTypes
+        => Enum.GetValues(typeof(TransactionType)).Cast<TransactionType>().ToList();
+    
     private readonly ITransactionFacade _transactionFacade;
     private readonly ICurrencyFacade _currencyFacade;
     private readonly ISettingsFacade _settingsFacade;
@@ -37,9 +41,11 @@ public partial class TransactionCreateViewModel : ViewModelBase
 
         if (_isFirstAppear)
         {
-            Currencies = await _currencyFacade.GetActiveCurrenciesForTransactionAsync();
-            CurrencyFrom = Currencies.ElementAt(0);
-            CurrencyTo = Currencies.ElementAt(0);
+            var currencies = await _currencyFacade.GetActiveCurrenciesForTransactionAsync();
+            Currencies = currencies.Where(i => i.Code != DomesticCurrencyCode).ToList();
+            var item = currencies.Single(i => i.Code == DomesticCurrencyCode);
+            DomesticCurrencyQuantity = item.Quantity;
+
             _isFirstAppear = false;
         }
     }
@@ -47,57 +53,62 @@ public partial class TransactionCreateViewModel : ViewModelBase
     [ObservableProperty]
     private string? _originalCourseRate;
 
+    [ObservableProperty]
+    private decimal _domesticCurrencyQuantity;
+
     [ObservableProperty] 
     private TransactionDetailModel _transaction = TransactionDetailModel.Empty;
 
     [ObservableProperty]
     private List<CurrencyTransactionListModel> _currencies = new();
+    
+    private CurrencyTransactionListModel? _currency;
 
-    [ObservableProperty] 
-    private CurrencyTransactionListModel? _currencyFrom;
-
-    [ObservableProperty]
-    private CurrencyTransactionListModel? _currencyTo;
-
-    private bool _quantityCalculatorBlocked;
-    private string _quantityFrom = string.Empty;
-    public string QuantityFrom
+    public CurrencyTransactionListModel? Currency
     {
-        get => _quantityFrom;
+        get => _currency;
         set
         {
-            SetProperty(ref _quantityFrom, value);
+            SetProperty(ref _currency, value);
+            Transaction.Currency = value;
+
+            SetCourseRate(value, TransactionTypeProp);
+
+            OnPropertyChanged(nameof(Transaction));
+        }
+    }
+
+    private bool _quantityCalculatorBlocked;
+    private string _quantityForeign = string.Empty;
+    public string QuantityForeign
+    {
+        get => _quantityForeign;
+        set
+        {
+            SetProperty(ref _quantityForeign, value);
 
             // If empty then resets the fields
-            if (_quantityFrom.Length == 0)
+            if (_quantityForeign.Length == 0)
             {
                 Transaction.Quantity = 0;
                 OnPropertyChanged(nameof(Transaction));
                 return;
             }
 
-            var quantityFromDecimal = Utilities.Utilities.StrToDecimal(value);
-            if (quantityFromDecimal is null or <= 0) return;
+            var quantityForeignDecimal = Utilities.Utilities.StrToDecimal(value);
+            if (quantityForeignDecimal is null or <= 0) return;
 
             var courseRateDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
+            if (courseRateDecimal is null or <= 0) return;
 
-            switch (courseRateDecimal)
+            if (!_quantityCalculatorBlocked)
             {
-                case null:
-                    return;
-                case > 0:
-                    // Calculate quantityTo and sets it to two decimal points
-                    if (_quantityCalculatorBlocked) break;
-                    _quantityTo = TransactionTypeProp == TransactionType.Buy 
-                        ? Math.Round((decimal)(quantityFromDecimal / courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture) 
-                        : Math.Round((decimal)(quantityFromDecimal * courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture);
-                    break;
+                _quantityDomestic = Math.Round((decimal)(quantityForeignDecimal / courseRateDecimal), 2)
+                    .ToString(CultureInfo.CurrentCulture);
             }
 
             // Sets transaction quantity according to transaction type
-            Transaction.Quantity = TransactionTypeProp == TransactionType.Buy 
-                ? (decimal)quantityFromDecimal 
-                : Utilities.Utilities.StrToDecimal(_quantityTo) ?? 1;
+            Transaction.Quantity = (decimal)quantityForeignDecimal;
             
             OnPropertyChanged(nameof(Transaction));
             OnPropertyChanged(nameof(Tip));
@@ -106,7 +117,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             try
             {
                 _quantityCalculatorBlocked = true;
-                OnPropertyChanged(nameof(QuantityTo));
+                OnPropertyChanged(nameof(QuantityDomestic));
             }
             finally
             {
@@ -118,44 +129,36 @@ public partial class TransactionCreateViewModel : ViewModelBase
         }
     }
     
-    private string _quantityTo = string.Empty;
-    public string QuantityTo
+    private string _quantityDomestic = string.Empty;
+    public string QuantityDomestic
     {
-        get => _quantityTo;
+        get => _quantityDomestic;
         set
         {
-            SetProperty(ref _quantityTo, value);
+            SetProperty(ref _quantityDomestic, value);
 
             // If empty then resets the fields
-            if (_quantityTo.Length == 0)
+            if (_quantityDomestic.Length == 0)
             {
                 Transaction.Quantity = 0;
                 OnPropertyChanged(nameof(Transaction));
                 return;
             }
 
-            var quantityToDecimal = Utilities.Utilities.StrToDecimal(_quantityTo);
-            if (quantityToDecimal is null or <= 0) return;
+            var quantityDomesticDecimal = Utilities.Utilities.StrToDecimal(_quantityDomestic);
+            if (quantityDomesticDecimal is null or <= 0) return;
 
             var courseRateDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
+            if (courseRateDecimal is null or <= 0) return;
 
-            switch (courseRateDecimal)
+            if (!_quantityCalculatorBlocked)
             {
-                case null:
-                    return;
-                case > 0:
-                    // Calculate quantityFrom and sets it to two decimal points
-                    if (_quantityCalculatorBlocked) break;
-                    _quantityFrom = TransactionTypeProp == TransactionType.Buy 
-                        ? Math.Round((decimal)(quantityToDecimal * courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture) 
-                        : Math.Round((decimal)(quantityToDecimal / courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture);
-                    break;
+                _quantityForeign = Math.Round((decimal)(quantityDomesticDecimal * courseRateDecimal), 2)
+                    .ToString(CultureInfo.CurrentCulture);
             }
 
             // Sets transaction quantity according to transaction type
-            Transaction.Quantity = TransactionTypeProp == TransactionType.Sell 
-                ? (decimal)quantityToDecimal 
-                : Utilities.Utilities.StrToDecimal(_quantityFrom) ?? 1;
+            Transaction.Quantity = Utilities.Utilities.StrToDecimal(_quantityForeign) ?? 1;
             
             OnPropertyChanged(nameof(Transaction));
             OnPropertyChanged(nameof(Tip));
@@ -164,7 +167,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             try
             {
                 _quantityCalculatorBlocked = true;
-                OnPropertyChanged(nameof(QuantityFrom));
+                OnPropertyChanged(nameof(QuantityForeign));
             }
             finally
             {
@@ -190,16 +193,15 @@ public partial class TransactionCreateViewModel : ViewModelBase
             Transaction.CourseRate = (decimal)courseRateDecimal;
             OnPropertyChanged(nameof(Transaction));
 
-            var quantityFromDecimal = Utilities.Utilities.StrToDecimal(QuantityFrom);
-            if (quantityFromDecimal is null) { return; }
+            var quantityForeignDecimal = Utilities.Utilities.StrToDecimal(QuantityForeign);
+            if (quantityForeignDecimal is null) { return; }
 
             try
             {
                 _quantityCalculatorBlocked = true;
-                var result = TransactionTypeProp == TransactionType.Buy 
-                    ? Math.Round((decimal)(quantityFromDecimal / courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture) 
-                    : Math.Round((decimal)(quantityFromDecimal * courseRateDecimal), 2).ToString(CultureInfo.CurrentCulture);
-                QuantityTo = result;
+                var result = Math.Round((decimal)(quantityForeignDecimal / courseRateDecimal), 2)
+                    .ToString(CultureInfo.CurrentCulture);
+                QuantityDomestic = result;
             }
             finally
             {
@@ -211,15 +213,16 @@ public partial class TransactionCreateViewModel : ViewModelBase
         }
     }
 
-    private TransactionType? _transactionTypeProp;
-    public TransactionType? TransactionTypeProp
+    private TransactionType _transactionTypeProp = TransactionType.Buy;
+    public TransactionType TransactionTypeProp
     {
         get => _transactionTypeProp;
         set
         {
             SetProperty(ref _transactionTypeProp, value);
 
-            Transaction.TransactionType = _transactionTypeProp ?? TransactionType.Buy;
+            SetCourseRate(Currency, value);
+            Transaction.TransactionType = _transactionTypeProp;
             OnPropertyChanged(nameof(Transaction));
         }
     }
@@ -249,7 +252,6 @@ public partial class TransactionCreateViewModel : ViewModelBase
         {
             return TransactionTypeProp switch
             {
-                null => 0,
                 TransactionType.Buy => Transaction.Quantity,
                 _ => Transaction.TotalAmountDomesticCurrency
             };
@@ -262,86 +264,10 @@ public partial class TransactionCreateViewModel : ViewModelBase
         {
             return TransactionTypeProp switch
             {
-                null => 0,
                 TransactionType.Buy => Transaction.TotalAmountDomesticCurrency,
                 _ => Transaction.Quantity
             };
         }
-    }
-
-    // Currencies on change
-    private const string DomesticCurrencyCode = "EUR";
-    public void OnCurrencyFromChanged()
-    {
-        // Conditions same for both currencies
-        if (CurrencyFrom is null || CurrencyTo is null)
-        {
-            return;
-        }
-        if (CurrencyFrom.Code == DomesticCurrencyCode && CurrencyTo.Code == DomesticCurrencyCode)
-        {
-            return;
-        }
-
-        // Continue only if working with foreign currency
-        if (CurrencyFrom.Code == DomesticCurrencyCode) return;
-
-        // Sets opposite currency to domestic
-        CurrencyTo = Currencies.Find(c => c.Code == DomesticCurrencyCode);
-        TransactionTypeProp = TransactionType.Buy;
-        
-        // Change course rate
-        CourseRate = CurrencyFrom.BuyRate.ToString(CultureInfo.CurrentCulture);
-        OriginalCourseRate = CourseRate;
-
-        Transaction.Currency = CurrencyFrom;
-        OnPropertyChanged(nameof(Transaction));
-
-        QuantityFrom = string.Empty;
-        QuantityTo = string.Empty;
-        OnPropertyChanged(nameof(QuantityTo));
-        OnPropertyChanged(nameof(QuantityFrom));
-
-        Payment = string.Empty;
-
-        OnPropertyChanged(nameof(ToPay));
-        OnPropertyChanged(nameof(ForPayment));
-    }
-
-    public void OnCurrencyToChanged()
-    {
-        // Conditions same for both currencies
-        if (CurrencyFrom is null || CurrencyTo is null)
-        {
-            return;
-        }
-        if (CurrencyFrom.Code == DomesticCurrencyCode && CurrencyTo.Code == DomesticCurrencyCode)
-        {
-            return;
-        }
-
-        // Continue only if working with foreign currency
-        if (CurrencyTo.Code == DomesticCurrencyCode) return;
-
-        // Sets opposite currency to domestic
-        CurrencyFrom = Currencies.Find(c => c.Code == DomesticCurrencyCode);
-        TransactionTypeProp = TransactionType.Sell;
-        
-        CourseRate = CurrencyTo.SellRate.ToString(CultureInfo.CurrentCulture);
-        OriginalCourseRate = CourseRate;
-
-        Transaction.Currency = CurrencyTo;
-        OnPropertyChanged(nameof(Transaction));
-
-        QuantityFrom = string.Empty;
-        QuantityTo = string.Empty;
-        OnPropertyChanged(nameof(QuantityTo));
-        OnPropertyChanged(nameof(QuantityFrom));
-
-        Payment = string.Empty;
-
-        OnPropertyChanged(nameof(ToPay));
-        OnPropertyChanged(nameof(ForPayment));
     }
 
     [RelayCommand]
@@ -410,51 +336,70 @@ public partial class TransactionCreateViewModel : ViewModelBase
         var rm = new ResourceManager(typeof(TransactionPageResources));
         var errorMessage = string.Empty;
 
-        const string domesticCurrencyCode = "EUR";
+        // Currency must be selected
+        if (Currency is null)
+        {
+            errorMessage += rm.GetString("ErrorMessage_CurrencyNull") + "\n";
+        }
 
-        // Currencies can not be null, one must be domestic and the other one different
-        if (CurrencyTo is null 
-            || CurrencyFrom is null 
-            ||
-            (CurrencyTo.Code != domesticCurrencyCode 
-                && CurrencyFrom.Code != domesticCurrencyCode) 
-            || (CurrencyFrom.Code == domesticCurrencyCode 
-                && CurrencyTo.Code == domesticCurrencyCode))
-            errorMessage += rm.GetString("ErrorMessage_CurrencySelection") + "\n";
+        // Quantity foreign validation
+        var quantityForeignDecimal = Utilities.Utilities.StrToDecimal(QuantityForeign);
+        if (string.IsNullOrWhiteSpace(QuantityForeign) || quantityForeignDecimal is null or <= 0)
+            errorMessage += rm.GetString("ErrorMessage_QuantityForeignNotValid") + "\n";
 
-        // Quantity from validation
-        var quantityFromDecimal = Utilities.Utilities.StrToDecimal(QuantityFrom);
-        if (string.IsNullOrWhiteSpace(QuantityFrom) || quantityFromDecimal is null or <= 0)
-            errorMessage += rm.GetString("ErrorMessage_QuantityFromNotValid") + "\n";
-
-        // Quantity to validation
-        var quantityToDecimal = Utilities.Utilities.StrToDecimal(QuantityTo);
-        if (string.IsNullOrWhiteSpace(QuantityTo) || quantityToDecimal is null or <= 0)
-            errorMessage += rm.GetString("ErrorMessage_QuantityToNotValid") + "\n";
+        // Quantity domestic validation
+        var quantityDomesticDecimal = Utilities.Utilities.StrToDecimal(QuantityDomestic);
+        if (string.IsNullOrWhiteSpace(QuantityDomestic) || quantityDomesticDecimal is null or <= 0)
+            errorMessage += rm.GetString("ErrorMessage_QuantityDomesticNotValid") + "\n";
 
         // Course rate validation
         var courseRateToDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
         if (string.IsNullOrWhiteSpace(CourseRate) || courseRateToDecimal is null or <= 0)
             errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
+
         // Course rate can not exceed opposite course rate
-        else if (CurrencyFrom is not null && CurrencyTo is not null)
+        else if (Currency is not null)
         {
             switch (TransactionTypeProp)
             {
-                case TransactionType.Buy when (decimal)courseRateToDecimal < CurrencyFrom.SellRate:
-                case TransactionType.Sell when (decimal)courseRateToDecimal > CurrencyTo.BuyRate:
+                case TransactionType.Buy when (decimal)courseRateToDecimal < Currency.SellRate:
+                case TransactionType.Sell when (decimal)courseRateToDecimal > Currency.BuyRate:
                     errorMessage += rm.GetString("ErrorMessage_CourseRateExceededOtherOne") + "\n";
                     break;
             }
         }
 
         // Not enough money in cash register check
-        if (CurrencyTo is not null)
+        if (Currency is not null)
         {
-            if (quantityToDecimal is null || quantityToDecimal > CurrencyTo.Quantity)
+            if (TransactionTypeProp is TransactionType.Buy &&
+                DomesticCurrencyQuantity < Transaction.TotalAmountDomesticCurrency
+                || TransactionTypeProp is TransactionType.Sell
+                && (quantityForeignDecimal is not null || quantityForeignDecimal > Currency.Quantity))
+            {
                 errorMessage += rm.GetString("ErrorMessage_InsufficientMoneyInCashRegister") + "\n";
+            }
         }
 
         return errorMessage;
+    }
+
+    /// <summary>
+    /// Sets course rate according to transaction type and selected currency
+    /// </summary>
+    /// <param name="currency">Selected currency</param>
+    /// <param name="transactionType">Selected transaction type</param>
+    private void SetCourseRate(CurrencyTransactionListModel? currency, TransactionType transactionType)
+    {
+        if (transactionType is TransactionType.Buy)
+        {
+            CourseRate = currency?.BuyRate.ToString(CultureInfo.CurrentCulture) ?? string.Empty;
+            OriginalCourseRate = currency?.BuyRate.ToString(CultureInfo.CurrentCulture);
+        }
+        else
+        {
+            CourseRate = currency?.SellRate.ToString(CultureInfo.CurrentCulture) ?? string.Empty;
+            OriginalCourseRate = currency?.SellRate.ToString(CultureInfo.CurrentCulture);
+        }
     }
 }

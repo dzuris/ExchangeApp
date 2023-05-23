@@ -121,7 +121,7 @@
     <value>Home</value>
   </data>
   <data name="OperationsInDayLabel" xml:space="preserve">
-    <value>Number of todays operations:</value>
+    <value>Number of today's operations:</value>
   </data>
   <data name="EmployeePickerTitle" xml:space="preserve">
     <value>Employee</value>

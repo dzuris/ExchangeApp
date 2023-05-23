@@ -10,6 +10,7 @@
              x:DataType="vm:TransactionCreateViewModel">
 
     <Grid RowDefinitions="*, Auto" RowSpacing="20" ColumnDefinitions="*, *">
+        <!-- Entries for transaction type, currency, quantities and course rate -->
         <Grid 
             RowDefinitions="Auto, Auto, Auto"
             RowSpacing="25"
@@ -17,48 +18,56 @@
             ColumnSpacing="35"
             VerticalOptions="Center"
             HorizontalOptions="Center">
+
+            <!-- Transaction type -->
             <VerticalStackLayout Spacing="15">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
-                    Text="{x:Static texts:TransactionPageResources.CurrencyFromLabel}"/>
+                    Text="{x:Static texts:TransactionPageResources.TransactionTypeLabel}"/>
                 <Picker
                     WidthRequest="200"
                     HorizontalOptions="Start"
-                    ItemsSource="{Binding Currencies}"
-                    ItemDisplayBinding="{Binding Code}"
-                    SelectedItem="{Binding CurrencyFrom}"
-                    SelectedIndexChanged="CurrencyFromChangedPicker_OnSelectedIndexChanged">
+                    ItemsSource="{Binding TransactionTypes}"
+                    ItemDisplayBinding="{Binding Converter={StaticResource TransactionTypeToStringConverter}}"
+                    SelectedItem="{Binding TransactionTypeProp}">
                 </Picker>
             </VerticalStackLayout>
+
+            <!-- Currency -->
             <VerticalStackLayout Spacing="15" Grid.Column="1">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
-                    Text="{x:Static texts:TransactionPageResources.CurrencyToLabel}"/>
+                    Text="{x:Static texts:TransactionPageResources.CurrencyLabel}"/>
                 <Picker
                     WidthRequest="200"
                     HorizontalOptions="Start"
                     ItemsSource="{Binding Currencies}"
                     ItemDisplayBinding="{Binding Code}"
-                    SelectedItem="{Binding CurrencyTo}"
-                    SelectedIndexChanged="CurrencyToChangedPicker_OnSelectedIndexChanged">
+                    SelectedItem="{Binding Currency}">
                 </Picker>
             </VerticalStackLayout>
+
+            <!-- Quantity foreign currency -->
             <VerticalStackLayout Spacing="15" Grid.Row="1">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
-                    Text="{x:Static texts:TransactionPageResources.AmountFromLabel}"/>
+                    Text="{Binding Currency.Code, StringFormat={x:Static texts:TransactionPageResources.QuantityWithCurrencyCodeLabel}, FallbackValue=''}"/>
                 <Entry
                     Keyboard="Numeric"
-                    Text="{Binding QuantityFrom}"/>
+                    Text="{Binding QuantityForeign}"/>
             </VerticalStackLayout>
+
+            <!-- Quantity domestic currency -->
             <VerticalStackLayout Spacing="15" Grid.Row="1" Grid.Column="1">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
-                    Text="{x:Static texts:TransactionPageResources.AmountToLabel}"/>
+                    Text="{Binding DomesticCurrencyCode, StringFormat={x:Static texts:TransactionPageResources.QuantityWithCurrencyCodeLabel}}"/>
                 <Entry
                     Keyboard="Numeric"
-                    Text="{Binding QuantityTo}"/>
+                    Text="{Binding QuantityDomestic}"/>
             </VerticalStackLayout>
+
+            <!-- Course rate with original course rate label -->
             <VerticalStackLayout Spacing="15" Grid.Row="2">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
@@ -69,6 +78,8 @@
                 <Label Text="{Binding OriginalCourseRate, StringFormat={x:Static texts:TransactionPageResources.OriginalCourseRateLabel}, TargetNullValue=''}" TextColor="{StaticResource Gray400}"/>
             </VerticalStackLayout>
         </Grid>
+
+        <!-- Transaction summary -->
         <Grid 
             Grid.Column="1"
             RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto"
@@ -78,21 +89,68 @@
             HorizontalOptions="Center"
             VerticalOptions="End"
             Margin="0, 40">
+
+            <!-- Transaction type -->
             <Label
                 HorizontalOptions="End"
                 Text="{x:Static texts:TransactionPageResources.TransactionTypeLabel}"/>
             <Label
                 Grid.Column="1"
                 Text="{Binding TransactionTypeProp, Converter={StaticResource TransactionTypeToStringConverter}, TargetNullValue=''}"/>
-            <Label
-                x:Name="CurrencyLabel"
+
+            <!-- Money in cash register -->
+            <!-- Buy - CODE in cash register -->
+            <Label 
                 Grid.Row="1"
                 HorizontalOptions="End"
-                Text="{Binding CurrencyTo.Code, StringFormat={x:Static texts:TransactionPageResources.CurrencyInCashRegisterAmountLabel}, FallbackValue=''}"/>
+                Text="{Binding DomesticCurrencyCode, 
+                    StringFormat={x:Static texts:TransactionPageResources.CurrencyInCashRegisterAmountLabel}}"
+                IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Transaction.TransactionType}" Value="Buy">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
-                Text="{Binding CurrencyTo.Quantity, FallbackValue='0'}"/>
+                Text="{Binding DomesticCurrencyQuantity, FallbackValue='0'}"
+                IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Transaction.TransactionType}" Value="Buy">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+
+            <!-- Sell -->
+            <Label 
+                Grid.Row="1"
+                HorizontalOptions="End"
+                Text="{Binding Currency.Code, 
+                    StringFormat={x:Static texts:TransactionPageResources.CurrencyInCashRegisterAmountLabel}, 
+                    FallbackValue={x:Static texts:TransactionPageResources.FallbackValue_MoneyInCashRegister}}"
+                IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Transaction.TransactionType}" Value="Sell">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding Currency.Quantity, FallbackValue='?'}"
+                IsVisible="False">
+                <Label.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Transaction.TransactionType}" Value="Sell">
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </Label.Triggers>
+            </Label>
+
+            <!-- To pay -->
             <Label
                 Grid.Row="2"
                 HorizontalOptions="End"
@@ -105,10 +163,33 @@
                 <Label
                     FontAttributes="Bold"
                     Text="{Binding ToPay}"/>
+
+                <!-- Buy - Currency.Code -->
                 <Label
                     FontAttributes="Bold"
-                    Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
+                    Text="{Binding Currency.Code, FallbackValue=''}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Transaction.TransactionType}" Value="Buy">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+                <!-- Sell - DomesticCurrencyCode -->
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding DomesticCurrencyCode}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Transaction.TransactionType}" Value="Sell">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
             </HorizontalStackLayout>
+
+            <!-- Payment with entry -->
             <Label
                 Grid.Row="3"
                 HorizontalOptions="End"
@@ -125,10 +206,39 @@
                     Placeholder="{Binding ToPay}"
                     VerticalTextAlignment="Center"
                     Text="{Binding Payment}"/>
+
+                <!-- Buy - Currency.Code -->
                 <Label
                     VerticalOptions="Center"
-                    Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
+                    Text="{Binding Currency.Code, FallbackValue=''}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger 
+                            TargetType="Label" 
+                            Binding="{Binding Transaction.TransactionType}" 
+                            Value="Buy">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+                <!-- Sell - DomesticCurrencyCode -->
+                <Label
+                    VerticalOptions="Center"
+                    Text="{Binding DomesticCurrencyCode}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger 
+                            TargetType="Label" 
+                            Binding="{Binding Transaction.TransactionType}" 
+                            Value="Sell">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
             </HorizontalStackLayout>
+
+            <!-- Tip -->
             <Label
                 Grid.Row="4"
                 HorizontalOptions="End"
@@ -141,15 +251,46 @@
                 <Label
                     FontAttributes="Bold"
                     Text="{Binding Tip}"/>
+
+                <!-- Buy - Currency.Code -->
                 <Label
                     FontAttributes="Bold"
-                    Text="{Binding CurrencyFrom.Code, FallbackValue=''}"/>
+                    Text="{Binding Currency.Code, FallbackValue=''}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger 
+                            TargetType="Label" 
+                            Binding="{Binding Transaction.TransactionType}" 
+                            Value="Buy">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+                <!-- Sell - DomesticCurrencyCode -->
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding DomesticCurrencyCode}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger 
+                            TargetType="Label" 
+                            Binding="{Binding Transaction.TransactionType}" 
+                            Value="Sell">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
             </HorizontalStackLayout>
+
+            <!-- Amount -->
+            <!-- Visible only when transaction type is buy-->
             <Label
                 Grid.Row="5"
                 HorizontalOptions="End"
-                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"
-                Text="{x:Static texts:TransactionPageResources.AmountLabel}"/>
+                Text="{x:Static texts:TransactionPageResources.AmountLabel}"
+                IsVisible="{Binding Transaction.TransactionType, 
+                            Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"/>
             <HorizontalStackLayout
                 Grid.Row="5"
                 Grid.Column="1"
@@ -158,29 +299,42 @@
                 <Label
                     Text="{Binding Transaction.AmountDomesticCurrency}"/>
                 <Label
-                    Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
+                    Text="{Binding DomesticCurrencyCode}"/>
             </HorizontalStackLayout>
+
+            <!-- Rounding -->
+            <!-- Visible only when transaction type is buy -->
             <Label
                 Grid.Row="6"
                 HorizontalOptions="End"
                 IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"
                 Text="{x:Static texts:TransactionPageResources.RoundingLabel}"/>
+            <Label
+                Grid.Row="6"
+                Grid.Column="1"
+                IsVisible="{Binding Transaction.TransactionType, 
+                            Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}"/>
             <HorizontalStackLayout
                 Grid.Row="6"
                 Grid.Column="1"
                 Spacing="5"
-                IsVisible="{Binding Transaction.TransactionType, Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
+                IsVisible="{Binding Transaction.TransactionType, 
+                            Converter={StaticResource TransactionTypeBuyToVisibilityConverter}}">
                 <Label
                     Text="{Binding Transaction.Rounding, Converter={StaticResource DecimalToDecimalWithSignStringConverter}}"/>
                 <Label
-                    Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
+                    Text="{Binding DomesticCurrencyCode}"/>
             </HorizontalStackLayout>
+
+            <!-- Line separator -->
             <Line
                 Grid.Row="7"
                 Grid.ColumnSpan="2"
                 HorizontalOptions="Center"
                 X2="250"
-                Stroke="Black"/>
+                Stroke="{AppThemeBinding Light=Black, Dark=White}"/>
+
+            <!-- For payment -->
             <Label
                 Grid.Row="8"
                 FontAttributes="Bold"
@@ -193,12 +347,40 @@
                 <Label
                     FontAttributes="Bold"
                     Text="{Binding ForPayment}"/>
+
+                <!-- Buy - DomesticCurrencyCode -->
                 <Label
                     FontAttributes="Bold"
-                    Text="{Binding CurrencyTo.Code, FallbackValue=''}"/>
+                    Text="{Binding DomesticCurrencyCode}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger 
+                            TargetType="Label" 
+                            Binding="{Binding Transaction.TransactionType}" 
+                            Value="Buy">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+                <!-- Sell - Currency.Code -->
+                <Label
+                    FontAttributes="Bold"
+                    Text="{Binding Currency.Code, FallbackValue=''}"
+                    IsVisible="False">
+                    <Label.Triggers>
+                        <DataTrigger 
+                            TargetType="Label" 
+                            Binding="{Binding Transaction.TransactionType}" 
+                            Value="Sell">
+                            <Setter Property="IsVisible" Value="True" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
             </HorizontalStackLayout>
         </Grid>
 
+        <!-- Accept icon button -->
         <ImageButton
             Grid.Row="1"
             Grid.Column="1"

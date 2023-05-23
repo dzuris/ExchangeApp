@@ -120,13 +120,16 @@
   <data name="PageTitle" xml:space="preserve">
     <value>O program</value>
   </data>
-  <data name="LicenseLabel" xml:space="preserve">
-    <value>Licencia:</value>
-  </data>
   <data name="AuthorNameLabel" xml:space="preserve">
     <value>Autor:</value>
   </data>
   <data name="AuthorContactLabel" xml:space="preserve">
     <value>Kontakt:</value>
+  </data>
+  <data name="ProductNameLabel" xml:space="preserve">
+    <value>Názov produktu:</value>
+  </data>
+  <data name="CopyrightSentence" xml:space="preserve">
+    <value>© 2023 Adam Dzurilla. Všetky práva vyhradené.</value>
   </data>
 </root>

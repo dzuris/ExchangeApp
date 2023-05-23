@@ -120,18 +120,6 @@
   <data name="TransactionTitle" xml:space="preserve">
     <value>Transakcia</value>
   </data>
-  <data name="CurrencyFromLabel" xml:space="preserve">
-    <value>Mena od zákazníka:</value>
-  </data>
-  <data name="CurrencyToLabel" xml:space="preserve">
-    <value>Mena vydávaná zákazníkovi:</value>
-  </data>
-  <data name="AmountFromLabel" xml:space="preserve">
-    <value>Množstvo od zákazníka:</value>
-  </data>
-  <data name="AmountToLabel" xml:space="preserve">
-    <value>Množstvo vydávaná zákazníkovi:</value>
-  </data>
   <data name="CourseRateLabel" xml:space="preserve">
     <value>Kurz:</value>
   </data>
@@ -162,8 +150,8 @@
   <data name="OriginalCourseRateLabel" xml:space="preserve">
     <value>Pôvodný kurz: {0}</value>
   </data>
-  <data name="ErrorMessage_CurrencySelection" xml:space="preserve">
-    <value>Musí byť zvolená domáca mena a iná mena.</value>
+  <data name="ErrorMessage_CurrencyNull" xml:space="preserve">
+    <value>Musí byť zvolená mena.</value>
   </data>
   <data name="ErrorMessage_InsufficientMoneyInCashRegister" xml:space="preserve">
     <value>Nedostatok prostriedkov v pokladnici.</value>
@@ -174,10 +162,19 @@
   <data name="ErrorMessage_CourseRateNotValid" xml:space="preserve">
     <value>Kurz nesmie byť nevyplnený, 0 alebo menší.</value>
   </data>
-  <data name="ErrorMessage_QuantityFromNotValid" xml:space="preserve">
-    <value>Množstvo 'do' nesmie byť nevyplnené, 0 alebo menšie.</value>
+  <data name="ErrorMessage_QuantityForeignNotValid" xml:space="preserve">
+    <value>Množstvo zahraničnej meny nesmie byť nevyplnené, 0 alebo menšie.</value>
   </data>
-  <data name="ErrorMessage_QuantityToNotValid" xml:space="preserve">
-    <value>Množstvo 'z' nesmie byť nevyplnené, 0 alebo menšie.</value>
+  <data name="ErrorMessage_QuantityDomesticNotValid" xml:space="preserve">
+    <value>Množstvo domácej meny nesmie byť nevyplnené, 0 alebo menšie.</value>
+  </data>
+  <data name="CurrencyLabel" xml:space="preserve">
+    <value>Mena:</value>
+  </data>
+  <data name="QuantityWithCurrencyCodeLabel" xml:space="preserve">
+    <value>Množstvo {0}:</value>
+  </data>
+  <data name="FallbackValue_MoneyInCashRegister" xml:space="preserve">
+    <value>Peniaze v pokladnici:</value>
   </data>
 </root>

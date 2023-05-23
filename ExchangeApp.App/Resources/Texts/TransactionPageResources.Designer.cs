@@ -61,29 +61,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity from:.
-        /// </summary>
-        public static string AmountFromLabel {
-            get {
-                return ResourceManager.GetString("AmountFromLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Amount:.
         /// </summary>
         public static string AmountLabel {
             get {
                 return ResourceManager.GetString("AmountLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quantity to:.
-        /// </summary>
-        public static string AmountToLabel {
-            get {
-                return ResourceManager.GetString("AmountToLabel", resourceCulture);
             }
         }
         
@@ -97,15 +79,6 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency from:.
-        /// </summary>
-        public static string CurrencyFromLabel {
-            get {
-                return ResourceManager.GetString("CurrencyFromLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {0} in cash register:.
         /// </summary>
         public static string CurrencyInCashRegisterAmountLabel {
@@ -115,11 +88,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency to:.
+        ///   Looks up a localized string similar to Currency:.
         /// </summary>
-        public static string CurrencyToLabel {
+        public static string CurrencyLabel {
             get {
-                return ResourceManager.GetString("CurrencyToLabel", resourceCulture);
+                return ResourceManager.GetString("CurrencyLabel", resourceCulture);
             }
         }
         
@@ -142,11 +115,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to One selected currency must be domestic and the other one must be different..
+        ///   Looks up a localized string similar to You must select a currency..
         /// </summary>
-        public static string ErrorMessage_CurrencySelection {
+        public static string ErrorMessage_CurrencyNull {
             get {
-                return ResourceManager.GetString("ErrorMessage_CurrencySelection", resourceCulture);
+                return ResourceManager.GetString("ErrorMessage_CurrencyNull", resourceCulture);
             }
         }
         
@@ -160,20 +133,29 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity from can not be empty, 0 or less than zero..
+        ///   Looks up a localized string similar to Quantity of a domestic currency can not be empty, 0 or less than zero..
         /// </summary>
-        public static string ErrorMessage_QuantityFromNotValid {
+        public static string ErrorMessage_QuantityDomesticNotValid {
             get {
-                return ResourceManager.GetString("ErrorMessage_QuantityFromNotValid", resourceCulture);
+                return ResourceManager.GetString("ErrorMessage_QuantityDomesticNotValid", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity to can not be empty, 0 or less than zero..
+        ///   Looks up a localized string similar to Quantity of a foreign currency can not be empty, 0 or less than zero..
         /// </summary>
-        public static string ErrorMessage_QuantityToNotValid {
+        public static string ErrorMessage_QuantityForeignNotValid {
             get {
-                return ResourceManager.GetString("ErrorMessage_QuantityToNotValid", resourceCulture);
+                return ResourceManager.GetString("ErrorMessage_QuantityForeignNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Money in cash register:.
+        /// </summary>
+        public static string FallbackValue_MoneyInCashRegister {
+            get {
+                return ResourceManager.GetString("FallbackValue_MoneyInCashRegister", resourceCulture);
             }
         }
         
@@ -201,6 +183,15 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string PaymentLabel {
             get {
                 return ResourceManager.GetString("PaymentLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity {0}:.
+        /// </summary>
+        public static string QuantityWithCurrencyCodeLabel {
+            get {
+                return ResourceManager.GetString("QuantityWithCurrencyCodeLabel", resourceCulture);
             }
         }
         

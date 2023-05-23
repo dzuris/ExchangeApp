@@ -18,19 +18,15 @@ public partial class SettingsAboutViewModel : ViewModelBase
 
         if (data is null) return;
 
-        License = data.License;
-        AuthorName = data.AuthorName;
-        AuthorContact = data.AuthorContact;
+        AboutData = data;
     }
 
-    [ObservableProperty] private string _license = string.Empty;
-    [ObservableProperty] private string _authorName = string.Empty;
-    [ObservableProperty] private string _authorContact = string.Empty;
+    [ObservableProperty] private AboutData _aboutData = new();
 }
 
-internal record AboutData
+public record AboutData
 {
-    public string License { get; set; } = string.Empty;
+    public string ProductName { get; set; } = string.Empty;
     public string AuthorName { get; set; } = string.Empty;
     public string AuthorContact { get; set; } = string.Empty;
 }
