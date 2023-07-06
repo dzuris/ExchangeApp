@@ -188,16 +188,16 @@ public static class CurrencySeeds
         PhotoUrl = "thb_flag.png"
     };
 
-    public static readonly CurrencyEntity Zar = new()
-    {
-        Code = "ZAR".ToUpper(),
-        PhotoUrl = "zar_flag.png"
-    };
-
     public static readonly CurrencyEntity Uah = new()
     {
         Code = "UAH".ToUpper(),
         PhotoUrl = "uah_flag.png"
+    };
+
+    public static readonly CurrencyEntity Zar = new()
+    {
+        Code = "ZAR".ToUpper(),
+        PhotoUrl = "zar_flag.png"
     };
 
     public static void Seed(this ModelBuilder modelBuilder)
@@ -233,8 +233,8 @@ public static class CurrencySeeds
             Php,
             Sgd,
             Thb,
-            Zar,
-            Uah
+            Uah,
+            Zar
         );
     }
 }
