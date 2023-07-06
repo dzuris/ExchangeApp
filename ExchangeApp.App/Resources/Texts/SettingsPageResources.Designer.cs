@@ -88,29 +88,11 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Course rates.
+        ///   Looks up a localized string similar to Exchange rate currencies.
         /// </summary>
         public static string CourseRatesListItem {
             get {
                 return ResourceManager.GetString("CourseRatesListItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Course rates sales.
-        /// </summary>
-        public static string CourseRatesSalesListItem {
-            get {
-                return ResourceManager.GetString("CourseRatesSalesListItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Employee settings.
-        /// </summary>
-        public static string EmployeeListItem {
-            get {
-                return ResourceManager.GetString("EmployeeListItem", resourceCulture);
             }
         }
         
@@ -129,15 +111,6 @@ namespace ExchangeApp.App.Resources.Texts {
         public static string PageTitle {
             get {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total balances settings.
-        /// </summary>
-        public static string TotalBalanceListItem {
-            get {
-                return ResourceManager.GetString("TotalBalanceListItem", resourceCulture);
             }
         }
     }

@@ -9,6 +9,7 @@ using ExchangeApp.App.Resources.Texts;
 using ExchangeApp.App.Services.Interfaces;
 using ExchangeApp.App.Views.Customers;
 using ExchangeApp.App.Views.Transaction;
+using ExchangeApp.BL.Utilities;
 
 namespace ExchangeApp.App.ViewModels.Customers;
 
@@ -63,7 +64,7 @@ public partial class MinorCustomerViewModel : ViewModelBase
             Customer.IdentificationNumber = value;
 
             if (value.Length != 6) return;
-            var newDateTime = Utilities.Utilities.GetDateTimeFromIdentificationNumber(value);
+            var newDateTime = Utilities.GetDateTimeFromIdentificationNumber(value);
             if (newDateTime is not null)
                 SelectedDate = (DateTime)newDateTime;
         }
@@ -149,16 +150,16 @@ public partial class MinorCustomerViewModel : ViewModelBase
         var rm = new ResourceManager(typeof(CustomerResources));
         var errorMessage = string.Empty;
 
-        if (string.IsNullOrWhiteSpace(Customer.FirstName) || !Utilities.CustomValidators.ValidateName(Customer.FirstName))
+        if (string.IsNullOrWhiteSpace(Customer.FirstName) || !CustomValidators.ValidateName(Customer.FirstName))
             errorMessage += rm.GetString("ErrorMessage_FirstNameNotValid") + "\n";
 
-        if (string.IsNullOrWhiteSpace(Customer.LastName) || !Utilities.CustomValidators.ValidateName(Customer.LastName))
+        if (string.IsNullOrWhiteSpace(Customer.LastName) || !CustomValidators.ValidateName(Customer.LastName))
             errorMessage += rm.GetString("ErrorMessage_LastNameNotValid") + "\n";
 
         if (Customer.BirthDate is null && string.IsNullOrWhiteSpace(Customer.IdentificationNumber))
             errorMessage += rm.GetString("ErrorMessage_BirthDateAndIdentificationNumberNotValid") + "\n";
         else if (Customer.IdentificationNumber is not null &&
-                 !Utilities.CustomValidators.ValidateIdentificationNumber(Customer.IdentificationNumber))
+                 !CustomValidators.ValidateIdentificationNumber(Customer.IdentificationNumber))
             errorMessage += rm.GetString("ErrorMessage_IdentificationNumberNotValid") + "\n";
 
         if (string.IsNullOrWhiteSpace(Customer.Address))

@@ -9,6 +9,7 @@ using ExchangeApp.App.Views.Transaction;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Transaction;
+using ExchangeApp.BL.Utilities;
 using ExchangeApp.Common.Enums;
 
 namespace ExchangeApp.App.ViewModels.Transaction;
@@ -95,10 +96,10 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 return;
             }
 
-            var quantityForeignDecimal = Utilities.Utilities.StrToDecimal(value);
+            var quantityForeignDecimal = Utilities.StrToDecimal(value);
             if (quantityForeignDecimal is null or <= 0) return;
 
-            var courseRateDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
+            var courseRateDecimal = Utilities.StrToDecimal(CourseRate);
             if (courseRateDecimal is null or <= 0) return;
 
             if (!_quantityCalculatorBlocked)
@@ -145,10 +146,10 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 return;
             }
 
-            var quantityDomesticDecimal = Utilities.Utilities.StrToDecimal(_quantityDomestic);
+            var quantityDomesticDecimal = Utilities.StrToDecimal(_quantityDomestic);
             if (quantityDomesticDecimal is null or <= 0) return;
 
-            var courseRateDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
+            var courseRateDecimal = Utilities.StrToDecimal(CourseRate);
             if (courseRateDecimal is null or <= 0) return;
 
             if (!_quantityCalculatorBlocked)
@@ -158,7 +159,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
             }
 
             // Sets transaction quantity according to transaction type
-            Transaction.Quantity = Utilities.Utilities.StrToDecimal(_quantityForeign) ?? 1;
+            Transaction.Quantity = Utilities.StrToDecimal(_quantityForeign) ?? 1;
             
             OnPropertyChanged(nameof(Transaction));
             OnPropertyChanged(nameof(Tip));
@@ -187,13 +188,13 @@ public partial class TransactionCreateViewModel : ViewModelBase
         {
             SetProperty(ref _courseRate, value);
 
-            var courseRateDecimal = Utilities.Utilities.StrToDecimal(_courseRate);
+            var courseRateDecimal = Utilities.StrToDecimal(_courseRate);
 
             if (courseRateDecimal is null or <= 0) { return; }
             Transaction.CourseRate = (decimal)courseRateDecimal;
             OnPropertyChanged(nameof(Transaction));
 
-            var quantityForeignDecimal = Utilities.Utilities.StrToDecimal(QuantityForeign);
+            var quantityForeignDecimal = Utilities.StrToDecimal(QuantityForeign);
             if (quantityForeignDecimal is null) { return; }
 
             try
@@ -240,7 +241,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
                 return 0;
             }
 
-            var result = (Utilities.Utilities.StrToDecimal(Payment) ?? 0) - ToPay;
+            var result = (Utilities.StrToDecimal(Payment) ?? 0) - ToPay;
 
             return result < 0 ? 0 : result;
         }
@@ -343,17 +344,17 @@ public partial class TransactionCreateViewModel : ViewModelBase
         }
 
         // Quantity foreign validation
-        var quantityForeignDecimal = Utilities.Utilities.StrToDecimal(QuantityForeign);
+        var quantityForeignDecimal = Utilities.StrToDecimal(QuantityForeign);
         if (string.IsNullOrWhiteSpace(QuantityForeign) || quantityForeignDecimal is null or <= 0)
             errorMessage += rm.GetString("ErrorMessage_QuantityForeignNotValid") + "\n";
 
         // Quantity domestic validation
-        var quantityDomesticDecimal = Utilities.Utilities.StrToDecimal(QuantityDomestic);
+        var quantityDomesticDecimal = Utilities.StrToDecimal(QuantityDomestic);
         if (string.IsNullOrWhiteSpace(QuantityDomestic) || quantityDomesticDecimal is null or <= 0)
             errorMessage += rm.GetString("ErrorMessage_QuantityDomesticNotValid") + "\n";
 
         // Course rate validation
-        var courseRateToDecimal = Utilities.Utilities.StrToDecimal(CourseRate);
+        var courseRateToDecimal = Utilities.StrToDecimal(CourseRate);
         if (string.IsNullOrWhiteSpace(CourseRate) || courseRateToDecimal is null or <= 0)
             errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
 

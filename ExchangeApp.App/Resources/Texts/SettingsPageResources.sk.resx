@@ -129,19 +129,10 @@
   <data name="CourseRatesListItem" xml:space="preserve">
     <value>Kurzové meny</value>
   </data>
-  <data name="CourseRatesSalesListItem" xml:space="preserve">
-    <value>Kurzové zľavy</value>
-  </data>
-  <data name="EmployeeListItem" xml:space="preserve">
-    <value>Nastavenia zamestnancov</value>
-  </data>
   <data name="AboutInfoListItem" xml:space="preserve">
     <value>O programe</value>
   </data>
   <data name="GeneralListItem" xml:space="preserve">
     <value>Všeobecné</value>
-  </data>
-  <data name="TotalBalanceListItem" xml:space="preserve">
-    <value>Uzávierky</value>
   </data>
 </root>

@@ -29,6 +29,7 @@
   <ItemGroup>
     <Folder Include="AutoMapperTests\" />
     <Folder Include="ModelTests\" />
+    <Folder Include="UtilitiesTests\" />
   </ItemGroup>
 
 </Project>

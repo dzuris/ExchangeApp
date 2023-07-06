@@ -2,8 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
-using System.Resources;
-using ExchangeApp.App.Resources.Texts;
+using ExchangeApp.BL.Utilities;
 
 namespace ExchangeApp.App.ViewModels.Courses;
 
@@ -52,8 +51,8 @@ public partial class CourseDetailViewModel : ViewModelBase
         if (Currency is null)
             return;
 
-        var resBuyRate = Utilities.Utilities.StrToDecimal(BuyRate);
-        var resSellRate = Utilities.Utilities.StrToDecimal(SellRate);
+        var resBuyRate = Utilities.StrToDecimal(BuyRate);
+        var resSellRate = Utilities.StrToDecimal(SellRate);
 
         if (resBuyRate is not null && resSellRate is not null)
         {

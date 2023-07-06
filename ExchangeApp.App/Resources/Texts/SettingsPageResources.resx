@@ -104,16 +104,7 @@
     <value>General</value>
   </data>
   <data name="CourseRatesListItem" xml:space="preserve">
-    <value>Course rates</value>
-  </data>
-  <data name="CourseRatesSalesListItem" xml:space="preserve">
-    <value>Course rates sales</value>
-  </data>
-  <data name="TotalBalanceListItem" xml:space="preserve">
-    <value>Total balances settings</value>
-  </data>
-  <data name="EmployeeListItem" xml:space="preserve">
-    <value>Employee settings</value>
+    <value>Exchange rate currencies</value>
   </data>
   <data name="CompanyInfoListItem" xml:space="preserve">
     <value>Setting company info</value>

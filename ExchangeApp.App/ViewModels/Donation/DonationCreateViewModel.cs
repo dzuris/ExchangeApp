@@ -8,6 +8,7 @@ using ExchangeApp.App.Views.Donation;
 using ExchangeApp.BL.Facades.Interfaces;
 using ExchangeApp.BL.Models.Currency;
 using ExchangeApp.BL.Models.Donation;
+using ExchangeApp.BL.Utilities;
 using ExchangeApp.Common.Enums;
 using ExchangeApp.Common.Exceptions;
 
@@ -141,7 +142,7 @@ public partial class DonationCreateViewModel : ViewModelBase
             CourseRate = averageCourseRate;
         }
 
-        var courseRate = Utilities.Utilities.StrToDecimal(CourseRate) ?? -1;
+        var courseRate = Utilities.StrToDecimal(CourseRate) ?? -1;
         var donation = new DonationDetailModel
         {
             Created = DateTime.Now,
@@ -203,7 +204,7 @@ public partial class DonationCreateViewModel : ViewModelBase
         if (Quantity <= 0 || (DonationType != DonationType.Deposit && SelectedCurrency?.Quantity < Quantity))
             errorMessage += rm.GetString("ErrorMessage_QuantityNotValid") + "\n";
 
-        var courseRateRes = Utilities.Utilities.StrToDecimal(CourseRate);
+        var courseRateRes = Utilities.StrToDecimal(CourseRate);
         if (courseRateRes is null or <= 0 && (DonationType is not DonationType.Withdraw || !UseAverageCourseRate))
             errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
         

@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace ExchangeApp.App.Utilities;
+namespace ExchangeApp.BL.Utilities;
 
 public class Utilities
 {
