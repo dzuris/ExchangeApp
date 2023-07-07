@@ -138,4 +138,10 @@
   <data name="ListHeaderLabelState" xml:space="preserve">
     <value>Štát</value>
   </data>
+  <data name="ToolTip_SecondMonitor" xml:space="preserve">
+    <value>Otvoriť zoznam kurzov v novom okne</value>
+  </data>
+  <data name="ToolTip_Print" xml:space="preserve">
+    <value>Tlač</value>
+  </data>
 </root>

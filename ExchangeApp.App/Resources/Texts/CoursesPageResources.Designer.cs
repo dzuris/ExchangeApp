@@ -122,5 +122,23 @@ namespace ExchangeApp.App.Resources.Texts {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        public static string ToolTip_Print {
+            get {
+                return ResourceManager.GetString("ToolTip_Print", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open courses overview in second window.
+        /// </summary>
+        public static string ToolTip_SecondMonitor {
+            get {
+                return ResourceManager.GetString("ToolTip_SecondMonitor", resourceCulture);
+            }
+        }
     }
 }
