@@ -144,4 +144,7 @@
   <data name="TotalProfitLabel" xml:space="preserve">
     <value>Celkový zisk:</value>
   </data>
+  <data name="ToolTip_ClearFilter" xml:space="preserve">
+    <value>Vyčistiť filter</value>
+  </data>
 </root>

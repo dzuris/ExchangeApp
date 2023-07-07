@@ -304,6 +304,24 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download to chosen folder.
+        /// </summary>
+        public static string ToolTip_DownloadTransaction {
+            get {
+                return ResourceManager.GetString("ToolTip_DownloadTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        public static string ToolTip_PrintTransaction {
+            get {
+                return ResourceManager.GetString("ToolTip_PrintTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To pay:.
         /// </summary>
         public static string ToPayLabel {

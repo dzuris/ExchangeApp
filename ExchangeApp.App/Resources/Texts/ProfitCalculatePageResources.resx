@@ -124,4 +124,7 @@
   <data name="TotalProfitLabel" xml:space="preserve">
     <value>Total profit:</value>
   </data>
+  <data name="ToolTip_ClearFilter" xml:space="preserve">
+    <value>Clear filter</value>
+  </data>
 </root>

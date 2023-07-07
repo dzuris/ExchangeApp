@@ -293,5 +293,23 @@ namespace ExchangeApp.App.Resources.Texts {
                 return ResourceManager.GetString("StornoLabel", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download to chosen folder.
+        /// </summary>
+        public static string ToolTip_DownloadDonation {
+            get {
+                return ResourceManager.GetString("ToolTip_DownloadDonation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        public static string ToolTip_PrintDonation {
+            get {
+                return ResourceManager.GetString("ToolTip_PrintDonation", resourceCulture);
+            }
+        }
     }
 }

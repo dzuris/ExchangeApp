@@ -71,6 +71,7 @@
                         Command="{Binding FilterCommand}"/>
                     <ImageButton
                         Grid.Column="4"
+                        ToolTipProperties.Text="{x:Static texts:TotalBalancePageResources.ToolTip_ClearFilter}"
                         Source="{AppThemeBinding Light=refresh.png, Dark=refresh_white.png}"
                         Style="{StaticResource IconStyle}"
                         Command="{Binding RefreshCommand}"/>
@@ -114,6 +115,7 @@
                                         <Label Grid.Column="2" Text="{Binding ., Converter={StaticResource TotalBalanceToDateConverter}}" VerticalOptions="Center"/>
                                         <ImageButton
                                             Grid.Column="3"
+                                            ToolTipProperties.Text="{x:Static texts:TotalBalancePageResources.ToolTip_DownloadTotalBalance}"
                                             Source="{AppThemeBinding Light=download.png, Dark=download_white.png}"
                                             Style="{StaticResource IconStyle}"
                                             MinimumWidthRequest="40"
@@ -124,6 +126,7 @@
                                             CommandParameter="{Binding .}"/>
                                         <ImageButton
                                             Grid.Column="4"
+                                            ToolTipProperties.Text="{x:Static texts:TotalBalancePageResources.ToolTip_PrintTotalBalance}"
                                             Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
                                             Style="{StaticResource IconStyle}"
                                             MinimumWidthRequest="40"

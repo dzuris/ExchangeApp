@@ -175,4 +175,13 @@
   <data name="ListHeaderItemId" xml:space="preserve">
     <value>Number</value>
   </data>
+  <data name="ToolTip_ClearFilter" xml:space="preserve">
+    <value>Clear filter</value>
+  </data>
+  <data name="ToolTip_DownloadTotalBalance" xml:space="preserve">
+    <value>Download to chosen folder</value>
+  </data>
+  <data name="ToolTip_PrintTotalBalance" xml:space="preserve">
+    <value>Print</value>
+  </data>
 </root>

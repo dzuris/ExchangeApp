@@ -39,10 +39,4 @@ public partial class CoursesPageViewModel : ViewModelBase
     {
         await _printerService.Print(Currencies);
     }
-
-    [RelayCommand]
-    private async Task OpenCoursesWindowAsync()
-    {
-
-    }
 }

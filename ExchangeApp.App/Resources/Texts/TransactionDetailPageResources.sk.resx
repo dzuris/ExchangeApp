@@ -210,4 +210,10 @@
   <data name="StornoAlertErrorMessageClosedTransaction" xml:space="preserve">
     <value>Pre túto transakciu bola vytvorená uzávierka a teda už sa nedá stornovať.</value>
   </data>
+  <data name="ToolTip_DownloadTransaction" xml:space="preserve">
+    <value>Stiahnuť do zadaného priečinku</value>
+  </data>
+  <data name="ToolTip_PrintTransaction" xml:space="preserve">
+    <value>Tlač</value>
+  </data>
 </root>

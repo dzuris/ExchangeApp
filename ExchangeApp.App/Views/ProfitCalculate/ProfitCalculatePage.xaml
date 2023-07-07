@@ -27,6 +27,7 @@
                         VerticalOptions="End"
                         Command="{Binding CalculateCommand}"/>
                     <ImageButton
+                        ToolTipProperties.Text="{x:Static texts:ProfitCalculatePageResources.ToolTip_ClearFilter}"
                         Source="{AppThemeBinding Light=refresh.png, Dark=refresh_white.png}"
                         Style="{StaticResource IconStyle}"
                         VerticalOptions="End"

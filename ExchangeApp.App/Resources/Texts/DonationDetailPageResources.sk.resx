@@ -195,4 +195,10 @@
   <data name="StornoAlertErrorMessageClosedDonation" xml:space="preserve">
     <value>Pre túto dotáciu bola vytvorená uzávierka a teda už sa nedá stornovať.</value>
   </data>
+  <data name="ToolTip_PrintDonation" xml:space="preserve">
+    <value>Tlač</value>
+  </data>
+  <data name="ToolTip_DownloadDonation" xml:space="preserve">
+    <value>Stiahnuť do zadaného priečinku</value>
+  </data>
 </root>

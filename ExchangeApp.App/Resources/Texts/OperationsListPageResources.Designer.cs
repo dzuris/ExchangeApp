@@ -178,6 +178,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear filter.
+        /// </summary>
+        public static string ToolTip_ClearFilter {
+            get {
+                return ResourceManager.GetString("ToolTip_ClearFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Transaction.
         /// </summary>
         public static string TransactionListItemTitle {

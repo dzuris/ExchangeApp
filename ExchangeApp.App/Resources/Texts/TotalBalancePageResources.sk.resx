@@ -195,4 +195,13 @@
   <data name="ListHeaderItemId" xml:space="preserve">
     <value>Číslo</value>
   </data>
+  <data name="ToolTip_ClearFilter" xml:space="preserve">
+    <value>Vyčistiť filter</value>
+  </data>
+  <data name="ToolTip_DownloadTotalBalance" xml:space="preserve">
+    <value>Stiahnuť do zadaného priečinku</value>
+  </data>
+  <data name="ToolTip_PrintTotalBalance" xml:space="preserve">
+    <value>Tlač</value>
+  </data>
 </root>

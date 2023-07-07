@@ -139,4 +139,7 @@
   <data name="CanceledListItemLabel" xml:space="preserve">
     <value>Cancelled</value>
   </data>
+  <data name="ToolTip_ClearFilter" xml:space="preserve">
+    <value>Clear filter</value>
+  </data>
 </root>

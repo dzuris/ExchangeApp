@@ -159,4 +159,7 @@
   <data name="CanceledListItemLabel" xml:space="preserve">
     <value>Stornované</value>
   </data>
+  <data name="ToolTip_ClearFilter" xml:space="preserve">
+    <value>Vyčistiť filter</value>
+  </data>
 </root>

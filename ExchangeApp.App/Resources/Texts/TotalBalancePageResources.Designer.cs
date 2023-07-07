@@ -293,5 +293,32 @@ namespace ExchangeApp.App.Resources.Texts {
                 return ResourceManager.GetString("PageTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear filter.
+        /// </summary>
+        public static string ToolTip_ClearFilter {
+            get {
+                return ResourceManager.GetString("ToolTip_ClearFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download to chosen folder.
+        /// </summary>
+        public static string ToolTip_DownloadTotalBalance {
+            get {
+                return ResourceManager.GetString("ToolTip_DownloadTotalBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print.
+        /// </summary>
+        public static string ToolTip_PrintTotalBalance {
+            get {
+                return ResourceManager.GetString("ToolTip_PrintTotalBalance", resourceCulture);
+            }
+        }
     }
 }
