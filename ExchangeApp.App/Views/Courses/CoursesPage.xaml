@@ -50,6 +50,12 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <!-- <ImageButton
+            Grid.Row="1"
+            HorizontalOptions="Start"
+            Source="{AppThemeBinding Light=second_monitor_add.png, Dark=second_monitor_add_white.png}"
+            Style="{StaticResource IconStyle}"/> -->
+
         <ImageButton
             Grid.Row="1"
             HorizontalOptions="End"
