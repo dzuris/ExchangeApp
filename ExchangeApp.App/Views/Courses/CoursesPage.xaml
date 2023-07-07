@@ -53,12 +53,15 @@
         <!-- <ImageButton
             Grid.Row="1"
             HorizontalOptions="Start"
+            ToolTipProperties.Text="{x:Static texts:CoursesPageResources.ToolTip_SecondMonitor}"
             Source="{AppThemeBinding Light=second_monitor_add.png, Dark=second_monitor_add_white.png}"
-            Style="{StaticResource IconStyle}"/> -->
+            Style="{StaticResource IconStyle}"
+            Command="{Binding OpenCoursesWindowCommand}"/> -->
 
         <ImageButton
             Grid.Row="1"
             HorizontalOptions="End"
+            ToolTipProperties.Text="{x:Static texts:CoursesPageResources.ToolTip_Print}"
             Source="{AppThemeBinding Light=print.png, Dark=print_white.png}"
             Style="{StaticResource IconStyle}"
             Command="{Binding PrintCommand}"/>

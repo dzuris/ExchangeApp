@@ -43,6 +43,10 @@ public static class MauiProgram
 
         app.Services.GetRequiredService<IDbMigrator>().Migrate();
 
+#if DEBUG
+        builder.Logging.AddDebug();
+#endif
+
         return app;
     }
 

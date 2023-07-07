@@ -118,4 +118,10 @@
   <data name="ListHeaderLabelAverageCourse" xml:space="preserve">
     <value>Average course rate</value>
   </data>
+  <data name="ToolTip_SecondMonitor" xml:space="preserve">
+    <value>Open courses overview in second window</value>
+  </data>
+  <data name="ToolTip_Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
 </root>
