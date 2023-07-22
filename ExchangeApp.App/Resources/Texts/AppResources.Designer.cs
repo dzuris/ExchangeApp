@@ -68,5 +68,14 @@ namespace ExchangeApp.App.Resources.Texts {
                 return ResourceManager.GetString("AppName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to www.zmenarka.sk.
+        /// </summary>
+        public static string AppWebpage {
+            get {
+                return ResourceManager.GetString("AppWebpage", resourceCulture);
+            }
+        }
     }
 }

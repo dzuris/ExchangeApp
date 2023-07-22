@@ -132,9 +132,11 @@ public partial class PrinterService
     {
         var rm = new ResourceManager(typeof(PrinterResources));
 
+        PdfFont boldFont;
+        PdfFont commonFont;
         // Setting fonts
-        var boldFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, BoldFontFile));
-        var commonFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, CommonFontFile));
+        boldFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, BoldFontFile));
+        commonFont = PdfFontFactory.CreateFont(Path.Combine(AppContext.BaseDirectory, CommonFontFile));
 
         // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         #region Header section
@@ -298,13 +300,18 @@ public partial class PrinterService
             .SetFontSize(CommonFontSize)
             .SetMarginTop(30);
 
+        var rmApp = new ResourceManager(typeof(AppResources));
         var leftCell = new Cell().SetBorder(Border.NO_BORDER);
-        leftCell.Add(new Paragraph($"{rm.GetString("FooterNiceSentence")}").SetFont(commonFont)
+        leftCell.Add(new Paragraph($"{rmApp.GetString("AppName")}").SetFont(commonFont)
+            .SetFontSize(SmallFontSize));
+        leftCell.Add(new Paragraph($"{rmApp.GetString("AppWebpage")}").SetFont(commonFont)
             .SetFontSize(SmallFontSize));
 
         var rightCell = new Cell().SetBorder(Border.NO_BORDER);
         rightCell.Add(new Paragraph($"{rm.GetString("SignatureLabel")} .................")
             .SetTextAlignment(TextAlignment.RIGHT));
+        rightCell.Add(new Paragraph($"{rm.GetString("FooterNiceSentence")}").SetFont(commonFont)
+            .SetFontSize(SmallFontSize));
 
         footerTable.AddCell(leftCell);
         footerTable.AddCell(rightCell);

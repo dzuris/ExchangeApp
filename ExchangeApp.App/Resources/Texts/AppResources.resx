@@ -100,4 +100,7 @@
   <data name="AppName" xml:space="preserve">
     <value>ZMENÁRKA</value>
   </data>
+  <data name="AppWebpage" xml:space="preserve">
+    <value>www.zmenarka.sk</value>
+  </data>
 </root>
