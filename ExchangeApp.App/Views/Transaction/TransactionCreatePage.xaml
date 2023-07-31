@@ -51,7 +51,7 @@
             <VerticalStackLayout Spacing="15" Grid.Row="1">
                 <Label
                     Style="{StaticResource InputLabelStyle}"
-                    Text="{Binding Currency.Code, StringFormat={x:Static texts:TransactionPageResources.QuantityWithCurrencyCodeLabel}, FallbackValue=''}"/>
+                    Text="{Binding Currency.Code, StringFormat={x:Static texts:TransactionPageResources.QuantityWithCurrencyCodeLabel}, FallbackValue={x:Static texts:TransactionPageResources.QuantityNotSelectedLabel}}"/>
                 <Entry
                     Keyboard="Numeric"
                     Text="{Binding QuantityForeign}"/>

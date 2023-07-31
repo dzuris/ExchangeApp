@@ -16,6 +16,10 @@ If you want to use software on another operation system than Windows, don't be s
 
 The app is runnable only on Windows 10 with minimal version 19041 or Windows 11.
 
+## License
+
+You can not use, modify or sell this product without owner permission.
+
 ## Author
 
 Adam Dzurilla

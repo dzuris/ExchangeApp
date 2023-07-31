@@ -51,18 +51,14 @@ public partial class TransactionCreateViewModel : ViewModelBase
         }
     }
 
+    [ObservableProperty] private string? _originalCourseRate;
+    [ObservableProperty] private decimal _domesticCurrencyQuantity;
+    [ObservableProperty] private TransactionDetailModel _transaction = TransactionDetailModel.Empty;
+    [ObservableProperty] private List<CurrencyTransactionListModel> _currencies = new();
     [ObservableProperty]
-    private string? _originalCourseRate;
+    [NotifyPropertyChangedFor(nameof(Tip))]
+    private string _payment = string.Empty;
 
-    [ObservableProperty]
-    private decimal _domesticCurrencyQuantity;
-
-    [ObservableProperty] 
-    private TransactionDetailModel _transaction = TransactionDetailModel.Empty;
-
-    [ObservableProperty]
-    private List<CurrencyTransactionListModel> _currencies = new();
-    
     private CurrencyTransactionListModel? _currency;
 
     public CurrencyTransactionListModel? Currency
@@ -228,10 +224,6 @@ public partial class TransactionCreateViewModel : ViewModelBase
         }
     }
 
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(Tip))]
-    private string _payment = string.Empty;
-
     public decimal Tip
     {
         get
@@ -341,6 +333,7 @@ public partial class TransactionCreateViewModel : ViewModelBase
         if (Currency is null)
         {
             errorMessage += rm.GetString("ErrorMessage_CurrencyNull") + "\n";
+            return errorMessage;
         }
 
         // Quantity foreign validation
@@ -357,29 +350,24 @@ public partial class TransactionCreateViewModel : ViewModelBase
         var courseRateToDecimal = Utilities.StrToDecimal(CourseRate);
         if (string.IsNullOrWhiteSpace(CourseRate) || courseRateToDecimal is null or <= 0)
             errorMessage += rm.GetString("ErrorMessage_CourseRateNotValid") + "\n";
-
-        // Course rate can not exceed opposite course rate
-        else if (Currency is not null)
+        else
         {
+            // Course rate can not exceed opposite course rate
+            // Check only when course rate is valid
             switch (TransactionTypeProp)
             {
-                case TransactionType.Buy when (decimal)courseRateToDecimal < Currency.SellRate:
-                case TransactionType.Sell when (decimal)courseRateToDecimal > Currency.BuyRate:
+                case TransactionType.Buy when Currency.SellRate > 0 && (decimal)courseRateToDecimal < Currency.SellRate:
+                case TransactionType.Sell when Currency.BuyRate > 0 && (decimal)courseRateToDecimal > Currency.BuyRate:
                     errorMessage += rm.GetString("ErrorMessage_CourseRateExceededOtherOne") + "\n";
                     break;
             }
         }
 
         // Not enough money in cash register check
-        if (Currency is not null)
+        if (TransactionTypeProp is TransactionType.Buy && DomesticCurrencyQuantity < Transaction.TotalAmountDomesticCurrency
+            || TransactionTypeProp is TransactionType.Sell && quantityForeignDecimal is not null && quantityForeignDecimal > Currency.Quantity)
         {
-            if (TransactionTypeProp is TransactionType.Buy &&
-                DomesticCurrencyQuantity < Transaction.TotalAmountDomesticCurrency
-                || TransactionTypeProp is TransactionType.Sell
-                && (quantityForeignDecimal is not null || quantityForeignDecimal > Currency.Quantity))
-            {
-                errorMessage += rm.GetString("ErrorMessage_InsufficientMoneyInCashRegister") + "\n";
-            }
+            errorMessage += rm.GetString("ErrorMessage_InsufficientMoneyInCashRegister") + "\n";
         }
 
         return errorMessage;
@@ -392,15 +380,21 @@ public partial class TransactionCreateViewModel : ViewModelBase
     /// <param name="transactionType">Selected transaction type</param>
     private void SetCourseRate(CurrencyTransactionListModel? currency, TransactionType transactionType)
     {
+        if (currency is null)
+        {
+            CourseRate = string.Empty;
+            return;
+        }
+
         if (transactionType is TransactionType.Buy)
         {
-            CourseRate = currency?.BuyRate.ToString(CultureInfo.CurrentCulture) ?? string.Empty;
-            OriginalCourseRate = currency?.BuyRate.ToString(CultureInfo.CurrentCulture);
+            CourseRate = currency.BuyRate.ToString(CultureInfo.CurrentCulture);
+            OriginalCourseRate = currency.BuyRate.ToString(CultureInfo.CurrentCulture);
         }
         else
         {
-            CourseRate = currency?.SellRate.ToString(CultureInfo.CurrentCulture) ?? string.Empty;
-            OriginalCourseRate = currency?.SellRate.ToString(CultureInfo.CurrentCulture);
+            CourseRate = currency.SellRate.ToString(CultureInfo.CurrentCulture);
+            OriginalCourseRate = currency.SellRate.ToString(CultureInfo.CurrentCulture);
         }
     }
 }

@@ -177,4 +177,7 @@
   <data name="FallbackValue_MoneyInCashRegister" xml:space="preserve">
     <value>Peniaze v pokladnici:</value>
   </data>
+  <data name="QuantityNotSelectedLabel" xml:space="preserve">
+    <value>Množstvo:</value>
+  </data>
 </root>

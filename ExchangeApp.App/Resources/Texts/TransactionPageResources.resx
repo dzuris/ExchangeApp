@@ -157,4 +157,7 @@
   <data name="FallbackValue_MoneyInCashRegister" xml:space="preserve">
     <value>Money in cash register:</value>
   </data>
+  <data name="QuantityNotSelectedLabel" xml:space="preserve">
+    <value>Quantity:</value>
+  </data>
 </root>

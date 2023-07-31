@@ -187,6 +187,15 @@ namespace ExchangeApp.App.Resources.Texts {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quantity:.
+        /// </summary>
+        public static string QuantityNotSelectedLabel {
+            get {
+                return ResourceManager.GetString("QuantityNotSelectedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantity {0}:.
         /// </summary>
         public static string QuantityWithCurrencyCodeLabel {
